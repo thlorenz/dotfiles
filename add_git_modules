@@ -1,0 +1,63 @@
+#!/usr/bin/env ruby
+
+git_bundles = [ 
+  
+  # SyntaxHighlighters  
+  "https://github.com/pangloss/vim-javascript.git",
+  "https://github.com/tpope/vim-markdown.git",
+  
+  # Languages
+  "https://github.com/kchmck/vim-coffee-script.git",
+  "https://github.com/vim-ruby/vim-ruby.git",
+  "https://github.com/lukerandall/haskellmode-vim.git",
+
+  # External Tool Integration
+  "https://github.com/tpope/vim-git.git",
+  "https://github.com/tpope/vim-fugitive.git",
+  "https://github.com/vim-scripts/Gist.vim.git",
+  
+  # Editor
+  "https://github.com/msanders/snipmate.vim.git",
+  "https://github.com/tpope/vim-repeat.git",
+  "https://github.com/tsaleh/vim-matchit.git",
+  "https://github.com/tpope/vim-surround.git",
+  "https://github.com/rstacruz/sparkup.git",
+  "https://github.com/tpope/vim-ragtag.git",
+  "https://github.com/vim-scripts/ZoomWin.git",
+  "https://github.com/scrooloose/nerdcommenter.git",
+  "https://github.com/godlygeek/tabular.git",
+
+  # Buffer Tools
+  "https://github.com/scrooloose/nerdtree.git",
+
+  # Embedded Shells, talking to Screens
+  "https://github.com/tsaleh/vim-tmux.git",
+  "https://github.com/thlorenz/vim-slime",
+  
+  #  
+  # ColorSchemes 
+  "https://github.com/tpope/vim-vividchalk.git",
+]
+
+require 'fileutils'
+require 'open-uri'
+
+bundles_dir = File.join(File.dirname(__FILE__), "vim", "bundle")
+
+git_bundles.each do |url|
+  reponame = url.split('/').last.sub(/\.git$/, '').gsub(/(vim-|\.vim)/,"")
+  dir = bundles_dir + "/" + reponame
+  puts "creating submodule for #{url} into #{dir}"
+  `git submodule add #{url} #{dir}`
+end
+
+# Where here originally, but not currently needed
+  # "https://github.com/ervandew/supertab.git",
+  # "https://github.com/godlygeek/tabular.git",
+  # "https://github.com/timcharper/textile.vim.git",
+  # "https://github.com/tpope/vim-cucumber.git",
+  # "https://github.com/tpope/vim-endwise.git",
+  # "https://github.com/tpope/vim-haml.git",
+  # "https://github.com/tpope/vim-rails.git",
+  # "https://github.com/tsaleh/vim-shoulda.git",
+  # "https://github.com/tsaleh/vim-tcomment.git",

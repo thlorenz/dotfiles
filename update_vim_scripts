@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+vim_org_scripts = [
+  ["IndexedSearch", "7062",  "plugin"],
+  ["shim",          "15004", "plugin"],
+  ["jquery",        "15752", "syntax"],
+  ["bufexplorer",   "14208", "zip"],
+]
+
+require 'fileutils'
+require 'open-uri'
+
+bundles_dir = File.join(File.dirname(__FILE__), "vim", "bundle")
+
+FileUtils.cd(bundles_dir)
+
+vim_org_scripts.each do |name, script_id, script_type|
+  puts "downloading #{name}"
+  if script_type == 'zip'
+    local_file = File.join(name, "#{name}.#{script_type}")
+  else
+    local_file = File.join(name, script_type, "#{name}.vim")
+  end
+  FileUtils.mkdir_p(File.dirname(local_file))
+  File.open(local_file, "w") do |file|
+    file << open("http://www.vim.org/scripts/download_script.php?src_id=#{script_id}").read
+  end
+  if script_type == 'zip'
+    `unzip #{local_file} -d #{name}`
+    FileUtils.rm_rf(local_file)
+  end
+end

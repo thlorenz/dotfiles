@@ -1,0 +1,19 @@
+[user]
+	email = tlorenz@lab49.com
+	name = Thorsten Lorenz
+
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
+  ar = add . -u
+
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+
+[merge]
+  tool = mvim -d
