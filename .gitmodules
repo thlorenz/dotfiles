@@ -64,9 +64,3 @@
 [submodule ".vim/bundle/blackboard"]
 	path = vim/bundle/blackboard
 	url = https://github.com/nelstrom/vim-blackboard.git
-[submodule ".vim/bundle/conque"]
-	path = vim/bundle/conque
-	url = https://github.com/rson/vim-conque.git
-[submodule "Command-T"]
-	path = Command-T
-	url = git://github.com/wincent/Command-T.git
