@@ -14,7 +14,7 @@ call pathogen#helptags()
     \   exe "normal! g`\"" |
     \ endif
 " Font 
-  set gfn=Courier:h16
+  set gfn=Monaco:h16
 
 " Editing and reloading vimrc
     nmap <silent> <leader>ev :sp $MYVIMRC<CR><C-W>_
