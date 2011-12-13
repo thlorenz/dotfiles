@@ -7,12 +7,18 @@ call pathogen#helptags()
   let mapleader=","
 
   let isGui = has("gui_running")
+  
+" Restore cursor position e.g. when using via irb
+  autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
 " Font 
   set gfn=Courier:h16
 
 " Editing and reloading vimrc
-    nmap <silent> <leader>ev :sp ~/.vimrc<CR><C-W>_
-    nmap <silent> <leader>sv :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>	
+    nmap <silent> <leader>ev :sp $MYVIMRC<CR><C-W>_
+    nmap <silent> <leader>sv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>	
 
 
 " Haskell specific
@@ -78,6 +84,7 @@ call pathogen#helptags()
 "Automatically remove trailing spaces"
   au FileType c,cpp,java,php,js,py,coffee au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
+
 "Maximize Window
 "	au GUIEnter * simalt ~x
 	
@@ -88,6 +95,7 @@ call pathogen#helptags()
 " BufferNavigation
   map ,j :bp<CR>
   map ,k :bn<CR>
+  set hidden
 
 "Ruby
   au FileType ruby,eruby set omnifunc=rubycomplete#Complete
@@ -140,7 +148,7 @@ call pathogen#helptags()
    
 " FileUtils
   " NerdTree  
-    map <C-l> :wa \| NERDTreeToggle<CR>
+    map <C-l> :NERDTreeToggle<CR>
     
 " Close current buffer
   map <silent> <leader>, :bd<CR> 	
@@ -152,6 +160,9 @@ call pathogen#helptags()
  
 " Open new terminal shell
   map <leader>d :sh <CR>
+
+"Commands
+command! -nargs=* Wrap set wrap linebreak nolist
 
 "Shell inside Vim	
 command! -complete=shellcmd -nargs=+ S call s:RunShellCommand(<q-args>)
@@ -179,4 +190,10 @@ function! s:RunShellCommand(cmdline)
   setlocal nomodifiable
   1
 endfunction
+
+" Diff current Buffer with original file
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+		  \ | wincmd p | diffthis
+endif
 
