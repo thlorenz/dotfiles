@@ -2,22 +2,34 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 
+" Detect Environment
+  let isGui  = has("gui_running")
+  let isUnix = has("unix")
+  let isMac  = has("mac")
+
 " Use Vim defaults instead of 100% vi compatibility
   set nocompatible     
   let mapleader=","
 
-  let isGui = has("gui_running")
+" Auto reload .vimrc on save
+  au BufWritePost $MYVIMRC source $MYVIMRC
+
   
-" Restore cursor position e.g. when using via irb
+" Restore cursor position to the last when file was open
   autocmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
+
 " Font 
-  set gfn=Monaco:h16
+  if(isMac)
+    set gfn=Monaco:h16
+  else
+    set gfn-Courier:h16
+  endif
 
 " Editing and reloading vimrc
-    nmap <silent> <leader>ev :sp $MYVIMRC<CR><C-W>_
+    nmap <silent> <leader>ev :sp $MYVIMRC \| only <CR>
     nmap <silent> <leader>sv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>	
 
 
@@ -92,9 +104,18 @@ call pathogen#helptags()
 	filetype plugin on
   filetype indent on
 
-" BufferNavigation
-  map ,j :bp<CR>
-  map ,k :bn<CR>
+" Buffer and Tab Navigation
+  map <C-j> :bp<CR>
+  map <C-k> :bn<CR>
+
+  if (isMac)
+    map <D-j> :tabp<CR>
+    map <D-k> :tabn<CR>
+  else
+    map <M-j> :tabp<CR>
+    map <M-k> :tabn<CR>
+  endif
+
   set hidden
 
 "Ruby
