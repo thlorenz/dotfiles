@@ -2,25 +2,28 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 
+set nocompatible     
+let mapleader=","
+
+" Esc alternative
+imap   ii          <Esc>
+
 " Detect Environment
   let isGui  = has("gui_running")
   let isUnix = has("unix")
   let isMac  = has("mac")
 
-" Use Vim defaults instead of 100% vi compatibility
-  set nocompatible     
-  let mapleader=","
-
-" Auto reload .vimrc on save
+" Editing and reloading vimrc
+  nmap <silent> <leader>ev :e $MYVIMRC <CR>
+  nmap <silent> <leader>sv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>	
   au BufWritePost $MYVIMRC source $MYVIMRC
 
-  
 " Restore cursor position to the last when file was open
   autocmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
-
+  
 " Font 
   if(isMac)
     set gfn=Monaco:h16
@@ -28,10 +31,8 @@ call pathogen#helptags()
     set gfn-Courier:h16
   endif
 
-" Editing and reloading vimrc
-    nmap <silent> <leader>ev :sp $MYVIMRC \| only <CR>
-    nmap <silent> <leader>sv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>	
-
+" Code Completion like VS
+imap   <C-Space>   <C-n>
 
 " Haskell specific
   au FileType haskell compiler ghc
@@ -40,10 +41,6 @@ call pathogen#helptags()
   let g:haddock_browser = "open"
   let g:haddock_browser_callformat = "%s %s"
 
-  imap <S-Space> <Esc>
-  imap <Ctrl-i> <Esc>
-  " Keyword completion like Visual Studio 
-  imap <C-Space> <C-n>
   
   if(isGui) 
     set columns=137
@@ -118,6 +115,11 @@ call pathogen#helptags()
 
   set hidden
 
+" alt+n or alt+p to navigate between entries in QuickFix
+  map <silent> <m-p> :cp <cr>
+  map <silent> <m-n> :cn <cr>
+  
+
 "Ruby
   au FileType ruby,eruby set omnifunc=rubycomplete#Complete
   au FileType ruby,eruby comp ruby
@@ -131,10 +133,6 @@ call pathogen#helptags()
 
 " Flex/ActionScript
   au FileType actionscript,mxml set omnifunc=actionscriptcomplete#Complete
-
-  
-" Write all then run the current file
-" map <silent> <F5> :wa \|S ruby  % <CR>	
 
 "Auto Compile CoffeScript on save
   if(isGui)
@@ -162,10 +160,6 @@ call pathogen#helptags()
   set mouse=a  " Mouse in all modes
    
 
-" alt+n or alt+p to navigate between entries in QuickFix
-  map <silent> <m-p> :cp <cr>
-  map <silent> <m-n> :cn <cr>
-  
    
 " FileUtils
   " NerdTree  
@@ -217,4 +211,3 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
-
