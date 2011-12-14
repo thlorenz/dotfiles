@@ -116,9 +116,10 @@ imap   <C-Space>   <C-n>
   set hidden
 
 " alt+n or alt+p to navigate between entries in QuickFix
-  map <silent> <m-p> :cp <cr>
-  map <silent> <m-n> :cn <cr>
+  map <silent> <M-p> :cp <CR>
+  map <silent> <M-n> :cn <CR>
   
+  nmap <silent> <S-u> :GundoToggle <CR>
 
 "Ruby
   au FileType ruby,eruby set omnifunc=rubycomplete#Complete
