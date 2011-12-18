@@ -76,3 +76,6 @@
 [submodule "vim/bundle/vcscommand"]
 	path = vim/bundle/vcscommand
 	url = https://github.com/harleypig/vcscommand.vim.git
+[submodule "vim/bundle/snipmate-snippets"]
+	path = vim/bundle/snipmate-snippets
+	url = git://github.com/scrooloose/snipmate-snippets.git
