@@ -1,4 +1,4 @@
-Disclaimer:    Most of these instructions are ripped off straight from [here](https://github.com/nelstrom/dotfiles).
+Disclaimer:    Most of these instructions are ripped off straight from [here][nelstromdotfiles].
 
 Installation
 
@@ -8,8 +8,7 @@ Where possible, Vim plugins are installed as git submodules. Check these out by
 running the commands:
 
     cd dotfiles
-    git submodule init
-    git submodule update
+    git submodule update --init
 
 Vim scripts without a repo will be pulled down during clone. They can be updated via:
 
@@ -17,13 +16,12 @@ Vim scripts without a repo will be pulled down during clone. They can be updated
 
 Create symlinks:
 
-    ln -s ~/dotfiles/bashrc ~/.bashrc
-    ln -s ~/dotfiles/vimrc ~/.vimrc
-    ln -s ~/dotfiles/gvimrc ~/.gvimrc
-    ln -s ~/dotfiles/irbrc ~/.irbrc
-    ln -s ~/dotfiles/vim ~/.vim
-    ln -s ~/dotfiles/ctags ~/.ctags
-    ln -s ~/dotfiles/jshintrc ~/.jshintrc
+    ln -s ~/dotfiles/bashrc      ~/.bashrc
+    ln -s ~/dotfiles/bashprofile ~/.profile
+    ln -s ~/dotfiles/vimrc       ~/.vimrc
+    ln -s ~/dotfiles/irbrc       ~/.irbrc
+    ln -s ~/dotfiles/vim         ~/.vim
+    ln -s ~/dotfiles/ctags       ~/.ctags
 
 I put Vim's backup and swap files in `~/tmp`, so that directory must exist. To
 be sure, run: 
@@ -33,9 +31,8 @@ be sure, run:
 VIM
 ===
 
-My preferences for Vim are stored in `dotfiles/vimrc` and `dotfiles/gvimrc`
-respectively. All plugins and scripts are stored in the `dotfiles/vim`
-directory.
+My preferences for Vim are stored in `dotfiles/vimrc`. 
+All plugins and scripts are stored in the `dotfiles/vim` directory.
 
 Adding Plugin Bundles
 ---------------------
@@ -59,6 +56,8 @@ as follows:
     git add .
     git ci -m "Added the javascript bundle"
 
+[nelstromdotfiles]: https://github.com/nelstrom/dotfiles
 [jsbun]: http://github.com/pangloss/vim-javascript.git
 [ap]: http://github.com/michaeldv/awesome_print
 [i_editor]: http://github.com/jberkel/interactive_editor
+
