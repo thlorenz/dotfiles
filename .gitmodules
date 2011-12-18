@@ -61,7 +61,7 @@
 [submodule "vim/bundle/vividchalk"]
 	path = vim/bundle/vividchalk
 	url = https://github.com/tpope/vim-vividchalk.git
-[submodule ".vim/bundle/blackboard"]
+[submodule "vim/bundle/blackboard"]
 	path = vim/bundle/blackboard
 	url = https://github.com/nelstrom/vim-blackboard.git
 [submodule "vim/bundle/Command-T"]
@@ -76,9 +76,6 @@
 [submodule "vim/bundle/vcscommand"]
 	path = vim/bundle/vcscommand
 	url = https://github.com/harleypig/vcscommand.vim.git
-[submodule "vim/bundle/snipmate-snippets"]
-	path = vim/bundle/snipmate-snippets
-	url = git://github.com/scrooloose/snipmate-snippets.git
 [submodule "vim/bundle/preview-markdown"]
 	path = vim/bundle/preview-markdown
 	url = https://github.com/greyblake/vim-preview.git
