@@ -79,3 +79,6 @@
 [submodule "vim/bundle/preview-markdown"]
 	path = vim/bundle/preview-markdown
 	url = https://github.com/greyblake/vim-preview.git
+[submodule "vim/bundle/tagbar"]
+	path = vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
