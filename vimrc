@@ -8,6 +8,8 @@ let mapleader=","
 " Esc alternative
 imap   ii          <Esc>
 
+set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %=%l/%L,%v\ %p%%
+
 " Detect Environment
   let isGui  = has("gui_running")
   let isUnix = has("unix")
@@ -28,7 +30,7 @@ imap   ii          <Esc>
   if(isMac)
     set gfn=Monaco:h16
   else
-    set gfn-Courier:h16
+    set gfn=Courier:h16
   endif
 
 " Code Completion like VS
