@@ -1,6 +1,7 @@
-Disclaimer:    Most of these instructions are ripped off straight from [here][nelstromdotfiles].
+### Disclaimer:    
+Most of these instructions are ripped off straight from [here][nelstromdotfiles].
 
-Installation
+### Installation
 
     git clone git://github.com/thlorenz/dotfiles.git
 
@@ -14,7 +15,7 @@ Vim scripts without a repo will be pulled down during clone. They can be updated
 
     ruby update_vim_scripts
 
-Create symlinks:
+#### Create symlinks:
 
     ln -s ~/dotfiles/bashrc      ~/.bashrc
     ln -s ~/dotfiles/bashprofile ~/.profile
@@ -23,19 +24,13 @@ Create symlinks:
     ln -s ~/dotfiles/vim         ~/.vim
     ln -s ~/dotfiles/ctags       ~/.ctags
 
-I put Vim's backup and swap files in `~/tmp`, so that directory must exist. To
-be sure, run: 
-
-    mkdir ~/tmp
-
-VIM
-===
+# VIM
 
 My preferences for Vim are stored in `dotfiles/vimrc`. 
+
 All plugins and scripts are stored in the `dotfiles/vim` directory.
 
-Adding Plugin Bundles
----------------------
+## Adding Plugin Bundles
 
 Plugins that are published on github can be installed as submodules. For
 example, to install the [JavaScript bundle][jsbun], follow these steps:
