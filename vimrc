@@ -36,6 +36,9 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %=%l/%L,%v\ %p%%
 " Code Completion like VS
 imap   <C-Space>   <C-n>
 
+" Tagbar
+  map <silent> « :TagbarToggle<CR>
+
 " Haskell specific
   au FileType haskell compiler ghc
 
