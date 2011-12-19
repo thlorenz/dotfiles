@@ -24,6 +24,14 @@ Vim scripts without a repo will be pulled down during clone. They can be updated
     ln -s ~/dotfiles/vim         ~/.vim
     ln -s ~/dotfiles/ctags       ~/.ctags
 
+### Tagbar Plugin
+
+In order for the tagbar plugin to work, we replace the original ctags with a [better version][exuberant].
+
+Assuming you are on a Mac and have [Homebrew][homebrew] installed run:
+
+    sudo sh ~/dotfiles/installs/ctags-exuberant.sh
+
 # VIM
 
 My preferences for Vim are stored in `dotfiles/vimrc`. 
@@ -52,6 +60,8 @@ as follows:
     git ci -m "Added the javascript bundle"
 
 [nelstromdotfiles]: https://github.com/nelstrom/dotfiles
+[exuberant]: http://ctags.sourceforge.net/
+[homebrew]: http://mxcl.github.com/homebrew/ 
 [jsbun]: http://github.com/pangloss/vim-javascript.git
 [ap]: http://github.com/michaeldv/awesome_print
 [i_editor]: http://github.com/jberkel/interactive_editor
