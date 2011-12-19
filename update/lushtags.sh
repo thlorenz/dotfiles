@@ -4,15 +4,18 @@
 cabal install lushtags
 
 # Create lushtag/plugin folder
-if [ ! -d ../vim/bundles/lushtags ]; then
-   sudo mkdir ../vim/bundles/lushtags;
+pushd
+
+cd ~/dotfiles
+
+if [ ! -d vim/bundles/lushtags ]; then
+   sudo mkdir vim/bundles/lushtags;
 fi
-if [ ! -d ../vim/bundles/lushtags/plugin ]; then
-   sudo mkdir ../vim/bundles/lushtags/plugin;
+if [ ! -d vim/bundles/lushtags/plugin ]; then
+   sudo mkdir vim/bundles/lushtags/plugin;
 fi
 
-pushd
-cd ../vim/bundles/lushtags/plugin
+cd vim/bundles/lushtags/plugin
 
 # Remove old version
 if [ -f tagbar-haskell.vim ]; then
