@@ -1,19 +1,24 @@
 #!/usr/bin/env sh
 
-cd ~/dotfiles
+# Lushtags enable Haskell support in Tagbar
 
-# Lushtags to enable Haskell support in Tagbar
+# Install binaries
 cabal install lushtags
 
+# Install vim file
+
+# The remaining changes will apply to pathogen's bundle folder
+cd ~/dotfiles/vim/bundle
+
 # Create lushtag/plugin folder
-if [ ! -d vim/bundle/lushtags ]; then
-   sudo mkdir vim/bundle/lushtags;
+if [ ! -d lushtags ]; then
+   sudo mkdir lushtags;
 fi
-if [ ! -d vim/bundle/lushtags/plugin ]; then
-   sudo mkdir vim/bundle/lushtags/plugin;
+if [ ! -d lushtags/plugin ]; then
+   sudo mkdir lushtags/plugin;
 fi
 
-cd vim/bundle/lushtags/plugin
+cd lushtags/plugin
 
 # Remove old version
 if [ -f tagbar-haskell.vim ]; then
