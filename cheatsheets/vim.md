@@ -1,21 +1,8 @@
 ### Spell Checking
 
-Turn it on
+Turn it on, Change language, Limit number of spelling alternatives, Suggest
 
-    :set spell
-
-Change language
-
-    :set spelllang=en,de
-
-Suggest:
-
-    z=
-
-Limit number of spelling alternatives
-
-    :set spellsuggest=5
-    
+    :set spell  :set spelllang=en,de    :set spellsuggest=5     z=
 
 ### Key Bindings
 
@@ -25,9 +12,8 @@ Map to all - insert - normal - command - visual
 
 #### Keys
 
-    <BS> <Tab> <CR> <Enter> <Esc> <Space> 
-    <Up> <Down> <Left> <Right> <Home> <End> <PageUp> <PageDown>
-    <F1>- <F12> <Insert> <Del> 
+    <BS> <Tab> <CR> <Enter> <Esc> <Space> <F1>- <F12> 
+    <Up> <Down> <Left> <Right> <Home> <End> <PageUp> <PageDown> <Insert> <Del> 
 
     :help key-mapping
 
@@ -57,9 +43,7 @@ Forward/Backward Word under Cursor, Part of word under Cursor
 
 #### VimGrep
 
-    :vimgrep /pattern/ [j] [g] file1 file2 ...
-    j   - result not presented
-    g   - include a line for each pattern
+    :vimgrep /pattern/ [j] [g] file1 file2 ...  (j - result not presented, g - include a line for each pattern)
 
 Search for C files recursively
 
@@ -75,16 +59,13 @@ Search help system
 
 ### Marks
 
-List 
+List, Creation, Deletion
 
-    :marks
-Creation - Deletion
-
-    m*      :delmarks a b   :delmarks a-c   :delmarks!
+    :marks      m*      :delmarks a b   :delmarks a-c   :delmarks!
 Navigation Line, Line and Column
 
     '*  `*
 
-:help mark-motions
+    :help mark-motions
 
 
