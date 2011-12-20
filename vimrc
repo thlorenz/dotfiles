@@ -75,6 +75,8 @@ imap   <C-Space>   <C-n>
 	set	expandtab
   set nowrap
 
+  au FileType markdown set tabstop=4 softtabstop=4 shiftwidth=4
+
 " Show columns
   set ruler
 
