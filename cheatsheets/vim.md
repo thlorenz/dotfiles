@@ -68,4 +68,20 @@ Navigation Line, Line and Column
 
     :help mark-motions
 
+### Autocompletion
+
+From open Buffers Backward/Forward
+    Ctrl-p  Ctrl-n
+
+From dictionary
+    :set dictionary+=/path/     
+    Ctrl-x + Ctrl-k
+
+Others using Ctrl+x +:
+    Ctrl-l: Complete whole lines of the text 
+    Ctrl-n: Complete words from the current buffer 
+    Ctrl-t: Complete words from the thesaurus (see :help 'thesaurus') 
+    Ctrl-i: Words from the current and included files 
+    S:      Spelling the suggestions
+    
 

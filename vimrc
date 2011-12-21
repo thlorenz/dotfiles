@@ -8,6 +8,9 @@ let mapleader=","
 " Esc alternative
 imap   ii          <Esc>
 
+" Code Completion
+imap <C-Space> <C-p>
+
 set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %p%%
 
 " Detect Environment
@@ -18,7 +21,7 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
 " Editing and reloading vimrc
   nmap <silent> <leader>ev :e $MYVIMRC <CR>
   nmap <silent> <leader>sv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>	
-  au BufWritePost $MYVIMRC source $MYVIMRC
+  " au BufWritePost $MYVIMRC source $MYVIMRC
 
 " Restore cursor position to the last when file was open
   autocmd BufReadPost *
@@ -32,9 +35,6 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
   else
     set gfn=Courier:h16
   endif
-
-" Code Completion like VS
-imap   <C-Space>   <C-n>
 
 " Tagbar
   map <silent> « :TagbarToggle<CR>
