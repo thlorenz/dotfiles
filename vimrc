@@ -8,8 +8,9 @@ let mapleader=","
 " Esc alternative
 imap   ii          <Esc>
 
-" Code Completion
-imap <C-Space> <C-p>
+let bundle_folder = $HOME . "/dotfiles/vim/bundle/"
+" Source my plugins until I figure out how to auto load them
+exec "source" bundle_folder . "productivity/plugin/productivity.vim"
 
 set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %p%%
 

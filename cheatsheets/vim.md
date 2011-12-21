@@ -90,3 +90,4 @@ Omnicompletion
     
     :help omnifunc 
 
+### Macrocompletion
