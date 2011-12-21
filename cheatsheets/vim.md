@@ -83,5 +83,10 @@ Others using Ctrl+x +:
     Ctrl-t: Complete words from the thesaurus (see :help 'thesaurus') 
     Ctrl-i: Words from the current and included files 
     S:      Spelling the suggestions
+
+Omnicompletion
+    :set omnifunc=CompletionFunction
+    Ctrl-x + Ctrl-o    
     
+    :help omnifunc 
 
