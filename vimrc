@@ -8,7 +8,7 @@ let mapleader=","
 " Esc alternative
 imap   ii          <Esc>
 
-set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %=%l/%L,%v\ %p%%
+set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %p%%
 
 " Detect Environment
   let isGui  = has("gui_running")
