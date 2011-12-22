@@ -144,7 +144,7 @@ Acess register e.g to yank into it or paste from it
     
 Readonly Registers
 
-    "-          small delete
+    "-          last deleted text
     ".          last inserted text
     ":          command last executed on command line
     "%          name of file in currently active buffer
@@ -165,4 +165,22 @@ Readonly Registers
     zo      Open fold
     zM      Close all folds
     zR      Open all folds
+
+### Vimdiff
+
+Starting diff
+    vim -d file1 file2
+    :diffsplit file     :vert diffsplit file
+
+Bind file scrolling
+
+    :set scrollbind     :set noscrollbind
+
+Put, Get, Refresh
+    
+    :diffput    :diffget    :diffupdate
+    dp          do
+
+Navigate to Previous/Next change
+    [c  ]c
 
