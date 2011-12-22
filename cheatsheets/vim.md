@@ -1,3 +1,8 @@
+### Reserved Symbols
+
+    :echo &somesetting
+    :echo @somevalue
+
 ### Spell Checking
 
 Turn it on, Change language, Limit number of spelling alternatives, Suggest
@@ -59,9 +64,10 @@ Search help system
 
 ### Marks
 
-List, Creation, Deletion
+List, Create, Delete
 
     :marks      m*      :delmarks a b   :delmarks a-c   :delmarks!
+
 Navigation Line, Line and Column
 
     '*  `*
@@ -71,13 +77,16 @@ Navigation Line, Line and Column
 ### Autocompletion
 
 From open Buffers Backward/Forward
+    
     Ctrl-p  Ctrl-n
 
 From dictionary
-    :set dictionary+=/path/     
+
     Ctrl-x + Ctrl-k
+    :set dictionary+=/path/     
 
 Others using Ctrl+x +:
+
     Ctrl-l: Complete whole lines of the text 
     Ctrl-n: Complete words from the current buffer 
     Ctrl-t: Complete words from the thesaurus (see :help 'thesaurus') 
@@ -85,9 +94,75 @@ Others using Ctrl+x +:
     S:      Spelling the suggestions
 
 Omnicompletion
-    :set omnifunc=CompletionFunction
+
     Ctrl-x + Ctrl-o    
-    
+    :set omnifunc=CompletionFunction
     :help omnifunc 
 
-### Macrocompletion
+### Macros
+
+Start/End Recording, Execute, Repeat Execution
+
+    q*  q       @*  @@
+
+### Sessions and Views
+
+Session Save, Load
+
+    :mksession[!] [FILE]   :source Session.vim     vim -S Session.vim
+
+View Save, Load, Control where views are saved
+
+    :mkview [FILE]  :loadview [FILE]    :set viewdir=path
+
+Auto Save and Load last session if no file name is given
+    
+    autocmd VimEnter * call LoadSession() 
+    autocmd VimLeave * call SaveSession() 
+    function! SaveSession()
+        execute 'mksession! $HOME/.vim/sessions/session.vim' 
+    endfunction
+    function! LoadSession() 
+        if argc() == 0 execute 'source $HOME/.vim/sessions/session.vim' endif
+    endfunction
+
+Save and Auto Load project (folder) specific session
+
+    mksession!      silent source! Session.vim  
+
+Auto Save and Load Views
+
+    autocmd BufWinLeave * mkview 
+    autocmd BufWinEnter * silent loadview
+
+### Registers
+
+Acess register e.g to yank into it or paste from it
+
+    "*  "*y "*p
+    :registers
+    
+Readonly Registers
+
+    "-          small delete
+    ".          last inserted text
+    ":          command last executed on command line
+    "%          name of file in currently active buffer
+    "#          name of alternate file in currently active buffer
+    "+          text selected globally
+    "~          last text dropped into vim
+    "/          last search
+    "0 .. "9    change/delete history
+    "=          yank expression result via command line to paste later
+                :help expression
+
+### Folding
+
+    :help fold-manual fold-indent fold-expr  fold-syntax  fold-diff  fold-marker
+    :set  fold enable
+
+    zc      Close fold
+    zo      Open fold
+    zM      Close all folds
+    zR      Open all folds
+

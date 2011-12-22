@@ -9,8 +9,9 @@ let mapleader=","
 imap   ii          <Esc>
 
 let bundle_folder = $HOME . "/dotfiles/vim/bundle/"
-" Source my plugins until I figure out how to auto load them
-exec "source" bundle_folder . "productivity/plugin/productivity.vim"
+" Source my plugins 
+" exec "source" bundle_folder . "productivity/plugin/productivity.vim"
+imap <C-Space> <C-p>
 
 set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %p%%
 
@@ -22,7 +23,6 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
 " Editing and reloading vimrc
   nmap <silent> <leader>ev :e $MYVIMRC <CR>
   nmap <silent> <leader>sv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>	
-  " au BufWritePost $MYVIMRC source $MYVIMRC
 
 " Restore cursor position to the last when file was open
   autocmd BufReadPost *
@@ -46,7 +46,6 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
 " Configure browser for haskell_doc.vim
   let g:haddock_browser = "open"
   let g:haddock_browser_callformat = "%s %s"
-
   
   if(isGui) 
     set columns=137
@@ -106,7 +105,7 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
 "	au GUIEnter * simalt ~x
 	
 "Enable filtype plugins
-	filetype plugin on
+  filetype plugin on
   filetype indent on
 
 " Buffer and Tab Navigation
