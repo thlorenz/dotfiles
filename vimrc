@@ -40,19 +40,22 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
 " Tagbar
   map <silent> « :TagbarToggle<CR>
 
+  noremap ; :
 " Haskell specific
   au FileType haskell compiler ghc
+  au FileType haskell noremap mm        :wa \| !ghc -c %<CR>
+  au FileType haskell noremap <leader>m :wa \| !ghc -e runTests %<CR>
 
 " Configure browser for haskell_doc.vim
   let g:haddock_browser = "open"
   let g:haddock_browser_callformat = "%s %s"
-  
-  if(isGui) 
-    set columns=137
-    set lines=71
-  endif
+ 
+"  if(isGui) 
+"    set columns=137
+"    set lines=71
+"  endif
 
-  syn on
+  syn on 
   colo desert
 
   set virtualedit=
@@ -81,7 +84,7 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
   set ruler
 
 " Scroll before hitting top/bottom  
-  set scrolloff=2
+  set scrolloff=4
 
 " Search
   set incsearch 
