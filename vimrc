@@ -40,6 +40,11 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
 " Tagbar
   map <silent> « :TagbarToggle<CR>
 
+" Tabularize
+	noremap <silent> <leader>t=	:Tabularize /= <CR>
+	noremap <silent> <leader>t,	:Tabularize /, <CR>
+	noremap <silent> <leader>t::	:Tabularize /::<CR>
+
   noremap ; :
 " Haskell specific
   au FileType haskell compiler ghc
