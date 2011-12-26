@@ -7,7 +7,6 @@ bind -m vi-insert "\C-l":clear-screen
 
 # Aliases
 alias ll="ls -la"
-alias vim="/usr/local/Cellar/macvim/v7.3-53/MacVim.app/Contents/MacOS/Vim"
 
 # Edit/source/cat this bash
 alias ,ev='vim ~/.bashrc'
