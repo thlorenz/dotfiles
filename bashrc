@@ -37,7 +37,7 @@ alias gcl='git clone'
 export EDITOR=vim
 
 # Node related
-PATH=$PATH:/usr/local/lib/node_modules/jasmine-node/bin/:/Users/tlorenz/.cabal/bin
+PATH=$PATH:/usr/local/lib/node_modules/jasmine-node/bin/:~/.cabal/bin
 
 # Temporary goodies
 # cd ~/dev/haskell/real-world
