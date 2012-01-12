@@ -36,11 +36,11 @@ alias gcl='git clone'
 # Environment Variables
 export EDITOR=vim
 
-# Node related
-PATH=$PATH:/usr/local/lib/node_modules/jasmine-node/bin/:~/.cabal/bin
+PATH=~/Library/Haskell/bin:~/.cabal/bin:$PATH:/usr/local/lib/node_modules/jasmine-node/bin/
 
-# Temporary goodies
-# cd ~/dev/haskell/real-world
+# Temporary aliases
+alias cd-haskell='cd ~/dev/haskell'
+alias cd-realworld='cd ~/dev/haskell/real-world'
 
 # Functions
 function SetTitle

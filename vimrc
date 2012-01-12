@@ -1,24 +1,33 @@
+" Detect Environment
+  let isGui  = has("gui_running")
+  let isUnix = has("unix")
+  let isMac  = has("mac")
+
 filetype off
 call pathogen#infect()
 call pathogen#helptags()
 
 set nocompatible     
+set timeoutlen=400
+
 let mapleader=","
+
+" Keep small command-line window
+set cmdheight=1
 
 " Esc alternative
 imap   ii          <Esc>
 
-let bundle_folder = $HOME . "/dotfiles/vim/bundle/"
-" Source my plugins 
-" exec "source" bundle_folder . "productivity/plugin/productivity.vim"
-imap <C-Space> <C-p>
+noremap <Space> A
+imap <S-Space> <Esc>A
+imap <C-Space> <C-N>
+
+" Easier Completion in Gui
+if(isGui) 
+  imap <C-Space> <C-P> 
+endif
 
 set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %p%%
-
-" Detect Environment
-  let isGui  = has("gui_running")
-  let isUnix = has("unix")
-  let isMac  = has("mac")
 
 " Editing and reloading vimrc
   nmap <silent> <leader>ev :e $MYVIMRC <CR>
@@ -45,21 +54,20 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
 	noremap <silent> <leader>t,	:Tabularize /, <CR>
 	noremap <silent> <leader>t::	:Tabularize /::<CR>
 
-  noremap ; :
 " Haskell specific
   au FileType haskell compiler ghc
-  au FileType haskell noremap mm        :wa \| !ghc -c %<CR>
+  au FileType haskell noremap mm        :wa \| !ghc -e :q %<CR>
   au FileType haskell noremap <leader>m :wa \| !ghc -e runTests %<CR>
+  au FileType haskell set tabstop=4 softtabstop=4 shiftwidth=4
 
-" Configure browser for haskell_doc.vim
-  let g:haddock_browser = "open"
-  let g:haddock_browser_callformat = "%s %s"
+  " quick way to get to Hoogle
+  au FileType haskell nmap __ _?1
+
+  " Configure browser for haskell_doc.vim
+    let g:haddock_browser = "open"
+    let g:haddock_browser_callformat = "%s %s"
+  
  
-"  if(isGui) 
-"    set columns=137
-"    set lines=71
-"  endif
-
   syn on 
   colo desert
 
@@ -93,6 +101,7 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
 
 " Search
   set incsearch 
+  set ignorecase
 
 " more powerful backspacing
   set backspace=2         
@@ -108,10 +117,6 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
 "Automatically remove trailing spaces"
   au FileType c,cpp,java,php,js,py,coffee au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
-
-"Maximize Window
-"	au GUIEnter * simalt ~x
-	
 "Enable filtype plugins
   filetype plugin on
   filetype indent on
@@ -227,3 +232,18 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+
+" Enable Camel-Case search
+nnoremap <expr> <leader>/ SearchCamelCase('/')
+nnoremap <expr> <leader>? SearchCamelCase('?')
+function! SearchCamelCase(dir)
+    call inputsave()
+    let ab = input(a:dir)
+    call inputrestore()
+    let l = filter(split(toupper(ab), '\zs'), 'v:val =~ "\\w"')
+    if len(l) > 0
+        let l[0] = '[' . l[0] . tolower(l[0]) . ']'
+    end
+    let @/ = '\C\<' . join(map(l, 'v:val . "[0-9a-z_]*"'), '') . '\>'
+    return a:dir . "\r"
+endfunction
