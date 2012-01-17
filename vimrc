@@ -56,13 +56,17 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
 
 " Haskell specific
   au FileType haskell compiler ghc
+  au FileType haskell noremap rr        :wa \| !runghc %<CR>
   au FileType haskell noremap mm        :wa \| !ghc -e :q %<CR>
   au FileType haskell noremap <leader>m :wa \| !ghc -e runTests %<CR>
   au FileType haskell set tabstop=4 softtabstop=4 shiftwidth=4
 
+  let g:haskell_indent_if = 2
+  let g:haskell_indent_case = 4
+  
   " quick way to get to Hoogle
   au FileType haskell nmap __ _?1
-
+  
   " Configure browser for haskell_doc.vim
     let g:haddock_browser = "open"
     let g:haddock_browser_callformat = "%s %s"

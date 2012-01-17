@@ -5,12 +5,13 @@ vim_org_scripts = [
   ["shim",          "15004", "plugin"],
   ["jquery",        "15752", "syntax"],
   ["bufexplorer",   "14208", "zip"],
+  ["haskell",       "7407",  "indent"],
 ]
 
 require 'fileutils'
 require 'open-uri'
 
-bundles_dir = File.join(File.dirname(__FILE__), "vim", "bundle")
+bundles_dir = File.join(File.dirname(__FILE__), "..", "vim", "bundle")
 
 FileUtils.cd(bundles_dir)
 
