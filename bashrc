@@ -13,12 +13,14 @@ alias ,ev='vim ~/.bashrc'
 alias ,sv='source ~/.bashrc'
 alias ,cv='cat ~/.bashrc'
 
+alias eject='diskutil eject'
+alias eject-kindle='diskutil eject /Volumes/Kindle'
+
 # Launch mvim
 alias :e='mvim'
 
 # Git
 alias ga='git add'
-alias gr='git add -u'
 alias gp='git push'
 alias gl='git log'
 alias gs='git status --ignore-submodules'

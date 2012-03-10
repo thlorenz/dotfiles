@@ -8,7 +8,7 @@ call pathogen#infect()
 call pathogen#helptags()
 
 set nocompatible     
-set timeoutlen=400
+inoremap jk <Esc>
 
 let mapleader=","
 
@@ -16,15 +16,15 @@ let mapleader=","
 set cmdheight=1
 
 " Esc alternative
-imap   ii          <Esc>
+" imap   ii          <Esc>
 
 noremap <Space> A
 imap <S-Space> <Esc>A
-imap <C-Space> <C-N>
+imap <C-Space> <C-X> <C-N>
 
 " Easier Completion in Gui
 if(isGui) 
-  imap <C-Space> <C-P> 
+  imap <C-Space> <C-N> 
 endif
 
 set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %p%%
@@ -49,19 +49,19 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
 " Tagbar
   map <silent> « :TagbarToggle<CR>
 
-" Tabularize
-	noremap <silent> <leader>t=	:Tabularize /= <CR>
-	noremap <silent> <leader>t,	:Tabularize /, <CR>
-	noremap <silent> <leader>t::	:Tabularize /::<CR>
+" Tabularize (format)
+	noremap <silent> <leader>f=	    :Tabularize /= <CR>
+	noremap <silent> <leader>f,	    :Tabularize /, <CR>
+	noremap <silent> <leader>f::	:Tabularize /::<CR>
 
 " Haskell specific
   au FileType haskell compiler ghc
-  au FileType haskell noremap rr        :wa \| !runghc %<CR>
+  au FileType haskell noremap <leader>r :wa \| !runghc %<CR>
   au FileType haskell noremap mm        :wa \| !ghc -e :q %<CR>
   au FileType haskell noremap <leader>m :wa \| !ghc -e runTests %<CR>
   au FileType haskell set tabstop=4 softtabstop=4 shiftwidth=4
 
-  let g:haskell_indent_if = 2
+  let g:haskell_indent_if = 4
   let g:haskell_indent_case = 4
   
   " quick way to get to Hoogle
@@ -70,8 +70,11 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
   " Configure browser for haskell_doc.vim
     let g:haddock_browser = "open"
     let g:haddock_browser_callformat = "%s %s"
-  
- 
+    "
+" Java specific  
+  au FileType java noremap mm        :wa \| !javac %:p:h/*.java<CR>
+  au FileType java set tabstop=4 softtabstop=4 shiftwidth=4
+
   syn on 
   colo desert
 
@@ -183,8 +186,6 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
 " gvim specific
   set mousehide  " Hide mouse after chars typed
   set mouse=a  " Mouse in all modes
-   
-
    
 " FileUtils
   " NerdTree  

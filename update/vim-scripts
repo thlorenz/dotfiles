@@ -6,6 +6,7 @@ vim_org_scripts = [
   ["jquery",        "15752", "syntax"],
   ["bufexplorer",   "14208", "zip"],
   ["haskell",       "7407",  "indent"],
+  ["highlight",     "1599",  "plugin"],
 ]
 
 require 'fileutils'
