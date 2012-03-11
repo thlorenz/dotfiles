@@ -71,10 +71,10 @@ elif [[ "$unamestr" == "Linux" ]]; then
   alias cd-haskell='cd ~/dev/haskell'
   alias :e='vim'
   
-  alias update  = "sudo apt-get update"
-  alias install = "sudo apt-get install"
-  alias upgrade = "sudo apt-get upgrade"
-  alias remove  = "sudo apt-get remove"
+  alias update="sudo apt-get update"
+  alias install="sudo apt-get install"
+  alias upgrade="sudo apt-get upgrade"
+  alias remove="sudo apt-get remove"
 
 else
   echo "No special configuration known for $unamestr"
