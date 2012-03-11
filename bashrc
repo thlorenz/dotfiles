@@ -13,12 +13,6 @@ alias ,ev='vim ~/.bashrc'
 alias ,sv='source ~/.bashrc'
 alias ,cv='cat ~/.bashrc'
 
-alias eject='diskutil eject'
-alias eject-kindle='diskutil eject /Volumes/Kindle'
-
-# Launch mvim
-alias :e='mvim'
-
 # Git
 alias ga='git add'
 alias gp='git push'
@@ -38,15 +32,51 @@ alias gcl='git clone'
 # Environment Variables
 export EDITOR=vim
 
-PATH=~/Library/Haskell/bin:~/.cabal/bin:$PATH:/usr/local/lib/node_modules/jasmine-node/bin/
-
-# Temporary aliases
-alias cd-haskell='cd ~/dev/haskell'
-alias cd-realworld='cd ~/dev/haskell/real-world'
-
 # Functions
 function SetTitle
 {
   local title=$1
   echo -n -e "\033]0;$title\007"
 }
+
+# Below are OS specific
+
+unamestr=`uname`
+
+# ----------- DARWIN ---------------
+if [[ "$unamestr" == "Darwin" ]]; then
+
+  echo "Configuring for $unamestr"
+
+  PATH=~/Library/Haskell/bin:~/.cabal/bin:$PATH:/usr/local/lib/node_modules/jasmine-node/bin/
+
+  alias cd-haskell='cd ~/dev/haskell'
+  alias cd-realworld='cd ~/dev/haskell/real-world'
+
+  alias server-tlorenz='ssh tlorenz@192.168.1.117 -P 222'
+  alias server-root='ssh root@192.168.1.117 -P 222'
+
+  alias eject='diskutil eject'
+  alias eject-kindle='diskutil eject /Volumes/Kindle'
+
+  alias :e='mvim'
+
+# ----------- LINUX ---------------
+elif [[ "$unamestr" == "Linux" ]]; then
+
+  echo "Configuring for $unamestr"
+
+  PATH=~/.cabal/bin:$PATH
+
+  alias cd-haskell='cd ~/dev/haskell'
+  alias :e='vim'
+  
+  alias update  = "sudo apt-get update"
+  alias install = "sudo apt-get install"
+  alias upgrade = "sudo apt-get upgrade"
+  alias remove  = "sudo apt-get remove"
+
+else
+  echo "No special configuration known for $unamestr"
+fi
+
