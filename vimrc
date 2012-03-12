@@ -15,9 +15,6 @@ let mapleader=","
 " Keep small command-line window
 set cmdheight=1
 
-" Esc alternative
-" imap   ii          <Esc>
-
 noremap <Space> A
 imap <S-Space> <Esc>A
 imap <C-Space> <C-X> <C-N>

@@ -53,8 +53,8 @@ if [[ "$unamestr" == "Darwin" ]]; then
   alias cd-haskell='cd ~/dev/haskell'
   alias cd-realworld='cd ~/dev/haskell/real-world'
 
-  alias server-tlorenz='ssh tlorenz@192.168.1.117 -P 222'
-  alias server-root='ssh root@192.168.1.117 -P 222'
+  alias server-tlorenz='ssh tlorenz@192.168.1.117 -p 222'
+  alias server-root='ssh root@192.168.1.117 -p 222'
 
   alias eject='diskutil eject'
   alias eject-kindle='diskutil eject /Volumes/Kindle'
