@@ -6,7 +6,19 @@ set -o vi
 bind -m vi-insert "\C-l":clear-screen 
 
 # Aliases
-alias ll="ls -la"
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+
+# don't put duplicate lines in the history. See bash(1) for more options
+HISTCONTROL=ignoredups:ignorespace
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Edit/source/cat this bash
 alias ,ev='vim ~/.bashrc'
@@ -53,8 +65,8 @@ if [[ "$unamestr" == "Darwin" ]]; then
   alias cd-haskell='cd ~/dev/haskell'
   alias cd-realworld='cd ~/dev/haskell/real-world'
 
-  alias server-tlorenz='ssh tlorenz@192.168.1.117 -p 222'
-  alias server-root='ssh root@192.168.1.117 -p 222'
+  alias go-userver='ssh tlorenz@userver -p 222'
+  alias go-nginx='ssh tlorenz@nginx -p 222'
 
   alias eject='diskutil eject'
   alias eject-kindle='diskutil eject /Volumes/Kindle'
@@ -75,7 +87,16 @@ elif [[ "$unamestr" == "Linux" ]]; then
   alias install="sudo apt-get install"
   alias upgrade="sudo apt-get upgrade"
   alias remove="sudo apt-get remove"
+  
+  # check the window size after each command and, if necessary,
+  # update the values of LINES and COLUMNS.
+  shopt -s checkwinsize
 
+ 
+  # set variable identifying the chroot you work in (used in the prompt below)    
+  if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+      debian_chroot=$(cat /etc/debian_chroot)
+  fi
 else
   echo "No special configuration known for $unamestr"
 fi
