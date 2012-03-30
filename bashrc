@@ -63,6 +63,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   PATH=~/Library/Haskell/bin:~/.cabal/bin:$PATH:/usr/local/lib/node_modules/jasmine-node/bin/
 
   alias cd-haskell='cd ~/dev/haskell'
+  alias cd-webtoink='cd ~/dev/haskell/webtoink/WebToInk'
   alias cd-realworld='cd ~/dev/haskell/real-world'
 
   alias go-userver='ssh tlorenz@userver -p 222'
@@ -81,7 +82,9 @@ elif [[ "$unamestr" == "Linux" ]]; then
   PATH=~/.cabal/bin:$PATH
 
   alias cd-haskell='cd ~/dev/haskell'
-  alias :e='vim'
+  alias cd-webtoink='cd ~/dev/haskell/webtoink/WebToInk'
+  alias :e='sudo vim'
+  alias vim='sudo vim'
   
   alias update="sudo apt-get update"
   alias install="sudo apt-get install"
