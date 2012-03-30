@@ -84,6 +84,9 @@ if [[ "$unamestr" == "Darwin" ]]; then
 
   alias :e='mvim'
 
+  # dircolors 
+  export CLICOLOR=1
+
 # ----------- LINUX ---------------
 elif [[ "$unamestr" == "Linux" ]]; then
 
