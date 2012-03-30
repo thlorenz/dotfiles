@@ -51,12 +51,19 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
 	noremap <silent> <leader>f,	    :Tabularize /, <CR>
 	noremap <silent> <leader>f::	:Tabularize /::<CR>
 
+"Set tab size -- may be overridden for specific filetypes
+	set tabstop=4
+	set softtabstop=4
+	set shiftwidth=4
+	set	expandtab
+    set nowrap
+
 " Haskell specific
   au FileType haskell compiler ghc
   au FileType haskell noremap <leader>r :wa \| !runghc %<CR>
   au FileType haskell noremap mm        :wa \| !ghc -e :q %<CR>
   au FileType haskell noremap <leader>m :wa \| !ghc -e runTests %<CR>
-  au FileType haskell set tabstop=4 softtabstop=4 shiftwidth=4
+
 
   let g:haskell_indent_if = 4
   let g:haskell_indent_case = 4
@@ -67,10 +74,12 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
   " Configure browser for haskell_doc.vim
     let g:haddock_browser = "open"
     let g:haddock_browser_callformat = "%s %s"
-    "
+
+" Yesod specific
+  au FileType hamlet set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
 " Java specific  
   au FileType java noremap mm        :wa \| !javac %:p:h/*.java<CR>
-  au FileType java set tabstop=4 softtabstop=4 shiftwidth=4
 
   syn on 
   colo desert
@@ -87,13 +96,6 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
 " Turn scrollbars off
   set guioptions-=r  
   set guioptions-=b 
-
-"Set smaller tab size
-	set tabstop=2
-	set softtabstop=2
-	set shiftwidth=2
-	set	expandtab
-  set nowrap
 
   au FileType markdown set tabstop=4 softtabstop=4 shiftwidth=4
 
