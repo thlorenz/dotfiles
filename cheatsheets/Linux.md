@@ -35,6 +35,10 @@ Creates new user account with default settings
 - adds up to two groups with given name
 - add user to group `usermod --append --groups groupname username`
 
+### delgroup
+
+- removes group (remove all users from group first)
+
 # Programs and processes
 
 ## System Services
@@ -198,6 +202,7 @@ Build from source via (consult readme file after download):
 
 - three to four digits (no permissions 0..7 all permissions) map to permission columns (above)
 - each digit has weight: (r=1, w=2, x=4), add them to get octal presentation
+- use `chmod ugo` octal to reset permissions for everyone (e.g., `chmod 744` - owner=all, everyone else=x permissions)
 
 ### Changing permissions
 
@@ -216,3 +221,21 @@ Build from source via (consult readme file after download):
 - `chown user:group filename` alternative syntax to change both owner and group
 - commands accept `-R` switch
 
+# System services
+
+## Startup init
+
+- System-V style init daemon uses `init` daemon to manage startup process
+    - funcions on `runlevels` principle
+        - 0: System is halted
+        - 1: Single-user (rescue) mode
+        - 2: Multiuser mode (without NFS support)
+        - 3: Full multiuser mode
+        - 4: Not used
+        - 5: GUI mode
+        - 6: System reboot
+    - can be manually invoked via `telinit runlevel` (e.g., `telinit 6` to reboot)
+    - set of services execute for each **runlevel transition**
+    - on startup level goes from 0 to 2 (Debian and Ubuntu)
+    - each runlevel has scripts folder associated with it (/etc/rc0.d ../etc/rc6.d) with links to scripts in `/etc/init.d`
+    
