@@ -126,7 +126,93 @@ Creates new user account with default settings
 - once last link to target is removed, target is removed as well
 - if target is removed, link remains
 
+## Compression and archiving
 
+### tar
 
+- extension represents .gathering.compression algorithm/method
+- .tar.gz (Gzip) and .tar.bz2 (bzip2) favored since they are open source
+- tar (Tape archive) concatenates multiple files into one tarball and optionally compresses it
+- `tar czvf archive.tar.gz folder` creates Gzip tar file
+- `tar cjvf archive.tar.bz2 folder` creates bzip2 tar file
+- `tar xzvf archive.tar.gz` extracts Gzip tar file
+- `tar xjvf archive.tar.gz` extracts bzip2 tar file
 
+### rar and zip
+
+- `unrar x file.rar`
+- `unzip file.zip`
+
+# System administration tools
+
+## Superuser
+
+- `su` logs in as root
+- `sudo command` executes command with superuser account
+- users allowed to gain root privileges are in `/etc/sudoers` (edit it via **visudo**)
+
+## System verification and maintenance
+
+### Disk and memory tools
+
+- `df -h` Disk Free shows available storage on mounted devices
+- `du -h` Disk Usage shows space occupied by each folder in given directory
+- `free -m` displays current system memory usage, swap memory stats and buffers used by the system 
+
+### Package management
+
+Manually download and install debian package via:
+
+    wget ftp://.../name.deb
+    sudo dpkg -i name.deb
+
+note, that this doesn't process dependencies
+
+Build from source via (consult readme file after download):
+
+    wget http://../name.tar.gz
+    tar zxvf name.tar.gz
+    cd name
+    ./configure
+    make
+    sudo make install
+
+## Files and permissions
+
+### Files
+
+- three access types (**r**ead, **w**rite, e**x**ecute)
+- columns `drwx|rwx|rwx`
+    - first character (-: file, d: directory, l: link)
+    - first column: owner permissions
+    - second column: group permissions
+    - third column: other user's permissions
+
+### Directories
+
+- **x** specifies folder entry permission
+- **r** specifies list folder content permission
+- **w** specifies writing of new files in folder permission
+
+### Octal representation
+
+- three to four digits (no permissions 0..7 all permissions) map to permission columns (above)
+- each digit has weight: (r=1, w=2, x=4), add them to get octal presentation
+
+### Changing permissions
+
+- `chmod who+/-what filename`
+    - who: combination of **u**ser/owner, **g**roup, **o**thers and **a**ll
+    - +/-: grant/remove permissions
+    - what: **r**ead, **w**rite and e**x**ecute
+- `chmod go-rwx file` only owner has access to file
+- `chmod a-w file` nobody can edit file
+- `chmod -R g+rx folder` folder can be accessed by all users in the group (applied recursively)
+
+### Changing ownership and group
+
+- `chown user filename` changes file's owner
+- `chgrp group filename` changes file's group
+- `chown user:group filename` alternative syntax to change both owner and group
+- commands accept `-R` switch
 
