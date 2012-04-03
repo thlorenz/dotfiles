@@ -238,4 +238,10 @@ Build from source via (consult readme file after download):
     - set of services execute for each **runlevel transition**
     - on startup level goes from 0 to 2 (Debian and Ubuntu)
     - each runlevel has scripts folder associated with it (/etc/rc0.d ../etc/rc6.d) with links to scripts in `/etc/init.d`
+- init script controls daemon application via **start** (invoked when computer
+  starts), **stop** and can be manually executed via: `service name command` or `/etc/init.d/name command`
+- enable init script for system runlevel (after adding it to /etc/inid.d/): `update-rc.d -f name defaults`
+    - creates links in default runlevel folders
+    - script will execute with **stop** for **reboot** and **shutdown** and with **start** for **all other runlevels**
+
     
