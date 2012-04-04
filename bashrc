@@ -99,9 +99,11 @@ elif [[ "$unamestr" == "Linux" ]]; then
 
   alias cd-haskell='cd ~/dev/haskell'
   alias cd-webtoink='cd ~/dev/haskell/webtoink/WebToInk'
+
   alias :e='sudo vim'
   alias vim='sudo vim'
   
+  # apt-get aliases
   alias update="sudo apt-get update"
   alias install="sudo apt-get install"
   alias upgrade="sudo apt-get upgrade"
