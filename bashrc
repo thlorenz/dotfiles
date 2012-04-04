@@ -1,6 +1,7 @@
 ## If not running interactively, don't do anything (e.g., don't screw up scp)
-[ -z "$PS1" ] && return Set nice prompt
+[ -z "$PS1" ] && return 
 
+# Set nice prompt
 PS1="\n\[\033[1;37m\]\u@\h \[\033[00;34m\]\w\[\033[00m\]\n\# $ "
 
 # Vim Terminal mode
