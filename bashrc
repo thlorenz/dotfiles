@@ -1,4 +1,6 @@
-# Set nice prompt
+## If not running interactively, don't do anything (e.g., don't screw up scp)
+[ -z "$PS1" ] && return Set nice prompt
+
 PS1="\n\[\033[1;37m\]\u@\h \[\033[00;34m\]\w\[\033[00m\]\n\# $ "
 
 # Vim Terminal mode
@@ -104,7 +106,12 @@ elif [[ "$unamestr" == "Linux" ]]; then
   alias install="sudo apt-get install"
   alias upgrade="sudo apt-get upgrade"
   alias remove="sudo apt-get remove"
-  
+
+  # services aliases
+  alias service="sudo service"
+  alias nx-restart="service nginx restart"
+  alias nx-test="sudo nginx -t" 
+
   # check the window size after each command and, if necessary,
   # update the values of LINES and COLUMNS.
   shopt -s checkwinsize
