@@ -91,6 +91,9 @@ if [[ "$unamestr" == "Darwin" ]]; then
   # dircolors 
   export CLICOLOR=1
 
+  # Maven colors
+  source ~/dotfiles/colorize-maven.darwin.sh
+
 # ----------- LINUX ---------------
 elif [[ "$unamestr" == "Linux" ]]; then
 
