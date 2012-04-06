@@ -82,6 +82,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   alias go-userver='ssh tlorenz@userver -p 222'
   alias go-nginx='ssh tlorenz@nginx -p 222'
   alias go-sb-nginx='ssh tlorenz@sb-nginx -p 222'
+  alias go-webtoink='ssh tlorenz@webtoink.thlorenz.com -p 222'
 
   alias eject='diskutil eject'
   alias eject-kindle='diskutil eject /Volumes/Kindle'
