@@ -65,5 +65,16 @@
 
 - allows websites to be served, also known as **virtual hosts**
 
+#### Server block
+
+- declares websie with its own configuration (resides inside **http** block)
+
+#### Location block
+
+- defines group of settings to be applied to particular location on a website
+- `listen [ip] [:port] [additional options];
+    - options: **default**: use server block as default website for any request received at ip and port
+    - e.g., `listen 80 default;` `listen 443 ssl;` `listen 192.168.1.1:80;`
+    
 
 
