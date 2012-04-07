@@ -243,5 +243,7 @@ Build from source via (consult readme file after download):
 - enable init script for system runlevel (after adding it to /etc/inid.d/): `update-rc.d -f name defaults`
     - creates links in default runlevel folders
     - script will execute with **stop** for **reboot** and **shutdown** and with **start** for **all other runlevels**
+    - sample script for [installing a virtual box as a service] (http://www.glump.net/howto/virtualbox_as_a_service)
+- show and switch on/off enabled init scripts via `rcconf` tool
 
     
