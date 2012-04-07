@@ -76,10 +76,11 @@ if [[ "$unamestr" == "Darwin" ]]; then
   PATH=~/Library/Haskell/bin:~/.cabal/bin:$PATH:/usr/local/lib/node_modules/jasmine-node/bin/
 
   alias cd-haskell='cd ~/dev/haskell'
-  alias cd-webtoink='cd ~/dev/haskell/webtoink/WebToInk'
+  alias cd-webtoink='cd ~/dev/haskell/projects/WebToInk/webtoink'
   alias cd-realworld='cd ~/dev/haskell/real-world'
 
   alias go-userver='ssh tlorenz@userver -p 222'
+  alias go-udesktop='ssh tlorenz@udesktop -p 222'
   alias go-nginx='ssh tlorenz@nginx -p 222'
   alias go-sb-nginx='ssh tlorenz@sb-nginx -p 222'
   alias go-webtoink='ssh tlorenz@webtoink.thlorenz.com -p 222'
