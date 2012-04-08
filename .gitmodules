@@ -88,3 +88,6 @@
 [submodule "vim/bundle/html-template-syntax"]
 	path = vim/bundle/html-template-syntax
 	url = https://github.com/pbrisbin/html-template-syntax.git
+[submodule "vim/bundle/lusty"]
+	path = vim/bundle/lusty
+	url = https://github.com/sjbach/lusty.git
