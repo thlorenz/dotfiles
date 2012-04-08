@@ -2,7 +2,7 @@
 [ -z "$PS1" ] && return 
 
 # Set nice prompt
-PS1="\n\[\033[1;37m\]\u@\h \[\033[00;34m\]\w\[\033[00m\]\n\# $ "
+PS1="\n\[\033[1;32m\]\u@\h \[\033[00;34m\]\w\[\033[00m\]\n\# $ "
 
 # Vim Terminal mode
 set -o vi
@@ -53,6 +53,9 @@ alias gra='git remote add'
 alias grr='git remote rm'
 alias gpu='git pull'
 alias gcl='git clone'
+
+# Use Vim (from MacVim) to get Ruby support
+alias vim='/usr/local/Cellar/macvim/7.3-63/MacVim.app/Contents/MacOS/Vim'
 
 # Environment Variables
 export EDITOR=vim
