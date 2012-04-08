@@ -91,3 +91,6 @@
 [submodule "vim/bundle/lusty"]
 	path = vim/bundle/lusty
 	url = https://github.com/sjbach/lusty.git
+[submodule "vim/bundle/buffergator"]
+	path = vim/bundle/buffergator
+	url = git://github.com/jeetsukumaran/vim-buffergator.git

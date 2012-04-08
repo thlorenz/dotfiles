@@ -4,7 +4,6 @@ vim_org_scripts = [
   ["IndexedSearch", "7062",  "plugin"],
   ["shim",          "15004", "plugin"],
   ["jquery",        "15752", "syntax"],
-  ["bufexplorer",   "14208", "zip"],
   ["haskell",       "7407",  "indent"],
 ]
 
