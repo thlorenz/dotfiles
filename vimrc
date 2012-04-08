@@ -7,10 +7,37 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 
+" lots of those come from http://nvie.com/posts/how-i-boosted-my-vim/
 set nocompatible     
+set virtualedit=
+
+set nobackup
+set nowritebackup
+set noswapfile
+
+set autoindent
+set copyindent
+
+set showmatch
+set shiftround
+set ruler
+set scrolloff=4
+set incsearch 
+set ignorecase
+set backspace=2         
+set nu
+set hidden
+set mouse=a
+
+syn on 
+colo desert
+
 inoremap jk <Esc>
 
 let mapleader=","
+
+" Toggle highlight search
+noremap <F2> :set hlsearch! hlsearch?<CR>
 
 " Keep small command-line window
 set cmdheight=1
@@ -26,9 +53,16 @@ endif
 
 set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %p%%
 
+" Use Q for formatting the current paragraph (or selection)
+vmap Q gq
+nmap Q gqap
+
+" sudo write open file
+cmap w!! w !sudo tee % >/dev/null
+
 " Editing and reloading vimrc
   nmap <silent> <leader>ev :e $MYVIMRC <CR>
-  nmap <silent> <leader>sv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>	
+  nmap <silent> <leader>sv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " Restore cursor position to the last when file was open
   autocmd BufReadPost *
@@ -47,7 +81,7 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
   map <silent> « :TagbarToggle<CR>
 
 " Tabularize (format)
-	noremap <silent> <leader>f=	    :Tabularize /= <CR>
+    noremap <silent> <leader>f=	    :Tabularize /= <CR>
 	noremap <silent> <leader>f,	    :Tabularize /, <CR>
 	noremap <silent> <leader>f::	:Tabularize /::<CR>
 
@@ -81,14 +115,6 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
 " Java specific  
   au FileType java noremap mm        :wa \| !javac %:p:h/*.java<CR>
 
-  syn on 
-  colo desert
-
-  set virtualedit=
-  set nobackup
-  set nowritebackup
-  set noswapfile
-
 " Turn Menu and toolbar off
 	set guioptions=-m
 	set guioptions=-M
@@ -99,21 +125,7 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
 
   au FileType markdown set tabstop=4 softtabstop=4 shiftwidth=4
 
-" Show columns
-  set ruler
-
-" Scroll before hitting top/bottom  
-  set scrolloff=4
-
-" Search
-  set incsearch 
-  set ignorecase
-
-" more powerful backspacing
-  set backspace=2         
-
-" Show line numbers
-  set nu
+" Line numbers
   nmap <leader>' :set relativenumber!<cr>
   nmap <leader>" :set number!<cr>
   
@@ -139,8 +151,6 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
     map <M-k> :tabn<CR>
   endif
 
-  set hidden
-
 " alt+n or alt+p to navigate between entries in QuickFix
   map <silent> <M-p> :cp <CR>
   map <silent> <M-n> :cn <CR>
@@ -151,12 +161,12 @@ set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %
   au FileType ruby,eruby set omnifunc=rubycomplete#Complete
   au FileType ruby,eruby comp ruby
 
-  let g:rubycomplete_buffer_loading = 1
-  let g:rubycomplete_classes_in_global = 1
+  au FileType ruby mlet g:rubycomplete_buffer_loading = 1
+  au FileType ruby mlet g:rubycomplete_classes_in_global = 1
 
-  map <F1> :! ri	<CR>
-  map <f2> :!ruby -r debug %<CR>
-  map <f3> :!irb<CR>
+  au FileType ruby map <F1> :! ri	<CR>
+  au FileType ruby mmap <F9> :!ruby -r debug %<CR>
+  au FileType ruby map <F3> :!irb<CR>
 
 " Flex/ActionScript
   au FileType actionscript,mxml set omnifunc=actionscriptcomplete#Complete
