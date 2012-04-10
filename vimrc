@@ -151,6 +151,13 @@ cmap w!! w !sudo tee % >/dev/null
     map <M-k> :tabn<CR>
   endif
 
+" Buffer Explorer plugins
+    " don't override <leader>t which is used by Command-T 
+    let g:buffergator_suppress_keymaps=1 
+    " all we need is to toggle buffer pane since we don't use tabs
+    nnoremap <silent> <Leader>b :BuffergatorToggle<CR>
+
+
 " alt+n or alt+p to navigate between entries in QuickFix
   map <silent> <M-p> :cp <CR>
   map <silent> <M-n> :cn <CR>
