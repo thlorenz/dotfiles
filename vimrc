@@ -30,7 +30,6 @@ set hidden
 set mouse=a
 
 syn on 
-colo desert
 
 inoremap jk <Esc>
 
@@ -44,14 +43,14 @@ set cmdheight=1
 
 noremap <Space> A
 imap <S-Space> <Esc>A
-imap <C-Space> <C-X> <C-N>
 
-" Easier Completion in Gui
 if(isGui) 
-  imap <C-Space> <C-N> 
+  colo wombat
+else
+  colo wombat256mod
 endif
 
-set statusline=%F%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %p%%
+set statusline=%f%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %p%%
 
 " Use Q for formatting the current paragraph (or selection)
 vmap Q gq

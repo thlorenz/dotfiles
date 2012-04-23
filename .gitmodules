@@ -94,3 +94,6 @@
 [submodule "vim/bundle/buffergator"]
 	path = vim/bundle/buffergator
 	url = git://github.com/jeetsukumaran/vim-buffergator.git
+[submodule "vim/bundle/colorschemes"]
+	path = vim/bundle/colorschemes
+	url = git@github.com:flazz/vim-colorschemes.git
