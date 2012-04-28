@@ -106,3 +106,6 @@
 [submodule "vim/bundle/rename2"]
 	path = vim/bundle/rename2
 	url = https://github.com/vim-scripts/Rename2.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
