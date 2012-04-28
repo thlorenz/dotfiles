@@ -64,9 +64,6 @@
 [submodule "vim/bundle/blackboard"]
 	path = vim/bundle/blackboard
 	url = https://github.com/nelstrom/vim-blackboard.git
-[submodule "vim/bundle/Command-T"]
-	path = vim/bundle/Command-T
-	url = https://github.com/wincent/Command-T.git
 [submodule "vim/bundle/vimroom"]
 	path = vim/bundle/vimroom
 	url = https://github.com/mikewest/vimroom.git
@@ -94,3 +91,9 @@
 [submodule "vim/bundle/colorschemes"]
 	path = vim/bundle/colorschemes
 	url = git@github.com:flazz/vim-colorschemes.git
+[submodule "vim/bundle/easymotion"]
+	path = vim/bundle/easymotion
+	url = git://github.com/Lokaltog/vim-easymotion.git
+[submodule "vim/bundle/ctrlp"]
+	path = vim/bundle/ctrlp
+	url = git://github.com/kien/ctrlp.vim.git
