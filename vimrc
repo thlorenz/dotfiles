@@ -150,8 +150,11 @@ cmap w!! w !sudo tee % >/dev/null
     map <M-k> :tabn<CR>
   endif
 
+" CtrlP
+    let g:ctrlp_map = '<Leader>t'
+    
 " Buffer Explorer plugins
-    " don't override <leader>t which is used by Command-T 
+    " don't override <leader>t which is I use for ctrlp
     let g:buffergator_suppress_keymaps=1 
     " all we need is to toggle buffer pane since we don't use tabs
     nnoremap <silent> <Leader>b :BuffergatorToggle<CR>
