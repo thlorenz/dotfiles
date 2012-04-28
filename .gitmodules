@@ -109,3 +109,9 @@
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "vim/bundle/ghcmod"]
+	path = vim/bundle/ghcmod
+	url = https://github.com/eagletmt/ghcmod-vim.git
+[submodule "vim/bundle/vimproc"]
+	path = vim/bundle/vimproc
+	url = https://github.com/Shougo/vimproc.git
