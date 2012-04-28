@@ -109,7 +109,7 @@ elif [[ "$unamestr" == "Linux" ]]; then
   PATH=~/.cabal/bin:$PATH
 
   alias cd-haskell='cd ~/dev/haskell'
-  alias cd-webtoink='cd ~/dev/haskell/webtoink/WebToInk'
+  alias cd-webtoink='cd ~/dev/haskell/webtoink/webtoink'
 
   alias :e='sudo vim'
   alias vim='sudo vim'
