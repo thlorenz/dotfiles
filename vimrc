@@ -207,7 +207,7 @@ cmap w!! w !sudo tee % >/dev/null
     map <C-l> :NERDTreeToggle<CR>
     
 " Close current buffer
-  map <silent> <leader>, :bd<CR> 	
+  map <silent> <leader>q :bd<CR> 	
   
 " Write all then run spec for current dir
   map <silent> ,s :wa \|S spec . --format progress <CR> <CR> 
