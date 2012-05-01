@@ -220,6 +220,26 @@ cmap w!! w !sudo tee % >/dev/null
 " Open new terminal shell
   map <leader>d :sh <CR>
 
+" EasyGrep options
+let g:EasyGrepFileAssociations='/Users/thlorenz/.vim/bundle/easygrep/plugin/EasyGrepFileAssociations'
+let g:EasyGrepMode=1
+let g:EasyGrepCommand=0
+let g:EasyGrepRecursive=1
+let g:EasyGrepIgnoreCase=1
+let g:EasyGrepHidden=0
+let g:EasyGrepSearchCurrentBufferDir=1
+let g:EasyGrepAllOptionsInExplorer=1
+let g:EasyGrepWindow=1
+let g:EasyGrepReplaceWindowMode=0
+let g:EasyGrepOpenWindowOnMatch=1
+let g:EasyGrepEveryMatch=0
+let g:EasyGrepJumpToMatch=1
+let g:EasyGrepInvertWholeWord=0
+let g:EasyGrepFileAssociationsInExplorer=0
+let g:EasyGrepExtraWarnings=1
+let g:EasyGrepOptionPrefix='<leader>vy'
+let g:EasyGrepReplaceAllPerFile=0
+
 "Commands
 command! -nargs=* Wrap set wrap linebreak nolist
 
