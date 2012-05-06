@@ -65,7 +65,8 @@ Creates new user account with default settings
 ### Further Reading
 
 - [Different ways of showing Unix processes](http://www.cyberciti.biz/faq/show-all-running-processes-in-linux/)
-
+- [htop examples](http://www.thegeekstuff.com/2011/09/linux-htop-examples/)
+- [Linux System Monitoring Tools](http://www.cyberciti.biz/tips/top-linux-monitoring-tools.html)
 # Linux File System
 
 ## Directory structure
