@@ -87,7 +87,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   alias go-nginx='ssh tlorenz@nginx -p 222'
   alias go-sb-haskell='ssh tlorenz@sb-haskell -p 22'
   alias go-sb-webtoink='ssh tlorenz@sb-webtoink -p 22'
-  alias go-webtoink='ssh tlorenz@192.168.1.149 -p 222'
+  alias go-webtoink='ssh tlorenz@webtoink.local.com -p 222'
 
   alias go-ec2='ssh -i ~/.ssh/userver-micro_rsa.pem ubuntu@23.23.230.206'
 

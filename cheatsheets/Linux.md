@@ -62,6 +62,10 @@ Creates new user account with default settings
 - `kill -9 pid` forces process to terminate
 - `killall processname` kills all processes with given name
 
+### Further Reading
+
+- [Different ways of showing Unix processes](http://www.cyberciti.biz/faq/show-all-running-processes-in-linux/)
+
 # Linux File System
 
 ## Directory structure
