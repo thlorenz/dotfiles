@@ -250,7 +250,7 @@ Build from source via (consult readme file after download):
     - script will execute with **stop** for **reboot** and **shutdown** and with **start** for **all other runlevels**
 - show and switch on/off enabled init scripts via `rcconf` tool
 
-## Further Reading
+### Further Reading
 
 - sample script for [installing a virtual box as a service] (http://www.glump.net/howto/virtualbox_as_a_service)
 - [update-rc.d explained](http://www.debuntu.org/how-to-manage-services-with-update-rc.d)
