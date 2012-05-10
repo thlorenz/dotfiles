@@ -7,6 +7,8 @@ PS1="\n\[\033[1;38m\]\u@\h \[\033[00;34m\]\w\[\033[00m\]\n➝  "
 # Vim Terminal mode
 set -o vi
 bind -m vi-insert "\C-l":clear-screen 
+bind -m vi-insert "\C-k":history-search-backward
+bind -m vi-insert "\C-j":history-search-forward
 
 # enable color support of ls and also add color related aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -84,7 +86,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   alias go-nginx='ssh tlorenz@nginx -p 222'
   alias go-sb-haskell='ssh tlorenz@sb-haskell -p 22'
   alias go-sb-webtoink='ssh tlorenz@sb-webtoink -p 22'
-  alias go-webtoink='ssh tlorenz@192.168.1.149 -p 222'
+  alias go-webtoink='ssh tlorenz@webtoink.local.com -p 222'
 
   alias go-ec2='ssh -i ~/.ssh/userver-micro_rsa.pem ubuntu@23.23.230.206'
 
@@ -95,6 +97,8 @@ if [[ "$unamestr" == "Darwin" ]]; then
   alias vim='/usr/local/Cellar/macvim/7.3-63/MacVim.app/Contents/MacOS/Vim'
 
   alias :e='mvim'
+
+  alias pgrep='ps aux | grep '
 
   # dircolors 
   export CLICOLOR=1

@@ -150,9 +150,6 @@ cmap w!! w !sudo tee % >/dev/null
     map <M-k> :tabn<CR>
   endif
 
-" CtrlP
-    let g:ctrlp_map = '<Leader>t'
-    
 " Buffer Explorer plugins
     " don't override <leader>t which is I use for ctrlp
     let g:buffergator_suppress_keymaps=1 
@@ -239,6 +236,10 @@ let g:EasyGrepExtraWarnings=1
 let g:EasyGrepOptionPrefix='<leader>vy'
 let g:EasyGrepReplaceAllPerFile=0
 
+" CtrlP options
+let g:ctrlp_map = '<Leader>t'
+set wildignore+=*/dist/*,*/.git/*,*/.svn/*,*/dist/*,*.o,*.hi,*.sqlite3
+
 "Commands
 command! -nargs=* Wrap set wrap linebreak nolist
 
@@ -266,7 +267,6 @@ function! s:RunShellCommand(cmdline)
   silent execute '$read !'. expanded_cmdline
   resize 15
   setlocal nomodifiable
-  1
 endfunction
 
 " Diff current Buffer with original file

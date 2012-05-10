@@ -62,6 +62,11 @@ Creates new user account with default settings
 - `kill -9 pid` forces process to terminate
 - `killall processname` kills all processes with given name
 
+### Further Reading
+
+- [Different ways of showing Unix processes](http://www.cyberciti.biz/faq/show-all-running-processes-in-linux/)
+- [htop examples](http://www.thegeekstuff.com/2011/09/linux-htop-examples/)
+- [Linux System Monitoring Tools](http://www.cyberciti.biz/tips/top-linux-monitoring-tools.html)
 # Linux File System
 
 ## Directory structure
@@ -243,7 +248,11 @@ Build from source via (consult readme file after download):
 - enable init script for system runlevel (after adding it to /etc/inid.d/): `update-rc.d -f name defaults`
     - creates links in default runlevel folders
     - script will execute with **stop** for **reboot** and **shutdown** and with **start** for **all other runlevels**
-    - sample script for [installing a virtual box as a service] (http://www.glump.net/howto/virtualbox_as_a_service)
 - show and switch on/off enabled init scripts via `rcconf` tool
+
+### Further Reading
+
+- sample script for [installing a virtual box as a service] (http://www.glump.net/howto/virtualbox_as_a_service)
+- [update-rc.d explained](http://www.debuntu.org/how-to-manage-services-with-update-rc.d)
 
     
