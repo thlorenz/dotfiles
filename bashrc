@@ -98,6 +98,8 @@ if [[ "$unamestr" == "Darwin" ]]; then
 
   alias :e='mvim'
 
+  alias pgrep='ps aux | grep '
+
   # dircolors 
   export CLICOLOR=1
 
