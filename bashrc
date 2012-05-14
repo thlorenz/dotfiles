@@ -56,9 +56,6 @@ alias grr='git remote rm'
 alias gpu='git pull'
 alias gcl='git clone'
 
-# Use Vim (from MacVim) to get Ruby support
-alias vim='/usr/local/Cellar/macvim/7.3-63/MacVim.app/Contents/MacOS/Vim'
-
 # Environment Variables
 export EDITOR=vim
 
@@ -96,6 +93,9 @@ if [[ "$unamestr" == "Darwin" ]]; then
   alias eject='diskutil eject'
   alias eject-kindle='diskutil eject /Volumes/Kindle'
 
+  # Use Vim (from MacVim) to get Ruby support
+  alias vim='/usr/local/Cellar/macvim/7.3-63/MacVim.app/Contents/MacOS/Vim'
+
   alias :e='mvim'
 
   alias pgrep='ps aux | grep '
@@ -117,7 +117,7 @@ elif [[ "$unamestr" == "Linux" ]]; then
   alias cd-webtoink='cd ~/dev/haskell/webtoink/webtoink'
 
   alias :e='sudo vim'
-  alias vim='sudo vim'
+  alias svim='sudo vim'
   
   # apt-get aliases
   alias update="sudo apt-get update"
