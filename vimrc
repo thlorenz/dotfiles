@@ -218,7 +218,6 @@ cmap w!! w !sudo tee % >/dev/null
   map <leader>d :sh <CR>
 
 " EasyGrep options
-let g:EasyGrepFileAssociations='/Users/thlorenz/.vim/bundle/easygrep/plugin/EasyGrepFileAssociations'
 let g:EasyGrepMode=1
 let g:EasyGrepCommand=0
 let g:EasyGrepRecursive=1
