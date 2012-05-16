@@ -6,6 +6,15 @@
 
 This installs all tools including cabal.
 
+## Building from Source
+
+In case available packages cause trouble.
+
+Download Haskell Platform and GHC from [here](http://hackage.haskell.org/platform/linux.html).
+
+Follow [these instructions](http://www.vex.net/~trebla/haskell/haskell-platform.xhtml) and/or
+tweak this [script](https://gist.github.com/2352845).
+
 # Git
 
 ## Installation

@@ -42,3 +42,10 @@ following [this post](http://ubuntuforums.org/showthread.php?t=806000)
     sudo ufw allow proto tcp from 192.168.1.0/24 to any port 445
 
 (`0/24`) was not accepted, but just giving it a number like `4` was
+
+## Grub
+
+## Change boot config
+
+`sudo vim /etc/default/grub`
+`sudo update-grub`
