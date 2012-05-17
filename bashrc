@@ -99,6 +99,8 @@ if [[ "$unamestr" == "Darwin" ]]; then
   alias :e='mvim'
 
   alias pgrep='ps aux | grep '
+  
+  alias flush-dns='dscacheutil -flushcache'
 
   # dircolors 
   export CLICOLOR=1
