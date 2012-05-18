@@ -113,8 +113,13 @@ elif [[ "$unamestr" == "Linux" ]]; then
 
   PATH=~/.cabal/bin:$PATH
 
+  # TODO: test if folder exists -- Custom installed ghc binary folder
+  PATH=/usr/local/haskell-platform-2011.4.0.0/bin/:$PATH
+
   alias cd-haskell='cd ~/dev/haskell'
   alias cd-webtoink='cd ~/dev/haskell/webtoink/webtoink'
+
+  alias go-ec2='ssh -i ~/.ssh/userver-micro_rsa.pem ubuntu@ec2-micro'
 
   alias :e='sudo vim'
   alias svim='sudo vim'
