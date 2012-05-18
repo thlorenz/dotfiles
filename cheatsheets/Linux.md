@@ -247,7 +247,7 @@ Build from source via (consult readme file after download):
   starts), **stop** and can be manually executed via: `service name command` or `/etc/init.d/name command`
 - enable init script for system runlevel (after adding it to /etc/inid.d/): `update-rc.d -f name defaults`
     - creates links in default runlevel folders
-    - script will execute with **stop** for **reboot** and **shutdown** and with **start** for **all other runlevels**
+    - script will execute with **stop** for **reboot** and **shut[down** and with **start** for **all other runlevels**
 - show and switch on/off enabled init scripts via `rcconf` tool
 
 ### Further Reading
@@ -256,3 +256,8 @@ Build from source via (consult readme file after download):
 - [update-rc.d explained](http://www.debuntu.org/how-to-manage-services-with-update-rc.d)
 
     
+# General
+
+## Further Reading
+
+- [Set operation in Unix cheatsheet] (http://www.catonmat.net/download/setops.pdf) 

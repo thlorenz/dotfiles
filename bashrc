@@ -82,7 +82,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   alias cd-realworld='cd ~/dev/haskell/real-world'
 
   alias go-userver='ssh tlorenz@userver -p 222'
-  alias go-udesktop='ssh tlorenz@udesktop -p 222'
+  alias go-udesktop='ssh tlorenz@udesktop -p 2104'
   alias go-nginx='ssh tlorenz@nginx -p 222'
   alias go-sb-haskell='ssh tlorenz@sb-haskell -p 22'
   alias go-sb-webtoink='ssh tlorenz@sb-webtoink -p 22'
@@ -99,6 +99,8 @@ if [[ "$unamestr" == "Darwin" ]]; then
   alias :e='mvim'
 
   alias pgrep='ps aux | grep '
+  
+  alias flush-dns='dscacheutil -flushcache'
 
   # dircolors 
   export CLICOLOR=1
