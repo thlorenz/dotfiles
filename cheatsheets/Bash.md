@@ -22,3 +22,11 @@
 ## Further Reading
 
 - [Awk Cheatsheet] (http://www.catonmat.net/download/awk.cheat.sheet.pdf)
+
+# Scripting
+
+## Detect current script folder
+
+`DIR="$( cd "$( dirname "$0" )" && pwd )"`
+
+from [stackoverflow answer - comment](http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in#comment3818043_246128)
