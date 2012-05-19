@@ -252,12 +252,21 @@ Build from source via (consult readme file after download):
 
 ### Further Reading
 
-- sample script for [installing a virtual box as a service] (http://www.glump.net/howto/virtualbox_as_a_service)
+- sample script for [installing a virtual box as a service](http://www.glump.net/howto/virtualbox_as_a_service)
 - [update-rc.d explained](http://www.debuntu.org/how-to-manage-services-with-update-rc.d)
+
+# Installing Libraries/Binaries
+
+## List Dependencies of a Binary with ldd
+
+ldd prints shared library dependencies of a binary:
+`ldd /path/to/binary`
+
+
 
     
 # General
 
 ## Further Reading
 
-- [Set operation in Unix cheatsheet] (http://www.catonmat.net/download/setops.pdf) 
+- [Set operation in Unix cheatsheet](http://www.catonmat.net/download/setops.pdf) 
