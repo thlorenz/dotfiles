@@ -77,6 +77,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
 
   PATH=~/Library/Haskell/bin:~/.cabal/bin:$PATH:/usr/local/lib/node_modules/jasmine-node/bin/
 
+  alias cd-js='cd ~/dev/js'
   alias cd-haskell='cd ~/dev/haskell'
   alias cd-webtoink='cd ~/dev/haskell/projects/WebToInk/webtoink'
   alias cd-realworld='cd ~/dev/haskell/real-world'
@@ -136,6 +137,9 @@ elif [[ "$unamestr" == "Linux" ]]; then
   alias service="sudo service"
   alias nx-restart="service nginx restart"
   alias nx-test="sudo nginx -t" 
+
+  alias do-transmission="transmission-daemon -g ~/.config/transmission"
+  alias ki-transmission="service transmission-daemon stop"
 
   # check the window size after each command and, if necessary,
   # update the values of LINES and COLUMNS.
