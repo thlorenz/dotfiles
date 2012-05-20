@@ -82,7 +82,8 @@ cmap w!! w !sudo tee % >/dev/null
 " Tabularize (format)
     noremap <silent> <leader>f=	    :Tabularize /= <CR>
 	noremap <silent> <leader>f,	    :Tabularize /, <CR>
-	noremap <silent> <leader>f::	:Tabularize /::<CR>
+	noremap <silent> <leader>f::    :Tabularize /::<CR>
+	noremap <silent> <leader>f:	    :Tabularize /: <CR>
 
 "Set tab size -- may be overridden for specific filetypes
 	set tabstop=4
