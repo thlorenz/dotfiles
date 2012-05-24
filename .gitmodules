@@ -121,3 +121,6 @@
 [submodule "vim/bundle/easygrep"]
 	path = vim/bundle/easygrep
 	url = https://github.com/vim-scripts/EasyGrep.git
+[submodule "vim/bundle/unimpaired"]
+	path = vim/bundle/unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
