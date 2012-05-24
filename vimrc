@@ -48,6 +48,7 @@ if(isGui)
   colo wombat
 else
   colo wombat256mod
+  au filetype markdown colo vividchalk
 endif
 
 set statusline=%f%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %p%%
@@ -111,6 +112,9 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Yesod specific
   au FileType hamlet set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
+" JavaScript specific
+  au FileType javascript noremap <leader>r :wa \| !node %<CR>
 
 " Java specific  
   au FileType java noremap mm        :wa \| !javac %:p:h/*.java<CR>
