@@ -127,3 +127,6 @@
 [submodule "vim/bundle/jade"]
 	path = vim/bundle/jade
 	url = https://github.com/digitaltoad/vim-jade.git
+[submodule "vim/bundle/stylus"]
+	path = vim/bundle/stylus
+	url = https://github.com/wavded/vim-stylus.git
