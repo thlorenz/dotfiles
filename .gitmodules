@@ -130,3 +130,6 @@
 [submodule "vim/bundle/stylus"]
 	path = vim/bundle/stylus
 	url = https://github.com/wavded/vim-stylus.git
+[submodule "vim/bundle/snipmate-shouldjs"]
+	path = vim/bundle/snipmate-shouldjs
+	url = https://github.com/mmozuras/snipmate-shouldjs.git
