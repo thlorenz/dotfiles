@@ -115,6 +115,8 @@ cmap w!! w !sudo tee % >/dev/null
 
 " JavaScript specific
   au FileType javascript noremap <leader>r :wa \| !node %<CR>
+  au FileType stylus set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType jade set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " Java specific  
   au FileType java noremap mm        :wa \| !javac %:p:h/*.java<CR>
