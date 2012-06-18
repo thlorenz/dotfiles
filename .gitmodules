@@ -133,3 +133,6 @@
 [submodule "vim/bundle/snipmate-shouldjs"]
 	path = vim/bundle/snipmate-shouldjs
 	url = https://github.com/mmozuras/snipmate-shouldjs.git
+[submodule "vim/bundle/handlebars"]
+	path = vim/bundle/handlebars
+	url = git://github.com/nono/vim-handlebars.git
