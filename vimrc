@@ -48,7 +48,6 @@ if(isGui)
   colo wombat
 else
   colo wombat256mod
-  au filetype markdown colo vividchalk
 endif
 
 set statusline=%f%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %p%%
@@ -296,3 +295,16 @@ function! SearchCamelCase(dir)
     let @/ = '\C\<' . join(map(l, 'v:val . "[0-9a-z_]*"'), '') . '\>'
     return a:dir . "\r"
 endfunction
+
+" different color scheme for markdown buffers
+augroup filetype_colorscheme
+    au BufEnter *
+    \ if !exists('b:colors_name')
+        \ | if &ft == "markdown"
+            \ | let b:colors_name = 'desert'
+        \ | else
+            \ | let b:colors_name = 'wombat256mod'
+        \ | endif
+    \ | endif
+    \ | exe 'colorscheme' b:colors_name
+augroup END 
