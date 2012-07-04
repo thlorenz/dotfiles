@@ -78,11 +78,10 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Tagbar
   map <silent> « :TagbarToggle<CR>
-
+  "
 " Tabularize (format)
     noremap <silent> <leader>f=	    :Tabularize /= <CR>
-	noremap <silent> <leader>f,	    :Tabularize /, <CR>
-	noremap <silent> <leader>f::    :Tabularize /::<CR>
+    noremap <silent> <leader>f,	    :Tabularize /, <CR>
 	noremap <silent> <leader>f:	    :Tabularize /: <CR>
 
 "Set tab size -- may be overridden for specific filetypes
@@ -114,9 +113,13 @@ cmap w!! w !sudo tee % >/dev/null
 
 " JavaScript specific
   au FileType javascript noremap <leader>r :wa \| !node %<CR>
+  au FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType stylus set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType jade set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
+" Python specific
+  au FileType python noremap <leader>r :wa \| !python %<CR>
+"
 " Java specific  
   au FileType java noremap mm        :wa \| !javac %:p:h/*.java<CR>
 
