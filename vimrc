@@ -171,9 +171,9 @@ cmap w!! w !sudo tee % >/dev/null
   au FileType ruby mlet g:rubycomplete_buffer_loading = 1
   au FileType ruby mlet g:rubycomplete_classes_in_global = 1
 
-  au FileType ruby map <F1> :! ri	<CR>
-  au FileType ruby mmap <F9> :!ruby -r debug %<CR>
+  au FileType ruby map <F1> :!ri	<CR>
   au FileType ruby map <F3> :!irb<CR>
+  au FileType ruby noremap <leader>r !ruby %<CR>
 
 " Flex/ActionScript
   au FileType actionscript,mxml set omnifunc=actionscriptcomplete#Complete
