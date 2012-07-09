@@ -121,3 +121,18 @@
 [submodule "vim/bundle/easygrep"]
 	path = vim/bundle/easygrep
 	url = https://github.com/vim-scripts/EasyGrep.git
+[submodule "vim/bundle/unimpaired"]
+	path = vim/bundle/unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "vim/bundle/jade"]
+	path = vim/bundle/jade
+	url = https://github.com/digitaltoad/vim-jade.git
+[submodule "vim/bundle/stylus"]
+	path = vim/bundle/stylus
+	url = https://github.com/wavded/vim-stylus.git
+[submodule "vim/bundle/snipmate-shouldjs"]
+	path = vim/bundle/snipmate-shouldjs
+	url = https://github.com/mmozuras/snipmate-shouldjs.git
+[submodule "vim/bundle/handlebars"]
+	path = vim/bundle/handlebars
+	url = git://github.com/nono/vim-handlebars.git
