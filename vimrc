@@ -78,11 +78,10 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Tagbar
   map <silent> « :TagbarToggle<CR>
-
+  "
 " Tabularize (format)
     noremap <silent> <leader>f=	    :Tabularize /= <CR>
-	noremap <silent> <leader>f,	    :Tabularize /, <CR>
-	noremap <silent> <leader>f::    :Tabularize /::<CR>
+    noremap <silent> <leader>f,	    :Tabularize /, <CR>
 	noremap <silent> <leader>f:	    :Tabularize /: <CR>
 
 "Set tab size -- may be overridden for specific filetypes
@@ -112,6 +111,15 @@ cmap w!! w !sudo tee % >/dev/null
 " Yesod specific
   au FileType hamlet set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
+" JavaScript specific
+  au FileType javascript noremap <leader>r :wa \| !node %<CR>
+  au FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType stylus set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType jade set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
+" Python specific
+  au FileType python noremap <leader>r :wa \| !python %<CR>
+"
 " Java specific  
   au FileType java noremap mm        :wa \| !javac %:p:h/*.java<CR>
 
@@ -290,3 +298,16 @@ function! SearchCamelCase(dir)
     let @/ = '\C\<' . join(map(l, 'v:val . "[0-9a-z_]*"'), '') . '\>'
     return a:dir . "\r"
 endfunction
+
+" different color scheme for markdown buffers
+augroup filetype_colorscheme
+    au BufEnter *
+    \ if !exists('b:colors_name')
+        \ | if &ft == "markdown"
+            \ | let b:colors_name = 'desert'
+        \ | else
+            \ | let b:colors_name = 'wombat256mod'
+        \ | endif
+    \ | endif
+    \ | exe 'colorscheme' b:colors_name
+augroup END 
