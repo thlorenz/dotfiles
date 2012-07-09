@@ -38,6 +38,9 @@ let mapleader=","
 " Toggle highlight search
 noremap <F2> :set hlsearch! hlsearch?<CR>
 
+" Select different color for matching paren highlight
+au Bufenter * silent! guibg=darkblue
+
 " Keep small command-line window
 set cmdheight=1
 
