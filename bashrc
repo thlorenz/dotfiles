@@ -25,6 +25,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias c='pygmentize -O style=monokai -f console256 -g'
 
 # don't put duplicate lines in the history. See bash(1) for more options
 HISTCONTROL=ignoredups:ignorespace
@@ -38,7 +39,7 @@ shopt -s histappend
 # Edit/source/cat this bash
 alias ,ev='vim ~/.bashrc'
 alias ,sv='source ~/.bashrc'
-alias ,cv='cat ~/.bashrc'
+alias ,cv='c ~/.bashrc'
 
 # Git
 alias ga='git add'
@@ -60,11 +61,19 @@ alias gcl='git clone'
 export EDITOR=vim
 
 # Functions
-function SetTitle
+function st
 {
   local title=$1
   echo -n -e "\033]0;$title\007"
 }
+
+function qt 
+{
+  local title="$(basename `pwd`)"
+  echo -n -e "\033]0;$title\007"
+}
+
+source ./bashscripts/z.sh
 
 # Below are OS specific
 
@@ -108,6 +117,9 @@ if [[ "$unamestr" == "Darwin" ]]; then
 
   # Maven colors
   source ~/dotfiles/colorize-maven.darwin.sh
+
+  # npm completion (described method doesn't work at this point: http://npmjs.org/doc/completion.html)
+  source /usr/local/lib/node_modules/npm/lib/utils/completion.sh
 
 # ----------- LINUX ---------------
 elif [[ "$unamestr" == "Linux" ]]; then

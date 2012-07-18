@@ -113,6 +113,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 " JavaScript specific
   au FileType javascript noremap <leader>r :wa \| !node %<CR>
+  au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
   au FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType stylus set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType jade set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
@@ -304,7 +305,7 @@ augroup filetype_colorscheme
     au BufEnter *
     \ if !exists('b:colors_name')
         \ | if &ft == "markdown"
-            \ | let b:colors_name = 'desert'
+            \ | let b:colors_name = 'wombat256'
         \ | else
             \ | let b:colors_name = 'wombat256mod'
         \ | endif
