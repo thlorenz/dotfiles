@@ -73,8 +73,6 @@ function qt
   echo -n -e "\033]0;$title\007"
 }
 
-source ./bashscripts/z.sh
-
 # Below are OS specific
 
 unamestr=`uname`
