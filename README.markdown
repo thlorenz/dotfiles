@@ -1,3 +1,13 @@
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+
+		- [Disclaimer:    ](#disclaimer:)
+		- [Installation](#installation)
+			- [Create symlinks:](#create-symlinks:)
+		- [Tagbar Plugin](#tagbar-plugin)
+- [VIM](#vim)
+	- [Updateing all Plugin modules to latest version](#updateing-all-plugin-modules-to-latest-version)
+	- [Adding Plugin Bundles](#adding-plugin-bundles)
+
 ### Disclaimer:    
 Most of these instructions are ripped off straight from [here][nelstromdotfiles].
 
@@ -37,6 +47,12 @@ Assuming you are on a Mac and have [Homebrew][homebrew] installed run:
 My preferences for Vim are stored in `dotfiles/vimrc`. 
 
 All plugins and scripts are stored in the `dotfiles/vim` directory.
+
+## Updateing all Plugin modules to latest version
+
+In order to update all submodules to the latest 'master' you can do:
+    
+    git submodule foreach git pull origin master
 
 ## Adding Plugin Bundles
 
