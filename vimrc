@@ -120,6 +120,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Python specific
   au FileType python noremap <leader>r :wa \| !python %<CR>
+  au FileType python set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 "
 " Java specific  
   au FileType java noremap mm        :wa \| !javac %:p:h/*.java<CR>
