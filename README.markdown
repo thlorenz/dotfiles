@@ -1,17 +1,18 @@
 **Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
 
-		- [Disclaimer:    ](#disclaimer:)
-		- [Installation](#installation)
-			- [Create symlinks:](#create-symlinks:)
-		- [Tagbar Plugin](#tagbar-plugin)
+- [Disclaimer](#disclaimer)
+- [Installation](#installation)
+	- [Create symlinks:](#create-symlinks:)
+	- [Tagbar Plugin](#tagbar-plugin)
 - [VIM](#vim)
-	- [Updateing all Plugin modules to latest version](#updateing-all-plugin-modules-to-latest-version)
+	- [Updating all Plugin modules to latest version](#updating-all-plugin-modules-to-latest-version)
 	- [Adding Plugin Bundles](#adding-plugin-bundles)
 
-### Disclaimer:    
+# Disclaimer
+
 Most of these instructions are ripped off straight from [here][nelstromdotfiles].
 
-### Installation
+# Installation
 
     git clone git://github.com/thlorenz/dotfiles.git
 
@@ -25,7 +26,7 @@ Vim scripts without a repo will be pulled down during clone. They can be updated
 
     ruby update_vim_scripts
 
-#### Create symlinks:
+## Create symlinks:
 
     ln -s ~/dotfiles/bashrc      ~/.bashrc
     ln -s ~/dotfiles/bashprofile ~/.profile
@@ -34,7 +35,7 @@ Vim scripts without a repo will be pulled down during clone. They can be updated
     ln -s ~/dotfiles/vim         ~/.vim
     ln -s ~/dotfiles/ctags       ~/.ctags
 
-### Tagbar Plugin
+## Tagbar Plugin
 
 In order for the tagbar plugin to work, we replace the original ctags with a [better version][exuberant].
 
@@ -48,7 +49,7 @@ My preferences for Vim are stored in `dotfiles/vimrc`.
 
 All plugins and scripts are stored in the `dotfiles/vim` directory.
 
-## Updateing all Plugin modules to latest version
+## Updating all Plugin modules to latest version
 
 In order to update all submodules to the latest 'master' you can do:
     
