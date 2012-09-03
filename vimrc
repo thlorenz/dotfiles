@@ -83,16 +83,16 @@ cmap w!! w !sudo tee % >/dev/null
   map <silent> « :TagbarToggle<CR>
   "
 " Tabularize (format)
-    noremap <silent> <leader>f=	    :Tabularize /= <CR>
-    noremap <silent> <leader>f,	    :Tabularize /, <CR>
-	noremap <silent> <leader>f:	    :Tabularize /: <CR>
+  noremap <silent> <leader>f=	  :Tabularize /= <CR>
+  noremap <silent> <leader>f,	  :Tabularize /, <CR>
+	noremap <silent> <leader>f:	  :Tabularize /: <CR>
 
 "Set tab size -- may be overridden for specific filetypes
 	set tabstop=4
 	set softtabstop=4
 	set shiftwidth=4
 	set	expandtab
-    set nowrap
+  set nowrap
 
 " Haskell specific
   au FileType haskell compiler ghc
@@ -120,6 +120,8 @@ cmap w!! w !sudo tee % >/dev/null
   au FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType stylus set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType jade set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType handlebars set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
 
 " Python specific
   au FileType python noremap <leader>r :wa \| !python %<CR>
@@ -136,7 +138,7 @@ cmap w!! w !sudo tee % >/dev/null
   set guioptions-=r  
   set guioptions-=b 
 
-  au FileType markdown set tabstop=4 softtabstop=4 shiftwidth=4
+  au FileType markdown set tabstop=2 softtabstop=2 shiftwidth=2
 
 " Line numbers
   nmap <leader>' :set relativenumber!<cr>
