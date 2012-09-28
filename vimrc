@@ -121,6 +121,7 @@ cmap w!! w !sudo tee % >/dev/null
   au FileType stylus set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType jade set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType handlebars set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType css set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 
 " Python specific
@@ -252,6 +253,9 @@ let g:EasyGrepExtraWarnings=1
 let g:EasyGrepOptionPrefix='<leader>vy'
 let g:EasyGrepReplaceAllPerFile=0
 
+" Quiet Lusty Juggler warnings that appear in sudo mode
+let g:LustyExplorerSuppressRubyWarning = 1
+
 " CtrlP options
 let g:ctrlp_map = '<Leader>t'
 set wildignore+=*/dist/*,*/.git/*,*/.svn/*,*/dist/*,*.o,*.hi,*.sqlite3
@@ -312,6 +316,7 @@ augroup filetype_colorscheme
     \ if !exists('b:colors_name')
         \ | if &ft == "markdown"
             \ | let b:colors_name = 'wombat256'
+            \ | set tw=120 fo=cqt wm=0
         \ | else
             \ | let b:colors_name = 'wombat256mod'
         \ | endif
