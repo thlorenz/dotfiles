@@ -1,0 +1,237 @@
+/*
+*	DarkDev - A theme for Chrome Developer Tools
+*	By Simon Smith - @blinkdesign;
+*/
+
+
+/*	General
+------------------------------------------------*/
+
+/* Common typography */
+#-webkit-web-inspector .source-code,
+#-webkit-web-inspector #main-panels .split-view-sidebar-right *,
+#-webkit-web-inspector #console-message,
+#-webkit-web-inspector .text-editor-contents,
+#-webkit-web-inspector #console-view * {
+	font-size: 13px !important;
+	font-family: Monaco, Consolas, "Lucida Console", monospace !important;
+	line-height: 1.6 !important;
+}
+
+/* Background */
+#-webkit-web-inspector #elements-content.source-code,
+#-webkit-web-inspector .text-editor-contents,
+#-webkit-web-inspector #console-messages {
+	background: #2D2828 !important;
+}
+
+/* Off white text colour */
+#-webkit-web-inspector .elements .outline-disclosure > ol,
+#-webkit-web-inspector .webkit-html-text-node,
+#-webkit-web-inspector .webkit-css-number,
+#-webkit-web-inspector .webkit-javascript-ident,
+#-webkit-web-inspector .webkit-line-content,
+#-webkit-web-inspector #console-messages .title,
+#-webkit-web-inspector #console-messages .separator,
+#-webkit-web-inspector #console-messages .value,
+#-webkit-web-inspector #console-messages .source-code {
+	color: #E6E1DC !important;
+}
+
+/*	Source Code
+------------------------------------------------*/
+
+/* HTML */
+
+#-webkit-web-inspector .webkit-html-tag {
+	color: #858EF4 !important;
+}
+
+#-webkit-web-inspector .webkit-html-attribute.editing * {
+	color: #000 !important;
+}
+
+#-webkit-web-inspector .webkit-html-attribute-name {
+	color: #CC99FF !important;
+}
+
+#-webkit-web-inspector .webkit-html-attribute-value {
+	color: #AD935C !important;
+}
+
+#-webkit-web-inspector .webkit-html-comment {
+	color: #797979 !important;		
+}
+
+#-webkit-web-inspector .elements .hovered,
+#-webkit-web-inspector .elements .selected,
+#-webkit-web-inspector .console .hovered,
+#-webkit-web-inspector .console .selected {
+	background: #444 !important;
+	border-radius: 3px;
+}
+
+#-webkit-web-inspector .elements .parent::before {
+	content: url(chrome-devtools://devtools/Images/treeRightTriangleWhite.png) !important;
+	position: relative;
+	z-index: 999;
+}
+
+#-webkit-web-inspector .elements .parent.expanded::before {
+	content: url(chrome-devtools://devtools/Images/treeDownTriangleWhite.png) !important;
+}
+
+/* Overrides arrow icons */
+#-webkit-web-inspector #elements-content .properties li.parent::before,
+#-webkit-web-inspector .properties-tree li.parent::before,
+#-webkit-web-inspector .console .outline-disclosure li.parent::before,
+#-webkit-web-inspector .console-group-messages .section .header::before,
+#-webkit-web-inspector #elements-content .section > .header::before,
+#-webkit-web-inspector #elements-content .properties-tree li.parent::before,
+#-webkit-web-inspector #elements-content .event-bars .event-bar .header::before {
+	content: url(chrome-devtools://devtools/Images/treeRightTriangleWhite.png) !important;
+}
+
+/* Expanded arrow icons */
+#-webkit-web-inspector #elements-content .styles-section .properties li.parent.expanded::before,
+#-webkit-web-inspector #elements-content .section.expanded > .header::before,
+#-webkit-web-inspector .properties-tree li.parent.expanded::before,
+#-webkit-web-inspector .console .outline-disclosure li.parent.expanded::before,
+#-webkit-web-inspector .console-group-messages .section.expanded .header::before,
+#-webkit-web-inspector #elements-content .properties-tree li.parent.expanded::before,
+#-webkit-web-inspector #elements-content .event-bars .event-bar.expanded .header::before {
+	content: url(chrome-devtools://devtools/Images/treeDownTriangleWhite.png) !important;
+}
+
+/* CSS */
+
+#-webkit-web-inspector .webkit-css-comment {
+	color: #797979 !important;
+}
+
+#-webkit-web-inspector .webkit-css-color {
+	color: #AFA2FE !important;
+}
+
+#-webkit-web-inspector .webkit-css-selector {
+	color: #E4A109 !important;
+} 
+
+#-webkit-web-inspector .webkit-css-property {
+	color: #B49797 !important;
+}
+
+#-webkit-web-inspector .webkit-css-keyword {
+	color: #D66B5F !important;
+}
+
+#-webkit-web-inspector .webkit-css-important {
+	background: #CC0033 !important;
+	color: #fff !important;
+}
+
+/* Javascript */
+
+#-webkit-web-inspector .webkit-javascript-comment {
+	color: #797979 !important;
+}
+
+#-webkit-web-inspector .webkit-javascript-keyword {
+	color: #16B1C7 !important;  
+}
+
+#-webkit-web-inspector .webkit-javascript-string {
+	color: #8C8769 !important;
+}
+
+#-webkit-web-inspector .webkit-javascript-number {
+	color: #CC6600 !important;
+}
+
+/*  Source Code - Pane
+------------------------------------------------*/
+
+/* Generic */
+
+#-webkit-web-inspector #main-panels .pane > .title,
+#-webkit-web-inspector #main-panels .sidebar-separator,
+#-webkit-web-inspector #main-panels .sidebar-pane-subtitle {
+    font-family: sans-serif !important;
+}
+
+/* Right Pane */
+
+#-webkit-web-inspector .split-view-sidebar-right .webkit-css-property {
+    color: #D66B5F !important;
+}
+
+#-webkit-web-inspector .selector-matches {
+	color: green !important;
+	font-weight: bold;
+}
+
+/*	Network
+------------------------------------------------*/
+#-webkit-web-inspector .header-value {
+	font-size: 11px !important;
+}
+
+/*	Console
+------------------------------------------------*/
+#-webkit-web-inspector .console-user-command > .console-message-text {
+	color: #8bb5cd !important;
+}
+
+#-webkit-web-inspector #console-messages a {
+	color: #ccc !important;
+}
+
+#-webkit-web-inspector #console-messages a:hover {
+	color: #fff !important;
+}
+
+#-webkit-web-inspector .console-formatted-boolean {
+	color: #CC6600 !important;	
+}
+
+#-webkit-web-inspector .console-error-level .console-message-text,
+#-webkit-web-inspector .console-error-level .section .header .title {
+	color: #fff !important;
+	background-color: #921515 !important;
+	padding-left: 3px;
+	border-radius: 5px;
+}
+
+#-webkit-web-inspector .console-error-level .children .source-code {
+	background: #66150e !important;
+	padding: 0 4px !important;
+}
+
+#-webkit-web-inspector .console-error-level .properties-tree {
+	font-weight: normal !important;
+}
+
+#-webkit-web-inspector .console-message, 
+#-webkit-web-inspector .console-user-command {
+	border-color: #3a3a3a !important;
+	padding-top: 5px !important;
+}
+
+#-webkit-web-inspector .console-message {
+	padding-bottom: 5px !important;
+	margin-bottom: 3px;
+}
+
+#-webkit-web-inspector .console .console-formatted-string {
+	color: #8C8769 !important;
+}
+
+#-webkit-web-inspector .console .name {
+	color: #c467c7 !important;
+} 
+
+/*	Resource
+------------------------------------------------*/
+#-webkit-web-inspector .resource-headers-view .outline-disclosure .header-name {
+	color: #6a130c !important;
+}

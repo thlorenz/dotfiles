@@ -1,0 +1,264 @@
+/* BASE */
+body .monospace,
+body .source-code,
+#elements-sidebar .pane>.body .info,
+.webkit-line-content {
+	background:#112435 !important;
+	color:#d5d5d5 !important;
+}
+
+#elements-sidebar .editing,
+#elements-content .editing,
+#elements-sidebar .child-editing {
+	
+}
+
+.webkit-line-number {
+	color:#EEE !important;
+	background-color:#1f4661 !important;
+}
+
+.parent::before,
+.console-group-messages .section .header::before {
+	content:url(chrome-devtools://devtools/Images/treeRightTriangleWhite.png) !important;
+}
+.parent.expanded::before,
+.console-group-messages .section.expanded .header::before {
+	content:url(chrome-devtools://devtools/Images/treeDownTriangleWhite.png) !important;
+}
+
+
+
+
+
+/* CONSOLE */
+#console-messages .console-user-command {
+	border-bottom:0px none !important;
+}
+#console-messages .console-message {
+	border-bottom:1px solid #1a3f5a !important;
+}
+
+
+
+#console-messages .console-user-command::before {
+	background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OTMzNzdGNUZDMTA1MTFFMDgwRUZGQ0JCMjgzMzU0MTYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OTMzNzdGNjBDMTA1MTFFMDgwRUZGQ0JCMjgzMzU0MTYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5MzM3N0Y1REMxMDUxMUUwODBFRkZDQkIyODMzNTQxNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5MzM3N0Y1RUMxMDUxMUUwODBFRkZDQkIyODMzNTQxNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pia6udAAAAB5SURBVHjaYvz//z8DMYAFxli9ejWI6oByK5AVhYaGIhRCgQsQGwOxIFTxe5gEE5pCVyA+C8RpQLwbqgmrwvdQxauhis6AbMamEASUkEwCabyHTWE51BQlqBNMoDSKQhckX3dCFd3DCB4g2AP16VkoGwUwEhvgAAEGAAzQHBRSxqPRAAAAAElFTkSuQmCC)!important;
+}
+#console-prompt::before {
+	background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjRGNTc2MTZDMTA2MTFFMDgwRUZGQ0JCMjgzMzU0MTYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjRGNTc2MTdDMTA2MTFFMDgwRUZGQ0JCMjgzMzU0MTYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5MzM3N0Y2MUMxMDUxMUUwODBFRkZDQkIyODMzNTQxNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5MzM3N0Y2MkMxMDUxMUUwODBFRkZDQkIyODMzNTQxNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Plf0eOsAAAB4SURBVHjaYvz//z8DMYAFxph+BqyhA8qtQFaUacKIUAgFLkBsDMSCUMXvYRJMaApdgfgsEKcB8W6oJqwK30MVr4YqOgPEodgUgoASkkkgjfewKSyHmqIEdYIJlEZR6ILk606oonsYwQMEe6A+PQtlowBGYgMcIMAAF2wcFPVNZx8AAAAASUVORK5CYII=)!important;
+}
+#console-messages .console-user-command-result.console-log-level::before {
+   opacity:0.3;
+}
+
+
+
+/* text */
+#console-prompt {
+	color:#FFF !important;
+}
+#console-messages .console-message {
+	color: #8db2cc !important;
+}
+#console-messages .console-user-command>.console-message-text { /* previously typed */
+	color:#EEE !important;
+}
+
+#console-messages a {
+	color:#aaa !important;
+}
+
+/* specifics */
+#console-messages .console-formatted-number {
+	color: #F0F !important;
+}
+#console-messages .console-formatted-string {
+	color: #cf7136 !important;
+}
+#console-messages .console-formatted-object {
+	color: #cf7136 !important;
+}
+#console-messages .console-formatted-function {
+	color: #ffff99 !important;
+}
+#console-messages .console-formatted-regexp {
+	color: #cf7136 !important;
+}
+
+
+#console-messages .console-group-messages .section .header .title {
+	color: #f1f1f1 !important;
+}
+#console-messages .section .properties .name, .event-properties .name {
+	color: #96cbfe !important;
+}
+#console-messages .console-error-level .console-message-text,
+#console-messages .console-error-level .console-message-text .section .header .title {
+	color:#F22 !important;
+}
+#console-messages .console-warning-level .console-message-text,
+#console-messages .console-warning-level .console-message-text .section .header .title {
+	color:#cc2 !important;
+}
+#console-messages .outline-disclosure li div {
+	color:#aaa !important;
+}
+
+
+
+
+
+/*
+#storage-views .script-view,#network-views .script-view,#script-resource-views .script-view {
+color:#ccc!important;
+}
+*/
+
+
+
+
+
+/* HTML */
+.webkit-html-comment {
+	color:#3A8BDA !important;
+}
+.webkit-html-doctype {
+	color:#999 !important;
+}
+.webkit-html-tag {
+	color:#7BD827 !important;
+}
+.webkit-html-attribute {
+	color:#eee !important;
+}
+.webkit-html-attribute-name {
+	color:#cf7136 !important;
+}
+.webkit-html-attribute-value {
+	color:#8DB0D3 !important;
+}
+.webkit-html-text-node {
+	color:#eee !important;
+}
+
+
+
+/* CSS */
+.webkit-html-css-node {
+	color:#bbb !important;
+}
+.webkit-css-comment {
+	color:#3A8BDA !important;
+}
+.webkit-css-selector {
+	color:#f4dd0b !important;
+}
+.webkit-css-property {
+	color:#eee !important;
+}
+
+.webkit-css-number, .webkit-css-keyword, .webkit-css-color, .webkit-css-url {
+	color:#8DB0D3 !important;
+}
+.webkit-css-at-rule {
+	color:#F0804F !important;
+}
+.webkit-css-important {
+	color:#F0F !important;
+}
+
+
+.styles-selector {
+	color:#F4DD0B !important;
+}
+.webkit-css-string {
+	color:#8DB0D3 !important;
+}
+.properties-tree .value {
+	color:#8DB0D3 !important;
+}
+
+
+
+
+
+
+/* JAVASCRIPT */
+.webkit-html-js-node {
+	color:#7BD827 !important;
+}
+.webkit-javascript-comment {
+	color:#3A8BDA !important;
+}
+
+.webkit-javascript-keyword {
+	color:#ffff80 !important;
+}
+
+.webkit-javascript-ident {
+	color:#8DB0D3 !important;
+}
+
+.webkit-javascript-string {
+	color:#cf7136 !important;
+}
+
+.webkit-javascript-number {
+	color:#F0F !important;
+}
+
+.webkit-javascript-regexp {
+	color:#cf7136 !important;
+}
+
+
+
+
+
+
+
+#elements-content .highlight {
+	color:#f1f1f1;
+}
+
+
+
+
+#elements-content li.hovered {
+	background:rgba(255, 255, 255, .04) !important;
+}
+
+#elements-content li.selected {
+	background:rgba(200, 230, 255, .09) !important;
+}
+
+
+
+
+.editing {
+	color:#000 !important;
+}
+.properties-tree .editing.value {
+	color:#000 !important;
+}
+.auto-complete-text, .editing .auto-complete-text {
+	color: rgb(150,150,150) !important;
+}
+ 
+ 
+.webkit-html-external-link, .webkit-html-resource-link {
+	color:#9BD !important;
+}
+ 
+ 
+ 
+.styles-section.monospace.read-only, .styles-section.monospace.read-only .monospace {
+	background-color:#223a4f !important;
+}
+.styles-section.monospace.read-only .subtitle {
+	color:#7fabce !important;
+}
+ 
+.styles-section.monospace.computed-style, .styles-section.monospace.computed-style .monospace {
+	background-color:#112435 !important;
+}

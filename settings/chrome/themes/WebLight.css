@@ -1,0 +1,129 @@
+/*
+*       Author:         Marten Schilstra
+*       Homepage:       http://martndemus.nl
+*       Twitter:        @martndemus
+*/
+
+    /* Global Background/Foreground Styles */
+    #elements-content,
+    #elements-sidebar .body,
+    .text-editor-contents,
+    .styles-section,
+    .webkit-line-content,
+    #console-messages {                                 background: #080808 !important;         /* Global background color */
+                                                        color: #FFFFFF !important;              /* White text */
+                                                        font-weight: bold !important; }         /* Bold Text */
+
+
+    /* HTML, CSS, JS syntax highlighting */
+    /* Append #elements-content for Elements view only */
+    .webkit-html-comment { 	                            color: #C4C4C4 !important; }            /* Comment */
+    .webkit-html-doctype { 	                            color: #DD0055 !important; }            /* Doctype */
+    .webkit-html-tag {                                  color: #55ADEE !important; }            /* Complete Tag */
+    .webkit-html-tag-name {                             color: #55ADEE !important; }            /* Tagname only */
+    .webkit-html-attribute {                            color: #DDDDAA !important; }            /* Full Attribute */
+    .webkit-html-attribute-name {                       color: #DDDDAA !important; }            /* Attribute name */
+    .webkit-html-attribute-value {                      color: #BADA55 !important; }            /* Attribute value */
+    .webkit-html-external-link { }  
+    .webkit-html-resource-link {                        text-decoration: none !important; }     /* Links */
+    .webkit-html-resource-link:hover {                  text-decoration: underline !important; }/* Link hover */
+    .webkit-html-text-tag {                             color: #FFFFFF !important; }            /* No clue .. */
+    .webkit-html-text-node {                            color: #FFFFFF !important; }            /* Text color */
+
+    .webkit-css-comment {                               color: #c4c4c4 !important; }            /* Comment */
+    .webkit-css-url {                                   text-decortation: none !important; }    /* Links */
+    .webkit-css-url:hover {                             text-decoration: underline !important; }/* Link hover */                                                
+    .webkit-css-color {                                 color: #BADA55 !important; }            /* HEX/RGB Color */
+    .webkit-css-selector {                              color: #55ADEE !important; }            /* Selectors */
+    .webkit-css-property {                              color: #DDDDAA !important; }            /* Properties */
+    .webkit-css-number {                                color: #BADA55 !important; }            /* Numbers/Ints/Floats */
+    .webkit-css-keyword {                               color: #BADA55 !important; }            /* Properties */
+    .webkit-css-string {                                color: #BADA55 !important; }            /* Strings */
+    .webkit-css-important {                             color: #DD0055 !important; }            /* !important */
+    .webkit-css-at-rule {                               color: #DD0055 !important; }            /* @font-face, etc */
+
+    .webkit-javascript-comment {	                    color: #c4c4c4 !important; }            /* Comments */
+    .webkit-javascript-ident {                          color: #FFFFFF !important; }            /* Variables names */
+    .webkit-javascript-string {                         color: #BADA55 !important; }            /* Strings */
+    .webkit-javascript-number {                         color: #FF9911 !important; }            /* Numbers/Ints/Floats */
+    .webkit-javascript-regexp {                         color: #66FFFF !important; }            /* Regular Expressions */
+    .webkit-javascript-keyword {                        color: #55ADEE !important; }            /* Conditionals/Var/Function */
+
+
+    /* Elements view sidebar specific */
+    #elements-sidebar .read-only {                      background: #444444 !important }        /* Read only CSS blocks */       
+    #elements-sidebar .header {                         color: #55ADEE !important; }            /* CSS Block Titles */
+    #elements-sidebar .subtitle {                       color: #c4c4c4 !important; }            /* CSS Block origin */
+    #elements-sidebar .event-bar .title,
+    #elements-sidebar .metrics {                        background: #FFFFFF !important; }       /* Eh.. */
+    #elements-sidebar .info,
+    #elements-sidebar .properties {                     color: #FFFFFF !important; }            /* Various Text */
+    #elements-sidebar .console-formatted-number {       color: #FF9911 !important; }            /* Numbers/Ints/Floats */
+    #elements-sidebar .name {                           color: #DDDDAA !important; }            /* JS object Keys */
+    #elements-sidebar .value {                          color: #BADA55 !important; }            /* JS object Values */
+    #elements-sidebar .webkit-html-resource-link {      color: #C4C4C4 !important; }            /* Links */
+    #elements-sidebar .editing {                        background: #080808 !important;}        /* CSS editing */
+
+
+    /* Selected, editing, etc for Elements view */
+    #elements-content .highlight {                      color: #FFFFFF !important; }            /* ""'s for <P> */
+    #elements-content .parent { }
+    #elements-content .selection { }
+    #elements-content .selection.selected { }
+    #elements-content .selected {                       background: #444444 !important;         /*line highlight*/
+                                                        border-radius: 2px; }
+    #elements-content .editing {                        background: #444444 !important;         /*inline editing */
+                                                        outline: 0 !important;
+                                                        -webkit-box-shadow: none !important; }
+    #elements-content .expanded { }                                                             /* Expanded branches */
+
+    /* Console */
+    .console-message-text {                             color: #FFFFFF !important; }            /* Text Color */
+    .console-message-text .name {                       color: #DDDDAA !important;              /* JS Object Keys */
+                                                        opacity: 1.0 !important;}
+    .console-message-text .value {                      color: #BADA55 !important; }            /* JS Object Values */                                                  
+    .console-message-text .separator {                  color: #FFFFFF !important; }            /* JS Object Colon */
+    .console-formatted-string {                         color: #BADA55 !important; }            /* JS String */
+    .console-formatted-node   {                         color: #BADA55 !important; }            /* Node Name */
+    .console-group-messages .section .header .title,
+    .console-formatted-object {                         color: #BADA55 !important;              /* Object Name */
+                                                        font-weight:bold !important; }
+    #console-prompt {                                   color: #FFFFFF !important; }            /* Console Input Txt Color */
+    .console-error-level .section .header .title {	    color: #DD0055 !important; }            /* Console Error Messages */
+    .console-message, .console-user-command {           border-bottom: 1px solid #444 !Important; } /* Console Lines */
+
+
+    /* Line Numbers */
+    .text-editor-lines,
+    .webkit-line-gutter-backdrop,
+    .webkit-line-number {                               background: #222222 !important;
+                                                        color: #FFFFFF !important;
+                                                        border-right: 0px solid #222222 !important; }
+     
+
+
+    /* Adjustment for dark backgrounds */
+    /* This switches the dark tree triangles for white ones */
+    /* Comment/remove this if you want to use a light background */
+
+    .outline-disclosure li.parent::before,
+    .properties-tree li.parent::before,
+    .console-group-messages .section .header::before,
+    #elements-content .parent::before,
+    #elements-sidebar .styles-section .properties li.parent::before,
+    #elements-sidebar .section > .header::before,
+    #elements-sidebar .properties-tree li.parent::before,
+    #elements-sidebar .event-bars .event-bar .header::before {
+        content: url(chrome-devtools://devtools/Images/treeRightTriangleWhite.png) !important;
+    }
+
+    .outline-disclosure li.parent.expanded::before,
+    .properties-tree li.parent.expanded::before,
+    .console-group-messages .section.expanded .header::before,
+    #elements-content .parent.expanded::before,
+    #elements-sidebar .styles-section .properties li.parent.expanded::before,
+    #elements-sidebar .section.expanded > .header::before,
+    #elements-sidebar .properties-tree li.parent.expanded::before,
+    #elements-sidebar .event-bars .event-bar.expanded .header::before {
+        content: url(chrome-devtools://devtools/Images/treeDownTriangleWhite.png) !important;
+    }

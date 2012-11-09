@@ -1,0 +1,340 @@
+/**********************************************/
+/*
+/* IR_Black Skin by Ben Truyman - 2011
+/*
+/* Based on Todd Werth's IR_Black:
+/* http://blog.toddwerth.com/entries/2
+/*
+/* Inspired by Darcy Clarke's blog post:
+/* http://darcyclarke.me/design/skin-your-chrome-inspector/
+/*
+/**********************************************/
+
+/**********************************************/
+/* Basic font and color settings
+/**********************************************/
+
+  body.platform-mac .monospace, body.platform-mac .source-code,
+  body.platform-mac.platform-mac-snowleopard .monospace,
+  body.platform-mac.platform-mac-snowleopard .source-code,
+  body.platform-windows .monospace, body.platform-windows .source-code ,
+  body.platform-linux .monospace, body.platform-linux .source-code,
+  .webkit-line-number,
+  .webkit-line-content,
+  #elements-sidebar .editing,
+  #elements-content .editing,
+  #elements-sidebar .child-editing,
+  #elements-sidebar .pane > .body .info {
+    font-family: "Panic Sans", "DroidSansMono", Menlo, Consolas, Lucida Console, dejavu sans mono, monospace !important;  
+    font-size: 13px !important;
+    background: #242424 !important;
+    color: #f1f1f1 !important;
+  }
+  
+  .webkit-line-number { 
+    color: #818181 !important;
+  }
+  
+  .pane > .body .info,
+  #elements-sidebar .pane > .body .info {
+    font-size: 10px !important;
+  }
+
+/**********************************************/
+/* Console
+/**********************************************/
+
+  /**********************************************/
+  /* Messages
+  /**********************************************/
+ 
+  #console-messages a {
+    color: #666 !important;
+  }
+  
+  #console-messages a:hover {
+    color: #999 !important;
+  }
+  
+  #console-messages .console-message {
+    color: #f1f1f1 !important;
+  }
+  
+  #console-messages .console-message, .console-user-command {
+    border-bottom: 1px solid #444 !important;
+  }
+  
+  #console-messages .console-user-command > .console-message-text {
+    color: #ffd2a7 !important;
+  }
+  
+  #console-messages .console-formatted-number {
+    color: #ff73fd !important;
+  }
+  
+  #console-messages .console-formatted-string {
+    color: #a8ff60 !important;
+  }
+  
+  #console-messages .console-formatted-object {
+    color: #7c7c7c !important;
+  }
+  
+  #console-messages .console-formatted-function {
+    color: #fff !important;
+  }
+  
+  #console-messages .console-formatted-regexp {
+    color: #e9c062 !important;
+  }
+  
+  #console-messages .console-group-messages .section .header .title {
+    color: #f1f1f1 !important;
+  }
+  
+  #console-messages .section .properties .name, .event-properties .name {
+    color: #96cbfe !important;
+  }
+  
+  #console-messages .console-group-messages .section .header::before,
+  #console-messages .properties-tree li.parent::before {
+    content: url(chrome-devtools://devtools/Images/treeRightTriangleWhite.png) !important;
+  }
+  
+  #console-messages .console-group-messages .section.expanded .header::before,
+  #console-messages .properties-tree li.parent.expanded::before {
+    content: url(chrome-devtools://devtools/Images/treeDownTriangleWhite.png) !important;
+  }
+  
+  @-webkit-keyframes webkit-error-level { 
+    0%   { color: #f77; !important }
+    50%  { color: #f00; !important }
+    100% { color: #f77; !important }
+  }
+  
+  #console-messages .console-error-level .console-message-text {
+    color: #f66 !important;
+    -webkit-animation-name: webkit-error-level;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-timing-function: ease-in-out;
+  }
+  
+  #console-messages .console-user-command::before {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OTMzNzdGNUZDMTA1MTFFMDgwRUZGQ0JCMjgzMzU0MTYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OTMzNzdGNjBDMTA1MTFFMDgwRUZGQ0JCMjgzMzU0MTYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5MzM3N0Y1REMxMDUxMUUwODBFRkZDQkIyODMzNTQxNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5MzM3N0Y1RUMxMDUxMUUwODBFRkZDQkIyODMzNTQxNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pia6udAAAAB5SURBVHjaYvz//z8DMYAFxli9ejWI6oByK5AVhYaGIhRCgQsQGwOxIFTxe5gEE5pCVyA+C8RpQLwbqgmrwvdQxauhis6AbMamEASUkEwCabyHTWE51BQlqBNMoDSKQhckX3dCFd3DCB4g2AP16VkoGwUwEhvgAAEGAAzQHBRSxqPRAAAAAElFTkSuQmCC) !important;
+  }
+  
+  #console-messages .outline-disclosure li.parent::before {
+    content: url(chrome-devtools://devtools/Images/treeRightTriangleWhite.png) !important;
+  }
+  
+  /**********************************************/
+  /* Prompt
+  /**********************************************/
+  
+  #console-prompt {
+    color: #f1f1f1 !important;
+  }
+  
+  #console-prompt::before {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjRGNTc2MTZDMTA2MTFFMDgwRUZGQ0JCMjgzMzU0MTYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjRGNTc2MTdDMTA2MTFFMDgwRUZGQ0JCMjgzMzU0MTYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5MzM3N0Y2MUMxMDUxMUUwODBFRkZDQkIyODMzNTQxNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5MzM3N0Y2MkMxMDUxMUUwODBFRkZDQkIyODMzNTQxNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Plf0eOsAAAB4SURBVHjaYvz//z8DMYAFxph+BqyhA8qtQFaUacKIUAgFLkBsDMSCUMXvYRJMaApdgfgsEKcB8W6oJqwK30MVr4YqOgPEodgUgoASkkkgjfewKSyHmqIEdYIJlEZR6ILk606oonsYwQMEe6A+PQtlowBGYgMcIMAAF2wcFPVNZx8AAAAASUVORK5CYII=) !important;
+    color: #fff !important;
+  }
+
+/**********************************************/
+/* View Source
+/**********************************************/
+
+  .webkit-line-number {
+    background-color: #f0f0f0 !important;
+  }
+
+  .webkit-line-content {
+    color: #fff !important;
+  }
+
+/**********************************************/
+/* Elements/Network
+/**********************************************/
+
+  /**********************************************/
+  /* Layout
+  /**********************************************/
+  #storage-views .script-view,
+  #network-views .script-view,
+  #script-resource-views .script-view {
+    color: #ccc !important;
+  }
+  
+  #elements-content .highlight { 
+    color: #f1f1f1;
+  }
+  
+  #elements-content li.hovered:not(.selected) .selection {
+    background: rgba(255, 255, 255, .2) !important;
+  }
+
+  #elements-content .selection.selected {
+    z-index: 0 !important;
+  }
+
+  #elements-content ol:focus li.selected .selection {
+    background: #3f4360 !important;
+  }
+
+  #elements-content .selected .highlight {
+    position: relative;
+    z-index: 2;
+  }
+  
+  #elements-content .selected {
+    background-color: #4c4d5d !important;
+  }
+  
+  #elements-content .parent::before {
+    content: url(chrome-devtools://devtools/Images/treeRightTriangleWhite.png) !important;
+    position: relative;
+    z-index: 999;
+  }
+  
+  #elements-content .parent.expanded::before {
+    content: url(chrome-devtools://devtools/Images/treeDownTriangleWhite.png) !important;
+  }
+  
+  /**********************************************/
+  /* HTML
+  /**********************************************/
+  .webkit-html-comment {
+    color: #7c7c7c !important;
+  }
+  
+  .webkit-html-tag {
+    color: #96cbfe !important;
+  }
+  
+  .webkit-html-attribute-name {
+    color: #ffd2a7 !important;
+  }
+  
+  .webkit-html-attribute-value {
+    color: #a8ff60 !important;
+  }
+  
+  .webkit-html-css-node {
+    color: #c2c3c3 !important;
+  }
+  
+  .webkit-html-js-node {
+    color: #c2c3c3 !important;
+  }
+  
+  .webkit-html-external-link {
+    color: #ff73fd !important;
+  }
+  
+  /**********************************************/
+  /* CSS
+  /**********************************************/
+  
+  .webkit-css-comment {
+    color: #7c7c7c !important;
+  }
+  
+  .webkit-css-selector {
+    color: #62b1fe !important;
+  }
+  
+  .webkit-css-property {
+    color: #fff !important;
+  }
+  
+  .webkit-css-keyword {
+    color: #f9ee98 !important;
+  }
+  
+  .webkit-css-number {
+    color: #ff73fd !important;
+  }
+  
+  .webkit-css-at-rule {
+    color: #96cbfe !important;
+  }
+  
+  .webkit-css-string {
+    color: #a8ff60 !important;
+  }
+  
+  .webkit-css-url {
+    color: #c6c5fe !important;
+  }
+  
+  /**********************************************/
+  /* JavaScript
+  /**********************************************/
+  
+  .webkit-javascript-ident {
+    color: #fff !important;
+  }
+  
+  .webkit-javascript-keyword {
+    color: #cfcb90 !important;
+  }
+  
+  .webkit-javascript-comment {
+    color: #7c7c7c !important;
+  }
+  
+  .webkit-javascript-string {
+    color: #a8ff60 !important;
+  }
+  
+  .webkit-javascript-number {
+    color: #ff73fd !important;
+  }
+  
+  .webkit-javascript-regexp {
+    color: #e9c062 !important;
+  }
+
+
+/**********************************************/
+/* Sidebar
+/**********************************************/
+  #elements-sidebar {
+    background: #242424 !important;
+  }
+  
+  #elements-sidebar .styles-section.read-only,
+  #elements-sidebar .styles-section.read-only .monospace {
+    background: #3f4360 !important;
+  }
+  
+  #elements-sidebar .subtitle {
+    color: #aaa !important;
+  }
+  
+  #elements-sidebar .styles-section .header .title span:first-child,
+  #elements-sidebar .styles-selector span:first-child {
+    color: #62b1fe !important;
+  }
+  
+  #elements-sidebar .webkit-css-property {
+    color: #f1f1f1 !important;
+  }
+  
+  #elements-sidebar .properties .value {
+    color: #f9ee98 !important;
+  }
+  
+  #elements-sidebar .webkit-html-external-link,
+  #elements-sidebar .webkit-html-resource-link {
+    color: #ff73fd !important;
+  }
+  
+  #elements-sidebar .styles-section .properties li.parent::before {
+    content: url(chrome-devtools://devtools/Images/treeRightTriangleWhite.png) !important;
+  }
+  
+  #elements-sidebar .styles-section .properties li::before {
+    opacity: 1 !important;
+  }
