@@ -88,9 +88,9 @@ cmap w!! w !sudo tee % >/dev/null
 	noremap <silent> <leader>f:	  :Tabularize /: <CR>
 
 "Set tab size -- may be overridden for specific filetypes
-	set tabstop=4
-	set softtabstop=4
-	set shiftwidth=4
+	set tabstop=2
+	set softtabstop=2
+	set shiftwidth=2
 	set	expandtab
   set nowrap
 
@@ -115,7 +115,7 @@ cmap w!! w !sudo tee % >/dev/null
   au FileType hamlet set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " JavaScript specific
-  au FileType javascript noremap <leader>r :wa \| !node %<CR>
+  au FileType javascript noremap <leader>r :wa \| !export NODE_PATH="/Users/thlorenz/dev/lab49/Landscape/trunk/packages" && node %<CR>
   au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
   au FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType stylus set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
@@ -235,7 +235,9 @@ cmap w!! w !sudo tee % >/dev/null
   map <leader>d :sh <CR>
 
 " EasyGrep options
-let g:EasyGrepMode=1
+
+let g:EasyGrepFileAssociations='/Users/thlorenz/.vim/bundle/easygrep/plugin/EasyGrepFileAssociations'
+let g:EasyGrepMode=0
 let g:EasyGrepCommand=0
 let g:EasyGrepRecursive=1
 let g:EasyGrepIgnoreCase=1
@@ -258,6 +260,7 @@ let g:LustyExplorerSuppressRubyWarning = 1
 
 " CtrlP options
 let g:ctrlp_map = '<Leader>t'
+let g:ctrlp_working_path_mode = 'r'
 set wildignore+=*/dist/*,*/.git/*,*/.svn/*,*/dist/*,*.o,*.hi,*.sqlite3
 
 "Commands
@@ -315,7 +318,7 @@ augroup filetype_colorscheme
     au BufEnter *
     \ if !exists('b:colors_name')
         \ | if &ft == "markdown"
-            \ | let b:colors_name = 'wombat256'
+            \ | let b:colors_name = 'wombat256mod'
             \ | set tw=120 fo=cqt wm=0
         \ | else
             \ | let b:colors_name = 'wombat256mod'
