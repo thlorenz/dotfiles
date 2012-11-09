@@ -165,3 +165,6 @@ else
   echo "No special configuration known for $unamestr"
 fi
 
+# Landscape
+
+export NODE_PATH="/Users/thlorenz/dev/lab49/Landscape/trunk/packages"
