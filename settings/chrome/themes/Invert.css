@@ -1,0 +1,21 @@
+#-webkit-web-inspector {
+	-webkit-filter: invert(1);
+}
+
+#-webkit-web-inspector .toolbar-icon,
+#-webkit-web-inspector .swatch,
+#-webkit-web-inspector .popover,
+#-webkit-web-inspector .icon,
+#-webkit-web-inspector input[type="checkbox"],
+#-webkit-web-inspector input[type="radio"],
+#-webkit-web-inspector .control-profiling,
+#-webkit-web-inspector .resource-image-view,
+#-webkit-web-inspector .console-error-level .console-message-text,
+#-webkit-web-inspector .console-error-level .section .header .title,
+#-webkit-web-inspector .network-close-button
+{
+	-webkit-filter: invert(1);
+}
+#-webkit-web-inspector .source-code {
+	-webkit-filter: brightness(-0.3); 
+}
