@@ -35,7 +35,7 @@ body.platform-linux .monospace, body.platform-linux .source-code,
   /**********************************************/
   
   #console-messages {
-    font-family: 'ProggyClean', 'DroidSansMono', Menlo, monospace !important;
+    font-family: Menlo, Monaco, Consolas, Lucida Console, dejavu sans mono, monospace !important;  
     background: #2A211C;
   }
   
