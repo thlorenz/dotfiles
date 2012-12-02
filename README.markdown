@@ -56,6 +56,13 @@ In order to update all submodules to the latest 'master' you can do:
     
     git submodule foreach git pull origin master
 
+
+## Autojump
+
+In order to use the [autojump plugin](https://github.com/joelthelion/autojump) with zsh first install it via:
+
+`brew install autojump`
+
 ## Adding Plugin Bundles
 
 Plugins that are published on github can be installed as submodules. For
