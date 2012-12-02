@@ -142,3 +142,6 @@
 [submodule "zsh"]
 	path = zsh
 	url = git@github.com:thlorenz/oh-my-zsh.git
+[submodule "vim/bundle/easytags"]
+	path = vim/bundle/easytags
+	url = git://github.com/xolox/vim-easytags.git
