@@ -123,7 +123,13 @@ cmap w!! w !sudo tee % >/dev/null
   au FileType handlebars set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType css set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
-
+" C specific
+" au FileType c noremap <leader>r :wa \| make \| !./%:r<CR> 
+  
+" C++ specific
+  set ut=5000
+  au FileType cpp,cc noremap <leader>r :<C-U>make %:r && ./%:r && rm ./%:r<CR>
+ 
 " Python specific
   au FileType python noremap <leader>r :wa \| !python %<CR>
   au FileType python set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
@@ -232,7 +238,7 @@ cmap w!! w !sudo tee % >/dev/null
   map <silent> ,: :wa \|! spec . --format html:spec/spec_report.html <CR> <CR> 
  
 " Open new terminal shell
-  map <leader>d :sh <CR>
+  map <leader>d :!zsh <CR>
 
 " EasyGrep options
 
