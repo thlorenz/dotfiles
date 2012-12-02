@@ -54,7 +54,7 @@ alias gb='git branch'
 alias gc='git checkout'
 alias gra='git remote add'
 alias grr='git remote rm'
-alias gpu='git pull'
+alias gpu='git pull --rebase'
 alias gcl='git clone'
 
 # Environment Variables
@@ -168,3 +168,5 @@ fi
 # Landscape
 
 export NODE_PATH="/Users/thlorenz/dev/lab49/Landscape/trunk/packages"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
