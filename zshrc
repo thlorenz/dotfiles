@@ -1,7 +1,7 @@
 ZSH=$HOME/dotfiles/zsh
 ZSH_THEME="awesomepanda"
 
-plugins=(vi-mode git svn autojump dircycle)
+plugins=(vi-mode my-git svn autojump dircycle)
 
 source $ZSH/oh-my-zsh.sh
 
