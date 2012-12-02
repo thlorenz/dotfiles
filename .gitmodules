@@ -139,3 +139,6 @@
 [submodule "vim/bundle/mustache"]
 	path = vim/bundle/mustache
 	url = git://github.com/juvenn/mustache.vim.git
+[submodule "zsh"]
+	path = zsh
+	url = git@github.com:thlorenz/oh-my-zsh.git
