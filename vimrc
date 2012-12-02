@@ -22,12 +22,25 @@ set showmatch
 set shiftround
 set ruler
 set scrolloff=4
+
 set incsearch 
 set ignorecase
+set smartcase
+
 set backspace=2         
 set nu
 set hidden
 set mouse=a
+
+" from: http://items.sjbach.com/319/configuring-vim-right
+set wildmenu
+
+" scroll viewport faster
+nnoremap <C-e> 5<C-e>
+nnoremap <C-y> 5<C-y>
+
+" limit "Press Enter or ... to continue"
+set shortmess=atI
 
 syn on 
 
@@ -127,7 +140,7 @@ cmap w!! w !sudo tee % >/dev/null
 " au FileType c noremap <leader>r :wa \| make \| !./%:r<CR> 
   
 " C++ specific
-  set ut=5000
+  set ut=100000
   au FileType cpp,cc noremap <leader>r :<C-U>make %:r && ./%:r && rm ./%:r<CR>
  
 " Python specific
