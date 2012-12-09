@@ -282,6 +282,9 @@ let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_working_path_mode = 'r'
 set wildignore+=*/dist/*,*/.git/*,*/.svn/*,*/dist/*,*.o,*.hi,*.sqlite3
 
+" VCS specific
+let g:VCSCommandDeleteOnHide=1
+
 "Commands
 command! -nargs=* Wrap set wrap linebreak nolist
 
