@@ -51,6 +51,9 @@ let mapleader=","
 " Toggle highlight search
 noremap <F2> :set hlsearch! hlsearch?<CR>
 
+" Open file under cursor in new vertical split
+map <F8> :vertical wincmd f<CR>
+
 " Select different color for matching paren highlight
 au Bufenter * silent! guibg=darkblue
 
@@ -128,7 +131,7 @@ cmap w!! w !sudo tee % >/dev/null
   au FileType hamlet set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " JavaScript specific
-  au FileType javascript noremap <leader>r :wa \| !export NODE_PATH="/Users/tlorenz/dev/lab49/landscape/trunk/packages" && node %<CR>
+  au FileType javascript noremap <leader>r :wa \| !export NODE_PATH="/Users/tlorenz/dev/lab49/landscape/branches/qa/packages" && node %<CR>
   au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
   au FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType stylus set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
@@ -174,17 +177,9 @@ cmap w!! w !sudo tee % >/dev/null
   filetype plugin on
   filetype indent on
 
-" Buffer and Tab Navigation
-  map <C-j> :bp<CR>
-  map <C-k> :bn<CR>
-
-  if (isMac)
-    map <D-j> :tabp<CR>
-    map <D-k> :tabn<CR>
-  else
-    map <M-j> :tabp<CR>
-    map <M-k> :tabn<CR>
-  endif
+" Tab Navigation
+  map <C-j> :tabp<CR>
+  map <C-k> :tabn<CR>
 
 " Buffer Explorer plugins
     " don't override <leader>t which is I use for ctrlp
