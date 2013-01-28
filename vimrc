@@ -33,7 +33,7 @@ set hidden
 set mouse=a
 
 " from: http://items.sjbach.com/319/configuring-vim-right
-set wildmenu
+" set wildmenu
 
 " scroll viewport faster
 nnoremap <C-e> 5<C-e>
@@ -131,13 +131,14 @@ cmap w!! w !sudo tee % >/dev/null
   au FileType hamlet set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " JavaScript specific
-  au FileType javascript noremap <leader>r :wa \| !export NODE_PATH="/Users/tlorenz/dev/lab49/landscape/branches/qa/packages" && node %<CR>
+  au FileType javascript noremap <leader>r :wa \| !export NODE_PATH="/Users/tlorenz/dev/lab49/landscape/trunk/packages" && node %<CR>
   au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
   au FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType stylus set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType jade set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType handlebars set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType css set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  au FileType javascript nnoremap <leader>D  :<C-u>call WriteJSDocComment()<CR>
 
 " C specific
 " au FileType c noremap <leader>r :wa \| make \| !./%:r<CR> 
@@ -250,24 +251,24 @@ cmap w!! w !sudo tee % >/dev/null
 
 " EasyGrep options
 
-"let g:EasyGrepFileAssociations='/Users/thlorenz/.vim/bundle/easygrep/plugin/EasyGrepFileAssociations'
-"let g:EasyGrepMode=0
-"let g:EasyGrepCommand=0
-"let g:EasyGrepRecursive=1
-"let g:EasyGrepIgnoreCase=1
-"let g:EasyGrepHidden=0
-"let g:EasyGrepSearchCurrentBufferDir=1
-"let g:EasyGrepAllOptionsInExplorer=1
-"let g:EasyGrepWindow=1
-"let g:EasyGrepReplaceWindowMode=0
-"let g:EasyGrepOpenWindowOnMatch=1
-"let g:EasyGrepEveryMatch=0
-"let g:EasyGrepJumpToMatch=1
-"let g:EasyGrepInvertWholeWord=0
-"let g:EasyGrepFileAssociationsInExplorer=0
-"let g:EasyGrepExtraWarnings=1
-"let g:EasyGrepOptionPrefix='<leader>vy'
-"let g:EasyGrepReplaceAllPerFile=0
+let g:EasyGrepFileAssociations='/Users/tlorenz/.vim/bundle/easygrep/plugin/EasyGrepFileAssociations'
+let g:EasyGrepMode=0
+let g:EasyGrepCommand=0
+let g:EasyGrepRecursive=1
+let g:EasyGrepIgnoreCase=1
+let g:EasyGrepHidden=0
+let g:EasyGrepSearchCurrentBufferDir=1
+let g:EasyGrepAllOptionsInExplorer=1
+let g:EasyGrepWindow=0
+let g:EasyGrepReplaceWindowMode=0
+let g:EasyGrepOpenWindowOnMatch=1
+let g:EasyGrepEveryMatch=0
+let g:EasyGrepJumpToMatch=1
+let g:EasyGrepInvertWholeWord=0
+let g:EasyGrepFileAssociationsInExplorer=0
+let g:EasyGrepExtraWarnings=1
+let g:EasyGrepOptionPrefix='<leader>vy'
+let g:EasyGrepReplaceAllPerFile=0
 
 " Quiet Lusty Juggler warnings that appear in sudo mode
 let g:LustyExplorerSuppressRubyWarning = 1

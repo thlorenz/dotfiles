@@ -1,11 +1,11 @@
 ZSH=$HOME/dotfiles/zsh
-ZSH_THEME="awesomepanda"
+ZSH_THEME="robbyrussell"
 
 plugins=(vi-mode my-git svn autojump dircycle)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=/Users/thlorenz/Library/Haskell/bin:/Users/thlorenz/.cabal/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # Disable weekly auto-update checks
 DISABLE_AUTO_UPDATE="true"
