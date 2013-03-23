@@ -87,7 +87,7 @@ cmap w!! w !sudo tee % >/dev/null
   
 " Font 
   if(isMac)
-    set gfn=Monaco:h16
+    set gfn=Menlo-Powerline:h16
   else
     set gfn=Courier:h16
   endif
@@ -128,6 +128,7 @@ cmap w!! w !sudo tee % >/dev/null
   au FileType hamlet set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " JavaScript specific
+  au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
   au FileType javascript noremap <leader>r :wa \| ! node %<CR>
   " au FileType javascript noremap <leader>r :wa \| !export NODE_PATH="/Users/thlorenz/dev/lab49/Landscape/trunk/packages" && node %<CR>
   au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
@@ -138,6 +139,12 @@ cmap w!! w !sudo tee % >/dev/null
   au FileType handlebars set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType css set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
+" CSS specific
+  au FileType css set omnifunc=csscomplete#CompleteCSS
+
+" Html specific
+  au FileType html set omnifunc=htmlcomplete#CompleteTags
+
 " C specific
 " au FileType c noremap <leader>r :wa \| make \| !./%:r<CR> 
   au FileType c noremap <leader>r :wa \| make %:r && ./%:r && rm ./%:r<CR>
@@ -147,6 +154,7 @@ cmap w!! w !sudo tee % >/dev/null
   au FileType cpp,cc noremap <leader>r :<C-U>make %:r && ./%:r && rm ./%:r<CR>
  
 " Python specific
+  au FileType python set omnifunc=pythoncomplete#Complete
   au FileType python noremap <leader>r :wa \| !python %<CR>
   au FileType python set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 "
@@ -161,7 +169,7 @@ cmap w!! w !sudo tee % >/dev/null
   set guioptions-=r  
   set guioptions-=b 
 
-  au FileType markdown set tabstop=2 softtabstop=2 shiftwidth=2
+  au FileType markdown set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0
 
 " Line numbers
   nmap <leader>' :set relativenumber!<cr>
@@ -216,12 +224,14 @@ cmap w!! w !sudo tee % >/dev/null
 " Flex/ActionScript
   au FileType actionscript,mxml set omnifunc=actionscriptcomplete#Complete
 
-"Auto Compile CoffeScript on save
-  if(isGui)
-    " Below prevents saving
-    let coffee_make_options = "-p"
-    au BufWritePost *.coffee silent CoffeeMake -b | cwindow
-  endif
+" CoffeeScript specific
+  au FileType coffee noremap <leader>r :wa \| ! coffee %<CR>
+  "Auto Compile CoffeScript on save
+    if(isGui)
+      " Below prevents saving
+      let coffee_make_options = "-p"
+      au BufWritePost *.coffee silent CoffeeMake -b | cwindow
+    endif
   
 " Minibuffer Explorer Settings
   let g:miniBufExplMapWindowNavVim = 1
@@ -280,6 +290,10 @@ let g:EasyGrepReplaceAllPerFile=0
 " Quiet Lusty Juggler warnings that appear in sudo mode
 let g:LustyExplorerSuppressRubyWarning = 1
 
+" powerline options
+let g:Powerline_symbols = 'fancy'
+set t_Co=256
+
 " CtrlP options
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_working_path_mode = 'r'
@@ -337,21 +351,6 @@ function! SearchCamelCase(dir)
     let @/ = '\C\<' . join(map(l, 'v:val . "[0-9a-z_]*"'), '') . '\>'
     return a:dir . "\r"
 endfunction
-
-" different color scheme for markdown buffers
-augroup filetype_colorscheme
-    au BufEnter *
-    \ if !exists('b:colors_name')
-        \ | if &ft == "markdown"
-            \ | let b:colors_name = 'wombat256mod'
-            \ | set tw=120 fo=cqt wm=0
-        \ | else
-            \ | let b:colors_name = 'wombat256mod'
-        \ | endif
-    \ | endif
-    \ | exe 'colorscheme' b:colors_name
-augroup END 
-
 
 " If you are using a console version of Vim, or dealing
 " with a file that changes externally (e.g. a web server log)
