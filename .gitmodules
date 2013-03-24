@@ -154,3 +154,6 @@
 [submodule "vim/bundle/scala"]
 	path = vim/bundle/scala
 	url = git://github.com/derekwyatt/vim-scala.git
+[submodule "vim/bundle/slime"]
+	path = vim/bundle/slime
+	url = git://github.com/thlorenz/vim-slime.git
