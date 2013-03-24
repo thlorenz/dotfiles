@@ -106,7 +106,10 @@ cmap w!! w !sudo tee % >/dev/null
 	set shiftwidth=2
 	set	expandtab
   set nowrap
-
+  
+" Scala specific
+  au FileType scala noremap <leader>r :wa \| call Send_to_Screen(@r) %<CR>
+ 
 " Haskell specific
   au FileType haskell compiler ghc
   au FileType haskell noremap <leader>r :wa \| !runghc %<CR>
