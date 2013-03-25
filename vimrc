@@ -108,7 +108,7 @@ cmap w!! w !sudo tee % >/dev/null
   set nowrap
   
 " Scala specific
-  au FileType scala noremap <leader>r :wa \| call Send_to_Screen(@r) %<CR>
+  au FileType scala noremap <leader>r :wa \| call Send_to_Screen(join(getline(1,'$'), "\n")) \| call Send_to_Screen("\n")<CR>
  
 " Haskell specific
   au FileType haskell compiler ghc
