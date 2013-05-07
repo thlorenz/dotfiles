@@ -1,1 +1,21 @@
 set completion-ignore-case on
+
+# Vim Terminal mode
+# want vi to be the default editor for readline                      
+set editing-mode vi                                            
+
+# vi settings                                         
+$if mode=vi                
+    # normal mode                           
+    set keymap vi-command                                 
+    "j": beginning-of-history
+    "l": backward-char
+    "h": forward-char         
+    "G": end-of-history
+    # insert mode             
+    set keymap vi-insert                          
+    "jk": vi-movement-mode # remap escape   
+    "\C-l":clear-screen 
+    "\C-k":history-search-backward
+    "\C-j":history-search-forward
+$endif 

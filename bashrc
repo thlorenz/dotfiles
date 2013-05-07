@@ -10,12 +10,6 @@ fi
 PS1="\n\[\033[00;34m\]\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
 # PS1="\n\[\033[1;38m\]\u@\h \[\033[00;34m\]\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
 
-# Vim Terminal mode
-set -o vi
-bind -m vi-insert "\C-l":clear-screen 
-bind -m vi-insert "\C-k":history-search-backward
-bind -m vi-insert "\C-j":history-search-forward
-
 # enable color support of ls and also add color related aliases
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
