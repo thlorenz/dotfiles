@@ -1,8 +1,13 @@
 ## If not running interactively, don't do anything (e.g., don't screw up scp)
 [ -z "$PS1" ] && return 
 
+# git prompt
+if [ -f ~/dotfiles/bashscripts/git-prompt.sh ]; then
+  source ~/dotfiles/bashscripts/git-prompt.sh
+fi
+
 # Set nice prompt
-PS1="\n\[\033[1;38m\]\u@\h \[\033[00;34m\]\w\[\033[00m\]\n➝  "
+PS1="\n\[\033[1;38m\]\u@\h \[\033[00;34m\]\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
 
 # Vim Terminal mode
 set -o vi
@@ -45,7 +50,7 @@ alias ,cv='c ~/.bashrc'
 alias ga='git add'
 alias gp='git push'
 alias gl='git log'
-alias gs='git status --ignore-submodules'
+alias gs='git status --ignore-submodules -s'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gm='git commit -m'
@@ -65,6 +70,7 @@ alias serve='echo "http://localhost:3000" && http-server -p 3000 -c-1'
 
 # Environment Variables
 export EDITOR=vim
+export SHELL=/usr/local/bin/bash
 
 # Functions
 function st
@@ -88,7 +94,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
 
   echo "Configuring for $unamestr"
 
-  PATH=~/Library/Haskell/bin:~/.cabal/bin:$PATH:/usr/local/lib/node_modules/jasmine-node/bin/
+  PATH=~/Library/Haskell/bin:~/.cabal/bin:$PATH:/usr/local/bin
 
   alias cd-js='cd ~/dev/js'
 
@@ -117,6 +123,12 @@ if [[ "$unamestr" == "Darwin" ]]; then
 
   # npm completion (described method doesn't work at this point: http://npmjs.org/doc/completion.html)
   source /usr/local/lib/node_modules/npm/lib/utils/completion.sh
+
+  # git completion
+  if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+    source /usr/local/etc/bash_completion.d/git-completion.bash
+  fi
+
 
 # ----------- LINUX ---------------
 elif [[ "$unamestr" == "Linux" ]]; then
@@ -162,9 +174,3 @@ elif [[ "$unamestr" == "Linux" ]]; then
 else
   echo "No special configuration known for $unamestr"
 fi
-
-# Landscape
-
-export NODE_PATH="/Users/thlorenz/dev/lab49/Landscape/trunk/packages"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
