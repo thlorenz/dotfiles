@@ -57,6 +57,12 @@ alias grr='git remote rm'
 alias gpu='git pull --rebase'
 alias gcl='git clone'
 
+# workflows
+alias yay!='git push origin master && git push --tags && npm publish'
+
+# other
+alias serve='echo "http://localhost:3000" && http-server -p 3000 -c-1'
+
 # Environment Variables
 export EDITOR=vim
 
@@ -85,18 +91,8 @@ if [[ "$unamestr" == "Darwin" ]]; then
   PATH=~/Library/Haskell/bin:~/.cabal/bin:$PATH:/usr/local/lib/node_modules/jasmine-node/bin/
 
   alias cd-js='cd ~/dev/js'
-  alias cd-haskell='cd ~/dev/haskell'
-  alias cd-webtoink='cd ~/dev/haskell/projects/WebToInk/webtoink'
-  alias cd-realworld='cd ~/dev/haskell/real-world'
 
-  alias go-userver='ssh tlorenz@userver -p 222'
   alias go-udesktop='ssh tlorenz@udesktop -p 2104'
-  alias go-nginx='ssh tlorenz@nginx -p 222'
-  alias go-sb-haskell='ssh tlorenz@sb-haskell -p 22'
-  alias go-sb-webtoink='ssh tlorenz@sb-webtoink -p 22'
-  alias go-webtoink='ssh tlorenz@webtoink.local.com -p 222'
-
-  alias go-ec2='ssh -i ~/.ssh/userver-micro_rsa.pem ubuntu@23.23.230.206'
 
   alias eject='diskutil eject'
   alias eject-kindle='diskutil eject /Volumes/Kindle'
