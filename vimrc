@@ -86,7 +86,9 @@ cmap w!! w !sudo tee % >/dev/null
     \ endif
   
 " Font 
-  if(isMac)
+  if (isGui)
+    set gfn=Menlo:h18
+  elseif(isMac)
     set gfn=Menlo-Powerline:h16
   else
     set gfn=Courier:h16
@@ -131,7 +133,9 @@ cmap w!! w !sudo tee % >/dev/null
   au FileType hamlet set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " JavaScript specific
+" au FileType javascript source /Users/thlorenz/dotfiles/vim/bundle/tern/vim/tern.vim
   au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+
   au FileType javascript noremap <leader>r :wa \| ! node %<CR>
   " au FileType javascript noremap <leader>r :wa \| !export NODE_PATH="/Users/thlorenz/dev/lab49/Landscape/trunk/packages" && node %<CR>
   au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
