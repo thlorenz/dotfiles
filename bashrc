@@ -114,8 +114,6 @@ if [[ "$unamestr" == "Darwin" ]]; then
   
   alias flush-dns='dscacheutil -flushcache'
 
-  alias j='autojump'
-
   # dircolors 
   export CLICOLOR=1
 
@@ -130,6 +128,9 @@ if [[ "$unamestr" == "Darwin" ]]; then
     source /usr/local/etc/bash_completion.d/git-completion.bash
   fi
 
+
+  # autojump
+  [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 # ----------- LINUX ---------------
 elif [[ "$unamestr" == "Linux" ]]; then
