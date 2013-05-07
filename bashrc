@@ -107,6 +107,8 @@ if [[ "$unamestr" == "Darwin" ]]; then
   
   alias flush-dns='dscacheutil -flushcache'
 
+  alias j='autojump'
+
   # dircolors 
   export CLICOLOR=1
 

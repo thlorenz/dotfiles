@@ -271,7 +271,7 @@ cmap w!! w !sudo tee % >/dev/null
   map <silent> ,: :wa \|! spec . --format html:spec/spec_report.html <CR> <CR> 
  
 " Open new terminal shell
-  map <leader>d :!zsh <CR>
+  map <leader>d :!bash <CR>
 
 " EasyGrep options
 
