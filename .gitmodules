@@ -87,7 +87,7 @@
 	url = git://github.com/jeetsukumaran/vim-buffergator.git
 [submodule "vim/bundle/colorschemes"]
 	path = vim/bundle/colorschemes
-	url = git@github.com:flazz/vim-colorschemes.git
+	url = git://github.com/flazz/vim-colorschemes.git
 [submodule "vim/bundle/easymotion"]
 	path = vim/bundle/easymotion
 	url = git://github.com/Lokaltog/vim-easymotion.git
@@ -138,7 +138,7 @@
 	url = git://github.com/juvenn/mustache.vim.git
 [submodule "zsh"]
 	path = zsh
-	url = git@github.com:thlorenz/oh-my-zsh.git
+	url = git://github.com/thlorenz/oh-my-zsh.git
 [submodule "vim/bundle/easytags"]
 	path = vim/bundle/easytags
 	url = git://github.com/xolox/vim-easytags.git
