@@ -2,9 +2,7 @@
 [ -z "$PS1" ] && return 
 
 # git prompt
-if [ -f ~/dotfiles/bashscripts/git-prompt.sh ]; then
-  source ~/dotfiles/bashscripts/git-prompt.sh
-fi
+[ -f ~/dotfiles/bashscripts/git-prompt.sh ] && source ~/dotfiles/bashscripts/git-prompt.sh
 
 # Set nice prompt
 PS1="\n\[\033[00;34m\]\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
@@ -67,21 +65,12 @@ alias serve='echo "http://localhost:3000" && http-server -p 3000 -c-1'
 export EDITOR=vim
 export SHELL=/usr/local/bin/bash
 
-# Functions
-function st
-{
-  local title=$1
-  echo -n -e "\033]0;$title\007"
-}
+# Environment tweaks
+export HISTIGNORE='&:ll:ls:ls *:gs:git status:cd *'
 
-function qt 
-{
-  local title="$(basename `pwd`)"
-  echo -n -e "\033]0;$title\007"
-}
+. ~/dotfiles/functions.sh
 
 # Below are OS specific
-
 unamestr=`uname`
 
 # ----------- DARWIN ---------------
@@ -125,6 +114,12 @@ if [[ "$unamestr" == "Darwin" ]]; then
 
   # autojump
   [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+  # cd tweaks
+  export CDPATH='~:~/dev/js/projects'
+
+  export VALUEPACK_DATA=~/.valuepack/data
+  export VALUEPACK_MINE_DB=~/.valuepack/valuepack-mine.db
 
 # ----------- LINUX ---------------
 elif [[ "$unamestr" == "Linux" ]]; then
@@ -170,3 +165,4 @@ elif [[ "$unamestr" == "Linux" ]]; then
 else
   echo "No special configuration known for $unamestr"
 fi
+
