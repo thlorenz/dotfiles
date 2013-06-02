@@ -1,4 +1,5 @@
 set completion-ignore-case on
+set show-all-if-ambiguous on
 
 # Vim Terminal mode
 # want vi to be the default editor for readline                      
