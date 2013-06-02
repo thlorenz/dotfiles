@@ -8,22 +8,14 @@ function npmify() {
 function nstart() {
     testling=0
     travis=0
-    while getopts "tr:te:" OPTION
+
+    # dumb args parsing since I couldn't get getopts to work inside a function
+    # -a turns on travis, -s turns on testling 
+    for v in $@
     do
-        case $OPTION in
-        tr) 
-          travis=1
-        ;;
-        te) 
-          testling=1
-        ;;
-        [?])
-          echo "Usage: $0 [--tr] [--te] <description>" >&2
-          return
-        ;;
-        esac
+      [[ $v == '-a' ]] && travis=1
+      [[ $v == '-s' ]] && testling=1
     done
-    shift $(($OPTIND-1))
 
     # init repo
     git init
@@ -32,24 +24,28 @@ function nstart() {
     (command -v pkginit >/dev/null 2>&1 && pkginit) || `npm init`
 
     echo "# $(basename $PWD)" > README.md
-    if [ $travis ]; then
+
+    if [[ $travis == 1 ]]; then
       echo "$(travisify badge)" >> README.md 
       travisify
       travisify test
     fi
 
 
-    if [ $testling ]; then
+    if [[ $testling == 1 ]]; then
+      echo "" >> Readme.md
       echo "$(testlingify badge)" >> README.md 
       testlingify
       testlingify test
     fi
 
-    echo $1 >> README.md
+    # Add description that we included in package.json during pkginit to readme as well
+    echo "" >> Readme.md
+    cat package.json | grep description | sed s/\"description\"\ *:\ *\"// | sed s/\",// >> README.md
 
-   git add .
-   git commit -m "initial package"
-   git push origin master
+    git add .
+    git commit -m "initial package"
+    git push origin master
 }
 
 function ngenplus() {
