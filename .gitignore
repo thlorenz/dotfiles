@@ -3,3 +3,5 @@ lushtags
 
 vim/haskellmode.config
 vim/.netrwhist
+
+secret-vars.sh
