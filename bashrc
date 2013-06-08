@@ -2,7 +2,7 @@
 [ -z "$PS1" ] && return 
 
 # git prompt
-[ -f ~/dotfiles/bashscripts/git-prompt.sh ] && source ~/dotfiles/bashscripts/git-prompt.sh
+[ -f ~/dotfiles/bashscripts/git-prompt.sh ] && source ~/dotfiles/bash/git-prompt.sh
 
 # secret vars
 [ -f ~/dotfiles/secret-vars.sh ] && source ~/dotfiles/secret-vars.sh
@@ -72,6 +72,7 @@ export SHELL=/usr/local/bin/bash
 export HISTIGNORE='&:ll:ls:ls *:gs:git status:cd *'
 
 . ~/dotfiles/functions.sh
+. ~/dotfiles/bash/exports.sh
 
 # Below are OS specific
 unamestr=`uname`
