@@ -35,6 +35,7 @@ Vim scripts without a repo will be pulled down during clone. They can be updated
     ln -s ~/dotfiles/irbrc       ~/.irbrc
     ln -s ~/dotfiles/vim         ~/.vim
     ln -s ~/dotfiles/ctags       ~/.ctags
+    ln -s ~/dotfiles/gitconfig   ~/.gitconfig
 
 ## Tagbar Plugin
 
@@ -59,7 +60,7 @@ In order to update all submodules to the latest 'master' you can do:
 
 ## Autojump
 
-In order to use the [autojump plugin](https://github.com/joelthelion/autojump) with zsh first install it via:
+In order to use the [autojump plugin](https://github.com/joelthelion/autojump) 
 
 `brew install autojump`
 
@@ -90,4 +91,3 @@ as follows:
 [jsbun]: http://github.com/pangloss/vim-javascript.git
 [ap]: http://github.com/michaeldv/awesome_print
 [i_editor]: http://github.com/jberkel/interactive_editor
-
