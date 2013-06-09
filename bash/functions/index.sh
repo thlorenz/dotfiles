@@ -3,6 +3,7 @@ function sourceFns () {
 
   [ -f $DIR/ngen.sh   ] && source $DIR/ngen.sh
   [ -f $DIR/window.sh ] && source $DIR/window.sh
+  [ -f $DIR/github.sh ] && source $DIR/github.sh
 }
 
 sourceFns
