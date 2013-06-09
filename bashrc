@@ -100,9 +100,6 @@ if [[ "$unamestr" == "Darwin" ]]; then
   # dircolors 
   export CLICOLOR=1
 
-  # Maven colors
-  source ~/dotfiles/colorize-maven.darwin.sh
-
   # npm completion (described method doesn't work at this point: http://npmjs.org/doc/completion.html)
   source /usr/local/lib/node_modules/npm/lib/utils/completion.sh
 
@@ -110,7 +107,6 @@ if [[ "$unamestr" == "Darwin" ]]; then
   if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
     source /usr/local/etc/bash_completion.d/git-completion.bash
   fi
-
 
   # autojump
   [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
