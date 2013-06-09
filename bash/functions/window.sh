@@ -1,5 +1,3 @@
-. ~/dotfiles/functions-ngen.sh
-
 function st
 {
   local title=$1

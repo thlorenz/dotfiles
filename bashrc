@@ -1,11 +1,31 @@
 ## If not running interactively, don't do anything (e.g., don't screw up scp)
 [ -z "$PS1" ] && return 
 
-# git prompt
-[ -f ~/dotfiles/bashscripts/git-prompt.sh ] && source ~/dotfiles/bash/git-prompt.sh
+function init () {
+  # http://stackoverflow.com/a/246128/97443
 
-# secret vars
-[ -f ~/dotfiles/secret-vars.sh ] && source ~/dotfiles/secret-vars.sh
+  local SOURCE="${BASH_SOURCE[0]}"
+
+  # resolve $SOURCE until the file is no longer a symlink
+  while [ -h "$SOURCE" ]; do   DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+    SOURCE="$(readlink "$SOURCE")"
+
+    # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+    [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
+  done
+  local DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+
+  [ -f $DIR/bash/git-prompt.sh      ] && source $DIR/bash/git-prompt.sh
+  [ -f $DIR/bash/secret-vars.sh     ] && source $DIR/bash/secret-vars.sh
+  [ -f $DIR/bash/functions/index.sh ] && source $DIR/bash/functions/index.sh
+  [ -f $DIR/bash/git-aliases.sh     ] && source $DIR/bash/git-aliases.sh
+
+  # Edit/source/cat this bashrc
+  alias ,ev='vim $DIR/bashrc'
+  alias ,sv='source $DIR/bashrc'
+  alias ,cv='c $DIR/bashrc'
+}
+init 
 
 # Set nice prompt
 PS1="\n\[\033[00;34m\]\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
@@ -37,27 +57,6 @@ shopt -s histappend
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Edit/source/cat this bash
-alias ,ev='vim ~/.bashrc'
-alias ,sv='source ~/.bashrc'
-alias ,cv='c ~/.bashrc'
-
-# Git
-alias ga='git add'
-alias gp='git push'
-alias gl='git log'
-alias gs='git status --ignore-submodules -s'
-alias gd='git diff'
-alias gdc='git diff --cached'
-alias gm='git commit -m'
-alias gma='git commit -am'
-alias gb='git branch'
-alias gc='git checkout'
-alias gra='git remote add'
-alias grr='git remote rm'
-alias gpu='git pull --rebase'
-alias gcl='git clone'
-
 # workflows
 alias yay!='git push origin master && git push --tags && npm publish'
 
@@ -70,9 +69,6 @@ export SHELL=/usr/local/bin/bash
 
 # Environment tweaks
 export HISTIGNORE='&:ll:ls:ls *:gs:git status:cd *'
-
-. ~/dotfiles/functions.sh
-. ~/dotfiles/bash/exports.sh
 
 # Below are OS specific
 unamestr=`uname`
