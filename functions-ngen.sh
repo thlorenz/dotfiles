@@ -43,6 +43,8 @@ function nstart() {
     echo "" >> Readme.md
     cat package.json | grep description | sed s/\"description\"\ *:\ *\"// | sed s/\",// >> README.md
 
+    cp ~/dev/js/projects/ansicolors/{LICENSE,.gitignore} .
+
     git add .
     git commit -m "initial package"
     git push origin master
