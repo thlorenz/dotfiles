@@ -70,7 +70,7 @@
   # Diffs
   
     ## Show modified files in last commit
-    dl = '!git ll -1'
+    dl = !git ll -1
 
     ## Show diff of last commit
     dlc = diff --cached HEAD^
