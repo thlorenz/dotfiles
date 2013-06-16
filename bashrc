@@ -21,9 +21,9 @@ function init () {
   [ -f $DIR/bash/git-aliases.sh     ] && source $DIR/bash/git-aliases.sh
 
   # Edit/source/cat this bashrc
-  alias ,ev='vim $DIR/bashrc'
-  alias ,sv='source $DIR/bashrc'
-  alias ,cv='c $DIR/bashrc'
+  alias ,ev='vim ~/.bashrc'
+  alias ,sv='source ~/.bashrc'
+  alias ,cv='c ~/.bashrc'
 }
 init 
 
