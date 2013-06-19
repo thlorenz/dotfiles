@@ -47,6 +47,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias c='pygmentize -O style=monokai -f console256 -g'
+alias tree='tree -I node_modules'
 
 # don't put duplicate lines in the history. See bash(1) for more options
 HISTCONTROL=ignoredups:ignorespace
@@ -112,7 +113,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
   # cd tweaks
-  export CDPATH='~:~/dev/js/projects'
+  export CDPATH='~/dev/js/projects'
 
   export VALUEPACK_DATA=~/.valuepack/data
   export VALUEPACK_MINE_DB=~/.valuepack/valuepack-mine.db
