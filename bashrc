@@ -19,6 +19,7 @@ function init () {
   [ -f $DIR/bash/secret-vars.sh     ] && source $DIR/bash/secret-vars.sh
   [ -f $DIR/bash/functions/index.sh ] && source $DIR/bash/functions/index.sh
   [ -f $DIR/bash/git-aliases.sh     ] && source $DIR/bash/git-aliases.sh
+  [ -f $DIR/bash/node-aliases.sh    ] && source $DIR/bash/node-aliases.sh
 
   # Edit/source/cat this bashrc
   alias ,ev='vim ~/.bashrc'
