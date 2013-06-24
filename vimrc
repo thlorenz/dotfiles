@@ -211,6 +211,10 @@ cmap w!! w !sudo tee % >/dev/null
     nnoremap <silent> <Leader>b :BuffergatorToggle<CR>
 
 
+" toggle highlight line
+  hi CursorLine term=underline ctermbg=236 guibg=#32322f
+  noremap <leader>j :set cursorline!<CR>
+
 " alt+n or alt+p to navigate between entries in QuickFix
   map <silent> <M-p> :cp <CR>
   map <silent> <M-n> :cn <CR>
