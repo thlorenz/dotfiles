@@ -39,9 +39,14 @@ function nstart() {
       testlingify test
     fi
 
+    if [[ $travis == 1 ||  $testling == 1 ]]; then
+      mkdir test
+      touch test/index.js
+    fi
+
     # Add description that we included in package.json during pkginit to readme as well
     echo "" >> Readme.md
-    cat package.json | grep description | sed s/\"description\"\ *:\ *\"// | sed s/\",// >> README.md
+    cat package.json | grep description | sed 's/\"description\"\ *:\ *\"//; s/\",//; s/^[ \t]*//' >> README.md
 
     cp ~/dev/js/projects/ansicolors/{LICENSE,.gitignore} .
 
