@@ -157,6 +157,3 @@
 [submodule "vim/bundle/slime"]
 	path = vim/bundle/slime
 	url = git://github.com/thlorenz/vim-slime.git
-[submodule "nvm"]
-	path = nvm
-	url = https://github.com/creationix/nvm.git
