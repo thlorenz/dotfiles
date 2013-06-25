@@ -30,12 +30,12 @@ Vim scripts without a repo will be pulled down during clone. They can be updated
 
     ln -s ~/dotfiles/bashrc      ~/.bashrc
     ln -s ~/dotfiles/bashprofile ~/.profile
-    ln -s ~/dotfiles/zshrc       ~/.zshrc
     ln -s ~/dotfiles/vimrc       ~/.vimrc
     ln -s ~/dotfiles/irbrc       ~/.irbrc
     ln -s ~/dotfiles/vim         ~/.vim
     ln -s ~/dotfiles/ctags       ~/.ctags
     ln -s ~/dotfiles/gitconfig   ~/.gitconfig
+    ln -s ~/dotfiles/nvm         ~/.nvm
 
 ## Tagbar Plugin
 
