@@ -132,25 +132,30 @@ cmap w!! w !sudo tee % >/dev/null
 " Yesod specific
   au FileType hamlet set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
-" JavaScript specific
-" au FileType javascript source /Users/thlorenz/dotfiles/vim/bundle/tern/vim/tern.vim
-  au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+" Web
+  " browserreload
+    let g:returnApp = "iTerm"
+    noremap <leader>k :ChromeReload<CR>
 
-  au FileType javascript noremap <leader>r :wa \| ! node %<CR>
-  " au FileType javascript noremap <leader>r :wa \| !export NODE_PATH="/Users/thlorenz/dev/lab49/Landscape/trunk/packages" && node %<CR>
-  au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
-  au FileType javascript nnoremap <buffer> <leader>D  :<C-u>call WriteJSDocComment()<CR>
-  au FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  au FileType stylus set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  au FileType jade set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  au FileType handlebars set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  au FileType css set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  " JavaScript specific
+  " au FileType javascript source /Users/thlorenz/dotfiles/vim/bundle/tern/vim/tern.vim
+    au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
-" CSS specific
-  au FileType css set omnifunc=csscomplete#CompleteCSS
+    au FileType javascript noremap <leader>r :wa \| ! node %<CR>
+    " au FileType javascript noremap <leader>r :wa \| !export NODE_PATH="/Users/thlorenz/dev/lab49/Landscape/trunk/packages" && node %<CR>
+    au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
+    au FileType javascript nnoremap <buffer> <leader>D  :<C-u>call WriteJSDocComment()<CR>
+    au FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+    au FileType stylus set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+    au FileType jade set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+    au FileType handlebars set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+    au FileType css set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
-" Html specific
-  au FileType html set omnifunc=htmlcomplete#CompleteTags
+  " CSS specific
+    au FileType css set omnifunc=csscomplete#CompleteCSS
+
+  " Html specific
+    au FileType html set omnifunc=htmlcomplete#CompleteTags
 
 " C specific
 " au FileType c noremap <leader>r :wa \| make \| !./%:r<CR> 
