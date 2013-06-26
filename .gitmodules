@@ -154,3 +154,6 @@
 [submodule "vim/bundle/slime"]
 	path = vim/bundle/slime
 	url = git://github.com/thlorenz/vim-slime.git
+[submodule "vim/bundle/browser-reload"]
+	path = vim/bundle/browser-reload
+	url = https://github.com/tell-k/vim-browsereload-mac.git
