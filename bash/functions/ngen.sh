@@ -17,15 +17,17 @@ function nstart() {
       [[ $v == '-s' ]] && testling=1
     done
 
-    # init repo
+    echo 'initializing repo ..'
     git init
     hub create $(basename $PWD)
 
-    (command -v pkginit >/dev/null 2>&1 && pkginit) || `npm init`
+    echo 'initializing package ..'
+    (command -v pkginit >/dev/null 2>&1 && nave use 0.8 pkginit) || `npm init`
 
-    echo "# $(basename $PWD)" > README.md
+    echo "# $(basename $PWD)"                                                                      >> README.md
 
     if [[ $travis == 1 ]]; then
+      echo 'initializing travis ..'
       echo "$(travisify badge)" >> README.md 
       travisify
       travisify test
@@ -33,6 +35,7 @@ function nstart() {
 
 
     if [[ $testling == 1 ]]; then
+      echo 'initializing testling ..'
       echo "" >> Readme.md
       echo "$(testlingify badge)" >> README.md 
       testlingify
@@ -44,11 +47,28 @@ function nstart() {
       touch test/index.js
     fi
 
-    # Add description that we included in package.json during pkginit to readme as well
-    echo "" >> Readme.md
-    cat package.json | grep description | sed 's/\"description\"\ *:\ *\"//; s/\",//; s/^[ \t]*//' >> README.md
+    cp ~/.config/nstart/{LICENSE,.gitignore} .
 
-    cp ~/dev/js/projects/ansicolors/{LICENSE,.gitignore} .
+    echo 'building readme ..'
+
+    echo ''                                                                                        >> Readme.md
+    # Add description that we included in package.json during pkginit to readme as well
+    cat package.json | grep description | sed 's/\"description\"\ *:\ *\"//; s/\",//; s/^[ \t]*//' >> README.md
+    echo ''                                                                                        >> Readme.md
+    echo '```js'                                                                                   >> Readme.md
+    echo '// TODO'                                                                                 >> Readme.md
+    echo '```'                                                                                     >> Readme.md
+    echo ''                                                                                        >> Readme.md
+    echo '## Installation'                                                                         >> Readme.md
+    echo ''                                                                                        >> Readme.md
+    echo "    npm install $(basename $PWD)"                                                        >> Readme.md
+    echo ''                                                                                        >> Readme.md
+    echo '## API'                                                                                  >> Readme.md
+    echo ''                                                                                        >> Readme.md
+    echo ''                                                                                        >> Readme.md
+    echo '## License'                                                                              >> Readme.md
+    echo ''                                                                                        >> Readme.md
+    echo 'MIT'                                                                                     >> Readme.md
 
     git add .
     git commit -m "initial package"
