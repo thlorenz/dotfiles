@@ -135,7 +135,9 @@ cmap w!! w !sudo tee % >/dev/null
 " Web
   " browserreload
     let g:returnApp = "iTerm"
-    noremap <leader>k :ChromeReload<CR>
+    noremap <leader>kk :ChromeReload<CR>
+    noremap <leader>ka :ChromeReloadStart<CR>
+    noremap <leader>ks :ChromeReloadStop<CR>
 
   " JavaScript specific
   " au FileType javascript source /Users/thlorenz/dotfiles/vim/bundle/tern/vim/tern.vim
