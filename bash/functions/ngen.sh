@@ -55,10 +55,16 @@ function nstart() {
     # Add description that we included in package.json during pkginit to readme as well
     cat package.json | grep description | sed 's/\"description\"\ *:\ *\"//; s/\",//; s/^[ \t]*//' >> README.md
     echo ''                                                                                        >> Readme.md
+
     echo '```js'                                                                                   >> Readme.md
     echo '// TODO'                                                                                 >> Readme.md
     echo '```'                                                                                     >> Readme.md
     echo ''                                                                                        >> Readme.md
+
+    echo '## Status'                                                                               >> Readme.md
+    echo ''                                                                                        >> Readme.md
+    echo 'Nix, Nada, Nichevo, Nothing --> go away!'                                                >> Readme.md
+
     echo '## Installation'                                                                         >> Readme.md
     echo ''                                                                                        >> Readme.md
     echo "    npm install $(basename $PWD)"                                                        >> Readme.md
