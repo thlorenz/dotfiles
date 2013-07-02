@@ -30,11 +30,16 @@ Vim scripts without a repo will be pulled down during clone. They can be updated
 
     ln -s ~/dotfiles/bashrc      ~/.bashrc
     ln -s ~/dotfiles/bashprofile ~/.profile
+    ln -s ~/dotfiles/inputrc     ~/.inputrc
     ln -s ~/dotfiles/vimrc       ~/.vimrc
     ln -s ~/dotfiles/irbrc       ~/.irbrc
     ln -s ~/dotfiles/vim         ~/.vim
     ln -s ~/dotfiles/ctags       ~/.ctags
     ln -s ~/dotfiles/gitconfig   ~/.gitconfig
+    ln -s ~/dotfiles/tigrc       ~/.tigrc
+
+    sudo ln -s ~/dotfiles/fonts/Menlo-Powerline.otf /System/Library/Fonts/Menlo-Powerline.otf
+    sudo ln -s ~/dotfiles/fonts/Monaco-Powerline.otf /System/Library/Fonts/Monaco-Powerline.otf
 
 ## Tagbar Plugin
 
