@@ -38,8 +38,7 @@ Vim scripts without a repo will be pulled down during clone. They can be updated
     ln -s ~/dotfiles/gitconfig   ~/.gitconfig
     ln -s ~/dotfiles/tigrc       ~/.tigrc
 
-    sudo ln -s ~/dotfiles/fonts/Menlo-Powerline.otf /System/Library/Fonts/Menlo-Powerline.otf
-    sudo ln -s ~/dotfiles/fonts/Monaco-Powerline.otf /System/Library/Fonts/Monaco-Powerline.otf
+    sudo cp ~/dotfiles/fonts/* /System/Library/Fonts/*
 
 ## Tagbar Plugin
 
