@@ -94,7 +94,7 @@ cmap w!! w !sudo tee % >/dev/null
   if (isGui)
     set gfn=Menlo:h18
   elseif(isMac)
-    set gfn=Menlo-Powerline:h16
+    set gfn=Inconsolata-Powerline:h16
   else
     set gfn=Courier:h16
   endif
