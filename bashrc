@@ -80,7 +80,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
 
   echo "Configuring for $unamestr"
 
-  PATH=~/Library/Haskell/bin:~/.cabal/bin:$PATH:/usr/local/bin
+  PATH=/usr/local/bin:$PATH
 
   alias cd-js='cd ~/dev/js'
 
@@ -90,7 +90,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   alias eject-kindle='diskutil eject /Volumes/Kindle'
 
   # Use Vim (from MacVim) to get Ruby support
-  alias vim='/usr/local/Cellar/macvim/7.3-63/MacVim.app/Contents/MacOS/Vim'
+  # alias vim='/usr/local/Cellar/macvim/7.3-63/MacVim.app/Contents/MacOS/Vim'
   # alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
   alias :e='mvim'
