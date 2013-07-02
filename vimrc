@@ -7,6 +7,11 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 
+" cn specific
+set backupdir=~/.vimtmpdir,.
+set directory=~/.vimtmpdir,.
+set shell=/bin/bash
+
 " lots of those come from http://nvie.com/posts/how-i-boosted-my-vim/
 set nocompatible     
 set virtualedit=
