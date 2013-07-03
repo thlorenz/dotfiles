@@ -40,7 +40,7 @@ Vim scripts without a repo will be pulled down during clone. They can be updated
     ln -s ~/dotfiles/config/nstart  ~/.config/nstart
     ln -s ~/dotfiles/config/pkginit ~/.config/pkginit
 
-    sudo cp ~/dotfiles/fonts/* /System/Library/Fonts/*
+    cp ~/dotfiles/fonts/* ~/Library/Fonts/
 
 ## Tagbar Plugin
 
