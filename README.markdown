@@ -37,7 +37,7 @@ Vim scripts without a repo will be pulled down during clone. They can be updated
     ln -s ~/dotfiles/ctags       ~/.ctags
     ln -s ~/dotfiles/gitconfig   ~/.gitconfig
     ln -s ~/dotfiles/tigrc       ~/.tigrc
-    ln -s ~/dotfiles/nstart      ~/.config/nstart
+    ln -s ~/dotfiles/config/nstart  ~/.config/nstart
 
     sudo cp ~/dotfiles/fonts/* /System/Library/Fonts/*
 
