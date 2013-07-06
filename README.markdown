@@ -52,6 +52,12 @@ Assuming you are on a Mac and have [Homebrew][homebrew] installed run:
 
 # VIM
 
+On a Mac install macvim and use it's built in cli vim via:
+
+    brew install macvim --override-system-vim
+
+Then make sure that `/usr/local/bin` is first in your `PATH`.
+
 My preferences for Vim are stored in `dotfiles/vimrc`. 
 
 All plugins and scripts are stored in the `dotfiles/vim` directory.
