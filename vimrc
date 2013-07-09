@@ -92,7 +92,7 @@ cmap w!! w !sudo tee % >/dev/null
   
 " Font 
   if (isGui)
-    set gfn=Menlo:h18
+    set gfn=Inconsolata-Powerline:h18
   elseif(isMac)
     set gfn=Inconsolata-Powerline:h16
   else
@@ -163,6 +163,9 @@ cmap w!! w !sudo tee % >/dev/null
 
   " Html specific
     au FileType html set omnifunc=htmlcomplete#CompleteTags
+
+  " JavaScript, C, CSS and all other langs with { == provide closing brace
+    inoremap {<CR> {<CR>}<C-o>O
 
 " C specific
 " au FileType c noremap <leader>r :wa \| make \| !./%:r<CR> 
