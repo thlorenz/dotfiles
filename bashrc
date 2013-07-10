@@ -80,7 +80,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
 
   echo "Configuring for $unamestr"
 
-  PATH=/usr/local/bin:$PATH
+  PATH=~/npm-global/bin::/usr/local/bin:$PATH
 
   alias cd-js='cd ~/dev/js'
 
