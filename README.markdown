@@ -37,6 +37,8 @@ Vim scripts without a repo will be pulled down during clone. They can be updated
     ln -s ~/dotfiles/ctags       ~/.ctags
     ln -s ~/dotfiles/gitconfig   ~/.gitconfig
     ln -s ~/dotfiles/tigrc       ~/.tigrc
+    ln -s ~/dotfiles/cardinalrc  ~/.cardinalrc
+
     ln -s ~/dotfiles/config/nstart  ~/.config/nstart
     ln -s ~/dotfiles/config/pkginit ~/.config/pkginit
 
@@ -49,6 +51,12 @@ In order for the tagbar plugin to work, we replace the original ctags with a [be
 Assuming you are on a Mac and have [Homebrew][homebrew] installed run:
 
     sudo sh ~/dotfiles/installs/ctags-exuberant.sh
+
+# Misc
+
+## Install pygments
+
+`sudo easy_install Pygments`
 
 # VIM
 
