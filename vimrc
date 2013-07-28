@@ -92,7 +92,7 @@ cmap w!! w !sudo tee % >/dev/null
   
 " Font 
   if (isGui)
-    set gfn=Inconsolata-Powerline:h18
+    set gfn=Inconsolata\ for\ Powerline:h18
   elseif(isMac)
     set gfn=Inconsolata-Powerline:h16
   else
