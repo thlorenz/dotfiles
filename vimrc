@@ -324,7 +324,8 @@ set t_Co=256
 " CtrlP options
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_working_path_mode = 'r'
-set wildignore+=*/dist/*,*/.git/*,*/.svn/*,*/dist/*,*.o,*.hi,*.sqlite3
+
+set wildignore+=*/dist/*,*/.git/*,*/.svn/*,*/node_modules/*,*.o,*.hi,*.sqlite3
 
 " VCS specific
 let g:VCSCommandDeleteOnHide=1
