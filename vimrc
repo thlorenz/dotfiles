@@ -198,8 +198,7 @@ cmap w!! w !sudo tee % >/dev/null
   nmap <leader>" :set number!<cr>
   
 "strip all trailing whitespace in the current file"
- " nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
- autocmd BufWritePre *.js :%s/\s\+$//e 
+  nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 "Automatically remove trailing spaces"
   au FileType c,cpp,java,php,js,py,coffee au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
