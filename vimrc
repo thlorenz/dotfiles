@@ -140,7 +140,7 @@ cmap w!! w !sudo tee % >/dev/null
 " Web
   " browserreload
     let g:returnApp = "iTerm"
-    noremap <leader>kk :ChromeReload<CR>
+    noremap <leader>kk :wa \| ChromeReload<CR>
     noremap <leader>ka :ChromeReloadStart<CR>
     noremap <leader>ks :ChromeReloadStop<CR>
 
