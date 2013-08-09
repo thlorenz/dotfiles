@@ -20,6 +20,7 @@ function init () {
   [ -f $DIR/bash/functions/index.sh ] && source $DIR/bash/functions/index.sh
   [ -f $DIR/bash/git-aliases.sh     ] && source $DIR/bash/git-aliases.sh
   [ -f $DIR/bash/node-aliases.sh    ] && source $DIR/bash/node-aliases.sh
+  [ -f $DIR/bash/git-completion.sh  ] && source $DIR/bash/git-completion.sh
 
   # Edit/source/cat this bashrc
   alias ,ev='vim ~/.bashrc'
