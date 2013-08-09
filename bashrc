@@ -70,7 +70,7 @@ export EDITOR=vim
 export SHELL=/usr/local/bin/bash
 
 # Environment tweaks
-export HISTIGNORE='&:ll:ls:ls *:gs:git status:cd *'
+export HISTIGNORE='&:ll:ls:ls *:gs:git status'
 
 # Below are OS specific
 unamestr=`uname`
@@ -110,7 +110,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
   # cd tweaks
-  export CDPATH='~/dev/js/projects'
+  # export CDPATH='~/dev/js/projects'
 
   export VALUEPACK_DATA=~/.valuepack/data
   export VALUEPACK_MINE_DB=~/.valuepack/valuepack-mine.db
