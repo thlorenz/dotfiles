@@ -111,6 +111,8 @@ if [[ "$unamestr" == "Darwin" ]]; then
 
   export VALUEPACK_DATA=~/.valuepack/data
   export VALUEPACK_MINE_DB=~/.valuepack/valuepack-mine.db
+  export VALUEPACK_FIX_DB=~/.valuepack/valuepack-fix.db
+  export VALUEPACK_ANALYZE_DB=~/.valuepack/valuepack-analyze.db
 
 # ----------- LINUX ---------------
 elif [[ "$unamestr" == "Linux" ]]; then
