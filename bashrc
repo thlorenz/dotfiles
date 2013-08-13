@@ -109,11 +109,10 @@ if [[ "$unamestr" == "Darwin" ]]; then
   # autojump
   [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
-  # cd tweaks
-  # export CDPATH='~/dev/js/projects'
-
   export VALUEPACK_DATA=~/.valuepack/data
   export VALUEPACK_MINE_DB=~/.valuepack/valuepack-mine.db
+  export VALUEPACK_FIX_DB=~/.valuepack/valuepack-fix.db
+  export VALUEPACK_ANALYZE_DB=~/.valuepack/valuepack-analyze.db
 
 # ----------- LINUX ---------------
 elif [[ "$unamestr" == "Linux" ]]; then
