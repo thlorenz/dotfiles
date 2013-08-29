@@ -292,6 +292,13 @@ cmap w!! w !sudo tee % >/dev/null
 " Open new terminal shell
   map <leader>d :!bash <CR>
 
+" VimRoom options
+  let g:vimroom_sidebar_height=2 
+  let g:vimroom_width=120
+
+  nnoremap <leader>vs :set lz<CR>:silent call ZoomWin#ZoomWin()<CR>:set nolz<CR>:VimroomToggle<CR>:set nu<CR>
+  nnoremap <leader>ve :VimroomToggle<CR>:set lz<CR>:silent call ZoomWin#ZoomWin()<CR>:set nolz<CR>
+  
 " EasyGrep options
 
 let g:EasyGrepFileAssociations=expand('~')+'/.vim/bundle/easygrep/plugin/EasyGrepFileAssociations'
