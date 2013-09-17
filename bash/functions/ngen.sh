@@ -81,6 +81,12 @@ function nstart() {
     git push origin master
 }
 
+function jsdocs () {
+  (command -v docit >/dev/null 2>&1 || (echo 'npm install -g thlorenz/docit' && npm install -g thlorenz/docit)) 
+  echo "docit --config ~/dotfiles/config/docit.json $@"
+  docit --config ~/dotfiles/config/docit.json --dir='.' --includeFiles="$@"
+}
+
 function ngenplus() {
     local projectName=$1
     local isFree=""

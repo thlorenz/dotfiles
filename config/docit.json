@@ -1,0 +1,10 @@
+{
+  "paramsListMarkdown"      :  "-",
+  "includeHRAfterMethod"    :  "false",
+  "methodSignatureMarkdown" :  "###*",
+  "paramTypeMarkdown"       :  "*",
+  "paramsHeading"           :  "params:",
+  "paramsHeadingMarkdown"   :  "**",
+  "returnHeading"           :  "returns:",
+  "returnHeadingMarkdown"   :  "**"
+}
