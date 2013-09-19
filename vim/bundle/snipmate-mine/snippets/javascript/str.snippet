@@ -1,0 +1,22 @@
+'use strict';
+
+var stream = require('stream');
+var util = require('util');
+
+var Readable = stream.Readable;
+
+module.exports = $1Readable;
+
+util.inherits(${1:Name}Readable, Readable);
+
+function $1Readable (opts) {
+  if (!(this instanceof $1Readable)) return new $1Readable(opts);
+
+  opts = opts || {};
+	${2}
+  Readable.call(this, opts);
+}
+
+$1Readable.prototype._read = function () {
+	${3}
+};
