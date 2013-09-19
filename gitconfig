@@ -113,3 +113,4 @@
     cm  =  commit -m
     cam =  commit -am
     br  =  branch -v
+    amd =  commit --amend --no-edit
