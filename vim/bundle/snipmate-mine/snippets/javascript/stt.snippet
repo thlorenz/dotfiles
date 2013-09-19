@@ -1,0 +1,22 @@
+'use strict';
+
+var stream = require('stream');
+var util = require('util');
+
+var Transform = stream.Transform;
+
+module.exports = $1Transform;
+
+util.inherits(${1:Name}Transform, Transform);
+
+function $1Transform (opts) {
+  if (!(this instanceof $1Transform)) return new $1Transform(opts);
+
+  opts = opts || {};
+	${2}
+  Transform.call(this, opts);
+}
+
+$1Transform.prototype._transform = function (chunk, encoding, cb) {
+	${3}
+};
