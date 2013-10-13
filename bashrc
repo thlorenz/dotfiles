@@ -120,7 +120,7 @@ elif [[ "$unamestr" == "Linux" ]]; then
 
   echo "Configuring for $unamestr"
 
-  PATH=~/.cabal/bin:$PATH
+  PATH=~/npm-global/bin::~/.cabal/bin:$PATH
 
   # TODO: test if folder exists -- Custom installed ghc binary folder
   PATH=/usr/local/haskell-platform-2011.4.0.0/bin/:$PATH
