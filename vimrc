@@ -65,6 +65,10 @@ set cmdheight=1
 noremap <Space> A
 imap <S-Space> <Esc>A
 
+" next/prev file with right/left arrow keys
+noremap <right> :next <CR>
+noremap <left> :prev <CR>
+
 if(isGui) 
   colo wombat
 else
@@ -149,9 +153,9 @@ cmap w!! w !sudo tee % >/dev/null
     au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
     au FileType javascript noremap <leader>r :wa \| ! node %<CR>
-    " au FileType javascript noremap <leader>r :wa \| !export NODE_PATH="/Users/thlorenz/dev/lab49/Landscape/trunk/packages" && node %<CR>
     au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
     au FileType javascript nnoremap <buffer> <leader>D  :<C-u>call WriteJSDocComment()<CR>
+
     au FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
     au FileType stylus set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
     au FileType jade set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
@@ -170,6 +174,11 @@ cmap w!! w !sudo tee % >/dev/null
 " C specific
 " au FileType c noremap <leader>r :wa \| make \| !./%:r<CR> 
   au FileType c noremap <leader>r :wa \| make %:r && ./%:r && rm ./%:r<CR>
+" au FileType c noremap <leader>r :wa \| !gcc % -o %:r && ./%:r && rm ./%:r<CR>
+" au FileType c noremap <leader>r :wa \| make start<CR>
+
+  " make check 
+  au FileType c noremap <leader>m :wa \| make check<CR>
   
 " C++ specific
   set ut=100000
