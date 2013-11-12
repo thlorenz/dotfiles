@@ -52,6 +52,14 @@ Assuming you are on a Mac and have [Homebrew][homebrew] installed run:
 
     sudo sh ~/dotfiles/installs/ctags-exuberant.sh
 
+## Clang completion on Mavericks
+
+Link libclang to where the clang plugin looks for it.
+
+    ln -s /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib /usr/local/lib/libclang.dylib
+
+Alternatively adjust the `g:clang_library_path`.
+
 # Misc
 
 ## Install pygments
