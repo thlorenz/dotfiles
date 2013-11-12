@@ -17,12 +17,14 @@ function nstart() {
       [[ $v == '-s' ]] && testling=1
     done
 
-    echo 'initializing repo ..'
-    git init
-    hub create $(basename $PWD)
-
     echo 'initializing package ..'
-    (command -v pkginit >/dev/null 2>&1 && nave use 0.8 pkginit) || `npm init`
+    (command -v pkginit >/dev/null 2>&1 && pkginit) || `npm init`
+
+    # Parse out description that we included in package.json during pkginit
+    description=$(cat package.json | grep description | sed 's/\"description\"\ *:\ *\"//; s/\",//; s/^[ \t]*//')
+
+    echo 'initializing repo ..'
+    gitify $(basename $PWD) "$description"
 
     echo "# $(basename $PWD)"                                                                      >> README.md
 
@@ -52,8 +54,7 @@ function nstart() {
     echo 'building readme ..'
 
     echo ''                                                                                        >> Readme.md
-    # Add description that we included in package.json during pkginit to readme as well
-    cat package.json | grep description | sed 's/\"description\"\ *:\ *\"//; s/\",//; s/^[ \t]*//' >> README.md
+    echo $description                                                                              >> README.md
     echo ''                                                                                        >> Readme.md
 
     echo '```js'                                                                                   >> Readme.md
@@ -77,8 +78,9 @@ function nstart() {
     echo 'MIT'                                                                                     >> Readme.md
 
     git add .
-    git commit -m "initial package"
-    git push origin master
+    # gitify already did an initial commit so we just amend our changes to it
+    git commit --amend --no-edit 
+    git push origin master -f
 }
 
 function jsdocs () {
