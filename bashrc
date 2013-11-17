@@ -89,6 +89,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
 
   alias eject='diskutil eject'
   alias eject-kindle='diskutil eject /Volumes/Kindle'
+  alias noads='rm -rf /Volumes/Kindle/system/.assets && touch /Volumes/Kindle/system/.assets'
 
   alias :e='mvim'
 
