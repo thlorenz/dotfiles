@@ -96,9 +96,9 @@ cmap w!! w !sudo tee % >/dev/null
   
 " Font 
   if (isGui)
-    set gfn=Inconsolata\ for\ Powerline:h18
+    set gfn=Inconsolata\ for\ Powerline:h12
   elseif(isMac)
-    set gfn=Inconsolata-Powerline:h16
+    set gfn=Inconsolata-Powerline:h12
   else
     set gfn=Courier:h16
   endif
@@ -172,14 +172,23 @@ cmap w!! w !sudo tee % >/dev/null
     inoremap {<CR> {<CR>}<C-o>O
 
 " C specific
-" au FileType c noremap <leader>r :wa \| make \| !./%:r<CR> 
-  au FileType c noremap <leader>r :wa \| make %:r && ./%:r && rm ./%:r<CR>
-" au FileType c noremap <leader>r :wa \| !gcc % -o %:r && ./%:r && rm ./%:r<CR>
-" au FileType c noremap <leader>r :wa \| make start<CR>
+"  au FileType c noremap <leader>r :wa \| make %:r && ./%:r && rm ./%:r<CR>
+  au FileType c noremap <leader>r :wa \| !gcc % -o %:r && ./%:r && rm ./%:r<CR>
+
+  "" clang
+    " more info: https://github.com/Rip-Rip/clang_complete/blob/master/doc/clang_complete.txt#L85
+    let g:clang_snippets = 1
+    let g:clang_snippets_engine = 'clang_complete'
+    let g:clang_auto_select = 1
+    let g:clang_close_preview = 1
+    let g:clang_complete_auto = 0
+    
+    " Complete options (disable preview scratch window)
+    set completeopt=menu,menuone,longest
 
   " make check 
   au FileType c noremap <leader>m :wa \| make check<CR>
-  
+
 " C++ specific
   set ut=100000
   au FileType cpp,cc noremap <leader>r :<C-U>make %:r && ./%:r && rm ./%:r<CR>
