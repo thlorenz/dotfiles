@@ -50,6 +50,7 @@ alias l='ls -CF'
 
 alias c='pygmentize -O style=monokai -f console256 -g'
 alias tree='tree -I node_modules'
+alias info='info --vi-keys' 
 
 # don't put duplicate lines in the history. See bash(1) for more options
 HISTCONTROL=ignoredups:ignorespace
