@@ -148,7 +148,7 @@ cmap w!! w !sudo tee % >/dev/null
   " au FileType javascript source /Users/thlorenz/dotfiles/vim/bundle/tern/vim/tern.vim
     au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
-    au FileType javascript noremap <leader>r :wa \| ! node %<CR>
+    au FileType javascript noremap <leader>r :wa \| !rcconfig_env=test node %<CR>
     " au FileType javascript noremap <leader>r :wa \| !export NODE_PATH="/Users/thlorenz/dev/lab49/Landscape/trunk/packages" && node %<CR>
     au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
     au FileType javascript nnoremap <buffer> <leader>D  :<C-u>call WriteJSDocComment()<CR>
