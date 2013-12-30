@@ -172,8 +172,9 @@ cmap w!! w !sudo tee % >/dev/null
     inoremap {<CR> {<CR>}<C-o>O
 
 " C specific
-"  au FileType c noremap <leader>r :wa \| make %:r && ./%:r && rm ./%:r<CR>
-  au FileType c noremap <leader>r :wa \| !gcc % -o %:r && ./%:r && rm ./%:r<CR>
+    " au FileType c noremap <leader>r :wa \| make! %:r && echo "" && ./%:r && rm ./%:r<CR>
+    " au FileType c noremap <leader>r :wa \| !cc -Wall -g % -o %:r && ./%:r && rm ./%:r<CR>
+    au FileType c noremap <leader>r :wa \| make run<CR>
 
   "" clang
     " more info: https://github.com/Rip-Rip/clang_complete/blob/master/doc/clang_complete.txt#L85
