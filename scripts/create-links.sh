@@ -10,6 +10,7 @@ ln -s ~/dotfiles/ctags       ~/.ctags
 ln -s ~/dotfiles/gitconfig   ~/.gitconfig
 ln -s ~/dotfiles/tigrc       ~/.tigrc
 ln -s ~/dotfiles/cardinalrc  ~/.cardinalrc
+ln -s ~/dotfiles/agignore    ~/.agignore
 
 ln -s ~/dotfiles/config/nstart  ~/.config/nstart
 ln -s ~/dotfiles/config/pkginit ~/.config/pkginit
