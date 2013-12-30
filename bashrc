@@ -18,6 +18,7 @@ function init () {
   [ -f $DIR/bash/git-prompt.sh      ] && source $DIR/bash/git-prompt.sh
   [ -f $DIR/bash/secret-vars.sh     ] && source $DIR/bash/secret-vars.sh
   [ -f $DIR/bash/functions/index.sh ] && source $DIR/bash/functions/index.sh
+  [ -f $DIR/bash/cmd-aliases.sh     ] && source $DIR/bash/cmd-aliases.sh
   [ -f $DIR/bash/git-aliases.sh     ] && source $DIR/bash/git-aliases.sh
   [ -f $DIR/bash/node-aliases.sh    ] && source $DIR/bash/node-aliases.sh
   [ -f $DIR/bash/git-completion.sh  ] && source $DIR/bash/git-completion.sh
@@ -32,25 +33,6 @@ init
 # Set nice prompt
 PS1="\n\[\033[00;34m\]\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
 # PS1="\n\[\033[1;38m\]\u@\h \[\033[00;34m\]\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
-
-# enable color support of ls and also add color related aliases
-if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-  
-  alias ls='ls --color=auto'
-  alias grep='grep --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
-fi
-
-# Aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-alias c='pygmentize -O style=monokai -f console256 -g'
-alias tree='tree -I node_modules'
-alias info='info --vi-keys' 
 
 # don't put duplicate lines in the history. See bash(1) for more options
 HISTCONTROL=ignoredups:ignorespace
@@ -91,8 +73,6 @@ if [[ "$unamestr" == "Darwin" ]]; then
   alias eject='diskutil eject'
   alias eject-kindle='diskutil eject /Volumes/Kindle'
   alias noads='rm -rf /Volumes/Kindle/system/.assets && touch /Volumes/Kindle/system/.assets'
-
-  alias :e='mvim'
 
   alias pgrep='ps aux | grep '
   
