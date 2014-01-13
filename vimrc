@@ -50,6 +50,7 @@ set shortmess=atI
 syn on 
 
 inoremap jk <Esc>
+inoremap jj <C-X><C-O>
 
 let mapleader=","
 
@@ -107,9 +108,10 @@ cmap w!! w !sudo tee % >/dev/null
   map <silent> « :TagbarToggle<CR>
   "
 " Tabularize (format)
-  noremap <silent> <leader>f=	  :Tabularize /= <CR>
-  noremap <silent> <leader>f,	  :Tabularize /, <CR>
-	noremap <silent> <leader>f:	  :Tabularize /: <CR>
+  noremap <silent> <leader>f=	 :Tabularize /=<CR>
+  noremap <silent> <leader>f,	 :Tabularize /,<CR>
+	noremap <silent> <leader>f:	 :Tabularize /:<CR>
+  noremap <silent> <leader>f(	 :Tabularize /(<CR>
 
 "Set tab size -- may be overridden for specific filetypes
 	set tabstop=2
@@ -172,9 +174,9 @@ cmap w!! w !sudo tee % >/dev/null
     inoremap {<CR> {<CR>}<C-o>O
 
 " C specific
-    " au FileType c noremap <leader>r :wa \| make! %:r && echo "" && ./%:r && rm ./%:r<CR>
+    au FileType c noremap <leader>r :wa \| make! %:r && echo "" && ./%:r && rm ./%:r<CR>
     " au FileType c noremap <leader>r :wa \| !cc -Wall -g % -o %:r && ./%:r && rm ./%:r<CR>
-    au FileType c noremap <leader>r :wa \| make run<CR>
+    " au FileType c noremap <leader>r :wa \| make run<CR>
 
   "" clang
     " more info: https://github.com/Rip-Rip/clang_complete/blob/master/doc/clang_complete.txt#L85
