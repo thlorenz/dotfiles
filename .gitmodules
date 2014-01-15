@@ -157,3 +157,9 @@
 [submodule "vim/bundle/browser-reload"]
 	path = vim/bundle/browser-reload
 	url = https://github.com/tell-k/vim-browsereload-mac.git
+[submodule "vim/bundle/gist"]
+	path = vim/bundle/gist
+	url = https://github.com/mattn/gist-vim.git
+[submodule "vim/bundle/webapi"]
+	path = vim/bundle/webapi
+	url = https://github.com/mattn/webapi-vim.git
