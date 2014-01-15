@@ -170,9 +170,9 @@ cmap w!! w !sudo tee % >/dev/null
     inoremap {<CR> {<CR>}<C-o>O
 
 " C specific
-    au FileType c noremap <leader>r :wa \| make! %:r && echo "" && ./%:r && rm ./%:r<CR>
+    " au FileType c noremap <leader>r :wa \| make! %:r && echo "" && ./%:r && rm ./%:r<CR>
     " au FileType c noremap <leader>r :wa \| !cc -Wall -g % -o %:r && ./%:r && rm ./%:r<CR>
-    " au FileType c noremap <leader>r :wa \| make run<CR>
+    au FileType c noremap <leader>r :wa \| make run<CR>
 
   "" clang
     " more info: https://github.com/Rip-Rip/clang_complete/blob/master/doc/clang_complete.txt#L85
@@ -181,7 +181,14 @@ cmap w!! w !sudo tee % >/dev/null
     let g:clang_auto_select = 1
     let g:clang_close_preview = 1
     let g:clang_complete_auto = 0
+
+  "" syntastic
+    let g:syntastic_c_compiler='cc'
+    let g:syntastic_c_config_file='.syntastic_c'
     
+    " command to update .clang_complete file via make
+    " make CC='~/dotfiles/vim/bundle/clang/bin/cc_args.py gcc'
+
     " Complete options (disable preview scratch window)
     set completeopt=menu,menuone,longest
 
