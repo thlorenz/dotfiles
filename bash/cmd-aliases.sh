@@ -16,3 +16,6 @@ alias l='ls -CF'
 alias c='pygmentize -O style=monokai -f console256 -g'
 alias tree='tree -I node_modules'
 alias info='info --vi-keys' 
+
+alias growup='rm -rf .git/hooks/pre-commit'
+alias http-codes="node -p 'require(\"http\").STATUS_CODES' | c"
