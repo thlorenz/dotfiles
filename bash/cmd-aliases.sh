@@ -18,3 +18,4 @@ alias tree='tree -I node_modules'
 alias info='info --vi-keys' 
 
 alias growup='rm -rf .git/hooks/pre-commit'
+alias http-codes="node -p 'require(\"http\").STATUS_CODES' | c"
