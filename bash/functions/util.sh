@@ -2,7 +2,7 @@
 
 # Open a man page in Preview:
 pman () {
-  man -t "${1}" | open -f -a /Applications/Preview.app
+  man -t $@ | open -f -a /Applications/Preview.app
 }
 
 # Open a man page in vim
