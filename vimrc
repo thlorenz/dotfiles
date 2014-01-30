@@ -583,3 +583,7 @@ function! WatchForChanges(bufname, ...)
   echo msg
   let @"=reg_saved
 endfunction
+
+nnoremap <leader>a :WatchForChanges<CR>
+nnoremap <leader>A :WatchForChangesAllFile<CR>
+
