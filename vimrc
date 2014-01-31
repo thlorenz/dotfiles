@@ -178,6 +178,8 @@ cmap w!! w !sudo tee % >/dev/null
     " au FileType c noremap <leader>r :wa \| make! %:r && echo "" && ./%:r && rm ./%:r<CR>
     " au FileType c noremap <leader>r :wa \| !cc -Wall -g % -o %:r && ./%:r && rm ./%:r<CR>
     au FileType c noremap <leader>r :wa \| make run<CR>
+    au FileType c noremap <leader>m :wa \| make test<CR>
+    au FileType c nnoremap <buffer> <leader>D  :<C-u>call WriteJSDocComment()<CR>
 
   "" clang
     " more info: https://github.com/Rip-Rip/clang_complete/blob/master/doc/clang_complete.txt#L85
@@ -196,9 +198,6 @@ cmap w!! w !sudo tee % >/dev/null
 
     " Complete options (disable preview scratch window)
     set completeopt=menu,menuone,longest
-
-  " make check 
-  au FileType c noremap <leader>m :wa \| make check<CR>
 
 " C++ specific
   set ut=100000
