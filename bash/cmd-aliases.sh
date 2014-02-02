@@ -19,3 +19,8 @@ alias info='info --vi-keys'
 
 alias growup='rm -rf .git/hooks/pre-commit'
 alias http-codes="node -p 'require(\"http\").STATUS_CODES' | c"
+
+alias make-targets="make -qsp 2>/dev/null | egrep '^[^#%\.=]*:[^=]' | awk -F ': ' '{ print $2}'"
+alias make-targets-verbose="make -qp | sed -n -e 's/^\([^.#[:space:]][^:[:space:]]*\): .*/\1/p'"
+
+alias utelinit="ssh -t udesktop 'sudo telinit 0'"
