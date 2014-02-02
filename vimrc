@@ -170,10 +170,13 @@ cmap w!! w !sudo tee % >/dev/null
   " JavaScript, C, CSS and all other langs with { == provide closing brace
     inoremap {<CR> {<CR>}<C-o>O
 
-" C specific
+" C, C++ specific
+    set ut=100000
     " au FileType c noremap <leader>r :wa \| make! %:r && echo "" && ./%:r && rm ./%:r<CR>
     " au FileType c noremap <leader>r :wa \| !cc -Wall -g % -o %:r && ./%:r && rm ./%:r<CR>
-    au FileType c noremap <leader>r :wa \| make run<CR>
+    au FileType c,cc,cpp noremap <leader>r :wa \| make run<CR>
+    au FileType c,cc,cpp noremap <leader>m :wa \| make test<CR>
+    au FileType c,cc,cpp nnoremap <buffer> <leader>D  :<C-u>call WriteJSDocComment()<CR>
 
   "" clang
     " more info: https://github.com/Rip-Rip/clang_complete/blob/master/doc/clang_complete.txt#L85
@@ -186,6 +189,8 @@ cmap w!! w !sudo tee % >/dev/null
   "" syntastic
     let g:syntastic_c_compiler='cc'
     let g:syntastic_c_config_file='.syntastic_c'
+    let g:syntastic_cpp_compiler='gcc'
+    let g:syntastic_cpp_config_file='.syntastic_cc'
     
     " command to update .clang_complete file via make
     " make CC='~/dotfiles/vim/bundle/clang/bin/cc_args.py gcc'
@@ -193,13 +198,6 @@ cmap w!! w !sudo tee % >/dev/null
     " Complete options (disable preview scratch window)
     set completeopt=menu,menuone,longest
 
-  " make check 
-  au FileType c noremap <leader>m :wa \| make check<CR>
-
-" C++ specific
-  set ut=100000
-  au FileType cpp,cc noremap <leader>r :<C-U>make %:r && ./%:r && rm ./%:r<CR>
- 
 " Python specific
   au FileType python set omnifunc=pythoncomplete#Complete
   au FileType python noremap <leader>r :wa \| !python %<CR>
