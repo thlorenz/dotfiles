@@ -55,7 +55,7 @@
       D: omnipresent (on all desktops).
   -->
     <keepBorder>yes</keepBorder>
-    <animateIconify>no</animateIconify>
+    <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
       <name>sans</name>
       <size>8</size>
@@ -120,7 +120,7 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>4</number>
+    <number>2</number>
     <firstdesk>1</firstdesk>
     <names>
       <!-- set names up here if you want to, like this:
@@ -179,55 +179,56 @@
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop switching -->
-    <keybind key="C-A-Left">
+    <!-- Mostly disabled -->
+    <keybind key="W-A-h">
       <action name="GoToDesktop">
         <to>left</to>
         <wrap>no</wrap>
-      </action>
+      </action>l
     </keybind>
-    <keybind key="C-A-Right">
+    <keybind key="W-A-l">
       <action name="GoToDesktop">
         <to>right</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="C-A-Up">
+    <keybind key="W-A-k">
       <action name="GoToDesktop">
         <to>up</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="C-A-Down">
+    <keybind key="W-A-j">
       <action name="GoToDesktop">
         <to>down</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Left">
+    <keybind key="S-W-A-h">
       <action name="SendToDesktop">
         <to>left</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Right">
+    <keybind key="S-W-A-l">
       <action name="SendToDesktop">
         <to>right</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Up">
+    <keybind key="S-W-A-k">
       <action name="SendToDesktop">
         <to>up</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Down">
+    <keybind key="S-W-A-j">
       <action name="SendToDesktop">
         <to>down</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="W-F1">
+    <!--<keybind key="W-F1">
       <action name="GoToDesktop">
         <to>1</to>
       </action>
@@ -246,12 +247,12 @@
       <action name="GoToDesktop">
         <to>4</to>
       </action>
-    </keybind>
-    <keybind key="W-d">
+    </keybind>-->
+    <!--<keybind key="W-C-d">
       <action name="ToggleShowDesktop"/>
-    </keybind>
+    </keybind>-->
     <!-- Keybindings for windows -->
-    <keybind key="A-F4">
+    <keybind key="W-q">
       <action name="Close"/>
     </keybind>
     <keybind key="A-Escape">
@@ -265,7 +266,7 @@
       </action>
     </keybind>
     <!-- Keybindings for window switching -->
-    <keybind key="A-Tab">
+    <keybind key="W-Tab">
       <action name="NextWindow">
         <finalactions>
           <action name="Focus"/>
@@ -274,7 +275,7 @@
         </finalactions>
       </action>
     </keybind>
-    <keybind key="A-S-Tab">
+    <keybind key="W-S-Tab">
       <action name="PreviousWindow">
         <finalactions>
           <action name="Focus"/>
@@ -295,55 +296,37 @@
       </action>
     </keybind>
     <!-- Keybindings for window switching with the arrow keys -->
-    <keybind key="W-S-Right">
+    <keybind key="W-l">
       <action name="DirectionalCycleWindows">
         <direction>right</direction>
       </action>
     </keybind>
-    <keybind key="W-S-Left">
+    <keybind key="W-h">
       <action name="DirectionalCycleWindows">
         <direction>left</direction>
       </action>
     </keybind>
-    <keybind key="W-S-Up">
+    <keybind key="W-k">
       <action name="DirectionalCycleWindows">
         <direction>up</direction>
       </action>
     </keybind>
-    <keybind key="W-S-Down">
+    <keybind key="W-j">
       <action name="DirectionalCycleWindows">
         <direction>down</direction>
       </action>
     </keybind>
     <!-- Keybindings for running applications -->
-    <keybind key="W-t">
+    <!--<keybind key="W-t">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>lxterminal</name>
+          <name>terminator</name>
         </startupnotify>
-        <command>lxterminal</command>
+        <command>terminator</command>
       </action>
-    </keybind>
-    <keybind key="W-f">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>thunar</name>
-        </startupnotify>
-        <command>thunar</command>
-      </action>
-    </keybind>
-    <keybind key="W-s">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>synapse</name>
-        </startupnotify>
-        <command>synapse</command>
-      </action>
-    </keybind>
-    <keybind key="W-m">
+    </keybind>-->
+    <!--<keybind key="W-m">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -351,7 +334,7 @@
         </startupnotify>
         <command>dmenu_run -fn -misc-fixed-*-*-*-*-20-200-*-*-*-*-*-*  -i -nf 'gray' -sb 'dark green' -nb 'dim gray'</command>
       </action>
-    </keybind>
+    </keybind>-->
     <keybind key="W-x">
       <action name="Execute">
         <startupnotify>
@@ -361,7 +344,7 @@
         <command>oblogout</command>
       </action>
     </keybind>
-    <keybind key="Print">
+    <!--<keybind key="W-S-4">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -369,7 +352,7 @@
         </startupnotify>
         <command>gnome-screenshot</command>
       </action>
-    </keybind>
+    </keybind>-->
     <keybind key="XF86MonBrightnessUp">
       <action name="Execute">
         <command>xbacklight +10</command>
@@ -398,7 +381,96 @@
         <command>amixer set Master toggle</command>
       </action>
     </keybind>
+    <!-- Customizations -->
+    <!-- Window Snapping/Maximize -->
+    <!-- left -->
+    <keybind key="W-9">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge">
+        <direction>west</direction>
+      </action>
+    </keybind>
+    <!-- upper left -->
+    <keybind key="W-S-9">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+        <height>50%</height>
+      </action>
+      <action name="MoveToEdge">
+        <direction>west</direction>
+      </action>
+      <action name="MoveToEdge">
+        <direction>north</direction>
+      </action>
+    </keybind>
+    <!-- lower left -->
+    <keybind key="W-C-9">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+        <height>50%</height>
+      </action>
+      <action name="MoveToEdge">
+        <direction>west</direction>
+      </action>
+      <action name="MoveToEdge">
+        <direction>south</direction>
+      </action>
+    </keybind>
+    <!-- right -->
+    <keybind key="W-0">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge">
+        <direction>east</direction>
+      </action>
+    </keybind>
+    <!-- upper right -->
+    <keybind key="W-S-0">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+        <height>50%</height>
+      </action>
+      <action name="MoveToEdge">
+        <direction>east</direction>
+      </action>
+      <action name="MoveToEdge">
+        <direction>north</direction>
+      </action>
+    </keybind>
+    <!-- lower right -->
+    <keybind key="W-C-0">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+        <height>50%</height>
+      </action>
+      <action name="MoveToEdge">
+        <direction>east</direction>
+      </action>
+      <action name="MoveToEdge">
+        <direction>south</direction>
+      </action>
+    </keybind>
+    <!-- toggle  maximize -->
+    <keybind key="W-Return">
+        <action name="ToggleMaximize"/>
+    </keybind>
+    <!-- minimize -->
+    <keybind key="W-m">
+        <action name="Iconify"/>
+    </keybind>
   </keyboard>
+    
   <mouse>
     <dragThreshold>1</dragThreshold>
     <!-- number of pixels the mouse must move before a drag begins -->
@@ -742,12 +814,20 @@
        entry in parent menu -->
        if this is a negative value, then the delay is infinite and the
        submenu will not be hidden until a different submenu is opened --&gt;
-  <applicationIcons>yes</applicationIcons>
+  <applicationIcons>no</applicationIcons>
   <!-- controls if icons appear in the client-list-(combined-)menu -->
-  <manageDesktops>yes</manageDesktops>
+  <manageDesktops>no</manageDesktops>
   <!-- show the manage desktops section in the client-list-(combined-)menu -->
 </menu>
   <applications>
+    <!-- customizations -->
+    
+    <!-- Window decorations -->
+    <!-- Match all windows and remove their decorations -->
+    <application class="*"> <decor>no</decor> </application>
+    <!-- Give back decorations to some app windows -->
+    <application name="galculator"> <decor>yes</decor> </application>
+
     <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.

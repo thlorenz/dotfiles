@@ -101,7 +101,7 @@ cmap w!! w !sudo tee % >/dev/null
   elseif(isMac)
     set gfn=Inconsolata-Powerline:h12
   else
-    set gfn=Courier:h16
+    set gfn=Inconsolata-Powerline:h12
   endif
 
 " Tagbar

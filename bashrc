@@ -102,9 +102,9 @@ if [[ "$unamestr" == "Darwin" ]]; then
 # ---- ARCH ----
 
 elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
-  echo "Configuring for arch-$unamestr"
+  echo "Configuring for ARCH-$unamestr"
 
-  PATH=~/npm-global/bin:$PATH
+  PATH=~/.npmglobal/bin:$PATH
 
 # ---- All other linuxes ----
 elif [[ "$unamestr" == "Linux" ]]; then
