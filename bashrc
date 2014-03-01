@@ -98,6 +98,15 @@ if [[ "$unamestr" == "Darwin" ]]; then
   export VALUEPACK_ANALYZE_DB=~/.valuepack/valuepack-analyze.db
 
 # ----------- LINUX ---------------
+
+# ---- ARCH ----
+
+elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
+  echo "Configuring for arch-$unamestr"
+
+  PATH=~/npm-global/bin:$PATH
+
+# ---- All other linuxes ----
 elif [[ "$unamestr" == "Linux" ]]; then
 
   echo "Configuring for $unamestr"
