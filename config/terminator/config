@@ -25,7 +25,7 @@
     background_image = None
     foreground_color = "#ffffff"
     icon_bell = False
-    font = Inconsolata Medium 14
+    font = Inconsolata Medium 16
     background_color = "#300a24"
     cursor_blink = False
     scrollback_infinite = True
