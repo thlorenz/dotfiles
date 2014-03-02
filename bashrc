@@ -104,6 +104,7 @@ elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
   echo "Configuring for ARCH-$unamestr"
 
   PATH=~/.npmglobal/bin:$PATH
+  alias docker='sudo docker'
 
 # ---- All other linuxes ----
 elif [[ "$unamestr" == "Linux" ]]; then
