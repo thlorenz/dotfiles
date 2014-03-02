@@ -8,9 +8,9 @@
   search = <Super>f
   zoom_in = <Super>equal
   zoom_out = <Super>minus
-  next_tab = <Super>bracketright
+  next_tab = <Super>braceright
   zoom_normal = <Super>BackSpace
-  prev_tab = <Super>bracketleft
+  prev_tab = <Super>braceleft
   close_term = <Super>w
   cycle_next = <Primary>Tab
   new_tab = <Super>t
