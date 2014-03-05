@@ -24,3 +24,14 @@ alias make-targets="make -qsp 2>/dev/null | egrep '^[^#%\.=]*:[^=]' | awk -F ': 
 alias make-targets-verbose="make -qp | sed -n -e 's/^\([^.#[:space:]][^:[:space:]]*\): .*/\1/p'"
 
 alias utelinit="ssh -t udesktop 'sudo telinit 0'"
+
+# Docker
+export DOCKER_HOST=tcp://127.0.0.1:4243
+
+## rm all docker containers
+alias drmc='docker rm `docker ps -notrunc -a -q`'
+
+## rm all untagged docker images 
+function drmi () {
+  docker rmi `docker images | grep '^<none>' | awk '{print $3}'`
+}
