@@ -824,9 +824,9 @@
     
     <!-- Window decorations -->
     <!-- Match all windows and remove their decorations -->
-    <application class="*"> <decor>no</decor> </application>
+    <application class="*"> <decor>yes</decor> </application>
     <!-- Give back decorations to some app windows -->
-    <application name="galculator"> <decor>yes</decor> </application>
+    <!--<application name="galculator"> <decor>yes</decor> </application>-->
 
     <!--
   # this is an example with comments through out. use these to make your
