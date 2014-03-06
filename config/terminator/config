@@ -1,9 +1,10 @@
 [global_config]
-  geometry_hinting = False
   title_hide_sizetext = True
   always_split_with_profile = True
-  enabled_plugins = TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, Logger, LaunchpadBugURLHandler
   borderless = True
+  title_transmit_fg_color = "#20e98c"
+  enabled_plugins = TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, Logger, LaunchpadBugURLHandler
+  geometry_hinting = False
 [keybindings]
   search = <Super>f
   next_tab = <Super>braceright
@@ -25,8 +26,9 @@
     visible_bell = True
     background_image = None
     foreground_color = "#ffffff"
+    scroll_on_output = False
     icon_bell = False
-    font = Inconsolata Medium 16
+    font = Inconsolata Medium 14
     background_color = "#300a24"
     cursor_blink = False
     scrollback_infinite = True
