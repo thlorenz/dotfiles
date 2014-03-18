@@ -44,6 +44,9 @@ setxkbmap -option caps:ctrl_modifier
 # make non-mac keyboards behave like mac keyboards (option-command swap)
 # setxkbmap -option altwin:swap_alt_win
 
+# faster keyboard repeat rate
+xset r rate 180 40
+
 ## Enable SLiM to enable selection of multiple desktop environments, or
 ## set a single session. Only one or the other must be unhashed! In either
 ## instance, /etc/slim.conf must also be amended accordingly.
