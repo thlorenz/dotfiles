@@ -30,9 +30,6 @@ function init () {
 }
 init 
 
-# Set nice prompt
-PS1="\n\[\033[00;34m\]\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
-# PS1="\n\[\033[1;38m\]\u@\h \[\033[00;34m\]\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
 
 # don't put duplicate lines in the history. See bash(1) for more options
 HISTCONTROL=ignoredups:ignorespace
@@ -63,6 +60,7 @@ unamestr=`uname`
 if [[ "$unamestr" == "Darwin" ]]; then
 
   echo "Configuring for $unamestr"
+  PS1="\n\[\033[00;34m\]\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
 
   PATH=~/npm-global/bin::/usr/local/bin:$PATH
 
@@ -102,6 +100,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
 
 elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
   echo "Configuring for ARCH-$unamestr"
+  PS1="\n\[\033[00;34m\]arch:\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
 
   PATH=~/.npmglobal/bin:$PATH
 
@@ -155,5 +154,6 @@ elif [[ "$unamestr" == "Linux" ]]; then
       debian_chroot=$(cat /etc/debian_chroot)
   fi
 else
+  PS1="\n\[\033[00;34m\]\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
   echo "No special configuration known for $unamestr"
 fi
