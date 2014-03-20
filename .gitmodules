@@ -25,9 +25,6 @@
 [submodule "vim/bundle/repeat"]
 	path = vim/bundle/repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule "vim/bundle/matchit"]
-	path = vim/bundle/matchit
-	url = https://github.com/tsaleh/vim-matchit.git
 [submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
