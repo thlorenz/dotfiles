@@ -159,4 +159,4 @@
 	url = https://github.com/mattn/webapi-vim.git
 [submodule "vim/bundle/dockerfile"]
 	path = vim/bundle/dockerfile
-	url = git@github.com:ekalinin/Dockerfile.vim.git
+	url = https://github.com/ekalinin/Dockerfile.vim.git
