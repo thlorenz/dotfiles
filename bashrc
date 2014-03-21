@@ -112,6 +112,8 @@ elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
   alias jadd='autojump -a `pwd`'
   alias j='cd `autojump $1`'
   
+  alias do-transmission="sudo systemctl start transmission"
+  alias ki-transmission="sudo systemctl stop transmission"
 
 # ---- All other linuxes ----
 elif [[ "$unamestr" == "Linux" ]]; then
