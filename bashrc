@@ -1,5 +1,5 @@
 ## If not running interactively, don't do anything (e.g., don't screw up scp)
-[ -z "$PS1" ] && return 
+[ -z "$PS1" ] && return
 
 function init () {
   # http://stackoverflow.com/a/246128/97443
@@ -28,7 +28,7 @@ function init () {
   alias ,sv='source ~/.bashrc'
   alias ,cv='c ~/.bashrc'
 }
-init 
+init
 
 
 # don't put duplicate lines in the history. See bash(1) for more options
@@ -73,10 +73,10 @@ if [[ "$unamestr" == "Darwin" ]]; then
   alias noads='rm -rf /Volumes/Kindle/system/.assets && touch /Volumes/Kindle/system/.assets'
 
   alias pgrep='ps aux | grep '
-  
+
   alias flush-dns='dscacheutil -flushcache'
 
-  # dircolors 
+  # dircolors
   export CLICOLOR=1
 
   # npm completion (described method doesn't work at this point: http://npmjs.org/doc/completion.html)
@@ -111,7 +111,7 @@ elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
 
   alias jadd='autojump -a `pwd`'
   alias j='cd `autojump $1`'
-  
+
   alias do-transmission="sudo systemctl start transmission"
   alias ki-transmission="sudo systemctl stop transmission"
 
@@ -133,7 +133,7 @@ elif [[ "$unamestr" == "Linux" ]]; then
 
   alias :e='sudo vim'
   alias svim='sudo vim'
-  
+
   # apt-get aliases
   alias update="sudo apt-get update"
   alias install="sudo apt-get install"
@@ -143,7 +143,7 @@ elif [[ "$unamestr" == "Linux" ]]; then
   # services aliases
   alias service="sudo service"
   alias nx-restart="service nginx restart"
-  alias nx-test="sudo nginx -t" 
+  alias nx-test="sudo nginx -t"
 
   alias do-transmission="transmission-daemon -g ~/.config/transmission"
   alias ki-transmission="service transmission-daemon stop"
@@ -152,8 +152,8 @@ elif [[ "$unamestr" == "Linux" ]]; then
   # update the values of LINES and COLUMNS.
   shopt -s checkwinsize
 
- 
-  # set variable identifying the chroot you work in (used in the prompt below)    
+
+  # set variable identifying the chroot you work in (used in the prompt below)
   if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
       debian_chroot=$(cat /etc/debian_chroot)
   fi

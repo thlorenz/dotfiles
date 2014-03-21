@@ -1,7 +1,7 @@
 " Detect Environment
-  let isGui  = has("gui_running")
-  let isUnix = has("unix")
-  let isMac  = has("mac")
+let isGui  = has("gui_running")
+let isUnix = has("unix")
+let isMac  = has("mac")
 
 filetype off
 call pathogen#infect()
@@ -13,7 +13,7 @@ set directory=~/.vimtmpdir,.
 set shell=/bin/bash
 
 " lots of those come from http://nvie.com/posts/how-i-boosted-my-vim/
-set nocompatible     
+set nocompatible
 set virtualedit=
 
 set nobackup
@@ -28,11 +28,11 @@ set shiftround
 set ruler
 set scrolloff=4
 
-set incsearch 
+set incsearch
 set ignorecase
 set smartcase
 
-set backspace=2         
+set backspace=2
 set nu
 set hidden
 set mouse=a
@@ -47,7 +47,7 @@ nnoremap <C-y> 5<C-y>
 " limit "Press Enter or ... to continue"
 set shortmess=atI
 
-syn on 
+syn on
 
 inoremap jk <Esc>
 inoremap jj <C-X><C-O>
@@ -70,7 +70,7 @@ imap <S-Space> <Esc>A
 noremap <right> :next <CR>
 noremap <left> :prev <CR>
 
-if(isGui) 
+if(isGui)
   colo wombat
 else
   colo wombat256mod
@@ -86,247 +86,247 @@ nmap Q gqap
 cmap w!! w !sudo tee % >/dev/null
 
 " Editing and reloading vimrc
-  nmap <silent> <leader>ev :e $MYVIMRC <CR>
-  nmap <silent> <leader>sv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+nmap <silent> <leader>ev :e $MYVIMRC <CR>
+nmap <silent> <leader>sv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " Restore cursor position to the last when file was open
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-  
-" Font 
-  if (isGui)
-    set gfn=Inconsolata\ for\ Powerline:h12
-  elseif(isMac)
-    set gfn=Inconsolata-Powerline:h12
-  else
-    set gfn=Inconsolata-Powerline:h12
-  endif
+autocmd BufReadPost *
+      \ if line("'\"") > 1 && line("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
+
+" Font
+if (isGui)
+  set gfn=Inconsolata\ for\ Powerline:h12
+elseif(isMac)
+  set gfn=Inconsolata-Powerline:h12
+else
+  set gfn=Inconsolata-Powerline:h12
+endif
 
 " Tagbar
-  map <silent> « :TagbarToggle<CR>
-  "
+map <silent> « :TagbarToggle<CR>
+"
 " Tabularize (format)
-  noremap <silent> <leader>f=	 :Tabularize /=<CR>
-  noremap <silent> <leader>f,	 :Tabularize /,<CR>
-	noremap <silent> <leader>f:	 :Tabularize /:<CR>
-  noremap <silent> <leader>f(	 :Tabularize /(<CR>
-  noremap <silent> <leader>f\	 :Tabularize /\<CR>
+noremap <silent> <leader>f=	 :Tabularize /=<CR>
+noremap <silent> <leader>f,	 :Tabularize /,<CR>
+noremap <silent> <leader>f:	 :Tabularize /:<CR>
+noremap <silent> <leader>f(	 :Tabularize /(<CR>
+noremap <silent> <leader>f\	 :Tabularize /\<CR>
 
 "Set tab size -- may be overridden for specific filetypes
-	set tabstop=2
-	set softtabstop=2
-	set shiftwidth=2
-	set	expandtab
-  set nowrap
-  
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set	expandtab
+set nowrap
+
 " Scala specific
-  au FileType scala noremap <leader>r :wa \| call Send_to_Screen(join(getline(1,'$'), "\n")) \| call Send_to_Screen("\n")<CR>
- 
+au FileType scala noremap <leader>r :wa \| call Send_to_Screen(join(getline(1,'$'), "\n")) \| call Send_to_Screen("\n")<CR>
+
 " Haskell specific
-  au FileType haskell compiler ghc
-  au FileType haskell noremap <leader>r :wa \| !runghc %<CR>
-  au FileType haskell noremap mm        :wa \| !ghc -e :q %<CR>
-  au FileType haskell noremap <leader>m :wa \| !ghc -e runTests %<CR>
+au FileType haskell compiler ghc
+au FileType haskell noremap <leader>r :wa \| !runghc %<CR>
+au FileType haskell noremap mm        :wa \| !ghc -e :q %<CR>
+au FileType haskell noremap <leader>m :wa \| !ghc -e runTests %<CR>
 
 
-  let g:haskell_indent_if = 4
-  let g:haskell_indent_case = 4
-  
-  " quick way to get to Hoogle
-  au FileType haskell nmap __ _?1
-  
-  " Configure browser for haskell_doc.vim
-    let g:haddock_browser = "open"
-    let g:haddock_browser_callformat = "%s %s"
+let g:haskell_indent_if = 4
+let g:haskell_indent_case = 4
+
+" quick way to get to Hoogle
+au FileType haskell nmap __ _?1
+
+" Configure browser for haskell_doc.vim
+let g:haddock_browser = "open"
+let g:haddock_browser_callformat = "%s %s"
 
 " Yesod specific
-  au FileType hamlet set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+au FileType hamlet set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " Web
-  " browserreload
-    let g:returnApp = "iTerm"
-    noremap <leader>kk :wa \| ChromeReload<CR>
-    noremap <leader>ka :ChromeReloadStart<CR>
-    noremap <leader>ks :ChromeReloadStop<CR>
+" browserreload
+let g:returnApp = "iTerm"
+noremap <leader>kk :wa \| ChromeReload<CR>
+noremap <leader>ka :ChromeReloadStart<CR>
+noremap <leader>ks :ChromeReloadStop<CR>
 
-  " JavaScript specific
-  " au FileType javascript source /Users/thlorenz/dotfiles/vim/bundle/tern/vim/tern.vim
-    au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+" JavaScript specific
+" au FileType javascript source /Users/thlorenz/dotfiles/vim/bundle/tern/vim/tern.vim
+au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
-    au FileType javascript noremap <leader>r :wa \| ! node %<CR>
-    au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
-    au FileType javascript nnoremap <buffer> <leader>D  :<C-u>call WriteJSDocComment()<CR>
+au FileType javascript noremap <leader>r :wa \| ! node %<CR>
+au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
+au FileType javascript nnoremap <buffer> <leader>D  :<C-u>call WriteJSDocComment()<CR>
 
-    au FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    au FileType stylus set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    au FileType jade set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    au FileType handlebars set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    au FileType css set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+au FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+au FileType stylus set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+au FileType jade set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+au FileType handlebars set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+au FileType css set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
-  " CSS specific
-    au FileType css set omnifunc=csscomplete#CompleteCSS
+" CSS specific
+au FileType css set omnifunc=csscomplete#CompleteCSS
 
-  " Html specific
-    au FileType html set omnifunc=htmlcomplete#CompleteTags
+" Html specific
+au FileType html set omnifunc=htmlcomplete#CompleteTags
 
-  " JavaScript, C, CSS and all other langs with { == provide closing brace
-    inoremap {<CR> {<CR>}<C-o>O
+" JavaScript, C, CSS and all other langs with { == provide closing brace
+inoremap {<CR> {<CR>}<C-o>O
 
 " C, C++ specific
-    set ut=100000
-    " au FileType c noremap <leader>r :wa \| make! %:r && echo "" && ./%:r && rm ./%:r<CR>
-    " au FileType c noremap <leader>r :wa \| !cc -Wall -g % -o %:r && ./%:r && rm ./%:r<CR>
-    au FileType c,cc,cpp noremap <leader>r :wa \| make run<CR>
-    au FileType c,cc,cpp noremap <leader>m :wa \| make test<CR>
-    au FileType c,cc,cpp nnoremap <buffer> <leader>D  :<C-u>call WriteJSDocComment()<CR>
+set ut=100000
+" au FileType c noremap <leader>r :wa \| make! %:r && echo "" && ./%:r && rm ./%:r<CR>
+" au FileType c noremap <leader>r :wa \| !cc -Wall -g % -o %:r && ./%:r && rm ./%:r<CR>
+au FileType c,cc,cpp noremap <leader>r :wa \| make run<CR>
+au FileType c,cc,cpp noremap <leader>m :wa \| make test<CR>
+au FileType c,cc,cpp nnoremap <buffer> <leader>D  :<C-u>call WriteJSDocComment()<CR>
 
-  "" clang
-    " more info: https://github.com/Rip-Rip/clang_complete/blob/master/doc/clang_complete.txt#L85
-    let g:clang_snippets = 1
-    let g:clang_snippets_engine = 'clang_complete'
-    let g:clang_auto_select = 1
-    let g:clang_close_preview = 1
-    let g:clang_complete_auto = 0
+"" clang
+" more info: https://github.com/Rip-Rip/clang_complete/blob/master/doc/clang_complete.txt#L85
+let g:clang_snippets = 1
+let g:clang_snippets_engine = 'clang_complete'
+let g:clang_auto_select = 1
+let g:clang_close_preview = 1
+let g:clang_complete_auto = 0
 
-  "" syntastic
-    let g:syntastic_c_compiler='cc'
-    let g:syntastic_c_config_file='.syntastic_c'
-    let g:syntastic_cpp_compiler='gcc'
-    let g:syntastic_cpp_config_file='.syntastic_cc'
-    
-    " command to update .clang_complete file via make
-    " make CC='~/dotfiles/vim/bundle/clang/bin/cc_args.py gcc'
+"" syntastic
+let g:syntastic_c_compiler='cc'
+let g:syntastic_c_config_file='.syntastic_c'
+let g:syntastic_cpp_compiler='gcc'
+let g:syntastic_cpp_config_file='.syntastic_cc'
 
-    " Complete options (disable preview scratch window)
-    set completeopt=menu,menuone,longest
+" command to update .clang_complete file via make
+" make CC='~/dotfiles/vim/bundle/clang/bin/cc_args.py gcc'
 
- 
+" Complete options (disable preview scratch window)
+set completeopt=menu,menuone,longest
+
+
 " Python specific
-  au FileType python set omnifunc=pythoncomplete#Complete
-  au FileType python noremap <leader>r :wa \| !python %<CR>
-  au FileType python set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+au FileType python set omnifunc=pythoncomplete#Complete
+au FileType python noremap <leader>r :wa \| !python %<CR>
+au FileType python set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 "
-" Java specific  
-  au FileType java noremap mm        :wa \| !javac %:p:h/*.java<CR>
+" Java specific
+au FileType java noremap mm        :wa \| !javac %:p:h/*.java<CR>
 
 " Turn Menu and toolbar off
-	set guioptions=-m
-	set guioptions=-M
+set guioptions=-m
+set guioptions=-M
 
 " Turn scrollbars off
-  set guioptions-=r  
-  set guioptions-=b 
+set guioptions-=r
+set guioptions-=b
 
-  au FileType markdown set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0
+au FileType markdown set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0
 
 " Line numbers
-  nmap <leader>' :set relativenumber!<cr>
-  nmap <leader>" :set number!<cr>
-  
+nmap <leader>' :set relativenumber!<cr>
+nmap <leader>" :set number!<cr>
+
 "strip all trailing whitespace in the current file"
-  nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 "Automatically remove trailing spaces"
-  au FileType c,cpp,java,php,js,py,coffee au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+au FileType c,cpp,java,php,js,py,coffee au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 "Enable filtype plugins
-  filetype plugin on
-  filetype indent on
+filetype plugin on
+filetype indent on
 
 " Buffer and Tab Navigation
-  map <C-j> :bp<CR>
-  map <C-k> :bn<CR>
+map <C-j> :bp<CR>
+map <C-k> :bn<CR>
 
-  if (isMac)
-    map <D-j> :tabp<CR>
-    map <D-k> :tabn<CR>
-  else
-    map <M-j> :tabp<CR>
-    map <M-k> :tabn<CR>
-  endif
+if (isMac)
+  map <D-j> :tabp<CR>
+  map <D-k> :tabn<CR>
+else
+  map <M-j> :tabp<CR>
+  map <M-k> :tabn<CR>
+endif
 
 " Buffer Explorer plugins
-    " don't override <leader>t which is I use for ctrlp
-    let g:buffergator_suppress_keymaps=1 
-    " all we need is to toggle buffer pane since we don't use tabs
-    nnoremap <silent> <Leader>b :BuffergatorToggle<CR>
+" don't override <leader>t which is I use for ctrlp
+let g:buffergator_suppress_keymaps=1
+" all we need is to toggle buffer pane since we don't use tabs
+nnoremap <silent> <Leader>b :BuffergatorToggle<CR>
 
 
 " toggle highlight line
-  hi CursorLine term=underline ctermbg=236 guibg=#32322f
-  noremap <leader>j :set cursorline!<CR>
+hi CursorLine term=underline ctermbg=236 guibg=#32322f
+noremap <leader>j :set cursorline!<CR>
 
 " alt+n or alt+p to navigate between entries in QuickFix
-  map <silent> <M-p> :cp <CR>
-  map <silent> <M-n> :cn <CR>
-  
-  nmap <silent> <S-u> :GundoToggle <CR>
+map <silent> <M-p> :cp <CR>
+map <silent> <M-n> :cn <CR>
+
+nmap <silent> <S-u> :GundoToggle <CR>
 
 "Ruby
-  au FileType ruby,eruby set omnifunc=rubycomplete#Complete
-  au FileType ruby,eruby comp ruby
+au FileType ruby,eruby set omnifunc=rubycomplete#Complete
+au FileType ruby,eruby comp ruby
 
-  au FileType ruby mlet g:rubycomplete_buffer_loading = 1
-  au FileType ruby mlet g:rubycomplete_classes_in_global = 1
+au FileType ruby mlet g:rubycomplete_buffer_loading = 1
+au FileType ruby mlet g:rubycomplete_classes_in_global = 1
 
-  au FileType ruby map <F1> :!ri	<CR>
-  au FileType ruby map <F3> :!irb<CR>
-  au FileType ruby noremap <leader>r !ruby %<CR>
+au FileType ruby map <F1> :!ri	<CR>
+au FileType ruby map <F3> :!irb<CR>
+au FileType ruby noremap <leader>r !ruby %<CR>
 
 " Flex/ActionScript
-  au FileType actionscript,mxml set omnifunc=actionscriptcomplete#Complete
+au FileType actionscript,mxml set omnifunc=actionscriptcomplete#Complete
 
 " CoffeeScript specific
-  au FileType coffee noremap <leader>r :wa \| ! coffee %<CR>
-  "Auto Compile CoffeScript on save
-    if(isGui)
-      " Below prevents saving
-      let coffee_make_options = "-p"
-      au BufWritePost *.coffee silent CoffeeMake -b | cwindow
-    endif
-  
+au FileType coffee noremap <leader>r :wa \| ! coffee %<CR>
+"Auto Compile CoffeScript on save
+if(isGui)
+  " Below prevents saving
+  let coffee_make_options = "-p"
+  au BufWritePost *.coffee silent CoffeeMake -b | cwindow
+endif
+
 " Minibuffer Explorer Settings
-  let g:miniBufExplMapWindowNavVim = 1
-  let g:miniBufExplMapWindowNavArrows = 1
-  let g:miniBufExplMapCTabSwitchBufs = 1
-  let g:miniBufExplModSelTarget = 1
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
 
 " Show $ at end of line and trailing space as ~
-  set lcs=tab:\ \ ,eol:$,trail:~,extends:>,precedes:<
-  set novisualbell  " No blinking .
+set lcs=tab:\ \ ,eol:$,trail:~,extends:>,precedes:<
+set novisualbell  " No blinking .
 " No noise.
-  set noerrorbells  
-  set visualbell t_vb= 
-  set laststatus=2  " Always show status line.
-   
+set noerrorbells
+set visualbell t_vb=
+set laststatus=2  " Always show status line.
+
 " gvim specific
-  set mousehide  " Hide mouse after chars typed
-  set mouse=a  " Mouse in all modes
-   
+set mousehide  " Hide mouse after chars typed
+set mouse=a  " Mouse in all modes
+
 " FileUtils
-  " NerdTree  
-    map <C-l> :NERDTreeToggle<CR>
-    
+" NerdTree
+map <C-l> :NERDTreeToggle<CR>
+
 " Close current buffer
-  map <silent> <leader>q :bd<CR> 	
-  
+map <silent> <leader>q :bd<CR>
+
 " Write all then run spec for current dir
-  map <silent> ,s :wa \|S spec . --format progress <CR> <CR> 
-  map <silent> ,; :wa \|! spec . --color --format specdoc <CR> <CR> 
-  map <silent> ,: :wa \|! spec . --format html:spec/spec_report.html <CR> <CR> 
- 
+map <silent> ,s :wa \|S spec . --format progress <CR> <CR>
+map <silent> ,; :wa \|! spec . --color --format specdoc <CR> <CR>
+map <silent> ,: :wa \|! spec . --format html:spec/spec_report.html <CR> <CR>
+
 " Open new terminal shell
-  map <leader>d :!bash <CR>
+map <leader>d :!bash <CR>
 
 " VimRoom options
-  let g:vimroom_sidebar_height=2 
-  let g:vimroom_width=120
+let g:vimroom_sidebar_height=2
+let g:vimroom_width=120
 
-  nnoremap <leader>vs :set lz<CR>:silent call ZoomWin#ZoomWin()<CR>:set nolz<CR>:VimroomToggle<CR>:set nu<CR>
-  nnoremap <leader>ve :VimroomToggle<CR>:set lz<CR>:silent call ZoomWin#ZoomWin()<CR>:set nolz<CR>
-  
+nnoremap <leader>vs :set lz<CR>:silent call ZoomWin#ZoomWin()<CR>:set nolz<CR>:VimroomToggle<CR>:set nu<CR>
+nnoremap <leader>ve :VimroomToggle<CR>:set lz<CR>:silent call ZoomWin#ZoomWin()<CR>:set nolz<CR>
+
 " EasyGrep options
 
 let g:EasyGrepFileAssociations=expand('~')+'/.vim/bundle/easygrep/plugin/EasyGrepFileAssociations'
@@ -367,7 +367,7 @@ let g:VCSCommandDeleteOnHide=1
 "Commands
 command! -nargs=* Wrap set wrap linebreak nolist
 
-"Shell inside Vim	
+"Shell inside Vim
 command! -complete=shellcmd -nargs=+ S call s:RunShellCommand(<q-args>)
 function! s:RunShellCommand(cmdline)
   let isfirst = 1
@@ -396,22 +396,22 @@ endfunction
 " Diff current Buffer with original file
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+        \ | wincmd p | diffthis
 endif
 
 " Enable Camel-Case search
 nnoremap <expr> <leader>/ SearchCamelCase('/')
 nnoremap <expr> <leader>? SearchCamelCase('?')
 function! SearchCamelCase(dir)
-    call inputsave()
-    let ab = input(a:dir)
-    call inputrestore()
-    let l = filter(split(toupper(ab), '\zs'), 'v:val =~ "\\w"')
-    if len(l) > 0
-        let l[0] = '[' . l[0] . tolower(l[0]) . ']'
-    end
-    let @/ = '\C\<' . join(map(l, 'v:val . "[0-9a-z_]*"'), '') . '\>'
-    return a:dir . "\r"
+  call inputsave()
+  let ab = input(a:dir)
+  call inputrestore()
+  let l = filter(split(toupper(ab), '\zs'), 'v:val =~ "\\w"')
+  if len(l) > 0
+    let l[0] = '[' . l[0] . tolower(l[0]) . ']'
+  end
+  let @/ = '\C\<' . join(map(l, 'v:val . "[0-9a-z_]*"'), '') . '\>'
+  return a:dir . "\r"
 endfunction
 
 " If you are using a console version of Vim, or dealing
@@ -526,7 +526,7 @@ function! WatchForChanges(bufname, ...)
 
   " Check to see if the autocommand already exists
   redir @"
-    silent! exec 'au '.id
+  silent! exec 'au '.id
   redir END
   let l:defined = (@" !~ 'E216: No such group or event:')
 
@@ -541,52 +541,51 @@ function! WatchForChanges(bufname, ...)
       end
     end
     silent! exec 'augroup '.id
-      if a:bufname != '*'
-        "exec "au BufDelete    ".a:bufname . " :silent! au! ".id . " | silent! augroup! ".id
-        "exec "au BufDelete    ".a:bufname . " :echomsg 'Removing autocommands for ".id."' | au! ".id . " | augroup! ".id
-        exec "au BufDelete    ".a:bufname . " execute 'au! ".id."' | execute 'augroup! ".id."'"
-      end
-        exec "au BufEnter     ".event_bufspec . " :checktime ".bufspec
-        exec "au CursorHold   ".event_bufspec . " :checktime ".bufspec
-        exec "au CursorHoldI  ".event_bufspec . " :checktime ".bufspec
-
-      " The following events might slow things down so we provide a way to disable them...
-      " vim docs warn:
-      "   Careful: Don't do anything that the user does
-      "   not expect or that is slow.
-      if more_events
-        exec "au CursorMoved  ".event_bufspec . " :checktime ".bufspec
-        exec "au CursorMovedI ".event_bufspec . " :checktime ".bufspec
-      end
-    augroup END
-    let msg = msg . 'Now watching ' . bufspec . ' for external updates...'
-  end
-
-  " If they want to disable it, or it is defined and they want to toggle it,
-  if l:disable || (l:toggle && l:defined)
-    if l:autoread
-      let msg = msg . 'Autoread disabled - '
-      if a:bufname == '*'
-        set noautoread
-      else
-        setlocal noautoread
-      end
+    if a:bufname != '*'
+      "exec "au BufDelete    ".a:bufname . " :silent! au! ".id . " | silent! augroup! ".id
+      "exec "au BufDelete    ".a:bufname . " :echomsg 'Removing autocommands for ".id."' | au! ".id . " | augroup! ".id
+      exec "au BufDelete    ".a:bufname . " execute 'au! ".id."' | execute 'augroup! ".id."'"
     end
-    " Using an autogroup allows us to remove it easily with the following
-    " command. If we do not use an autogroup, we cannot remove this
-    " single :checktime command
-    " augroup! checkforupdates
-    silent! exec 'au! '.id
-    silent! exec 'augroup! '.id
-    let msg = msg . 'No longer watching ' . bufspec . ' for external updates.'
-  elseif l:defined
-    let msg = msg . 'Already watching ' . bufspec . ' for external updates'
-  end
+    exec "au BufEnter     ".event_bufspec . " :checktime ".bufspec
+    exec "au CursorHold   ".event_bufspec . " :checktime ".bufspec
+    exec "au CursorHoldI  ".event_bufspec . " :checktime ".bufspec
 
-  echo msg
-  let @"=reg_saved
+    " The following events might slow things down so we provide a way to disable them...
+    " vim docs warn:
+    "   Careful: Don't do anything that the user does
+    "   not expect or that is slow.
+    if more_events
+      exec "au CursorMoved  ".event_bufspec . " :checktime ".bufspec
+      exec "au CursorMovedI ".event_bufspec . " :checktime ".bufspec
+    end
+  augroup END
+  let msg = msg . 'Now watching ' . bufspec . ' for external updates...'
+end
+
+" If they want to disable it, or it is defined and they want to toggle it,
+if l:disable || (l:toggle && l:defined)
+  if l:autoread
+    let msg = msg . 'Autoread disabled - '
+    if a:bufname == '*'
+      set noautoread
+    else
+      setlocal noautoread
+    end
+  end
+  " Using an autogroup allows us to remove it easily with the following
+  " command. If we do not use an autogroup, we cannot remove this
+  " single :checktime command
+  " augroup! checkforupdates
+  silent! exec 'au! '.id
+  silent! exec 'augroup! '.id
+  let msg = msg . 'No longer watching ' . bufspec . ' for external updates.'
+elseif l:defined
+  let msg = msg . 'Already watching ' . bufspec . ' for external updates'
+end
+
+echo msg
+let @"=reg_saved
 endfunction
 
 nnoremap <leader>a :WatchForChanges<CR>
 nnoremap <leader>A :WatchForChangesAllFile<CR>
-
