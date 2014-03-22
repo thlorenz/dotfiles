@@ -50,6 +50,10 @@ alias serve='echo "http://localhost:3000" && http-server -p 3000 -c-1'
 export EDITOR=vim
 export SHELL=/usr/local/bin/bash
 
+## we'll prefer clang if it's there
+command -v clang   >/dev/null 2>&1 && export CC=clang && export GYP_DEFINES='clang=1'
+command -v clang++ >/dev/null 2>&1 && export CXX=clang++ && LINK=clang++ && export GYP_DEFINES='clang=1'
+
 # Environment tweaks
 export HISTIGNORE='&:ll:ls:ls *:gs:git status'
 
