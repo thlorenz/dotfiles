@@ -160,3 +160,6 @@
 [submodule "vim/bundle/dockerfile"]
 	path = vim/bundle/dockerfile
 	url = https://github.com/ekalinin/Dockerfile.vim.git
+[submodule "vim/bundle/gyp"]
+	path = vim/bundle/gyp
+	url = https://github.com/kelan/gyp.vim.git
