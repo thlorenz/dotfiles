@@ -327,6 +327,10 @@ let g:vimroom_width=120
 nnoremap <leader>vs :set lz<CR>:silent call ZoomWin#ZoomWin()<CR>:set nolz<CR>:VimroomToggle<CR>:set nu<CR>
 nnoremap <leader>ve :VimroomToggle<CR>:set lz<CR>:silent call ZoomWin#ZoomWin()<CR>:set nolz<CR>
 
+" Syntastic options
+
+let g:syntastic_always_populate_loc_list = 1
+  
 " EasyGrep options
 
 let g:EasyGrepFileAssociations=expand('~')+'/.vim/bundle/easygrep/plugin/EasyGrepFileAssociations'
