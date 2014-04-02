@@ -176,9 +176,9 @@ inoremap {<CR> {<CR>}<C-o>O
 
 " C, C++ specific
 set ut=100000
-" au FileType c noremap <leader>r :wa \| make! %:r && echo "" && ./%:r && rm ./%:r<CR>
+au FileType c,cc,cpp noremap <leader>r :wa \| make! %:r && echo "" && ./%:r && rm ./%:r<CR>
 " au FileType c noremap <leader>r :wa \| !cc -Wall -g % -o %:r && ./%:r && rm ./%:r<CR>
-au FileType c,cc,cpp noremap <leader>r :wa \| make run<CR>
+"au FileType c,cc,cpp noremap <leader>r :wa \| make run<CR>
 au FileType c,cc,cpp noremap <leader>m :wa \| make test<CR>
 au FileType c,cc,cpp nnoremap <buffer> <leader>D  :<C-u>call WriteJSDocComment()<CR>
 
@@ -318,7 +318,7 @@ map <silent> ,; :wa \|! spec . --color --format specdoc <CR> <CR>
 map <silent> ,: :wa \|! spec . --format html:spec/spec_report.html <CR> <CR>
 
 " Open new terminal shell
-map <leader>d :!bash <CR>
+noremap <leader>d <C-Z>
 
 " VimRoom options
 let g:vimroom_sidebar_height=2
