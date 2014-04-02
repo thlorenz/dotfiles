@@ -32,6 +32,9 @@ alias docker="sudo docker -H $DOCKER_HOST"
 ## rm all docker containers
 alias drmc='docker rm `docker ps -notrunc -a -q`'
 
+## stop all docker containers
+alias dstc='docker stop `docker ps -notrunc -a -q`'
+
 ## rm all untagged docker images 
 function drmi () {
   docker rmi `docker images | grep '^<none>' | awk '{print $3}'`
