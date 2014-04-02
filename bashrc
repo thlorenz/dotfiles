@@ -109,6 +109,9 @@ elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
 
   PATH=~/.npmglobal/bin:$PATH
 
+  # faster keyboard repeat rate
+  xset r rate 200 35 
+
   # docker
   export DOCKER_HOST='tcp://127.0.0.1:4243'
   alias docker="sudo docker -H=$DOCKER_HOST"
