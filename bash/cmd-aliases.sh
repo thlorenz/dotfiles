@@ -30,10 +30,10 @@ export DOCKER_HOST=tcp://127.0.0.1:4243
 alias docker="sudo docker -H $DOCKER_HOST"
 
 ## rm all docker containers
-alias drmc='docker rm `docker ps -notrunc -a -q`'
+alias drmc='docker rm `docker ps -a -q`'
 
 ## stop all docker containers
-alias dstc='docker stop `docker ps -notrunc -a -q`'
+alias dstc='docker stop `docker ps -a -q`'
 
 ## rm all untagged docker images 
 function drmi () {
