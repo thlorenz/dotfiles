@@ -107,13 +107,12 @@ elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
   echo "Configuring for ARCH-$unamestr"
   PS1="\n\[\033[00;34m\]arch:\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
 
-  PATH=~/.npmglobal/bin:$PATH
+  PATH=~/npm-global/bin:$PATH
 
-  # faster keyboard repeat rate
-  xset r rate 200 35 
+  shopt -s checkwinsize
 
   # docker
-  export DOCKER_HOST='tcp://127.0.0.1:4243'
+  export DOCKER_HOST='unix:///var/run/docker.sock'
   alias docker="sudo docker -H=$DOCKER_HOST"
 
   alias jadd='autojump -a `pwd`'
@@ -122,6 +121,11 @@ elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
   alias do-transmission="sudo systemctl start transmission"
   alias ki-transmission="sudo systemctl stop transmission"
 
+  [ -f /usr/lib/node_modules/npm/lib/utils/completion.sh ] && source /usr/lib/node_modules/npm/lib/utils/completion.sh
+
+  # faster keyboard repeat rate if we are running X
+  (command -v xset>/dev/null 2>&1 && xset r rate 200 35)
+
 # ---- All other linuxes ----
 elif [[ "$unamestr" == "Linux" ]]; then
 
@@ -129,17 +133,6 @@ elif [[ "$unamestr" == "Linux" ]]; then
   PS1="\n\[\033[00;34m\]lnx:\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
 
   PATH=~/npm-global/bin::~/.cabal/bin:$PATH
-
-  # TODO: test if folder exists -- Custom installed ghc binary folder
-  PATH=/usr/local/haskell-platform-2011.4.0.0/bin/:$PATH
-
-  alias cd-haskell='cd ~/dev/haskell'
-  alias cd-webtoink='cd ~/dev/haskell/webtoink/webtoink'
-
-  alias go-ec2='ssh -i ~/.ssh/userver-micro_rsa.pem ubuntu@ec2-micro'
-
-  alias :e='sudo vim'
-  alias svim='sudo vim'
 
   # apt-get aliases
   alias update="sudo apt-get update"
@@ -158,7 +151,6 @@ elif [[ "$unamestr" == "Linux" ]]; then
   # check the window size after each command and, if necessary,
   # update the values of LINES and COLUMNS.
   shopt -s checkwinsize
-
 
   # set variable identifying the chroot you work in (used in the prompt below)
   if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
