@@ -176,9 +176,10 @@ inoremap {<CR> {<CR>}<C-o>O
 
 " C, C++ specific
 set ut=100000
-au FileType c,cc,cpp noremap <leader>r :wa \| make! %:r && echo "" && ./%:r && rm ./%:r<CR>
+" au FileType c,cc,cpp noremap <leader>r :wa \| make! %:r && echo "" && ./%:r && rm ./%:r<CR>
 " au FileType c noremap <leader>r :wa \| !cc -Wall -g % -o %:r && ./%:r && rm ./%:r<CR>
-"au FileType c,cc,cpp noremap <leader>r :wa \| make run<CR>
+au FileType c,cc,cpp noremap <leader>r :wa \| make! run<CR>
+" au FileType c,cc,cpp noremap <leader>r :wa \| make! run-pgrep<CR>
 au FileType c,cc,cpp noremap <leader>m :wa \| make test<CR>
 au FileType c,cc,cpp nnoremap <buffer> <leader>D  :<C-u>call WriteJSDocComment()<CR>
 
@@ -189,12 +190,13 @@ let g:clang_snippets_engine = 'clang_complete'
 let g:clang_auto_select = 1
 let g:clang_close_preview = 1
 let g:clang_complete_auto = 0
+"let g:clang_library_path = '/usr/include/clang'
 
 "" syntastic
 let g:syntastic_c_compiler='cc'
 let g:syntastic_c_config_file='.syntastic_c'
 let g:syntastic_cpp_compiler='gcc'
-let g:syntastic_cpp_config_file='.syntastic_cc'
+let g:syntastic_cpp_config_file='.syntastic_c'
 
 " command to update .clang_complete file via make
 " make CC='~/dotfiles/vim/bundle/clang/bin/cc_args.py gcc'
