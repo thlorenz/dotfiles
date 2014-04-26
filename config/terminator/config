@@ -6,17 +6,13 @@
   enabled_plugins = TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, Logger, LaunchpadBugURLHandler
   geometry_hinting = False
 [keybindings]
-  search = <Super>f
-  next_tab = <Super>braceright
+  search = <Ctrl>f
   zoom_in = <Super>equal
   zoom_out = <Super>minus
-  new_window = <Super>d
   zoom_normal = <Super>BackSpace
-  prev_tab = <Super>braceleft
-  close_term = <Super>w
-  cycle_next = <Primary>Tab
   new_tab = <Super>t
-  new_terminator = <Primary><Shift>i
+  next_tab = <Super>braceright
+  prev_tab = <Super>braceleft
   copy = <Super>c
   paste = <Super>v
 [profiles]
@@ -28,10 +24,11 @@
     foreground_color = "#ffffff"
     scroll_on_output = False
     icon_bell = False
-    font = Inconsolata Medium 14
+    font = Inconsolata Medium 12
     background_color = "#300a24"
     cursor_blink = False
     scrollback_infinite = True
+    show_titlebar = False
   [[original-default]]
     use_system_font = False
     font = Inconsolata Medium 14
