@@ -1,4 +1,3 @@
-
 #!/bin/sh
 
 #
@@ -47,19 +46,6 @@ setxkbmap -option caps:ctrl_modifier
 # faster keyboard repeat rate
 xset r rate 180 40
 
-## Enable SLiM to enable selection of multiple desktop environments, or
-## set a single session. Only one or the other must be unhashed! In either
-## instance, /etc/slim.conf must also be amended accordingly.
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-## Enable multiple desktop environments
-#exec $1
-
-## Set a single desktop environment
-exec openbox-session
-#exec xfce4-session
-#exec gnome-session
-#exec startkde
-#exec cinnamon-session
-#exec razor-session
-#exec lxsession
-#exec mate-session
+exec i3
