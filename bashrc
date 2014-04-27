@@ -123,9 +123,6 @@ elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
 
   [ -f /usr/lib/node_modules/npm/lib/utils/completion.sh ] && source /usr/lib/node_modules/npm/lib/utils/completion.sh
 
-  # faster keyboard repeat rate if we are running X
-  (command -v xset>/dev/null 2>&1 && xset r rate 200 35)
-
 # ---- All other linuxes ----
 elif [[ "$unamestr" == "Linux" ]]; then
 
