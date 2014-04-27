@@ -21,11 +21,11 @@
     foreground_color = "#ffffff"
     scroll_on_output = False
     icon_bell = False
-    font = Inconsolata Medium 12
+    show_titlebar = False
+    font = Inconsolata for Powerline Medium 14
     background_color = "#300a24"
     cursor_blink = False
     scrollback_infinite = True
-    show_titlebar = False
   [[original-default]]
     use_system_font = False
     font = Inconsolata Medium 14
