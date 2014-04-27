@@ -1,0 +1,8 @@
+# xterm*foreground: rgb:b2/b2/b2
+# xterm*background: rgb:08/08/08
+
+# xterm*faceName: Inconsolata Medium:size=12:antialias=true
+
+# https://wiki.archlinux.org/index.php/Xterm
+xterm*termName: xterm-256color
+xterm*locale: true

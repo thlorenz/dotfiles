@@ -48,4 +48,7 @@ xset r rate 180 40
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
+# thunderbolt single monitor setup
+sh ~/.screenlayout/external-single.sh 
+
 exec i3

@@ -37,72 +37,45 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 # bindsym $mod+Shift+q kill
-bindsym $mod+c kill
+bindsym $mod+w kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+space exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn 'DejaVu Sans-10' -l 10"
 
 # j4-dmenu-desktop -- A faster replacement for i3-dmenu-desktop
 # https://github.com/enkore/j4-dmenu-desktop
 # https://aur.archlinux.org/packages/j4-dmenu-desktop-git/
 # bindsym $mod+space exec --no-startup-id j4-dmenu-desktop
-bindsym $mod+space exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -fn 'DejaVu Sans-10' -l 20"
+#bindsym $mod+space exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -fn 'DejaVu Sans-10' -l 20"
 
 # change focus
-# bindsym $mod+j focus left
-# bindsym $mod+k focus down
-# bindsym $mod+l focus up
-# bindsym $mod+semicolon focus right
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# move focused window (Super+Shift+vimkeys) 
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
-# move focused window (Super+Alt+vimkeys) 
-# bindsym $mod+Shift+j move left
-# bindsym $mod+Shift+k move down
-# bindsym $mod+Shift+l move up
-# bindsym $mod+Shift+semicolon move right
-bindsym $mod+mod1+h move left
-bindsym $mod+mod1+j move down
-bindsym $mod+mod1+k move up
-bindsym $mod+mod1+l move right
+# split horizontally
+bindsym $mod+Shift+d split v
 
-# alternatively, you can use the cursor keys:
-# bindsym $mod+Shift+Left move left
-# bindsym $mod+Shift+Down move down
-# bindsym $mod+Shift+Up move up
-# bindsym $mod+Shift+Right move right
-bindsym $mod+mod1+Left move left
-bindsym $mod+mod1+Down move down
-bindsym $mod+mod1+Up move up
-bindsym $mod+mod1+Right move right
-
-# i3 has it in reverse; h = vertical ; v = horizontal
-# split in horizontal orientation
-# bindsym $mod+h split h
-bindsym $mod+b split v
-
-# split in vertical orientation
-# bindsym $mod+v split v
-bindsym $mod+v split h
+# split vertically
+bindsym $mod+d split h
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -121,38 +94,28 @@ bindsym $mod+a focus parent
 
 # switch to workspace
 # https://github.com/redhat69/dotfiles/blob/master/.i3/config
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
+bindsym $mod+1 workspace 1: hack
+bindsym $mod+2 workspace 2 
+bindsym $mod+3 workspace 3 
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8: manga
-bindsym $mod+9 workspace 9: web
-bindsym $mod+0 workspace 10: main
+bindsym $mod+8 workspace 8: music
+bindsym $mod+9 workspace 9: social
+bindsym $mod+0 workspace 10: mail
 
 # move focused container to workspace
-# bindsym $mod+Shift+1 move container to workspace 1
-# bindsym $mod+Shift+2 move container to workspace 2
-# bindsym $mod+Shift+3 move container to workspace 3
-# bindsym $mod+Shift+4 move container to workspace 4
-# bindsym $mod+Shift+5 move container to workspace 5
-# bindsym $mod+Shift+6 move container to workspace 6
-# bindsym $mod+Shift+7 move container to workspace 7
-# bindsym $mod+Shift+8 move container to workspace 8
-# bindsym $mod+Shift+9 move container to workspace 9
-# bindsym $mod+Shift+0 move container to workspace 10
-bindsym $mod+mod1+1 move container to workspace 1
-bindsym $mod+mod1+2 move container to workspace 2
-bindsym $mod+mod1+3 move container to workspace 3
-bindsym $mod+mod1+4 move container to workspace 4
-bindsym $mod+mod1+5 move container to workspace 5
-bindsym $mod+mod1+6 move container to workspace 6
-bindsym $mod+mod1+7 move container to workspace 7
-bindsym $mod+mod1+8 move container to workspace 8: manga
-bindsym $mod+mod1+9 move container to workspace 9: web
-bindsym $mod+mod1+0 move container to workspace 10: main
+bindsym $mod+Shift+1 move container to workspace 1: hack
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8: music
+bindsym $mod+Shift+9 move container to workspace 9: social
+bindsym $mod+Shift+0 move container to workspace 10: mail
 
 # reload the configuration file
 # bindsym $mod+Shift+c reload
@@ -172,20 +135,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        # bindsym j resize shrink width 10 px or 10 ppt
-        # bindsym k resize grow height 10 px or 10 ppt
-        # bindsym l resize shrink height 10 px or 10 ppt
-        # bindsym semicolon resize grow width 10 px or 10 ppt
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -207,13 +160,8 @@ bar {
 # class is usually 1st letter Capitalize and everything else lowercase
 # use 'xprop' or 'xwininfo' to get window information
 # for_window [class="(?i)dolphin"] floating enable
-for_window [class="Screenkey"] floating enable
-for_window [class="Xfce4-notifyd"] floating enable
-
-# assign program to specific workspace
-assign [class="Mcomix"] 8: manga
-assign [class="Calibre"] 8: manga
-
+# for_window [class="Screenkey"] floating enable
+# for_window [class="Xfce4-notifyd"] floating enable
 
 # sound control
 # https://faq.i3wm.org/question/125/how-to-change-the-systems-volume/?answer=249#post-id-249
@@ -233,17 +181,34 @@ bindsym $mod+n workspace next
 bindsym $mod+p workspace prev 
 bindsym $mod+mod1+n move container to workspace next
 bindsym $mod+mod1+p move container to workspace prev
-bindsym $mod+d workspace back_and_forth 
+bindsym $mod+Tab workspace back_and_forth 
 
 # autostart apps
 # http://i3wm.org/docs/userguide.html#_automatically_starting_applications_on_i3_startup
-exec xmodmap ~/.Xmodmap
-exec xcompmgr
-exec ~/.scripts/feh-wallpaper-changer.sh
-exec parcellite
-# credit @SardemFF7 from #i3 irc
-# exec i3-msg 'workspace 9: web; exec chromium; workspace back_and_forth'
-exec i3-msg 'workspace 9: web; exec chromium'
+# exec xmodmap ~/.Xmodmap
+# exec xcompmgr
+# exec ~/.scripts/feh-wallpaper-changer.sh
+
+exec terminator
+
+assign [instance="rdio.com"]                              8: music
+exec chromium --app=https://rdio.com
+
+assign [instance="twitter.com"]                           9: social
+exec chromium --app=https://twitter.com
+
+# circ chrome app
+assign [instance="crx_bebigdkelppomhhjaaianniiifjbgocn"]  9: social
+exec chromium --app-id=bebigdkelppomhhjaaianniiifjbgocn 
+
+assign [instance="mail.google.com__mail_u_0"]             9: social
+exec chromium --app=https://mail.google.com/mail/u/0
+
+assign [instance="nodesource.slack.com"]                  10: mail
+exec chromium --app=https://nodesource.slack.com
+
+assign [instance="mail.google.com__mail_u_1"]             10: mail
+exec chromium --app=https://mail.google.com/mail/u/1
 
 
 # Colors
@@ -255,13 +220,7 @@ exec i3-msg 'workspace 9: web; exec chromium'
 # client.urgent           #2f343a #900000 #ffffff #900000
 
 # Def
-# client.focused          #4c7899 #285577 #ffffff #2e9ef4
-# client.focused_inactive #333333 #5f676a #ffffff #484e50
-# client.unfocused        #333333 #222222 #888888 #292d2e
-# client.urgent           #2f343a #900000 #ffffff #900000
-
-#Todo list
-# i3bar status
-# timeout suspend system
-# Assign apps to workspace https://github.com/jmazzi/dotfiles/blob/master/.i3/config
-# better resize
+ client.focused          #4c7899 #285577 #ffffff #2e9ef4
+ client.focused_inactive #333333 #5f676a #ffffff #484e50
+ client.unfocused        #333333 #222222 #888888 #292d2e
+ client.urgent           #2f343a #900000 #ffffff #900000

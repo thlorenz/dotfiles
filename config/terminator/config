@@ -10,9 +10,6 @@
   zoom_in = <Super>equal
   zoom_out = <Super>minus
   zoom_normal = <Super>BackSpace
-  new_tab = <Super>t
-  next_tab = <Super>braceright
-  prev_tab = <Super>braceleft
   copy = <Super>c
   paste = <Super>v
 [profiles]

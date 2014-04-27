@@ -11,6 +11,11 @@ ln -F -s ~/dotfiles/tigrc       ~/.tigrc
 ln -F -s ~/dotfiles/cardinalrc  ~/.cardinalrc
 ln -F -s ~/dotfiles/agignore    ~/.agignore
 
-ln -s ~/dotfiles/vim            ~/.vim
-ln -s ~/dotfiles/config/nstart  ~/.config/nstart
-ln -s ~/dotfiles/config/pkginit ~/.config/pkginit
+#ln -F -s ~/dotfiles/vim            ~/.vim
+#ln -F -s ~/dotfiles/config/nstart  ~/.config/nstart
+#ln -F -s ~/dotfiles/config/pkginit ~/.config/pkginit
+
+# linux only
+ln -s ~/dotfiles/X11/xinitrc ~/.xinitrc
+ln -s ~/dotfiles/X11/Xmodemap ~/.Xmodemap
+ln -s ~/dotfiles/X11/Xresources ~/.Xresources
