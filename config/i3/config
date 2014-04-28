@@ -185,11 +185,19 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 exec terminator
 
+# adapt computerdisplay to time of day
+exec xflux -z 10022
+
 assign [instance="rdio.com"]                              8: music
 exec chromium --app=https://rdio.com
 
-assign [instance="twitter.com"]                           9: social
-exec chromium --app=https://twitter.com
+# twitter
+assign [instance="crx_ikknnkomiokeodcdkknnhgjmncfiefmn"]  9: social
+# launches into settings without a way to get out, so we'll
+# launch it manually from chrome (at least it has notifications)
+# exec chromium --app-id=ikknnkomiokeodcdkknnhgjmncfiefmn
+#assign [instance="twitter.com"]                           9: social
+#exec chromium --app=https://twitter.com
 
 # circ chrome app
 assign [instance="crx_bebigdkelppomhhjaaianniiifjbgocn"]  9: social
