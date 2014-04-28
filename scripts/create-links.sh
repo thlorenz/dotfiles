@@ -16,6 +16,7 @@ ln -F -s ~/dotfiles/agignore    ~/.agignore
 #ln -F -s ~/dotfiles/config/pkginit ~/.config/pkginit
 
 # linux only
-ln -s ~/dotfiles/X11/xinitrc ~/.xinitrc
-ln -s ~/dotfiles/X11/Xmodemap ~/.Xmodemap
+ln -s ~/dotfiles/X11/xinitrc    ~/.xinitrc
+ln -s ~/dotfiles/X11/Xmodemap   ~/.Xmodemap
 ln -s ~/dotfiles/X11/Xresources ~/.Xresources
+ln -s ~/dotfiles/X11/yaourtc    ~/.yaourtc

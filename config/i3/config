@@ -163,6 +163,20 @@ bindsym $mod+mod1+n move container to workspace next
 bindsym $mod+mod1+p move container to workspace prev
 bindsym $mod+Tab workspace back_and_forth 
 
+# suspend/hibernate
+bindsym $mod+Shift+s      exec sudo pm-suspend
+bindsym $mod+mod1+Shift+s  exec sudo pm-hibernate
+
+# switch to external monitor via shortcut
+bindsym mod1+Control+0 exec ~/.screenlayout/laptop-single.sh
+bindsym mod1+Control+1 exec ~/.screenlayout/external-single.sh
+bindsym mod1+Control+2 exec ~/.screenlayout/external-dual.sh
+
+# brigthness (inc 10 == +1 | dec 5 ==-1 | odd but this is how it works)
+# https://wiki.archlinux.org/index.php/backlight
+bindsym XF86MonBrightnessUp   exec xbacklight -inc 10 
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 
+
 # autostart apps
 # http://i3wm.org/docs/userguide.html#_automatically_starting_applications_on_i3_startup
 # exec xmodmap ~/.Xmodmap
