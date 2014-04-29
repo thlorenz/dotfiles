@@ -115,6 +115,9 @@ elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
   export DOCKER_HOST='unix:///var/run/docker.sock'
   alias docker="sudo docker -H=$DOCKER_HOST"
 
+  alias pacman='sudo pacman'
+  alias pacmany='pacman --noconfirm'
+
   alias jadd='autojump -a `pwd`'
   alias j='cd `autojump $1`'
 
@@ -122,6 +125,8 @@ elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
   alias ki-transmission="sudo systemctl stop transmission"
 
   [ -f /usr/lib/node_modules/npm/lib/utils/completion.sh ] && source /usr/lib/node_modules/npm/lib/utils/completion.sh
+
+  [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 
 # ---- All other linuxes ----
 elif [[ "$unamestr" == "Linux" ]]; then

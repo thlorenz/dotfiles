@@ -185,6 +185,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 
 exec terminator
 
+exec chromium
+
 # adapt computerdisplay to time of day
 exec xflux -z 10022
 
