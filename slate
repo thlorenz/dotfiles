@@ -1,0 +1,9 @@
+alias mod cmd
+
+# Focus Bindings
+bind l:${mod}       focus right
+bind h:${mod}       focus left
+bind k:${mod}       focus up
+bind j:${mod}       focus down
+bind k:${mod};shift focus behind
+bind j:${mod};shift focus behind
