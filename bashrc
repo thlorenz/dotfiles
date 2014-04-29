@@ -115,8 +115,12 @@ elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
   export DOCKER_HOST='unix:///var/run/docker.sock'
   alias docker="sudo docker -H=$DOCKER_HOST"
 
+  # pacman
   alias pacman='sudo pacman'
   alias pacmany='pacman --noconfirm'
+
+  # tmux
+  alias tmux='TERM=xterm-256color tmux'
 
   alias jadd='autojump -a `pwd`'
   alias j='cd `autojump $1`'
