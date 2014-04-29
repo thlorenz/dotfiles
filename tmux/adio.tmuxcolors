@@ -1,0 +1,38 @@
+# default statusbar colors
+set-option -g status-fg colour250
+set-option -g status-bg colour234
+set-option -g status-attr default
+
+# default left statusbar colors
+set-option -g status-left-fg colour250
+set-option -g status-left-bg default
+set-option -g status-left-attr default
+
+# default right statusbar colors
+set-option -g status-right-fg colour240
+set-option -g status-right-bg default
+set-option -g status-right-attr default
+
+# default window title colors
+set-window-option -g window-status-fg colour240
+set-window-option -g window-status-bg default
+
+# active window title colors
+set-window-option -g window-status-current-fg colour252
+set-window-option -g window-status-current-bg default
+set-window-option -g window-status-current-attr default
+
+# pane border
+set-option -g pane-border-fg colour235
+set-option -g pane-active-border-fg colour235
+
+# message text
+set-option -g message-fg colour232
+set-option -g message-bg colour32
+
+# pane number display
+# set-option -g display-panes-active-colour colour32
+# set-option -g display-panes-colour colour166
+
+set-option -g mode-fg colour232
+set-option -g mode-bg colour32
