@@ -78,6 +78,10 @@ endif
 
 set statusline=%f%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %p%%
 
+" highlight things that hang over 100th column
+" highlight OverLength ctermbg=black ctermfg=white guibg=black
+" match OverLength /\%101v.\+/
+
 " Use Q for formatting the current paragraph (or selection)
 vmap Q gq
 nmap Q gqap
@@ -366,6 +370,11 @@ let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_working_path_mode = 'r'
 
 set wildignore+=*/dist/*,*/.git/*,*/.svn/*,*/node_modules/*,*.o,*.hi,*.sqlite3
+
+" color column an 100 
+hi ColorColumn ctermbg=138 guibg=black
+set colorcolumn=102
+
 
 " VCS specific
 let g:VCSCommandDeleteOnHide=1
