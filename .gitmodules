@@ -160,3 +160,6 @@
 [submodule "vim/bundle/gyp"]
 	path = vim/bundle/gyp
 	url = https://github.com/kelan/gyp.vim.git
+[submodule "vim/bundle/tmux-navigator"]
+	path = vim/bundle/tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator

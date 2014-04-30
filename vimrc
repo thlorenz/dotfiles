@@ -241,12 +241,6 @@ au FileType c,cpp,java,php,js,py,coffee au BufWritePre <buffer> :call setline(1,
 filetype plugin on
 filetype indent on
 
-" Buffer and Tab Navigation
-map <C-h> <C-W>h<C-W>
-map <C-j> <C-W>j<C-W>
-map <C-k> <C-W>k<C-W>
-map <C-l> <C-W>l<C-W>
-
 if (isMac)
   map <D-j> :tabp<CR>
   map <D-k> :tabn<CR>
@@ -313,9 +307,8 @@ set laststatus=2  " Always show status line.
 set mousehide  " Hide mouse after chars typed
 set mouse=a  " Mouse in all modes
 
-" FileUtils
-" NerdTree
-map <C-I> :NERDTreeToggle<CR>
+" Nerd Tree
+map <Tab> :NERDTreeToggle<CR>
 
 " Close current buffer
 map <silent> <leader>q :bd<CR>
