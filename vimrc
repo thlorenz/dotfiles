@@ -242,8 +242,10 @@ filetype plugin on
 filetype indent on
 
 " Buffer and Tab Navigation
-map <C-j> :bp<CR>
-map <C-k> :bn<CR>
+map <C-h> <C-W>h<C-W>
+map <C-j> <C-W>j<C-W>
+map <C-k> <C-W>k<C-W>
+map <C-l> <C-W>l<C-W>
 
 if (isMac)
   map <D-j> :tabp<CR>
@@ -313,7 +315,7 @@ set mouse=a  " Mouse in all modes
 
 " FileUtils
 " NerdTree
-map <C-l> :NERDTreeToggle<CR>
+map <C-I> :NERDTreeToggle<CR>
 
 " Close current buffer
 map <silent> <leader>q :bd<CR>
