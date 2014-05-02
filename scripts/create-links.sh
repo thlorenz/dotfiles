@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+mkdir -p ~/.config
+
 ln -F -s ~/dotfiles/bashrc      ~/.bashrc
 ln -F -s ~/dotfiles/bashprofile ~/.profile
 ln -F -s ~/dotfiles/inputrc     ~/.inputrc
@@ -16,7 +18,9 @@ ln -F -s ~/dotfiles/agignore    ~/.agignore
 #ln -F -s ~/dotfiles/config/pkginit ~/.config/pkginit
 
 # linux only
-ln -s ~/dotfiles/X11/xinitrc    ~/.xinitrc
-ln -s ~/dotfiles/X11/Xmodemap   ~/.Xmodemap
-ln -s ~/dotfiles/X11/Xresources ~/.Xresources
-ln -s ~/dotfiles/X11/yaourtc    ~/.yaourtc
+ln -s ~/dotfiles/X11/xinitrc      ~/.xinitrc
+ln -s ~/dotfiles/X11/Xmodemap     ~/.Xmodemap
+ln -s ~/dotfiles/X11/Xresources   ~/.Xresources
+ln -s ~/dotfiles/X11/yaourtc      ~/.yaourtc
+ln -s ~/dotfiles/config/surfraw   ~/.config/surfraw
+ln -s ~/dotfiles/.tmux.conf       ~/tmux/tmux.conf 
