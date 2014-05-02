@@ -367,8 +367,8 @@ let g:ctrlp_working_path_mode = 'r'
 set wildignore+=*/dist/*,*/.git/*,*/.svn/*,*/node_modules/*,*.o,*.hi,*.sqlite3
 
 " color column an 100 
-hi ColorColumn ctermbg=138 guibg=black
-set colorcolumn=102
+"hi ColorColumn ctermbg=138 guibg=black
+"set colorcolumn=102
 
 
 " VCS specific
