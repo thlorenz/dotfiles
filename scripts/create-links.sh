@@ -1,26 +1,37 @@
 #!/usr/bin/env sh
 
 mkdir -p ~/.config
+unamestr=`uname`
 
-ln -F -s ~/dotfiles/bashrc      ~/.bashrc
-ln -F -s ~/dotfiles/bashprofile ~/.profile
-ln -F -s ~/dotfiles/inputrc     ~/.inputrc
-ln -F -s ~/dotfiles/vimrc       ~/.vimrc
-ln -F -s ~/dotfiles/irbrc       ~/.irbrc
-ln -F -s ~/dotfiles/ctags       ~/.ctags
-ln -F -s ~/dotfiles/gitconfig   ~/.gitconfig
-ln -F -s ~/dotfiles/tigrc       ~/.tigrc
-ln -F -s ~/dotfiles/cardinalrc  ~/.cardinalrc
-ln -F -s ~/dotfiles/agignore    ~/.agignore
+rm -f ~/.bashrc ~/.bashprofile
 
-#ln -F -s ~/dotfiles/vim            ~/.vim
+ln -s ~/dotfiles/bashrc      ~/.bashrc
+ln -s ~/dotfiles/bashprofile ~/.profile
+ln -s ~/dotfiles/inputrc     ~/.inputrc
+ln -s ~/dotfiles/vimrc       ~/.vimrc
+ln -s ~/dotfiles/irbrc       ~/.irbrc
+ln -s ~/dotfiles/ctags       ~/.ctags
+ln -s ~/dotfiles/gitconfig   ~/.gitconfig
+ln -s ~/dotfiles/tigrc       ~/.tigrc
+ln -s ~/dotfiles/cardinalrc  ~/.cardinalrc
+ln -s ~/dotfiles/agignore    ~/.agignore
+ln -s ~/dotfiles/.tmux.conf  ~/tmux/tmux.conf 
+
+ln -F -s ~/dotfiles/vim         ~/.vim
+
 #ln -F -s ~/dotfiles/config/nstart  ~/.config/nstart
 #ln -F -s ~/dotfiles/config/pkginit ~/.config/pkginit
 
 # linux only
-ln -s ~/dotfiles/X11/xinitrc      ~/.xinitrc
-ln -s ~/dotfiles/X11/Xmodemap     ~/.Xmodemap
-ln -s ~/dotfiles/X11/Xresources   ~/.Xresources
-ln -s ~/dotfiles/X11/yaourtc      ~/.yaourtc
-ln -s ~/dotfiles/config/surfraw   ~/.config/surfraw
-ln -s ~/dotfiles/.tmux.conf       ~/tmux/tmux.conf 
+if [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
+  ln -s ~/dotfiles/X11/xinitrc      ~/.xinitrc
+  ln -s ~/dotfiles/X11/Xmodemap     ~/.Xmodemap
+  ln -s ~/dotfiles/X11/Xresources   ~/.Xresources
+  ln -s ~/dotfiles/X11/yaourtc      ~/.yaourtc
+  ln -s ~/dotfiles/config/surfraw   ~/.config/surfraw
+fi
+
+# mac only
+if [ "$unamestr" == "Darwin" ]; then
+  ln -s ~/dotfiles/slate ~/.slate
+fi
