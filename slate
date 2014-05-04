@@ -7,3 +7,7 @@ bind k:${mod}       focus up
 bind j:${mod}       focus down
 bind k:${mod};shift focus behind
 bind j:${mod};shift focus behind
+
+# send to desktop bindings (not yet working)
+bind 1:${mod};shift throw 1
+bind 8:${mod};shift throw 8
