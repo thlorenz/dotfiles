@@ -4,8 +4,8 @@ set-option -g set-titles-string '[#S:#I] #W'
 set-window-option -g automatic-rename on
 
 ##+ messages:
-set-window-option -g mode-bg magenta
-set-window-option -g mode-fg black
+set-window-option -g mode-bg black
+set-window-option -g mode-fg green
 set-option -g message-bg black
 set-option -g message-fg green
 
