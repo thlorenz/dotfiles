@@ -308,15 +308,10 @@ set mousehide  " Hide mouse after chars typed
 set mouse=a  " Mouse in all modes
 
 " Nerd Tree
-map <Tab> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
 
 " Close current buffer
 map <silent> <leader>q :bd<CR>
-
-" Write all then run spec for current dir
-map <silent> ,s :wa \|S spec . --format progress <CR> <CR>
-map <silent> ,; :wa \|! spec . --color --format specdoc <CR> <CR>
-map <silent> ,: :wa \|! spec . --format html:spec/spec_report.html <CR> <CR>
 
 " Open new terminal shell
 noremap <leader>d <C-Z>
