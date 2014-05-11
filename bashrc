@@ -55,7 +55,7 @@ command -v clang   >/dev/null 2>&1 && export CC=clang && export GYP_DEFINES='cla
 command -v clang++ >/dev/null 2>&1 && export CXX=clang++ && LINK=clang++ && export GYP_DEFINES='clang=1'
 
 # Environment tweaks
-export HISTIGNORE='&:ll:ls:ls *:gs:git status'
+export HISTIGNORE='&:ll:ls:clear:gs:git status'
 
 # Below are OS specific
 unamestr=`uname`
