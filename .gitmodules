@@ -138,7 +138,7 @@
 	url = https://github.com/epmatsw/ag.vim.git
 [submodule "vim/bundle/powerline"]
 	path = vim/bundle/powerline
-	url = git://github.com/Lokaltog/vim-powerline.git
+	url = https://github.com/Lokaltog/powerline.git
 [submodule "vim/bundle/scala"]
 	path = vim/bundle/scala
 	url = git://github.com/derekwyatt/vim-scala.git
