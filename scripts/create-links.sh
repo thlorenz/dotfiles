@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 mkdir -p ~/.config
 unamestr=`uname`
@@ -15,9 +15,9 @@ ln -s ~/dotfiles/gitconfig   ~/.gitconfig
 ln -s ~/dotfiles/tigrc       ~/.tigrc
 ln -s ~/dotfiles/cardinalrc  ~/.cardinalrc
 ln -s ~/dotfiles/agignore    ~/.agignore
-ln -s ~/dotfiles/.tmux.conf  ~/tmux/tmux.conf 
+ln -s ~/dotfiles/tmux/tmux.conf  ~/.tmux.conf 
 
-ln -F -s ~/dotfiles/vim         ~/.vim
+ln -s ~/dotfiles/vim         ~/.vim
 
 #ln -F -s ~/dotfiles/config/nstart  ~/.config/nstart
 #ln -F -s ~/dotfiles/config/pkginit ~/.config/pkginit
