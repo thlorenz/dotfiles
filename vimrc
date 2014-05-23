@@ -52,6 +52,8 @@ syn on
 inoremap jk <Esc>
 inoremap jj <C-X><C-O>
 
+set pastetoggle=<F3>
+
 let mapleader=","
 
 " Toggle highlight search
