@@ -15,13 +15,13 @@ function init () {
   done
   local DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-  [ -f $DIR/bash/git-prompt.sh      ] && source $DIR/bash/git-prompt.sh
-  [ -f $DIR/bash/secret-vars.sh     ] && source $DIR/bash/secret-vars.sh
-  [ -f $DIR/bash/functions/index.sh ] && source $DIR/bash/functions/index.sh
-  [ -f $DIR/bash/cmd-aliases.sh     ] && source $DIR/bash/cmd-aliases.sh
-  [ -f $DIR/bash/git-aliases.sh     ] && source $DIR/bash/git-aliases.sh
-  [ -f $DIR/bash/node-aliases.sh    ] && source $DIR/bash/node-aliases.sh
-  [ -f $DIR/bash/git-completion.sh  ] && source $DIR/bash/git-completion.sh
+  [ -f $DIR/bash/git-prompt.sh       ] && source $DIR/bash/git-prompt.sh
+  [ -f $DIR/bash/secret-vars.sh      ] && source $DIR/bash/secret-vars.sh
+  [ -f $DIR/bash/functions/index.sh  ] && source $DIR/bash/functions/index.sh
+  [ -f $DIR/bash/cmd-aliases.sh      ] && source $DIR/bash/cmd-aliases.sh
+  [ -f $DIR/bash/git-aliases.sh      ] && source $DIR/bash/git-aliases.sh
+  [ -f $DIR/bash/node-aliases.sh     ] && source $DIR/bash/node-aliases.sh
+  [ -f $DIR/bash/completion/index.sh ] && source $DIR/bash/completion/index.sh
 
   # Edit/source/cat this bashrc
   alias ,ev='vim ~/.bashrc'
