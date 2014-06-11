@@ -1,6 +1,6 @@
 'use strict';
 
-var stream = require('stream');
+var stream = require('readable-stream');
 var util = require('util');
 
 var Readable = stream.Readable;
@@ -8,6 +8,8 @@ var Readable = stream.Readable;
 module.exports = $1Readable;
 
 util.inherits(${1:Name}Readable, Readable);
+
+var proto = $1Readable.prototype;
 
 function $1Readable (opts) {
   if (!(this instanceof $1Readable)) return new $1Readable(opts);
@@ -17,6 +19,6 @@ function $1Readable (opts) {
   Readable.call(this, opts);
 }
 
-$1Readable.prototype._read = function () {
+proto._read = function () {
 	${3}
-};
+}
