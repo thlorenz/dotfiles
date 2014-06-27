@@ -162,6 +162,8 @@ noremap <leader>ks :ChromeReloadStop<CR>
 au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
 au FileType javascript noremap <leader>r :wa \| ! node %<CR>
+"au FileType javascript noremap <leader>r :wa \| ! node --allow-natives-syntax %<CR>
+"au FileType javascript noremap <leader>r :wa \| ! %<CR>
 au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
 au FileType javascript nnoremap <buffer> <leader>D  :<C-u>call WriteJSDocComment()<CR>
 
