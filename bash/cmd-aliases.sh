@@ -39,3 +39,11 @@ alias dstc='docker stop `docker ps -a -q`'
 function drmi () {
   docker rmi `docker images | grep '^<none>' | awk '{print $3}'`
 }
+
+## lldb on Mac
+
+alias db='/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/Resources/debugserver localhost:3000 --attach '
+
+## node
+
+alias node_configure='./configure --gdb --debug --without-snapshot --xcode --v8-options="--gdbjit --gdbjit-full --expose-gc"'
