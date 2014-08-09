@@ -1,0 +1,4 @@
+settings set thread-format "\033[38;5;10mthread #${thread.index}\033[0m: tid = ${thread.id}{, \033[38;5;8m${frame.pc}\033[0m}{ \033[38;5;12m${module.file.basename}\033[0m{`\033[38;5;13m${function.name-with-args}${function.pc-offset}\033[0m}}{ at ${line.file.basename}:${line.number}}{, name = '\033[38;5;14m${thread.name}\033[0m}{, queue = '\033[38;5;14m${thread.queue}\033[0m}{, stop reason = \033[38;5;9m${thread.stop-reason}\033[0m}{\nReturn value: ${thread.return-value}}\n"
+settings set frame-format "\033[38;5;11mframe #${frame.index}\033[0m: \033[38;5;8m${frame.pc}\033[0m{ \033[38;5;12m${module.file.basename}\033[0m{`\033[38;5;13m${function.name-with-args}${function.pc-offset}\033[0m}}{ at ${line.file.basename}:${line.number}}\n"
+
+command alias inspect frame variable --depth 10 --show-types
