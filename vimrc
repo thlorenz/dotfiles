@@ -150,6 +150,9 @@ let g:haddock_browser_callformat = "%s %s"
 " Yesod specific
 au FileType hamlet set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
+" Perl specific
+au FileType perl noremap <leader>r :wa \| ! perl %<CR>
+
 " Web
 " browserreload
 let g:returnApp = "iTerm"
@@ -184,9 +187,9 @@ inoremap {<CR> {<CR>}<C-o>O
 
 " C, C++ specific
 set ut=100000
-" au FileType c,cc,cpp noremap <leader>r :wa \| make! %:r && echo "" && ./%:r && rm ./%:r<CR>
+au FileType c,cc,cpp,h noremap <leader>r :wa \| make! %:r && echo "" && ./%:r && rm ./%:r<CR>
 " au FileType c noremap <leader>r :wa \| !cc -Wall -g % -o %:r && ./%:r && rm ./%:r<CR>
-au FileType c,cc,cpp noremap <leader>r :wa \| make! run<CR>
+" au FileType c,cc,cpp noremap <leader>r :wa \| make! run<CR>
 " au FileType c,cc,cpp noremap <leader>r :wa \| make! run-pgrep<CR>
 au FileType c,cc,cpp noremap <leader>m :wa \| make test<CR>
 au FileType c,cc,cpp nnoremap <buffer> <leader>D  :<C-u>call WriteJSDocComment()<CR>
