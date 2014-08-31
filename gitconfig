@@ -1,6 +1,6 @@
 [user]
 	email = thlorenz@gmx.de
-	name = Thorsten Lorenz
+	name = thlorenz
 [core]
   editor = vim
 [core "diff"]
@@ -116,3 +116,5 @@
     amd =  commit --amend --no-edit
 [mergetool]
 	keepBackup = true
+[credential]
+	helper = cache --timeout=1800
