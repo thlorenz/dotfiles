@@ -36,6 +36,15 @@ fi
 if [ "$unamestr" == "Darwin" ]; then
   ln -s ~/dotfiles/slate ~/.slate
   # XCode
-  ln -s ~/dotfiles/xcode/UserData/KeyBindings        ~/Library/Developer/Xcode/UserData/KeyBindings
-  ln -s ~/dotfiles/xcode/UserData/FontAndColorThemes ~/Library/Developer/Xcode/UserData/FontAndColorThemes
+
+    ## Settings
+    rm -rf ~/Library/Developer/Xcode/UserData/KeyBindings && \
+    ln -s ~/dotfiles/xcode/UserData/KeyBindings        ~/Library/Developer/Xcode/UserData/KeyBindings
+
+    rm -rf ~/Library/Developer/Xcode/UserData/FontAndColorThemes && \
+    ln -s ~/dotfiles/xcode/UserData/FontAndColorThemes ~/Library/Developer/Xcode/UserData/FontAndColorThemes
+
+    ## Plugins
+      find  ~/dotfiles/xcode/Plug-ins -maxdepth 1 -mindepth 1 -type d -exec \
+        ln -s '{}' ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/ \;
 fi
