@@ -35,4 +35,7 @@ fi
 # mac only
 if [ "$unamestr" == "Darwin" ]; then
   ln -s ~/dotfiles/slate ~/.slate
+  # XCode
+  ln -s ~/dotfiles/xcode/UserData/KeyBindings        ~/Library/Developer/Xcode/UserData/KeyBindings
+  ln -s ~/dotfiles/xcode/UserData/FontAndColorThemes ~/Library/Developer/Xcode/UserData/FontAndColorThemes
 fi
