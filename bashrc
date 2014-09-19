@@ -136,7 +136,7 @@ elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
 elif [[ "$unamestr" == "Linux" ]]; then
 
   echo "Configuring for $unamestr"
-  PS1="\n\[\033[00;34m\]lnx:\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
+  PS1="\n\[\033[00;34m\]$(whoami):\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
 
   PATH=~/npm-global/bin::~/.cabal/bin:$PATH
 
