@@ -21,7 +21,7 @@ set-window-option -g window-status-fg white
 set-window-option -g window-status-bg default
 
 # highlight current window
-set-window-option -g window-status-current-fg gray
+set-window-option -g window-status-current-fg green
 set-window-option -g window-status-current-bg default
 
 ##+ clock:
