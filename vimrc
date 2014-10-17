@@ -204,9 +204,9 @@ let g:clang_complete_auto = 0
 "let g:clang_library_path = '/usr/include/clang'
 
 "" syntastic
-let g:syntastic_c_compiler='cc'
+let g:syntastic_c_compiler='clang'
 let g:syntastic_c_config_file='.syntastic_c'
-let g:syntastic_cpp_compiler='gcc'
+let g:syntastic_cpp_compiler='clang++'
 let g:syntastic_cpp_config_file='.syntastic_c'
 
 " command to update .clang_complete file via make
@@ -219,7 +219,7 @@ set completeopt=menu,menuone,longest
 " Python specific
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python noremap <leader>r :wa \| !python %<CR>
-au FileType python set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+au FileType python set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 "
 " Java specific
 au FileType java noremap mm        :wa \| !javac %:p:h/*.java<CR>
@@ -232,7 +232,7 @@ set guioptions=-M
 set guioptions-=r
 set guioptions-=b
 
-au FileType markdown set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0
+au FileType markdown set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0 conceallevel=2
 
 " Line numbers
 nmap <leader>' :set relativenumber!<cr>
