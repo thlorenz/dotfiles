@@ -20,8 +20,8 @@ ln -s ~/dotfiles/lldb/lldbinit-lldb ~/.lldbinit-lldb
 
 ln -s ~/dotfiles/vim         ~/.vim
 
-#ln -F -s ~/dotfiles/config/nstart  ~/.config/nstart
-#ln -F -s ~/dotfiles/config/pkginit ~/.config/pkginit
+ln -s ~/dotfiles/config/nstart  ~/.config/nstart
+ln -s ~/dotfiles/config/pkginit ~/.config/pkginit
 
 # linux only
 if [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
@@ -35,16 +35,5 @@ fi
 # mac only
 if [ "$unamestr" == "Darwin" ]; then
   ln -s ~/dotfiles/slate ~/.slate
-  # XCode
-
-    ## Settings
-    rm -rf ~/Library/Developer/Xcode/UserData/KeyBindings && \
-    ln -s ~/dotfiles/xcode/UserData/KeyBindings        ~/Library/Developer/Xcode/UserData/KeyBindings
-
-    rm -rf ~/Library/Developer/Xcode/UserData/FontAndColorThemes && \
-    ln -s ~/dotfiles/xcode/UserData/FontAndColorThemes ~/Library/Developer/Xcode/UserData/FontAndColorThemes
-
-    ## Plugins
-      find  ~/dotfiles/xcode/Plug-ins -maxdepth 1 -mindepth 1 -type d -exec \
-        ln -s '{}' ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/ \;
+  echo "Run scripts/xcode.sh in order to setup Xcode plugins and settings"
 fi
