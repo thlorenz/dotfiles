@@ -116,6 +116,7 @@ map <silent> « :TagbarToggle<CR>
 " Tabularize (format)
 noremap <silent> <leader>f=	 :Tabularize /=<CR>
 noremap <silent> <leader>f,	 :Tabularize /,<CR>
+noremap <silent> <leader>f;	 :Tabularize /;<CR>
 noremap <silent> <leader>f:	 :Tabularize /:<CR>
 noremap <silent> <leader>f(	 :Tabularize /(<CR>
 noremap <silent> <leader>f\	 :Tabularize /\<CR>
@@ -185,6 +186,9 @@ au FileType html set omnifunc=htmlcomplete#CompleteTags
 " JavaScript, C, CSS and all other langs with { == provide closing brace
 inoremap {<CR> {<CR>}<C-o>O
 
+" Assembler specific
+au FileType nasm noremap <leader>r :wa \| !nasm -f elf64 -g -F stabs % && ld -o %:r %:r.o && echo "" && ./%:r && rm -f ./%:r ./%:r.o<CR>
+
 " C, C++ specific
 set ut=100000
 au FileType c,cc,cpp,h noremap <leader>r :wa \| make! %:r && echo "" && ./%:r && rm ./%:r<CR>
@@ -232,7 +236,7 @@ set guioptions=-M
 set guioptions-=r
 set guioptions-=b
 
-au FileType markdown set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0 conceallevel=2
+au FileType markdown set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0 conceallevel=2 concealcursor=nvc
 
 " Line numbers
 nmap <leader>' :set relativenumber!<cr>
