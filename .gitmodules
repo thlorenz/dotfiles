@@ -163,3 +163,6 @@
 [submodule "vim/bundle/tmux-navigator"]
 	path = vim/bundle/tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
+[submodule "vim/bundle/ansible-yaml"]
+	path = vim/bundle/ansible-yaml
+	url = git://github.com/chase/vim-ansible-yaml.git
