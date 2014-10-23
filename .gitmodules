@@ -163,3 +163,6 @@
 [submodule "vim/bundle/ansible-yaml"]
 	path = vim/bundle/ansible-yaml
 	url = git://github.com/chase/vim-ansible-yaml.git
+[submodule "vim/bundle/instant-markdown"]
+	path = vim/bundle/instant-markdown
+	url = git://github.com/suan/vim-instant-markdown.git
