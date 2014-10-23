@@ -161,6 +161,10 @@ noremap <leader>kk :wa \| ChromeReload<CR>
 noremap <leader>ka :ChromeReloadStart<CR>
 noremap <leader>ks :ChromeReloadStop<CR>
 
+
+" JSON specific
+au FileType json set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0 conceallevel=2 concealcursor=nvc
+
 " JavaScript specific
 " au FileType javascript source /Users/thlorenz/dotfiles/vim/bundle/tern/vim/tern.vim
 au FileType javascript set omnifunc=javascriptcomplete#CompleteJS

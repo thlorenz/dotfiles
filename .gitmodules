@@ -166,3 +166,6 @@
 [submodule "vim/bundle/instant-markdown"]
 	path = vim/bundle/instant-markdown
 	url = git://github.com/suan/vim-instant-markdown.git
+[submodule "vim/bundle/json"]
+	path = vim/bundle/json
+	url = git://github.com/elzr/vim-json.git
