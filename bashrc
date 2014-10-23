@@ -16,6 +16,7 @@ function init () {
   local DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
   [ -f $DIR/bash/git-prompt.sh       ] && source $DIR/bash/git-prompt.sh
+  [ -f $DIR/bash/git-prompt.sh       ] && source $DIR/bash/exports.sh
   [ -f $DIR/bash/secret-vars.sh      ] && source $DIR/bash/secret-vars.sh
   [ -f $DIR/bash/functions/index.sh  ] && source $DIR/bash/functions/index.sh
   [ -f $DIR/bash/cmd-aliases.sh      ] && source $DIR/bash/cmd-aliases.sh
@@ -67,7 +68,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   # PS1="\n\[\033[00;34m\]\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
   PS1="\n\[\033[00;34m\]\w\[\033[00m\]\[$WHITE\]\n➝  "
 
-  PATH=~/npm-global/bin:/usr/local/bin:$PATH
+  PATH=~/npm-global/bin:$GEM_HOME/bin:$PATH
 
   alias cd-js='cd ~/dev/js'
 
@@ -108,7 +109,7 @@ elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
   echo "Configuring for ARCH-$unamestr"
   PS1="\n\[\033[00;34m\]arch:\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
 
-  PATH=~/npm-global/bin:$PATH
+  PATH=~/npm-global/bin:$GEM_HOME/bin:$PATH
 
   shopt -s checkwinsize
 
@@ -139,7 +140,7 @@ elif [[ "$unamestr" == "Linux" ]]; then
   echo "Configuring for $unamestr"
   PS1="\n\[\033[00;34m\]$(whoami):\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
 
-  PATH=~/npm-global/bin::~/.cabal/bin:$PATH
+  PATH=~/npm-global/bin:$GEM_HOME/bin:$PATH
 
   # apt-get aliases
   alias update="sudo apt-get update"
