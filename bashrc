@@ -64,9 +64,10 @@ unamestr=`uname`
 if [[ "$unamestr" == "Darwin" ]]; then
 
   echo "Configuring for $unamestr"
-  PS1="\n\[\033[00;34m\]\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
+  # PS1="\n\[\033[00;34m\]\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
+  PS1="\n\[\033[00;34m\]\w\[\033[00m\]\[$WHITE\]\n➝  "
 
-  PATH=~/npm-global/bin::/usr/local/bin:$PATH
+  PATH=~/npm-global/bin:/usr/local/bin:$PATH
 
   alias cd-js='cd ~/dev/js'
 
