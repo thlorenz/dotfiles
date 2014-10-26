@@ -172,7 +172,7 @@ au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 au FileType javascript noremap <leader>r :wa \| ! node %<CR>
 "au FileType javascript noremap <leader>r :wa \| ! node --allow-natives-syntax %<CR>
 "au FileType javascript noremap <leader>r :wa \| ! %<CR>
-au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
+"au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
 au FileType javascript nnoremap <buffer> <leader>D  :<C-u>call WriteJSDocComment()<CR>
 
 au FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
@@ -209,7 +209,7 @@ let g:clang_snippets_engine = 'clang_complete'
 let g:clang_auto_select = 1
 let g:clang_close_preview = 1
 let g:clang_complete_auto = 0
-"let g:clang_library_path = '/usr/include/clang'
+let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib/'
 
 "" syntastic
 let g:syntastic_c_compiler='clang'
@@ -363,8 +363,13 @@ let g:EasyGrepExtraWarnings=1
 let g:EasyGrepOptionPrefix='<leader>vy'
 let g:EasyGrepReplaceAllPerFile=0
 
+" Lusty Juggler
 " Quiet Lusty Juggler warnings that appear in sudo mode
 let g:LustyExplorerSuppressRubyWarning = 1
+
+let g:LustyJugglerAltTabMode = 1
+let g:LustyJugglerDefaultMappings = 0
+noremap <silent> <leader>s :LustyJuggler<CR>
 
 " powerline options
 let g:Powerline_symbols = 'fancy'
