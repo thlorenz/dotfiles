@@ -118,3 +118,6 @@
 	keepBackup = true
 [credential]
 	helper = cache --timeout=1800
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
