@@ -256,13 +256,8 @@ au FileType c,cpp,java,php,js,py,coffee au BufWritePre <buffer> :call setline(1,
 filetype plugin on
 filetype indent on
 
-if (isMac)
-  map <D-j> :tabp<CR>
-  map <D-k> :tabn<CR>
-else
-  map <M-j> :tabp<CR>
-  map <M-k> :tabn<CR>
-endif
+noremap <Tab> :bn<CR>
+noremap <leader><Tab> :bp<CR>
 
 " Buffer Explorer plugins
 " don't override <leader>t which is I use for ctrlp
@@ -273,7 +268,7 @@ nnoremap <silent> <Leader>b :BuffergatorToggle<CR>
 
 " toggle highlight line
 hi CursorLine term=underline ctermbg=236 guibg=#32322f
-noremap <leader>j :set cursorline!<CR>
+noremap <leader><S-j> :set cursorline!<CR>
 
 " alt+n or alt+p to navigate between entries in QuickFix
 map <silent> <M-p> :cp <CR>
