@@ -53,29 +53,29 @@ function nstart() {
 
     echo 'building readme ..'
 
-    echo ''                                                                                        >> Readme.md
+    echo ''                                                                                        >> README.md
     echo $description                                                                              >> README.md
-    echo ''                                                                                        >> Readme.md
+    echo ''                                                                                        >> README.md
 
-    echo '```js'                                                                                   >> Readme.md
-    echo '// TODO'                                                                                 >> Readme.md
-    echo '```'                                                                                     >> Readme.md
-    echo ''                                                                                        >> Readme.md
+    echo '```js'                                                                                   >> README.md
+    echo '// TODO'                                                                                 >> README.md
+    echo '```'                                                                                     >> README.md
+    echo ''                                                                                        >> README.md
 
-    echo '## Status'                                                                               >> Readme.md
-    echo ''                                                                                        >> Readme.md
-    echo 'Nix, Nada, Nichevo, Nothing --> go away!'                                                >> Readme.md
+    echo '## Status'                                                                               >> README.md
+    echo ''                                                                                        >> README.md
+    echo 'Nix, Nada, Nichevo, Nothing --> go away!'                                                >> README.md
 
-    echo '## Installation'                                                                         >> Readme.md
-    echo ''                                                                                        >> Readme.md
-    echo "    npm install $(basename $PWD)"                                                        >> Readme.md
-    echo ''                                                                                        >> Readme.md
-    echo '## API'                                                                                  >> Readme.md
-    echo ''                                                                                        >> Readme.md
-    echo ''                                                                                        >> Readme.md
-    echo '## License'                                                                              >> Readme.md
-    echo ''                                                                                        >> Readme.md
-    echo 'MIT'                                                                                     >> Readme.md
+    echo '## Installation'                                                                         >> README.md
+    echo ''                                                                                        >> README.md
+    echo "    npm install $(basename $PWD)"                                                        >> README.md
+    echo ''                                                                                        >> README.md
+    echo '## API'                                                                                  >> README.md
+    echo ''                                                                                        >> README.md
+    echo ''                                                                                        >> README.md
+    echo '## License'                                                                              >> README.md
+    echo ''                                                                                        >> README.md
+    echo 'MIT'                                                                                     >> README.md
 
     git add .
     # gitify already did an initial commit so we just amend our changes to it
