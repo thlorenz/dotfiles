@@ -48,3 +48,8 @@ alias db='/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versi
 
 alias node_configure='./configure --gdb --debug --without-snapshot --xcode --v8-options="--gdbjit --gdbjit-full --expose-gc"'
 alias node_v8_options="node -e 'console.dir(process.config.variables.node_v8_options)'"
+
+## tmux
+
+alias sb='tmux save-buffer -'
+alias sbc='tmux save-buffer - | pbcopy'
