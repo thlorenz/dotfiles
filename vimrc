@@ -37,6 +37,8 @@ set nu
 set hidden
 set mouse=a
 
+"set clipboard+=unnamed
+
 " from: http://items.sjbach.com/319/configuring-vim-right
 " set wildmenu
 
@@ -80,9 +82,13 @@ endif
 
 set statusline=%f%m%r%h%w%<\ %{&ff}\ %Y\ %{fugitive#statusline()}\ %=%l/%L,%v\ %p%%
 
-" highlight things that hang over 100th column
-" highlight OverLength ctermbg=black ctermfg=white guibg=black
-" match OverLength /\%101v.\+/
+" highlight things that hang over 80th column
+"highlight OverLength ctermbg=black ctermfg=white guibg=black
+"match OverLength /\%81v.\+/
+
+" or just highlight 81th column
+"set colorcolumn=81
+"highlight ColorColumn ctermbg=lightblue guibg=lightblue
 
 " Use Q for formatting the current paragraph (or selection)
 vmap Q gq
@@ -103,7 +109,7 @@ autocmd BufReadPost *
 
 " Font
 if (isGui)
-  set gfn=Inconsolata\ for\ Powerline:h12
+  set gfn=Inconsolata\ for\ Powerline:h15
 elseif(isMac)
   set gfn=Inconsolata-Powerline:h12
 else
@@ -240,7 +246,7 @@ set guioptions=-M
 set guioptions-=r
 set guioptions-=b
 
-au FileType markdown set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0 conceallevel=2 concealcursor=nvc
+au FileType markdown set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0 conceallevel=0 concealcursor=nvc
 
 " Line numbers
 nmap <leader>' :set relativenumber!<cr>
