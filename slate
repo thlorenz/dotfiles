@@ -1,13 +1,19 @@
 alias mod cmd
 
 # Focus Bindings
-bind l:${mod}       focus right
-bind h:${mod}       focus left
-bind k:${mod}       focus up
-bind j:${mod}       focus down
+bind k:${mod}       focus right
+bind j:${mod}       focus left
+#bind k:${mod}       focus up
+#bind j:${mod}       focus down
 bind k:${mod};shift focus behind
 bind j:${mod};shift focus behind
 
 # send to desktop bindings (not yet working)
 bind 1:${mod};shift throw 1
 bind 8:${mod};shift throw 8
+
+# managing snapshots
+bind 1:ctrl;shift snapshot          term_chrome save-to-disk
+bind 1:ctrl       activate-snapshot term_chrome
+bind 2:ctrl;shift snapshot          chrome_term save-to-disk
+bind 2:ctrl       activate-snapshot chrome_term
