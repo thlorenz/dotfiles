@@ -12,6 +12,7 @@ ln -s ~/dotfiles/vimrc              ~/.vimrc
 ln -s ~/dotfiles/irbrc              ~/.irbrc
 ln -s ~/dotfiles/ctags              ~/.ctags
 ln -s ~/dotfiles/gitconfig          ~/.gitconfig
+ln -s ~/dotfiles/gitignore          ~/.gitignore
 ln -s ~/dotfiles/tigrc              ~/.tigrc
 ln -s ~/dotfiles/cardinalrc         ~/.cardinalrc
 ln -s ~/dotfiles/agignore           ~/.agignore

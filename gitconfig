@@ -3,6 +3,7 @@
 	name = Thorsten Lorenz
 [core]
   editor = vim
+	excludesfile = /Users/thlorenz/.gitignore
 [core "diff"]
   tool = vimdiff
 

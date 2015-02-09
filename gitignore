@@ -1,0 +1,4 @@
+*.xcodeproj
+node
+node_g
+.DS_Store
