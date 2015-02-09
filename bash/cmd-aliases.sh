@@ -49,6 +49,10 @@ alias db='/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versi
 alias node_configure='./configure --gdb --debug --without-snapshot --xcode --v8-options="--gdbjit --gdbjit-full --expose-gc"'
 alias node_v8_options="node -e 'console.dir(process.config.variables.node_v8_options)'"
 
+## iojs
+alias irel='./configure --xcode --without-snapshot && tools/gyp_node.py -f ninja && ninja -C out/Release && ln -s out/Release/iojs iojs'
+alias ideb='./configure --xcode --without-snapshot && tools/gyp_node.py -f ninja && ninja -C out/Debug && ln -s out/Debug/iojs iojs_g'
+
 ## tmux
 
 alias sb='tmux save-buffer -'
