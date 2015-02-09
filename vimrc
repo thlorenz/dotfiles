@@ -175,8 +175,8 @@ au FileType json set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0 con
 " au FileType javascript source /Users/thlorenz/dotfiles/vim/bundle/tern/vim/tern.vim
 au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
-au FileType javascript noremap <leader>r :wa \| ! node %<CR>
-"au FileType javascript noremap <leader>r :wa \| ! node --allow-natives-syntax %<CR>
+au FileType javascript noremap <leader>r :wa \| ! iojs %<CR>
+"au FileType javascript noremap <leader>r :wa \| ! iojs --allow-natives-syntax %<CR>
 "au FileType javascript noremap <leader>r :wa \| ! %<CR>
 "au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
 au FileType javascript nnoremap <buffer> <leader>D  :<C-u>call WriteJSDocComment()<CR>
@@ -256,7 +256,7 @@ nmap <leader>" :set number!<cr>
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 "Automatically remove trailing spaces"
-au FileType c,cpp,java,php,js,py,coffee au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+" au FileType c,cpp,java,php,js,py,coffee au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 "Enable filtype plugins
 filetype plugin on
@@ -369,8 +369,7 @@ let g:EasyGrepReplaceAllPerFile=0
 let g:LustyExplorerSuppressRubyWarning = 1
 
 let g:LustyJugglerAltTabMode = 1
-let g:LustyJugglerDefaultMappings = 0
-noremap <silent> <leader>s :LustyJuggler<CR>
+let g:LustyJugglerDefaultMappings = 1
 
 " powerline options
 let g:Powerline_symbols = 'fancy'
