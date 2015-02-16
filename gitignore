@@ -2,3 +2,5 @@
 node
 node_g
 .DS_Store
+node_modules/
+spikes/
