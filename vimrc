@@ -175,7 +175,8 @@ au FileType json set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0 con
 " au FileType javascript source /Users/thlorenz/dotfiles/vim/bundle/tern/vim/tern.vim
 au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
-au FileType javascript noremap <leader>r :wa \| ! iojs %<CR>
+au FileType javascript noremap <leader>r :wa \| ! /Users/thlorenz/dev/js/iojs/iojs_g %<CR>
+"au FileType javascript noremap <leader>r :wa \| ! iojs %<CR>
 "au FileType javascript noremap <leader>r :wa \| ! iojs --allow-natives-syntax %<CR>
 "au FileType javascript noremap <leader>r :wa \| ! %<CR>
 "au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
@@ -339,8 +340,11 @@ let g:vimroom_width=120
 nnoremap <leader>vs :set lz<CR>:silent call ZoomWin#ZoomWin()<CR>:set nolz<CR>:VimroomToggle<CR>:set nu<CR>
 nnoremap <leader>ve :VimroomToggle<CR>:set lz<CR>:silent call ZoomWin#ZoomWin()<CR>:set nolz<CR>
 
-" Syntastic options
+" tmux integration
+" read tmux buffer into current file
+map <C-p> :r !tmux save-buffer - <CR>
 
+" Syntastic options
 let g:syntastic_always_populate_loc_list = 1
   
 " EasyGrep options
