@@ -75,8 +75,8 @@ if [[ "$unamestr" == "Darwin" ]]; then
   alias go-udesktop='ssh tlorenz@udesktop -p 2104'
 
   alias eject='diskutil eject'
-  alias eject-kindle='diskutil eject /Volumes/Kindle'
   alias noads='rm -rf /Volumes/Kindle/system/.assets && touch /Volumes/Kindle/system/.assets'
+  alias eject-kindle='noads && diskutil eject /Volumes/Kindle'
 
   alias pgrep='ps aux | grep '
 
