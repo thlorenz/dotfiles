@@ -20,6 +20,7 @@ function init () {
   [ -f $DIR/bash/secret-vars.sh      ] && source $DIR/bash/secret-vars.sh
   [ -f $DIR/bash/functions/index.sh  ] && source $DIR/bash/functions/index.sh
   [ -f $DIR/bash/cmd-aliases.sh      ] && source $DIR/bash/cmd-aliases.sh
+  [ -f $DIR/bash/vim-aliases.sh      ] && source $DIR/bash/vim-aliases.sh
   [ -f $DIR/bash/git-aliases.sh      ] && source $DIR/bash/git-aliases.sh
   [ -f $DIR/bash/node-aliases.sh     ] && source $DIR/bash/node-aliases.sh
   [ -f $DIR/bash/completion/index.sh ] && source $DIR/bash/completion/index.sh
