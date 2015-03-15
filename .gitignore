@@ -1,5 +1,5 @@
 .DS_Store
-lushtags
+*.pyc
 
-vim/haskellmode.config
 vim/.netrwhist
+vim/plugged

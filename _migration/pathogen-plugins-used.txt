@@ -38,7 +38,7 @@ elzr/vim-json                 :  https://github.com/elzr/vim-json.git
 nono/vim-handlebars           :  https://github.com/nono/vim-handlebars.git
 tsaleh/vim-tmux               :  https://github.com/tsaleh/vim-tmux.git
 
-" git 
+" git
 tpope/vim-git                 :  https://github.com/tpope/vim-git.git
 tpope/vim-fugitive            :  https://github.com/tpope/vim-fugitive.git
 

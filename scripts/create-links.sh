@@ -18,9 +18,11 @@ ln -s ~/dotfiles/cardinalrc         ~/.cardinalrc
 ln -s ~/dotfiles/agignore           ~/.agignore
 ln -s ~/dotfiles/tmux/tmux.conf     ~/.tmux.conf 
 ln -s ~/dotfiles/lldb/lldbinit-lldb ~/.lldbinit-lldb 
+ln -s ~/dotfiles/tern-config        ~/.tern-config
 
 ln -s ~/dotfiles/vim         ~/.vim
 
+mkdir -p .config
 ln -s ~/dotfiles/config/nstart  ~/.config/nstart
 ln -s ~/dotfiles/config/pkginit ~/.config/pkginit
 
