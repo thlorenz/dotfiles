@@ -6,6 +6,8 @@ sjl/gundo                     :  https://github.com/sjl/gundo.vim.git
 Rip-Rip/clang_complete        :  https://github.com/Rip-Rip/clang_complete.git
 scrooloose/syntastic          :  https://github.com/scrooloose/syntastic.git
 scrooloose/nerdcommenter      :  https://github.com/scrooloose/nerdcommenter.git
+tanabe/WriteJSDocComment      :  https://github.com/tanabe/WriteJSDocComment.vim.git
+thlorenz/snipmate-mine        :  https://github.com/thlorenz/snipmate-mine.git
 
 
 
