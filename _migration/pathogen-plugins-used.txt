@@ -1,0 +1,52 @@
+" Editing
+tpope/vim-repeat              :  https://github.com/tpope/vim-repeat.git
+tpope/vim-surround            :  https://github.com/tpope/vim-surround.git
+godlygeek/tabular             :  https://github.com/godlygeek/tabular.git
+sjl/gundo                     :  https://github.com/sjl/gundo.vim.git
+Rip-Rip/clang_complete        :  https://github.com/Rip-Rip/clang_complete.git
+scrooloose/syntastic          :  https://github.com/scrooloose/syntastic.git
+scrooloose/nerdcommenter      :  https://github.com/scrooloose/nerdcommenter.git
+
+
+
+" Buffer/File Navigation
+vim-tmux-navigator            :  https://github.com/christoomey/vim-tmux-navigator.git
+majutsushi/tagbar             :  https://github.com/majutsushi/tagbar.git
+rgarver/Kwbd                  :  https://github.com/rgarver/Kwbd.vim.git
+Shougo/unite                  :  https://github.com/Shougo/unite.vim.git
+scrooloose/nerdtree           :  https://github.com/scrooloose/nerdtree.git
+
+" External Tools Integration
+tell-k/vim-browsereload-mac   :  https://github.com/tell-k/vim-browsereload-mac.git
+Shougo/vimproc                :  https://github.com/Shougo/vimproc.git
+
+
+" syntax highlighters/support
+
+flazz/vim-colorschemes        :  https://github.com/flazz/vim-colorschemes.git
+pangloss/vim-javascript       :  https://github.com/pangloss/vim-javascript.git
+thlorenz/vim-markdown         :  https://github.com/thlorenz/vim-markdown.git
+kchmck/vim-coffee-script      :  https://github.com/kchmck/vim-coffee-script.git
+vim-ruby/vim-ruby             :  https://github.com/vim-ruby/vim-ruby.git
+lukerandall/haskellmode-vim   :  https://github.com/lukerandall/haskellmode-vim.git
+ekalinin/Dockerfile           :  https://github.com/ekalinin/Dockerfile.vim.git
+kelan/gyp.vim                 :  https://github.com/kelan/gyp.vim.git
+chase/vim-ansible-yaml        :  https://github.com/chase/vim-ansible-yaml.git
+elzr/vim-json                 :  https://github.com/elzr/vim-json.git
+nono/vim-handlebars           :  https://github.com/nono/vim-handlebars.git
+tsaleh/vim-tmux               :  https://github.com/tsaleh/vim-tmux.git
+
+" git 
+tpope/vim-git                 :  https://github.com/tpope/vim-git.git
+tpope/vim-fugitive            :  https://github.com/tpope/vim-fugitive.git
+
+" to add
+
+SirVer/ultisnipsltisnip       :  shttps://github.com/SirVer/ultisnipsltisnips
+thinca/vim-quickrun           :  https://github.com/thinca/vim-quickrun
+
+" replaced with Unite
+kien/ctrlp                    :  https://github.com/kien/ctrlp.vim.git
+tpope/vim-unimpaired          :  https://github.com/tpope/vim-unimpaired.git ?
+sjbach/lusty                  :  https://github.com/sjbach/lusty.git
+jeetsukumaran/vim-buffergator :  https://github.com/jeetsukumaran/vim-buffergator.git
