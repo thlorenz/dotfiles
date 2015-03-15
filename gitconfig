@@ -125,3 +125,5 @@
 [rerere]
 	enabled = 1
 	autoupdate = true
+[fetch]
+	prune = true
