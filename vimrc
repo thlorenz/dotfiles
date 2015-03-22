@@ -169,6 +169,7 @@ au FileType stylus set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 au FileType jade set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 au FileType handlebars set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 au FileType css set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+au FileType yaml set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " CSS specific
 au FileType css set omnifunc=csscomplete#CompleteCSS
