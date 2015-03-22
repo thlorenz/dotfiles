@@ -17,7 +17,6 @@ flags = [
   '-Wall',
   '-Wextra',
   '-Werror',
-  '-Wc++98-compat',
   '-Wno-long-long',
   '-Wno-variadic-macros',
   '-Wno-unused-parameter',
@@ -32,12 +31,12 @@ flags = [
   # 'c++11'.
 
   # C++ project
-  # '-std=c++11', '-x', 'c++',
+  '-std=c++11', '-x', 'c++',
 
   # C project
-  '-std=c99', '-x', 'c',
+  # '-Wc++98-compat', '-std=c99', '-x', 'c',
 
-  # Includes for OSX, obtained via: echo | clang -v -E -x c++ 
+  # Includes for OSX, obtained via: echo | clang -v -E -x c++
   # @see: https://github.com/Valloric/YouCompleteMe#completion-doesnt-work-with-the-c-standard-library-headers
   '-isystem', '/System/Library/Frameworks/Python.framework/Headers',
   '-isystem', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1',
@@ -47,10 +46,14 @@ flags = [
   '-isystem', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks',
   '-I', '/usr/local/include',
   '-I', '/usr/local/include/node',
-  '-I', 'src'
-  '-I', 'include'
-  '-I', 'node_modules/nan/'
-  '-I.'
+  '-I', 'include/',
+  '-I', 'src/',
+  '-I', 'deps/v8/include',
+  '-I', 'deps/uv/include',
+  '-I', 'nsolid/deps/cjson',
+  '-I', 'nsolid/deps/nan',
+  '-I', 'node_modules/nan',
+  '-I', '.'
 ]
 
 if compilation_database_folder:
