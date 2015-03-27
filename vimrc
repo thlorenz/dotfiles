@@ -38,10 +38,11 @@ set nu
 set hidden
 set mouse=a
 
-"set clipboard+=unnamed
+set wildmenu
+set wildmode=list:longest
+set wildignore+=*/dist/*,*/.git/*,*/.svn/*,*/node_modules/*,*.o,*.obj,*.hi,*.sqlite3
 
-" from: http://items.sjbach.com/319/configuring-vim-right
-" set wildmenu
+"set clipboard+=unnamed
 
 " scroll viewport faster
 nnoremap <C-e> 5<C-e>
@@ -268,9 +269,6 @@ set laststatus=2  " Always show status line.
 set mousehide  " Hide mouse after chars typed
 set mouse=a  " Mouse in all modes
 
-" Close current buffer
-map <silent> <leader>q :bd<CR>
-
 " Open new terminal shell
 noremap <leader>d <C-Z>
 
@@ -285,9 +283,7 @@ nnoremap <leader>ve :VimroomToggle<CR>:set lz<CR>:silent call ZoomWin#ZoomWin()<
 " read tmux buffer into current file
 map <C-p> :r !tmux save-buffer - <CR>
 
-set wildignore+=*/dist/*,*/.git/*,*/.svn/*,*/node_modules/*,*.o,*.hi,*.sqlite3
-
-" color column an 100 
+" color column an 100
 "hi ColorColumn ctermbg=138 guibg=black
 "set colorcolumn=102
 

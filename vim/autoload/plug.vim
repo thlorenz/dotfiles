@@ -3,8 +3,7 @@
 "
 " Download plug.vim and put it in ~/.vim/autoload
 "
-"   mkdir -p ~/.vim/autoload
-"   curl -fLo ~/.vim/autoload/plug.vim \
+"   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 "     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "
 " Edit your .vimrc
@@ -37,7 +36,7 @@
 " Visit https://github.com/junegunn/vim-plug for more information.
 "
 "
-" Copyright (c) 2014 Junegunn Choi
+" Copyright (c) 2015 Junegunn Choi
 "
 " MIT License
 "
@@ -849,7 +848,7 @@ function! s:job_handler(name) abort
     call s:reap(a:name)
     call s:tick()
   else
-    let job.result .= s:to_s(v:job_data[2])
+    let job.result .= substitute(s:to_s(v:job_data[2]), '[\r\n]', '', 'g') . "\n"
     " To reduce the number of buffer updates
     let job.tick = get(job, 'tick', -1) + 1
     if job.tick % len(s:jobs) == 0

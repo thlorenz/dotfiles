@@ -11,6 +11,7 @@ from clang_helpers import PrepareClangFlags
 # 'flags' list of compilation flags. Notice that YCM itself uses that approach.
 compilation_database_folder = ''
 
+node_root='/Volumes/d/dev/ns/nsolid/nsolid-node/'
 # These are the compilation flags that will be used in case there's no
 # compilation database set.
 flags = [
@@ -44,16 +45,16 @@ flags = [
   '-isystem', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
   '-isystem', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/include',
   '-isystem', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks',
+# '-I', '/usr/local/include/node',
   '-I', '/usr/local/include',
-  '-I', '/usr/local/include/node',
   '-I', 'include/',
-  '-I', 'src/',
-  '-I', 'deps/v8/include',
-  '-I', 'deps/uv/include',
-  '-I', 'nsolid/deps/cjson',
-  '-I', 'nsolid/deps/nan',
-  '-I', 'node_modules/nan',
-  '-I', '.'
+  '-I', node_root + 'src/',
+  '-I', node_root + 'deps/v8/include',
+  '-I', node_root + 'deps/uv/include',
+  '-I', node_root + 'nsolid/deps/cjson',
+  '-I', node_root + 'nsolid/src/',
+  '-I', node_root + 'nsolid/deps/nan',
+  '-I', node_root
 ]
 
 if compilation_database_folder:

@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 " Editing
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 Plug 'godlygeek/tabular'
   nnoremap <silent> <leader>f=	 :Tabularize /=<CR>
   nnoremap <silent> <leader>f,	 :Tabularize /,<CR>
@@ -63,16 +64,38 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   map <leader>n :NERDTreeToggle<CR>
 
+
+Plug 'moll/vim-node', {'for': ['javascript']}
+  autocmd FileType javascript map <buffer> gf <Plug>NodeGotoFile
+
 Plug 'Shougo/unite.vim'
   let g:unite_source_history_yank_enable=1
   let g:unite_source_grep_command='ag'
   let g:unite_source_grep_default_opts='--nocolor --line-numbers --nogroup -S -C4'
   let g:unite_source_grep_recursive_opt=''
-  nnoremap <silent> <leader>t :Unite -start-insert file_rec/git<CR>
-  nnoremap <silent> <leader>T :Unite -start-insert -auto-preview file_rec/async<CR>
-  nnoremap <silent> <leader>l :Unite -quick-match -auto-preview buffer <CR>
-  nnoremap <silent> <leader>f :Unite grep:.<CR>
+  " These seem to have problems and freeze vim at times
+  " nnoremap <silent> <leader>t :Unite -start-insert file_rec/git<CR>
+  " nnoremap <silent> <leader>T :Unite -start-insert -auto-preview file_rec/async<CR>
+  " nnoremap <silent> <leader>l :Unite -quick-match -auto-preview buffer <CR>
+  " try
+  "   let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
+  "   call unite#filters#matcher_default#use(['matcher_fuzzy'])
+  " catch
+  " endtry
+
+  " this one is too slow - searching directly with Ag works much better
+  " nnoremap <silent> <leader>f :Unite grep:.<CR>
   nnoremap <silent> <leader>y :Unite history/yank <CR>
+
+Plug 'rking/ag.vim'
+  nnoremap <leader>f :Ag<space>
+Plug 'ctrlpvim/ctrlp.vim'
+  let g:ctrlp_max_files=0
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+  let g:ctrlp_map='<Leader>t'
+  let g:ctrlp_working_path_mode='r'
+  nnoremap <leader>l :CtrlPBuffer <CR>
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -113,6 +136,14 @@ Plug 'tell-k/vim-browsereload-mac'
 
 Plug 'Shougo/vimproc'
 Plug 'thinca/vim-quickrun'
+  noremap <silent> <leader>R :QuickRun -mode n<CR>
+  vnoremap <silent> <leader>R :QuickRun -mode v<CR>
+  let b:quickrun_config={
+\    'hook/shebang':1,
+\    'outputter/buffer/append':0,
+\    'outputter/buffer/into':0,
+\    'outputter/buffer/close_on_empty':1
+\ }
 
 " git
 Plug 'tpope/vim-git'
