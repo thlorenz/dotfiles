@@ -150,8 +150,7 @@ au FileType perl noremap <leader>r :wa \| ! perl %<CR>
 au FileType json set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0 conceallevel=2 concealcursor=nvc
 
 " JavaScript specific
-" au FileType javascript source /Users/thlorenz/dotfiles/vim/bundle/tern/vim/tern.vim
-au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+" au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
 au FileType javascript noremap <leader>r :wa \| ! /Users/thlorenz/dev/js/iojs/iojs_g %<CR>
 "au FileType javascript noremap <leader>r :wa \| ! iojs %<CR>
