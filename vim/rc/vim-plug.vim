@@ -68,25 +68,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'moll/vim-node', {'for': ['javascript']}
   autocmd FileType javascript map <buffer> gf <Plug>NodeGotoFile
 
-Plug 'Shougo/unite.vim'
-  let g:unite_source_history_yank_enable=1
-  let g:unite_source_grep_command='ag'
-  let g:unite_source_grep_default_opts='--nocolor --line-numbers --nogroup -S -C4'
-  let g:unite_source_grep_recursive_opt=''
-  " These seem to have problems and freeze vim at times
-  " nnoremap <silent> <leader>t :Unite -start-insert file_rec/git<CR>
-  " nnoremap <silent> <leader>T :Unite -start-insert -auto-preview file_rec/async<CR>
-  " nnoremap <silent> <leader>l :Unite -quick-match -auto-preview buffer <CR>
-  " try
-  "   let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
-  "   call unite#filters#matcher_default#use(['matcher_fuzzy'])
-  " catch
-  " endtry
-
-  " this one is too slow - searching directly with Ag works much better
-  " nnoremap <silent> <leader>f :Unite grep:.<CR>
-  nnoremap <silent> <leader>y :Unite history/yank <CR>
-
 Plug 'rking/ag.vim'
   nnoremap <leader>f :Ag<space>
 Plug 'ctrlpvim/ctrlp.vim'
