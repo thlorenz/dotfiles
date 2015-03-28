@@ -28,6 +28,8 @@ Plug 'thlorenz/snipmate-mine'
 Plug 'tanabe/WriteJSDocComment.vim', { 'for': ['javascript','c','cc','cpp'] }
   au FileType javascript,c,cc,cpp nnoremap <buffer> <leader>D :<C-u>call WriteJSDocComment()<CR>
 
+Plug 'justinmk/vim-sneak'
+
 " AutoCompletion
 Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
@@ -64,7 +66,6 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   map <leader>n :NERDTreeToggle<CR>
 
-
 Plug 'moll/vim-node', {'for': ['javascript']}
   autocmd FileType javascript map <buffer> gf <Plug>NodeGotoFile
 
@@ -81,8 +82,13 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+
 "" switch between implementation and header files for C/C++
 Plug 'vim-scripts/a.vim'
+
+"" delete buffers without closing your windows
+Plug 'moll/vim-bbye'
+  nnoremap <silent> <leader>q :Bdelete<CR>
 
 " Syntax highlighters/support
 Plug 'flazz/vim-colorschemes'
@@ -128,7 +134,7 @@ Plug 'thinca/vim-quickrun'
 \    'outputter/buffer/close_on_empty':1
 \ }
 
-" git
+"" git
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
   nnoremap <silent> <leader>gs :Gstatus<CR>
@@ -140,5 +146,20 @@ Plug 'tpope/vim-fugitive'
   nnoremap <silent> <leader>gw :Gwrite<CR>
   nnoremap <silent> <leader>gr :Gremove<CR>
   set diffopt=vertical " Show always vertical diff
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'
+
+"" misc
+Plug 'vim-scripts/vim-http-client'
+  let g:http_client_bind_hotkey=0
+  silent! nnoremap <unique> <leader>h :HTTPClientDoRequest<cr>
+
+Plug 'kannokanno/previm', { 'for': [ 'markdown' ] }
+	let g:previm_open_cmd = 'open -a Google\ Chrome'
+
+Plug 'tpope/vim-dispatch'
+
+"" time tracking
+Plug 'wakatime/vim-wakatime'
 
 call plug#end()
