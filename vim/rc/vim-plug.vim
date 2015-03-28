@@ -81,6 +81,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+"" switch between implementation and header files for C/C++
+Plug 'vim-scripts/a.vim'
 
 " Syntax highlighters/support
 Plug 'flazz/vim-colorschemes'
