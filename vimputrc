@@ -3,7 +3,7 @@ set show-all-if-ambiguous on
 
 # Vim Terminal mode
 # want vi to be the default editor for readline                      
-#set editing-mode vi                                            
+set editing-mode vi                                            
 
 # vi settings                                         
 $if mode=vi                

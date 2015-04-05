@@ -29,6 +29,9 @@ function init () {
   alias ,ev='vim ~/.bashrc'
   alias ,sv='source ~/.bashrc'
   alias ,cv='c ~/.bashrc'
+
+  # Source vim inputrc
+  alias ,vi='bind -f ~/.vimputrc'
 }
 init
 
@@ -110,7 +113,8 @@ elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
   echo "Configuring for ARCH-$unamestr"
   PS1="\n\[\033[00;34m\]arch:\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
 
-  PATH=~/npm-global/bin:$GEM_HOME/bin:$PATH
+  PATH=~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:$PATH
+  eval "$(tmuxifier init -)"
 
   shopt -s checkwinsize
 
