@@ -1,7 +1,7 @@
 # enable color support of ls and also add color related aliases
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-  
+
   alias ls='ls --color=auto'
   alias grep='grep --color=auto'
   alias fgrep='fgrep --color=auto'
@@ -15,7 +15,7 @@ alias l='ls -CF'
 
 alias c='pygmentize -O style=monokai -f console256 -g'
 alias tree='tree -I node_modules'
-alias info='info --vi-keys' 
+alias info='info --vi-keys'
 
 alias growup='rm -rf .git/hooks/pre-commit'
 alias http-codes="node -p 'require(\"http\").STATUS_CODES' | c"
@@ -35,7 +35,7 @@ alias drmc='docker rm `docker ps -a -q`'
 ## stop all docker containers
 alias dstc='docker stop `docker ps -a -q`'
 
-## rm all untagged docker images 
+## rm all untagged docker images
 function drmi () {
   docker rmi `docker images | grep '^<none>' | awk '{print $3}'`
 }
@@ -50,8 +50,8 @@ alias node_configure='./configure --gdb --debug --without-snapshot --xcode --v8-
 alias node_v8_options="node -e 'console.dir(process.config.variables.node_v8_options)'"
 
 ## iojs
-alias irel='./configure --xcode --without-snapshot && tools/gyp_node.py -f ninja && ninja -C out/Release && ln -s out/Release/iojs iojs'
-alias ideb='./configure --xcode --without-snapshot && tools/gyp_node.py -f ninja && ninja -C out/Debug && ln -s out/Debug/iojs iojs_g'
+alias irel='./configure --xcode --without-snapshot && tools/gyp_node.py -f ninja && ninja -C out/Release && ln -sf out/Release/iojs iojs'
+alias ideb='./configure --xcode --without-snapshot && tools/gyp_node.py -f ninja && ninja -C out/Debug && ln -sf out/Debug/iojs iojs_g'
 
 ## tmux
 
