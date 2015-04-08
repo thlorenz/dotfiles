@@ -127,5 +127,6 @@
 	autoupdate = true
 [fetch]
 	prune = true
-[github]
-	user = thlorenz
+# Only needed for Gist.vim - screws up main user somehow
+# [github]
+# user = thlorenz
