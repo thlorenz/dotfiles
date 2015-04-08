@@ -1,4 +1,4 @@
-TMUXIFIER_SESSION=1
+export TMUXIFIER_SESSION=1
 ROOT="$HOME/dev/asm/logasm"
 session_root $ROOT
 
