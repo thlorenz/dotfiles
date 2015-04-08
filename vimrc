@@ -54,7 +54,7 @@ set shortmess=atI
 syn on
 
 inoremap jk <Esc>
-set timeoutlen=100
+set timeoutlen=400
 
 set pastetoggle=<F3>
 
@@ -153,8 +153,8 @@ au FileType json set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0 con
 " JavaScript specific
 " au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
-au FileType javascript noremap <leader>r :wa \| ! /Users/thlorenz/dev/js/iojs/iojs_g %<CR>
-"au FileType javascript noremap <leader>r :wa \| ! iojs %<CR>
+"au FileType javascript noremap <leader>r :wa \| ! /Users/thlorenz/dev/js/iojs/iojs_g %<CR>
+au FileType javascript noremap <leader>r :wa \| ! iojs %<CR>
 "au FileType javascript noremap <leader>r :wa \| ! iojs --allow-natives-syntax %<CR>
 "au FileType javascript noremap <leader>r :wa \| ! %<CR>
 "au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
@@ -181,7 +181,7 @@ au FileType html set omnifunc=htmlcomplete#CompleteTags
 inoremap {<CR> {<CR>}<C-o>O
 
 " Assembler specific
-au FileType nasm noremap <leader>r :wa \| !nasm -f elf64 -g -F stabs % && ld -o %:r %:r.o && echo "" && ./%:r && rm -f ./%:r ./%:r.o<CR>
+au FileType nasm noremap <leader>r :wa \| !nasm -f elf32 -g -F stabs % && ld -melf_i386 -o %:r %:r.o && echo "" && ./%:r && rm -f ./%:r ./%:r.o<CR>
 
 " C, C++ specific
 set ut=100000
