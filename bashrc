@@ -173,3 +173,9 @@ else
   PS1="\n\[\033[00;34m\]\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
   echo "No special configuration known for $unamestr"
 fi
+
+# vi mode in inputrc breaks tmuxifier initialization (Enter key won't properly fire)
+# therefore .inputrc is not initing vi mode, but .vimputrc is
+if [ -z "$TMUXIFIER_SESSION" ]; then
+  bind -f ~/.vimputrc
+fi
