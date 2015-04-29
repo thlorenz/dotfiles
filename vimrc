@@ -181,7 +181,8 @@ au FileType html set omnifunc=htmlcomplete#CompleteTags
 inoremap {<CR> {<CR>}<C-o>O
 
 " Assembler specific
-au FileType nasm noremap <leader>r :wa \| !nasm -f elf32 -g -F stabs % && ld -melf_i386 -o %:r %:r.o && echo "" && ./%:r && rm -f ./%:r ./%:r.o<CR>
+" au FileType nasm noremap <leader>r :wa \| !nasm -f elf32 -g -F stabs % && ld -melf_i386 -o %:r %:r.o && echo "" && ./%:r && rm -f ./%:r ./%:r.o<CR>
+au FileType nasm noremap <leader>r :wa \| make %:r && ./%:r && make clean<CR>
 
 " C, C++ specific
 set ut=100000
