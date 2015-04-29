@@ -20,7 +20,8 @@ ln -sf ~/dotfiles/tmux/tmux.conf     ~/.tmux.conf
 ln -sf ~/dotfiles/lldb/lldbinit-lldb ~/.lldbinit-lldb 
 ln -sf ~/dotfiles/tern-config        ~/.tern-config
 ln -sf ~/dotfiles/tmuxifier          ~/.tmuxifier
-ln -sf ~/dotfiles/vimputrc          ~/.vimputrc
+ln -sf ~/dotfiles/vimputrc           ~/.vimputrc
+ln -sf ~/dotfiles/gdbinit            ~/.gdbinit
 
 ln -sf ~/dotfiles/vim         ~/.vim
 
