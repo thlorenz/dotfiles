@@ -52,6 +52,7 @@ alias node_v8_options="node -e 'console.dir(process.config.variables.node_v8_opt
 ## iojs
 alias irel='./configure --xcode --without-snapshot && tools/gyp_node.py -f ninja && ninja -C out/Release && ln -sf out/Release/iojs iojs'
 alias ideb='./configure --xcode --without-snapshot && tools/gyp_node.py -f ninja && ninja -C out/Debug && ln -sf out/Debug/iojs iojs_g'
+alias itst='./tools/test.py --mode=release message parallel sequential -J'
 
 ## tmux
 
