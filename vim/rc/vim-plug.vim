@@ -5,12 +5,12 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'godlygeek/tabular'
-  nnoremap <silent> <leader>f=	 :Tabularize /=<CR>
-  nnoremap <silent> <leader>f,	 :Tabularize /,<CR>
-  nnoremap <silent> <leader>f;	 :Tabularize /;<CR>
-  nnoremap <silent> <leader>f:	 :Tabularize /:<CR>
-  nnoremap <silent> <leader>f(	 :Tabularize /(<CR>
-  nnoremap <silent> <leader>f\	 :Tabularize /\<CR>
+  noremap <silent> <leader>f=	 :Tabularize /=<CR>
+  noremap <silent> <leader>f,	 :Tabularize /,<CR>
+  noremap <silent> <leader>f;	 :Tabularize /;<CR>
+  noremap <silent> <leader>f:	 :Tabularize /:<CR>
+  noremap <silent> <leader>f(	 :Tabularize /(<CR>
+  noremap <silent> <leader>f\	 :Tabularize /\<CR>
 Plug 'sjl/gundo.vim'
   nnoremap <silent> <S-u> :GundoToggle <CR>
 
