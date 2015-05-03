@@ -176,6 +176,6 @@ fi
 
 # vi mode in inputrc breaks tmuxifier initialization (Enter key won't properly fire)
 # therefore .inputrc is not initing vi mode, but .vimputrc is
-if [ -z "$TMUXIFIER_SESSION" ]; then
+if [ ! -e  /tmp/tmuxifier_loading_session ]; then
   bind -f ~/.vimputrc
 fi
