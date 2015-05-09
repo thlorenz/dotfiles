@@ -13,7 +13,36 @@ bind 1:${mod};shift throw 1
 bind 8:${mod};shift throw 8
 
 # managing snapshots
-bind 1:ctrl;shift snapshot          term_chrome save-to-disk
-bind 1:ctrl       activate-snapshot term_chrome
-bind 2:ctrl;shift snapshot          chrome_term save-to-disk
-bind 2:ctrl       activate-snapshot chrome_term
+
+# term gets increasingly larger with each number
+# chrome and preview get increasingly smaller
+bind 1:ctrl;shift snapshot          term_chrome_preview_1 save-to-disk
+bind 1:ctrl       activate-snapshot term_chrome_preview_1
+
+bind 2:ctrl;shift snapshot          term_chrome_preview_2 save-to-disk
+bind 2:ctrl       activate-snapshot term_chrome_preview_2
+
+bind 3:ctrl;shift snapshot          term_chrome_preview_3 save-to-disk
+bind 3:ctrl       activate-snapshot term_chrome_preview_3
+
+bind 4:ctrl;shift snapshot          term_chrome_preview_4 save-to-disk
+bind 4:ctrl       activate-snapshot term_chrome_preview_4
+
+# half half
+bind 5:ctrl;shift snapshot          term_chrome_preview_5 save-to-disk
+bind 5:ctrl       activate-snapshot term_chrome_preview_5
+
+bind 6:ctrl;shift snapshot          term_chrome_preview_6 save-to-disk
+bind 6:ctrl       activate-snapshot term_chrome_preview_6
+
+bind 7:ctrl;shift snapshot          term_chrome_preview_7 save-to-disk
+bind 7:ctrl       activate-snapshot term_chrome_preview_7
+
+bind 8:ctrl;shift snapshot          term_chrome_preview_8 save-to-disk
+bind 8:ctrl       activate-snapshot term_chrome_preview_8
+
+bind 9:ctrl;shift snapshot          term_chrome_preview_9 save-to-disk
+bind 9:ctrl       activate-snapshot term_chrome_preview_9
+
+bind 0:ctrl;shift snapshot          term_chrome_preview_1 save-to-disk
+bind 0:ctrl       activate-snapshot term_chrome_preview_1
