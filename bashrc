@@ -71,7 +71,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   # PS1="\n\[\033[00;34m\]\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
   PS1="\n\[\033[00;34m\]\w\[\033[00m\]\[$WHITE\]\n➝  "
 
-  PATH=~/npm-global/bin:$GEM_HOME/bin:/usr/local/sbin/:$PATH
+  PATH=~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:/usr/local/sbin/:$PATH
 
   alias cd-js='cd ~/dev/js'
 
