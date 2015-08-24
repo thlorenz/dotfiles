@@ -11,9 +11,11 @@ from clang_helpers import PrepareClangFlags
 # 'flags' list of compilation flags. Notice that YCM itself uses that approach.
 compilation_database_folder = ''
 
-#node_root='/Volumes/d/dev/js/io.js/'
-node_root='/Volumes/d/dev/ns/nsolid/nsolid-node/'
-uv_root='/Volumes/d/dev/js/libuv/'
+dev='/Volumes/d/dev/'
+
+#node_root=dev + 'js/io.js/'
+node_root=dev + '/ns/nsolid/nsolid-node/'
+uv_root=dev + '/js/libuv/'
 # These are the compilation flags that will be used in case there's no
 # compilation database set.
 flags = [
