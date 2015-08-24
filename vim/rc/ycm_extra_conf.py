@@ -53,12 +53,14 @@ flags = [
   # '-I', uv_root + 'include/',
   # '-I', uv_root + 'src/',
   '-I', node_root + 'src/',
+  '-I', node_root + 'deps/v8',
   '-I', node_root + 'deps/v8/include',
   '-I', node_root + 'deps/uv/include',
   '-I', node_root + 'deps/uv/src',
   '-I', node_root + 'nsolid/deps/cjson',
   '-I', node_root + 'nsolid/src/',
   '-I', node_root + 'nsolid/deps/nan',
+  '-I', node_root + 'out/Release/gen',
   '-I', node_root
 ]
 
