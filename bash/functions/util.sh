@@ -21,6 +21,7 @@ pid () {
 padd() {
   current=`pwd`
   p=${1:-$current}
+  p=$(cd $p; pwd)
   if [ -d "$p" ] && [[ ":$PATH:" != *":$p:"* ]]; then
       PATH="$p:$PATH"
   fi
