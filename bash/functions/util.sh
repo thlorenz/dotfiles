@@ -10,9 +10,9 @@ vman () {
   MANWIDTH=150 MANPAGER='col -bx' man $@ | vim -R -c "set ft=man" -
 }
 
-# Get pid of iojs process
+# Get pid of node process
 pid () {
-  pid=`ps -A | grep iojs | egrep -v grep | awk '{print $1}'`
+  pid=`ps -A | grep node | egrep -v grep | egrep -v '\(' | awk '{print $1}'`
   export pid
   echo $pid
 }
