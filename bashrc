@@ -48,7 +48,8 @@ shopt -s histappend
 alias yay!='git push origin master && git push --tags && npm publish'
 
 # other
-alias serve='echo "http://localhost:3000" && http-server -p 3000 -c-1'
+# alias serve='echo "http://localhost:3000" && http-server -p 3000 -c-1'
+alias serve='echo "http://localhost:3000" && python -m SimpleHTTPServer 3000'
 
 # Environment Variables
 export EDITOR=vim
