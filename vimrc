@@ -153,11 +153,11 @@ au FileType json set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0 con
 " JavaScript specific
 " au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 "noremap <leader>m :wa \| r !(OCAT_COLOR=0 OCAT_DEPTH=0 OCAT_RM=1 node % 2>&1 > /dev/null && cat /tmp/ocat.txt) <CR>
-noremap <leader>m :wa \| r !(OCAT_COLOR=0 OCAT_DEPTH=0 OCAT_RM=1 ~/dev/ns/nsolid/nsolid-node/node % 2>&1 > /dev/null && cat /tmp/ocat.txt) <CR>
+noremap <leader>m :wa \| r !(OCAT_COLOR=0 OCAT_DEPTH=0 OCAT_RM=1 ~/dev/ns/nsolid/nsolid-node/out/Release/nsolid % 2>&1 > /dev/null && cat /tmp/ocat.txt) <CR>
 
 "au FileType javascript noremap <leader>r :wa \| ! /Users/thlorenz/dev/js/iojs/iojs_g %<CR>
-au FileType javascript noremap <leader>r :wa \| ! /Users/thlorenz/dev/ns/nsolid/nsolid-node/node %<CR>
-au FileType javascript noremap <leader>e :wa \| ! /Users/thlorenz/dev/ns/nsolid/nsolid-node/node --debug-brk  %<CR>
+au FileType javascript noremap <leader>r :wa \| ! /Users/thlorenz/dev/ns/nsolid/nsolid-node/out/Release/nsolid %<CR>
+au FileType javascript noremap <leader>e :wa \| ! /Users/thlorenz/dev/ns/nsolid/nsolid-node/out/Release/nsolid --debug-brk  %<CR>
 "au FileType javascript noremap <leader>r :wa \| ! iojs %<CR>
 "au FileType javascript noremap <leader>r :wa \| ! iojs --allow-natives-syntax %<CR>
 "au FileType javascript noremap <leader>r :wa \| ! %<CR>
