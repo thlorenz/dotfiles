@@ -164,4 +164,7 @@ Plug 'tpope/vim-dispatch'
 "" time tracking
 Plug 'wakatime/vim-wakatime'
 
+"" documentation
+Plug 'rizzatti/dash.vim'
+
 call plug#end()
