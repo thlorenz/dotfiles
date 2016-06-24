@@ -48,10 +48,10 @@ alias db='/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versi
 
 alias node_configure='./configure --gdb --debug --without-snapshot --xcode --v8-options="--gdbjit --gdbjit-full --expose-gc"'
 alias node_v8_options="node -e 'console.dir(process.config.variables.node_v8_options)'"
-alias nrel='./configure --xcode --without-snapshot && tools/gyp_node.py -f ninja && ninja -C out/Release && ln -sf out/Release/nsolid node'
-alias ndeb='./configure --xcode --without-snapshot && tools/gyp_node.py -f ninja && ninja -C out/Debug && ln -sf out/Debug/nsolid node_g'
-alias irel='./configure --xcode --without-snapshot && tools/gyp_node.py -f ninja && ninja -C out/Release && ln -sf out/Release/node node'
-alias ideb='./configure --xcode --without-snapshot && tools/gyp_node.py -f ninja && ninja -C out/Debug && ln -sf out/Debug/node node_g'
+alias nrel='./configure --xcode && tools/gyp_node.py -f ninja && ninja -C out/Release && ln -sf out/Release/nsolid node'
+alias ndeb='./configure --xcode && tools/gyp_node.py -f ninja && ninja -C out/Debug && ln -sf out/Debug/nsolid node_g'
+alias irel='./configure --xcode && tools/gyp_node.py -f ninja && ninja -C out/Release && ln -sf out/Release/node node'
+alias ideb='./configure --xcode && tools/gyp_node.py -f ninja && ninja -C out/Debug && ln -sf out/Debug/node node_g'
 alias itst='./tools/test.py --mode=release message parallel sequential -J'
 
 alias hydra='node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-track-positions --redirect-code-traces --redirect-code-traces-to=code.asm --print-opt-code'
