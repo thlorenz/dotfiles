@@ -1,8 +1,13 @@
 shopt -s progcomp
 
-# global/brew completions
-if [ -d `brew --prefix`/etc/bash_completion.d ]; then
-  for f in `brew --prefix`/etc/bash_completion.d/*; do source $f; done
+unamestr=`uname`
+
+# ----------- DARWIN ---------------
+if [[ "$unamestr" == "Darwin" ]]; then
+  # global/brew completions
+  if [ -d `brew --prefix`/etc/bash_completion.d ]; then
+    for f in `brew --prefix`/etc/bash_completion.d/*; do source $f; done
+  fi
 fi
 
 # followed by local completions/overrides
