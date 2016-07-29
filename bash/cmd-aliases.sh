@@ -25,10 +25,6 @@ alias make-targets-verbose="make -qp | sed -n -e 's/^\([^.#[:space:]][^:[:space:
 
 alias utelinit="ssh -t udesktop 'sudo telinit 0'"
 
-# Docker
-export DOCKER_HOST=unix:///var/run/docker.sock
-alias docker="sudo docker -H $DOCKER_HOST"
-
 ## rm all docker containers
 alias drmc='docker rm `docker ps -a -q`'
 
