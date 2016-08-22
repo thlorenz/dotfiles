@@ -55,9 +55,14 @@ alias serve='echo "http://localhost:3000" && python -m SimpleHTTPServer 3000'
 export EDITOR=vim
 export SHELL=/usr/local/bin/bash
 
-## we'll prefer clang if it's there
+## we'll prefer ccache + clang if it's there but definitely clang
+### only clang
 command -v clang   >/dev/null 2>&1 && export CC=clang && export GYP_DEFINES='clang=1'
 command -v clang++ >/dev/null 2>&1 && export CXX=clang++ && LINK=clang++ && export GYP_DEFINES='clang=1'
+
+### ccache and clang
+command -v ccache >/dev/null 2>&1 && command -v clang   >/dev/null 2>&1 && export CC='ccache clang -Qunused-arguments' clang && export GYP_DEFINES='clang=1'
+command -v ccache >/dev/null 2>&1 && command -v clang++ >/dev/null 2>&1 && export CXX='ccache clang++ -Qunused-arguments' && LINK=clang++ && export GYP_DEFINES='clang=1'
 
 # Environment tweaks
 export HISTIGNORE='&:ll:ls:clear:gs:git status'
