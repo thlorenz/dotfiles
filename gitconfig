@@ -108,13 +108,14 @@
 
   # Workflow
 
-    st  =  status --ignore-submodules -s
-    co  =  checkout
-    ci  =  commit
-    cm  =  commit -m
-    cam =  commit -am
-    br  =  branch -v
-    amd =  commit --amend --no-edit
+    st  = status --ignore-submodules -s
+    co  = checkout
+    ci  = commit
+    cm  = commit -m
+    cam = commit -am
+    br  = branch -v
+    amd = commit --amend --no-edit
+    up  = pull --rebase
 [mergetool]
 	keepBackup = true
 [credential]
