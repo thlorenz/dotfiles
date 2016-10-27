@@ -32,6 +32,8 @@ Plug 'tanabe/WriteJSDocComment.vim', { 'for': ['javascript','c','cc','cpp'] }
 
 Plug 'justinmk/vim-sneak'
 
+Plug 'mikewest/vimroom'
+
 " AutoCompletion
 Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
@@ -109,10 +111,11 @@ Plug 'moll/vim-node'               , { 'for': ['javascript'] }
   autocmd FileType javascript map <buffer> gf <Plug>NodeGotoFile
 
 " Status bar
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
   let g:airline_theme = 'jellybeans'
   let g:airline#extensions#tagbar#enabled = 1
-  let g:airline_powerline_fonts = 0
+  let g:airline_powerline_fonts = 1
   let g:airline#extensions#tabline#enabled = 0
   let g:airline#extensions#tabline#left_sep=' '
   let g:airline#extensions#tabline#left_alt_sep='¦'
@@ -163,6 +166,9 @@ Plug 'tpope/vim-dispatch'
 
 "" time tracking
 Plug 'wakatime/vim-wakatime'
+
+"" simplenote
+Plug 'mrtazz/simplenote.vim'
 
 "" documentation
 Plug 'rizzatti/dash.vim'
