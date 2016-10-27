@@ -34,6 +34,9 @@ Plug 'justinmk/vim-sneak'
 
 Plug 'mikewest/vimroom'
 
+" Fix copy/paste
+Plug 'christoomey/vim-system-copy'
+
 " AutoCompletion
 Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
