@@ -30,3 +30,7 @@ padd() {
 compresspdf() {
   \gs -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -dPDFSETTINGS=/${3:-"screen"} -dCompatibilityLevel=1.4 -sOutputFile=$2 $1
 }
+
+wps() {
+  watch -n 3 "ps aeC -o pid,command,rss,%mem,cpu | grep '$1\|%MEM' | grep -v grep"
+}
