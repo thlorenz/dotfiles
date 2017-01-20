@@ -65,6 +65,7 @@ function nstart() {
     echo '## Status'                                                                               >> README.md
     echo ''                                                                                        >> README.md
     echo 'Nix, Nada, Nichevo, Nothing --> go away!'                                                >> README.md
+    echo
 
     echo '## Installation'                                                                         >> README.md
     echo ''                                                                                        >> README.md

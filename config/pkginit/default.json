@@ -2,13 +2,9 @@
     "name" : basename,
     "version" : "0.0.0",
     "description" : prompt(),
-    "main" : "index.js",
+    "main" : basename + ".js",
     "scripts" : {
-      "test-main" : "tap test/*.js",
-      "test-0.8"  : "nave use 0.8 npm run test-main",
-      "test-0.10" : "nave use 0.10 npm run test-main",
-      "test-all"  : "npm run test-main && npm run test-0.8 && npm run test-0.10",
-      "test"      : "if [ -e $TRAVIS ]; then npm run test-all; else npm run test-main; fi"
+      "test" : "tape test/*.js"
     },
     "repository" : {
       "type" : "git",
@@ -18,8 +14,7 @@
     "dependencies" : {
     },
     "devDependencies" : {
-      "nave": "~0.4.3",
-      "tap": "~0.4.3"
+      "tape": "~4.6.3"
     },
     "keywords": [] ,
     "author" : {
@@ -31,5 +26,5 @@
       "type": "MIT",
       "url": "https://github.com/thlorenz/" + basename +"/blob/master/LICENSE"
     },
-    "engine" : { "node" : ">=0.8" }
+    "engine" : { "node" : ">=0.10" }
 }
