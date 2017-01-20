@@ -84,6 +84,7 @@ Plug 'ctrlpvim/ctrlp.vim'
   let g:ctrlp_use_caching = 0
   let g:ctrlp_map='<Leader>t'
   let g:ctrlp_working_path_mode='r'
+  let g:ctrlp_match_window='bottom'
   nnoremap <leader>l :CtrlPBuffer <CR>
 
 Plug 'christoomey/vim-tmux-navigator'
@@ -175,5 +176,15 @@ Plug 'mrtazz/simplenote.vim'
 
 "" documentation
 Plug 'rizzatti/dash.vim'
+
+"" C#
+Plug 'OmniSharp/omnisharp-vim' , { 'for': [ 'cs' ] }
+  let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
+  autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+  autocmd FileType cs nnoremap <silent> <C-]> :OmniSharpGotoDefinition<CR>
+  autocmd FileType cs nnoremap <leader>fi :OmniSharpFindImplementations<cr>
+  autocmd FileType cs nnoremap <leader>ft :OmniSharpFindType<cr>
+  autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<cr>
+  autocmd FileType cs nnoremap <leader>fu :OmniSharpFindUsages<cr>
 
 call plug#end()
