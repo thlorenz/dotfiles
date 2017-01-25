@@ -65,13 +65,13 @@ function nstart() {
     echo '## Status'                                                                               >> README.md
     echo ''                                                                                        >> README.md
     echo 'Nix, Nada, Nichevo, Nothing --> go away!'                                                >> README.md
-    echo
+    echo ''                                                                                        >> README.md
 
     echo '## Installation'                                                                         >> README.md
     echo ''                                                                                        >> README.md
     echo "    npm install $(basename $PWD)"                                                        >> README.md
     echo ''                                                                                        >> README.md
-    echo '## API'                                                                                  >> README.md
+    echo '## [API](https://thlorenz.github.io/$(basename $PWD)'                                    >> README.md
     echo ''                                                                                        >> README.md
     echo ''                                                                                        >> README.md
     echo '## License'                                                                              >> README.md
