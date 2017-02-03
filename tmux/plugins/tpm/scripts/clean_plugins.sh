@@ -1,40 +1,41 @@
 #!/usr/bin/env bash
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+HELPERS_DIR="$CURRENT_DIR/helpers"
 
-source "$CURRENT_DIR/shared_functions.sh"
+source "$HELPERS_DIR/plugin_functions.sh"
+source "$HELPERS_DIR/utility.sh"
+
+if [ "$1" == "--tmux-echo" ]; then # tmux-specific echo functions
+	source "$HELPERS_DIR/tmux_echo_functions.sh"
+else # shell output functions
+	source "$HELPERS_DIR/shell_echo_functions.sh"
+fi
 
 clean_plugins() {
 	local plugins plugin plugin_directory
-	plugins="$(shared_get_tpm_plugins_list)"
+	plugins="$(tpm_plugins_list_helper)"
 
-	for plugin_directory in "$SHARED_TPM_PATH"/*; do
+	for plugin_directory in "$(tpm_path)"/*; do
 		[ -d "${plugin_directory}" ] || continue
-		plugin="$(shared_plugin_name "${plugin_directory}")"
+		plugin="$(plugin_name_helper "${plugin_directory}")"
 		case "${plugins}" in
 			*"${plugin}"*) : ;;
 			*)
 			[ "${plugin}" = "tpm" ] && continue
-			echo_message "Removing \"$plugin\""
-			rm -rf "${plugin_directory}"
+			echo_ok "Removing \"$plugin\""
+			rm -rf "${plugin_directory}" >/dev/null 2>&1
 			[ -d "${plugin_directory}" ] &&
-			echo_message "  \"$plugin\" clean fail" ||
-			echo_message "  \"$plugin\" clean success"
+			echo_err "  \"$plugin\" clean fail" ||
+			echo_ok "  \"$plugin\" clean success"
 			;;
 		esac
 	done
 }
 
-ensure_tpm_path_exists() {
-	mkdir -p "$SHARED_TPM_PATH"
-}
-
 main() {
-	reload_tmux_environment
-	shared_set_tpm_path_constant
 	ensure_tpm_path_exists
 	clean_plugins
-	reload_tmux_environment
-	end_message
+	exit_value_helper
 }
 main

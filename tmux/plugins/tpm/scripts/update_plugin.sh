@@ -1,42 +1,44 @@
 #!/usr/bin/env bash
 
+# this script handles core logic of updating plugins
+
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+HELPERS_DIR="$CURRENT_DIR/helpers"
 
-source "$CURRENT_DIR/shared_functions.sh"
+source "$HELPERS_DIR/plugin_functions.sh"
+source "$HELPERS_DIR/utility.sh"
 
-empty() {
-	[ -z "$1" ]
-}
+if [ "$1" == "--tmux-echo" ]; then # tmux-specific echo functions
+	source "$HELPERS_DIR/tmux_echo_functions.sh"
+else # shell output functions
+	source "$HELPERS_DIR/shell_echo_functions.sh"
+fi
 
-if_all() {
-	[ "$1" == "all" ]
-}
-
-cancel() {
-	exit 0
-}
+# from now on ignore first script argument
+shift
 
 pull_changes() {
 	local plugin="$1"
-	local plugin_path=$(shared_plugin_path "$plugin")
-	cd $plugin_path &&
+	local plugin_path="$(plugin_path_helper "$plugin")"
+	cd "$plugin_path" &&
 		GIT_TERMINAL_PROMPT=0 git pull &&
 		GIT_TERMINAL_PROMPT=0 git submodule update --init --recursive
 }
 
 update() {
 	local plugin="$1"
-	echo_message "Updating \"$plugin\""
+	echo_ok "Updating \"$plugin\""
 	$(pull_changes "$plugin" > /dev/null 2>&1) &&
-		echo_message "  \"$plugin\" update success" ||
-		echo_message "  \"$plugin\" update fail"
+		echo_ok "  \"$plugin\" update success" ||
+		echo_err "  \"$plugin\" update fail"
 }
 
-
 update_all() {
-	local plugins="$(shared_get_tpm_plugins_list)"
+	echo_ok "Updating all plugins!"
+	echo_ok ""
+	local plugins="$(tpm_plugins_list_helper)"
 	for plugin in $plugins; do
-		local plugin_name="$(shared_plugin_name "$plugin")"
+		local plugin_name="$(plugin_name_helper "$plugin")"
 		# updating only installed plugins
 		if plugin_already_installed "$plugin_name"; then
 			update "$plugin_name"
@@ -44,31 +46,24 @@ update_all() {
 	done
 }
 
-handle_plugin_update() {
-	local arg="$1"
-
-	if empty "$arg"; then
-		cancel
-
-	elif if_all "$arg"; then
-		echo_message "Updating all plugins!"
-		echo_message ""
-		update_all
-
-	elif plugin_already_installed "$arg"; then
-		update "$arg"
-
-	else
-		display_message "It seems this plugin is not installed: $arg"
-		cancel
-	fi
+update_plugins() {
+	local plugins="$*"
+	for plugin in $plugins; do
+		local plugin_name="$(plugin_name_helper "$plugin")"
+		if plugin_already_installed "$plugin_name"; then
+			update "$plugin_name"
+		else
+			echo_err "$plugin_name not installed!"
+		fi
+	done
 }
 
 main() {
-	local arg="$1"
-	shared_set_tpm_path_constant
-	handle_plugin_update "$arg"
-	reload_tmux_environment
-	end_message
+	if [ "$1" == "all" ]; then
+		update_all
+	else
+		update_plugins "$*"
+	fi
+	exit_value_helper
 }
-main "$1"
+main "$*"
