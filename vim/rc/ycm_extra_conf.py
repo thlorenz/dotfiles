@@ -13,8 +13,7 @@ compilation_database_folder = ''
 
 dev='/Volumes/d/dev/'
 
-#node_root=dev + 'js/io.js/'
-node_root=dev + '/ns/nsolid/nsolid-node/'
+node_root=dev + '/ns/nsolid/node/'
 uv_root=dev + '/js/libuv/'
 # These are the compilation flags that will be used in case there's no
 # compilation database set.
@@ -45,10 +44,10 @@ flags = [
   # @see: https://github.com/Valloric/YouCompleteMe#completion-doesnt-work-with-the-c-standard-library-headers
   '-isystem', '/System/Library/Frameworks/Python.framework/Headers',
   '-isystem', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1',
-  '-isystem', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/include',
-  '-isystem', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
-  '-isystem', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/usr/include',
-  '-isystem', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks',
+  '-isystem', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/9.0.0/include',
+  '-isystem', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1',
+  '-isystem', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include',
+  '-isystem', '/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks',
   '-I', '/usr/local/include',
   '-I', 'include/',
   '-I', 'src/',
@@ -60,9 +59,16 @@ flags = [
   '-I', node_root + 'deps/uv/include',
   '-I', node_root + 'deps/uv/src',
   '-I', node_root + 'nsolid-ext/src/',
-  '-I', node_root + 'nsolid-ext/deps/nan',
   '-I', node_root + 'out/Release/gen',
-  '-I', node_root
+  '-I', node_root,
+  '-I', '/Volumes/d/dev/ns/snapdiff/snapdiff/deps/cjson/',
+  '-I', '/Volumes/d/dev/ns/snapdiff/snapdiff/deps/rapidjson/include/',
+  '-I', '/Volumes/d/dev/ns/snapdiff/snapdiff/src/',
+  '-I', '/Volumes/d/dev/ns/snapdiff/snapdiff/src/api',
+  '-I', '/Volumes/d/dev/ns/snapdiff/snapdiff/src/diff',
+  '-I', '/Volumes/d/dev/ns/snapdiff/snapdiff/src/worker',
+  '-I', '/Volumes/d/dev/ns/snapdiff/snapdiff/src/model',
+  '-I', '/Volumes/d/dev/ns/snapdiff/snapdiff/node_modules/nan'
 ]
 
 if compilation_database_folder:
