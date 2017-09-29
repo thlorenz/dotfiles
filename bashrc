@@ -1,6 +1,5 @@
 ## If not running interactively, don't do anything (e.g., don't screw up scp)
 [ -z "$PS1" ] && return
-
 function init () {
   # http://stackoverflow.com/a/246128/97443
 
@@ -95,7 +94,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   export CLICOLOR=1
 
   # npm completion (described method doesn't work at this point: http://npmjs.org/doc/completion.html)
-  source /usr/local/lib/node_modules/npm/lib/utils/completion.sh
+  source /Users/thlorenz/npm-global/lib/node_modules/npm/lib/utils/completion.sh
 
   # git completion
   if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
@@ -105,10 +104,8 @@ if [[ "$unamestr" == "Darwin" ]]; then
   # autojump
   [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
-  export VALUEPACK_DATA=~/.valuepack/data
-  export VALUEPACK_MINE_DB=~/.valuepack/valuepack-mine.db
-  export VALUEPACK_FIX_DB=~/.valuepack/valuepack-fix.db
-  export VALUEPACK_ANALYZE_DB=~/.valuepack/valuepack-analyze.db
+  # bash completions installed via brew
+  [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 # ----------- LINUX ---------------
 
@@ -184,3 +181,6 @@ fi
 if [ ! -e  /tmp/tmuxifier_loading_session ]; then
   bind -f ~/.vimputrc
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
