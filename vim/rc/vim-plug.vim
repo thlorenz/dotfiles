@@ -168,12 +168,6 @@ Plug 'kannokanno/previm', { 'for': [ 'markdown' ] }
 
 Plug 'tpope/vim-dispatch'
 
-"" time tracking
-Plug 'wakatime/vim-wakatime'
-
-"" simplenote
-Plug 'mrtazz/simplenote.vim'
-
 "" documentation
 Plug 'rizzatti/dash.vim'
 
