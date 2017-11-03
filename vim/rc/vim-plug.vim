@@ -25,10 +25,8 @@ Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdcommenter'
 Plug 'thlorenz/snipmate-mine'
 
-Plug 'tanabe/WriteJSDocComment.vim', { 'for': ['javascript','c','cc','cpp'] }
-  au FileType javascript,c,cc,cpp nnoremap <buffer> <leader>D :<C-u>call WriteJSDocComment()<CR>
-  " work around the fact that this doesn't load properly
-  au FileType javascript,c,cc,cpp source ~/dotfiles/vim/plugged/WriteJSDocComment.vim/WriteJSDocComment.vim
+Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript','c','cc','cpp'] }
+  au FileType javascript,c,cc,cpp nmap <silent> <buffer> <leader>D ?function<cr>:noh<cr><Plug>(jsdoc)<CR>
 
 Plug 'justinmk/vim-sneak'
 
