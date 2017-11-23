@@ -14,7 +14,7 @@
     "dependencies" : {
     },
     "devDependencies" : {
-      "tape": "~4.6.3"
+      "tape": "~4.8.0"
     },
     "keywords": [] ,
     "author" : {
@@ -26,5 +26,5 @@
       "type": "MIT",
       "url": "https://github.com/thlorenz/" + basename +"/blob/master/LICENSE"
     },
-    "engine" : { "node" : ">=0.10" }
+    "engine" : { "node" : ">=6" }
 }

@@ -6,15 +6,15 @@ function npmify() {
 }
 
 function nstart() {
-    testling=0
+    use_git=1
     travis=0
 
     # dumb args parsing since I couldn't get getopts to work inside a function
-    # -a turns on travis, -s turns on testling 
+    # -a turns on travis, -g disables git
     for v in $@
     do
       [[ $v == '-a' ]] && travis=1
-      [[ $v == '-s' ]] && testling=1
+      [[ $v == '-g' ]] && use_git=0
     done
 
     echo 'initializing package ..'
@@ -23,31 +23,34 @@ function nstart() {
     # Parse out description that we included in package.json during pkginit
     description=$(cat package.json | grep description | sed 's/\"description\"\ *:\ *\"//; s/\",//; s/^[ \t]*//')
 
-    echo 'initializing repo ..'
-    gitify $(basename $PWD) "$description"
+    if [[ $use_git == 1 ]]
+    then
+      echo 'initializing repo ..'
+      gitify $(basename $PWD) "$description"
+      GIT=`which git`
+    else
+      GIT='echo git '
+    fi
+
+    if [[ $travis == 1 ]]; then
+      mkdir -p test
+      touch "test/$(basename $PWD).js"
+      cp ~/.config/nstart/.travis.yml .
+    fi
 
     echo "# $(basename $PWD)"                                                                      >> README.md
 
-    if [[ $travis == 1 ]]; then
+    if [[ $travis == 1 && $use_git == 1 ]]
+    then
       echo 'initializing travis ..'
-      echo "$(travisify badge)" >> README.md 
+      echo "$(travisify badge)" | sed 's/\.png/.svg?branch=master/'                                >> README.md
       travisify
       travisify test
+    elif [[ $travis == 1 ]]; then
+      echo "Didn't setup traffic since a github repos is needed for that case"
+      echo "Run: 'travisify && travisify test' later and add badge via 'travisify badge'"
     fi
 
-
-    if [[ $testling == 1 ]]; then
-      echo 'initializing testling ..'
-      echo "" >> Readme.md
-      echo "$(testlingify badge)" >> README.md 
-      testlingify
-      testlingify test
-    fi
-
-    if [[ $travis == 1 ||  $testling == 1 ]]; then
-      mkdir test
-      touch test/index.js
-    fi
 
     cp ~/.config/nstart/{LICENSE,.gitignore} .
 
@@ -71,21 +74,21 @@ function nstart() {
     echo ''                                                                                        >> README.md
     echo "    npm install $(basename $PWD)"                                                        >> README.md
     echo ''                                                                                        >> README.md
-    echo '## [API](https://thlorenz.github.io/$(basename $PWD)'                                    >> README.md
+    echo "## [API](https://thlorenz.github.io/$(basename $PWD))"                                    >> README.md
     echo ''                                                                                        >> README.md
     echo ''                                                                                        >> README.md
     echo '## License'                                                                              >> README.md
     echo ''                                                                                        >> README.md
     echo 'MIT'                                                                                     >> README.md
 
-    git add .
+    $GIT add .
     # gitify already did an initial commit so we just amend our changes to it
-    git commit --amend --no-edit 
-    git push origin master -f
+    $GIT commit --amend --no-edit
+    $GIT push origin master -f
 }
 
 function jsdocs () {
-  (command -v docit >/dev/null 2>&1 || (echo 'npm install -g thlorenz/docit' && npm install -g thlorenz/docit)) 
+  (command -v docit >/dev/null 2>&1 || (echo 'npm install -g thlorenz/docit' && npm install -g thlorenz/docit))
   echo "docit --config ~/dotfiles/config/docit.json $@"
   docit --config ~/dotfiles/config/docit.json --dir='.' --includeFiles="$@"
 }
