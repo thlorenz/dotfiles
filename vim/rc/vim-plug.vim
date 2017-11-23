@@ -16,7 +16,7 @@ Plug 'sjl/gundo.vim'
 
 Plug 'scrooloose/syntastic'
   let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes': ['js'], 'passive_filetypes': ['c', 'cc', 'cpp'] }
-  let g:syntastic_javascript_checkers = ['jshint']
+  let g:syntastic_javascript_checkers=['standard']
   let g:syntastic_c_compiler      = 'clang'
   let g:syntastic_c_config_file   = '.syntastic_c'
   let g:syntastic_cpp_compiler    = 'clang++'
@@ -24,6 +24,8 @@ Plug 'scrooloose/syntastic'
 
 Plug 'scrooloose/nerdcommenter'
 Plug 'thlorenz/snipmate-mine'
+Plug 'purescript-contrib/purescript-vim'
+  au FileType purescript noremap <leader>r :wa \| !pulp --psc-package run<CR>
 
 Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript','c','cc','cpp'] }
   au FileType javascript,c,cc,cpp nmap <silent> <buffer> <leader>D ?function<cr>:noh<cr><Plug>(jsdoc)<CR>

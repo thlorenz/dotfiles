@@ -11,10 +11,11 @@ from clang_helpers import PrepareClangFlags
 # 'flags' list of compilation flags. Notice that YCM itself uses that approach.
 compilation_database_folder = ''
 
-dev='/Volumes/d/dev/'
+dev='/Volumes/d/dev'
 
 node_root=dev + '/ns/nsolid/node/'
-uv_root=dev + '/js/libuv/'
+uv_root=dev + '/ns/snapdiff/snapdiff/deps/uv/'
+
 # These are the compilation flags that will be used in case there's no
 # compilation database set.
 flags = [
@@ -51,24 +52,22 @@ flags = [
   '-I', '/usr/local/include',
   '-I', 'include/',
   '-I', 'src/',
-  # '-I', uv_root + 'include/',
-  # '-I', uv_root + 'src/',
+  '-I', uv_root + 'include/',
+  '-I', uv_root + 'src/',
   '-I', node_root + 'src/',
   '-I', node_root + 'deps/v8',
   '-I', node_root + 'deps/v8/include',
-  '-I', node_root + 'deps/uv/include',
-  '-I', node_root + 'deps/uv/src',
   '-I', node_root + 'nsolid-ext/src/',
   '-I', node_root + 'out/Release/gen',
   '-I', node_root,
-  '-I', '/Volumes/d/dev/ns/snapdiff/snapdiff/deps/cjson/',
-  '-I', '/Volumes/d/dev/ns/snapdiff/snapdiff/deps/rapidjson/include/',
-  '-I', '/Volumes/d/dev/ns/snapdiff/snapdiff/src/',
-  '-I', '/Volumes/d/dev/ns/snapdiff/snapdiff/src/api',
-  '-I', '/Volumes/d/dev/ns/snapdiff/snapdiff/src/diff',
-  '-I', '/Volumes/d/dev/ns/snapdiff/snapdiff/src/worker',
-  '-I', '/Volumes/d/dev/ns/snapdiff/snapdiff/src/model',
-  '-I', '/Volumes/d/dev/ns/snapdiff/snapdiff/node_modules/nan'
+  '-I', dev + '/ns/snapdiff/snapdiff/deps/cjson/',
+  '-I', dev + '/ns/snapdiff/snapdiff/deps/rapidjson/include/',
+  '-I', dev + '/ns/snapdiff/snapdiff/src/',
+  '-I', dev + '/ns/snapdiff/snapdiff/src/api',
+  '-I', dev + '/ns/snapdiff/snapdiff/src/diff',
+  '-I', dev + '/ns/snapdiff/snapdiff/src/worker',
+  '-I', dev + '/ns/snapdiff/snapdiff/src/model',
+  '-I', dev + '/ns/snapdiff/snapdiff/node_modules/nan'
 ]
 
 if compilation_database_folder:
