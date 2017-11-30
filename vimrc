@@ -3,7 +3,10 @@ let mapleader=","
 " initialize vim-plut
 source ~/.vim/rc/vim-plug.vim
 
-source ~/dotfiles/vim-secretrc
+
+if !empty(glob("~/dotfiles/vim-secretrc"))
+  source ~/dotfiles/vim-secretrc
+endif
 
 " Detect Environment
 let isGui  = has("gui_running")
