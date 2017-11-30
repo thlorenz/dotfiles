@@ -78,8 +78,6 @@ if [[ "$unamestr" == "Darwin" ]]; then
 
   PATH=~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:/usr/local/sbin/:$PATH
 
-  alias cd-js='cd ~/dev/js'
-
   alias go-udesktop='ssh tlorenz@udesktop -p 2104'
 
   alias eject='diskutil eject'
