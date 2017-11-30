@@ -89,6 +89,10 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'christoomey/vim-tmux-navigator'
 
+Plug 'vim-scripts/valgrind.vim'
+  let g:valgrind_arguments='--leak-check=full --track-origins=yes --num-callers=500 '
+  let g:valgrind_use_horizontal_window=0
+
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
 "" switch between implementation and header files for C/C++
