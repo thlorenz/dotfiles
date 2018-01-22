@@ -153,7 +153,8 @@ au FileType hamlet set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 au FileType perl noremap <leader>r :wa \| ! perl %<CR>
 
 " JSON specific
-au FileType json set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0 conceallevel=2 concealcursor=nvc
+"au FileType json set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0 conceallevel=2 concealcursor=nvc
+au FileType json set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0
 
 " JavaScript specific
 " au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -222,7 +223,7 @@ set guioptions=-M
 set guioptions-=r
 set guioptions-=b
 
-au FileType markdown set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0 conceallevel=0 concealcursor=nvc
+au FileType markdown set tabstop=2 softtabstop=2 shiftwidth=2 tw=95 fo=cqt wm=0 conceallevel=0 concealcursor=nvc
 
 " Line numbers
 nmap <leader>' :set relativenumber!<cr>
