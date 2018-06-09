@@ -15,7 +15,7 @@ function init () {
   local DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
   [ -f $DIR/bash/git-prompt.sh       ] && source $DIR/bash/git-prompt.sh
-  [ -f $DIR/bash/git-prompt.sh       ] && source $DIR/bash/exports.sh
+  [ -f $DIR/bash/exports.sh          ] && source $DIR/bash/exports.sh
   [ -f $DIR/bash/secret-vars.sh      ] && source $DIR/bash/secret-vars.sh
   [ -f $DIR/bash/functions/index.sh  ] && source $DIR/bash/functions/index.sh
   [ -f $DIR/bash/cmd-aliases.sh      ] && source $DIR/bash/cmd-aliases.sh
@@ -69,14 +69,18 @@ export HISTIGNORE='&:ll:ls:clear:gs:git status'
 # Below are OS specific
 unamestr=`uname`
 
+prompt_command() {
+  [ -z "${HOST}" ] && HOST_VAR='' || HOST_VAR=" \e[32m[host=$HOST]"
+  PS1="\n\[\033[00;34m\]\w\[\033[00m\]$HOST_VAR\e[39m\n➝  "
+}
+
 # ----------- DARWIN ---------------
 if [[ "$unamestr" == "Darwin" ]]; then
 
   echo "Configuring for $unamestr"
-  # PS1="\n\[\033[00;34m\]\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
-  PS1="\n\[\033[00;34m\]\w\[\033[00m\]\[$WHITE\]\n➝  "
+  PROMPT_COMMAND=prompt_command
 
-  PATH=~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:/usr/local/sbin/:$PATH
+  PATH=~/.jsvu:~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:/usr/local/sbin/:$PATH
 
   alias go-udesktop='ssh tlorenz@udesktop -p 2104'
 
