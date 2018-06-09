@@ -28,7 +28,7 @@
   tool = vimdiff
 
 [merge]
-  tool = vimdiff
+	tool = vimdiff
   # Include summaries of merged commits in newly created merge commit messages
   log = true
 
@@ -55,6 +55,9 @@
  
     ## Summary with relative dates
     lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
+    # Summary with full dates as first
+    ld = log --pretty=format:'%Cblue%ad%Creset | %s [ %Cred%h%Creset %C(yellow)%an%d%Creset ]' --date=format:'%Y-%m-%d %H:%M:%S'
+    ldd = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%ad)%Creset' --date=format:'%Y-%m-%d %H:%M:%S'
 
     ## Very short summary (not authors or dates)
     ls = log --oneline --decorate
@@ -124,10 +127,15 @@
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
 [rerere]
-	enabled = 1
+	enabled = false
 	autoupdate = true
 [fetch]
 	prune = true
 # Only needed for Gist.vim - screws up main user somehow
 # [github]
 # user = thlorenz
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
