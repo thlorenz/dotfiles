@@ -2,3 +2,5 @@ settings set thread-format "\033[38;5;10mthread #${thread.index}\033[0m: tid = $
 settings set frame-format "\033[38;5;11mframe #${frame.index}\033[0m: \033[38;5;8m${frame.pc}\033[0m{ \033[38;5;12m${module.file.basename}\033[0m{`\033[38;5;13m${function.name-with-args}${function.pc-offset}\033[0m}}{ at ${line.file.basename}:${line.number}}\n"
 
 command alias inspect frame variable --depth 10 --show-types
+
+plugin load /Users/thlorenz/npm-global/lib/node_modules/llnode/llnode.dylib
