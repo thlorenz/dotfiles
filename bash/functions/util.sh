@@ -17,6 +17,11 @@ pid () {
   echo $pid
 }
 
+# kill process listening on port $1
+killport() {
+  lsof -i tcp:${1} | awk 'NR!=1 {print $2}' | xargs kill
+}
+
 # Prepend given dir or current dir to PATH
 padd() {
   current=`pwd`
@@ -26,7 +31,6 @@ padd() {
       PATH="$p:$PATH"
   fi
 }
-
 compresspdf() {
   \gs -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -dPDFSETTINGS=/${3:-"screen"} -dCompatibilityLevel=1.4 -sOutputFile=$2 $1
 }
