@@ -22,6 +22,7 @@ ln -sf ~/dotfiles/tern-config        ~/.tern-config
 ln -sf ~/dotfiles/tmuxifier          ~/.tmuxifier
 ln -sf ~/dotfiles/vimputrc           ~/.vimputrc
 ln -sf ~/dotfiles/gdbinit            ~/.gdbinit
+ln -sf ~/dotfiles/sqliterc            ~/.sqliterc
 
 ln -sf ~/dotfiles/vim         ~/.vim
 
