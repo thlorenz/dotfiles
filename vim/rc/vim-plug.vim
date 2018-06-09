@@ -113,6 +113,8 @@ Plug 'nono/vim-handlebars'         , { 'for': ['handlebars'] }
 Plug 'tsaleh/vim-tmux'             , { 'for': ['tmux'] }
 Plug 'moll/vim-node'               , { 'for': ['javascript'] }
   autocmd FileType javascript map <buffer> gf <Plug>NodeGotoFile
+Plug 'jparise/vim-graphql'         , { 'for': ['javascript'] }
+Plug 'Glench/Vim-Jinja2-Syntax'    , { 'for': [ 'jinja' ] }
 
 " Status bar
 Plug 'vim-airline/vim-airline'
@@ -176,6 +178,10 @@ Plug 'mrtazz/simplenote.vim'
 
 "" documentation
 Plug 'rizzatti/dash.vim'
+
+"" sharing
+""" share code as a nice image
+Plug 'kristijanhusak/vim-carbon-now-sh'
 
 "" C#
 Plug 'OmniSharp/omnisharp-vim' , { 'for': [ 'cs' ] }
