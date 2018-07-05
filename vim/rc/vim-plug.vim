@@ -5,22 +5,20 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'godlygeek/tabular'
-  noremap <silent> <leader>f=	 :Tabularize /=<CR>
-  noremap <silent> <leader>f,	 :Tabularize /,<CR>
-  noremap <silent> <leader>f;	 :Tabularize /;<CR>
-  noremap <silent> <leader>f:	 :Tabularize /:<CR>
-  noremap <silent> <leader>f(	 :Tabularize /(<CR>
-  noremap <silent> <leader>f\	 :Tabularize /\<CR>
+  noremap <silent> <leader>f=  :Tabularize /=<CR>
+  noremap <silent> <leader>f,  :Tabularize /,<CR>
+  noremap <silent> <leader>f;  :Tabularize /;<CR>
+  noremap <silent> <leader>f:  :Tabularize /:<CR>
+  noremap <silent> <leader>f(  :Tabularize /(<CR>
+  noremap <silent> <leader>f\  :Tabularize /\<CR>
 Plug 'sjl/gundo.vim'
   nnoremap <silent> <S-u> :GundoToggle <CR>
 
-Plug 'scrooloose/syntastic'
-  let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes': ['js'], 'passive_filetypes': ['c', 'cc', 'cpp'] }
-  let g:syntastic_javascript_checkers=['standard']
-  let g:syntastic_c_compiler      = 'clang'
-  let g:syntastic_c_config_file   = '.syntastic_c'
-  let g:syntastic_cpp_compiler    = 'clang++'
-  let g:syntastic_cpp_config_file = '.syntastic_c'
+Plug 'w0rp/ale'
+  let g:ale_linters = {'javascript': ['standard']}
+  let g:ale_fixers = {'javascript': ['standard']}
+  let g:ale_set_balloons=1
+  let g:ale_lint_delay = 1000
 
 Plug 'scrooloose/nerdcommenter'
 Plug 'thlorenz/snipmate-mine'
@@ -54,6 +52,8 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
   let g:ycm_add_preview_to_completeopt = 1
   let g:ycm_autoclose_preview_window_after_completion = 1
   let g:ycm_always_populate_location_list = 1
+  let g:ycm_auto_trigger=1
+  " let g:ycm_key_invoke_completion = '<C-k>'
 
   au FileType c,cc,cpp nnoremap <silent> <C-]> :YcmCompleter GoTo <CR>
 
@@ -72,9 +72,6 @@ Plug 'majutsushi/tagbar'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   map <leader>n :NERDTreeToggle<CR>
-
-Plug 'moll/vim-node', {'for': ['javascript']}
-  autocmd FileType javascript map <buffer> gf <Plug>NodeGotoFile
 
 Plug 'rking/ag.vim'
   nnoremap <leader>f :Ag<space>
@@ -166,7 +163,7 @@ Plug 'vim-scripts/vim-http-client'
   silent! nnoremap <unique> <leader>h :HTTPClientDoRequest<cr>
 
 Plug 'kannokanno/previm', { 'for': [ 'markdown' ] }
-	let g:previm_open_cmd = 'open -a Google\ Chrome'
+  let g:previm_open_cmd = 'open -a Google\ Chrome'
 
 Plug 'tpope/vim-dispatch'
 

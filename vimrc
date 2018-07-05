@@ -285,6 +285,9 @@ set mouse=a  " Mouse in all modes
 " Open new terminal shell
 noremap <leader>d <C-Z>
 
+" Edit file under cursor even if it doesn't exist
+map <leader>gf :e <cfile><cr>
+
 " VimRoom options
 let g:vimroom_sidebar_height=2
 let g:vimroom_width=120
