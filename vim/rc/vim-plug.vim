@@ -17,8 +17,9 @@ Plug 'sjl/gundo.vim'
 Plug 'w0rp/ale'
   let g:ale_linters = {'javascript': ['standard']}
   let g:ale_fixers = {'javascript': ['standard']}
-  let g:ale_set_balloons=1
-  let g:ale_lint_delay = 1000
+  let g:ale_lint_on_text_changed = 'never'
+  let g:ale_lint_on_enter = 0
+  " let g:ale_lint_delay = 200
 
 Plug 'scrooloose/nerdcommenter'
 Plug 'thlorenz/snipmate-mine'

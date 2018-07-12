@@ -49,6 +49,9 @@ set wildmenu
 set wildmode=list:longest
 set wildignore+=*/dist/*,*/.git/*,*/.svn/*,*/node_modules/*,*.o,*.obj,*.hi,*.sqlite3
 
+" unhighlight search matches
+nmap <silent> <leader>w :nohl <CR>
+
 " scroll viewport faster
 nnoremap <C-e> 5<C-e>
 nnoremap <C-y> 5<C-y>
@@ -303,6 +306,9 @@ map <C-p> :r !tmux save-buffer - <CR>
 "hi ColorColumn ctermbg=138 guibg=black
 "set colorcolumn=102
 
+" Override Ale Linter Highlights (not working if done directly in vim-plug.vim)
+highlight ALEError ctermbg=DarkYellow
+highlight ALEWarning ctermbg=DarkMagenta
 
 "Commands
 command! -nargs=* Wrap set wrap linebreak nolist
