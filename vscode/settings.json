@@ -1,0 +1,44 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "r"],
+            "commands": ["workbench.action.debug.run", ]
+        },
+        {
+            "before": ["<leader>", "n"],
+            "commands": [ "workbench.action.toggleSidebarVisibility" ]
+        },
+        {
+            "before": ["<leader>", "t"],
+            "commands": [ "workbench.action.quickOpen" ]
+        },
+        {
+          "before": ["<leader>", "d"],
+          "commands": [ "workbench.action.togglePanel" ]
+        }
+    ],
+    "vim.leader": ",",
+    "vim.useSystemClipboard": true,
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "Dracula Soft",
+    "C_Cpp.intelliSenseEngine": "Default",
+    "C_Cpp.intelliSenseEngineFallback": "Enabled",
+    "editor.fontSize": 10.88,
+    "terminal.integrated.fontSize": 11.5,
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "editor.renderLineHighlight": "gutter",
+    "csharp.referencesCodeLens.enabled": false,
+    "editor.minimap.enabled": false,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.acceptSuggestionOnEnter": "smart",
+    "workbench.statusBar.visible": true,
+    "workbench.activityBar.visible": false,
+}
