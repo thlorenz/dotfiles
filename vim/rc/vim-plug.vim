@@ -15,11 +15,14 @@ Plug 'sjl/gundo.vim'
   nnoremap <silent> <S-u> :GundoToggle <CR>
 
 Plug 'w0rp/ale'
-  let g:ale_linters = {'javascript': ['standard']}
+  let g:ale_linters = {
+  \   'javascript': ['standard'],
+  \   'cs': ['OmniSharp']
+  \}
   let g:ale_fixers = {'javascript': ['standard']}
   let g:ale_lint_on_text_changed = 'never'
   let g:ale_lint_on_enter = 0
-  " let g:ale_lint_delay = 200
+  let g:ale_lint_delay = 200
 
 Plug 'scrooloose/nerdcommenter'
 Plug 'thlorenz/snipmate-mine'
@@ -49,14 +52,16 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
   let g:ycm_complete_in_comments_and_strings=0
   let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
   let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
-  let g:ycm_use_ultisnips_completer = 1
+  let g:ycm_use_ultisnips_completer = 0
   let g:ycm_add_preview_to_completeopt = 1
   let g:ycm_autoclose_preview_window_after_completion = 1
   let g:ycm_always_populate_location_list = 1
   let g:ycm_auto_trigger=1
-  " let g:ycm_key_invoke_completion = '<C-k>'
+  let g:ycm_show_diagnostics_ui = 1
+  let g:ycm_key_invoke_completion = '<C-k>'
 
-  au FileType c,cc,cpp nnoremap <silent> <C-]> :YcmCompleter GoTo <CR>
+  au FileType c,cc,cpp,cs nnoremap <silent> <C-]> :YcmCompleter GoTo <CR>
+  au FileType c,cc,cpp,cs,javascript nnoremap <leader>ff :YcmCompleter FixIt<CR>
 
   let g:ycm_global_ycm_extra_conf = "~/.vim/rc/ycm_extra_conf.py"
 
@@ -67,6 +72,8 @@ Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
   autocmd FileType javascript map <buffer> gd :TernDef<CR>
   autocmd FileType javascript nnoremap <buffer> <C-]> :TernDef<CR>
 
+Plug 'tbastos/vim-lua', { 'for': 'lua' }
+
 " Buffer/File Navigation
 Plug 'majutsushi/tagbar'
   nnoremap <silent> « :TagbarToggle<CR>
@@ -75,7 +82,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   map <leader>n :NERDTreeToggle<CR>
 
 Plug 'rking/ag.vim'
-  nnoremap <leader>f :Ag<space>
 Plug 'ctrlpvim/ctrlp.vim'
   let g:ctrlp_max_files=0
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -113,6 +119,28 @@ Plug 'moll/vim-node'               , { 'for': ['javascript'] }
   autocmd FileType javascript map <buffer> gf <Plug>NodeGotoFile
 Plug 'jparise/vim-graphql'         , { 'for': ['javascript'] }
 Plug 'Glench/Vim-Jinja2-Syntax'    , { 'for': [ 'jinja' ] }
+Plug 'leafgarland/typescript-vim'  , { 'for': [ 'typescript' ] }
+Plug 'posva/vim-vue'               , { 'for': [ 'vue' ] }
+  autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+
+" JavaScript Code Completion via TypeScript Server
+" Requires: npm install -g typescript typescript-language-server
+" Add the following (or similar) in <project-root>/jsconfig.json:
+"{
+"  "compilerOptions": {
+"    "module": "commonjs",
+"    "target": "es6",
+"    "checkJs": true,
+"    "lib": [ "es6" ],
+"    "resolveJsonModule": true
+"  },
+"  "exclude": [ "node_modules" ]
+"}
+Plug 'prabirshrestha/async.vim'            , { 'for': ['javascript', 'typescript' ] }
+Plug 'prabirshrestha/vim-lsp'              , { 'for': ['javascript', 'typescript' ] }
+Plug 'prabirshrestha/asyncomplete.vim'     , { 'for': ['javascript', 'typescript' ] }
+Plug 'ryanolsonx/vim-lsp-typescript'       , { 'for': ['javascript', 'typescript' ] }
+Plug 'prabirshrestha/asyncomplete-lsp.vim' , { 'for': ['javascript', 'typescript' ] }
 
 " Status bar
 Plug 'vim-airline/vim-airline'
@@ -184,6 +212,10 @@ Plug 'kristijanhusak/vim-carbon-now-sh'
 "" C#
 Plug 'OmniSharp/omnisharp-vim' , { 'for': [ 'cs' ] }
   let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
+  let g:omnicomplete_fetch_full_documentation = 1
+    set completeopt=longest,menuone,preview
+    set previewheight=5
+    nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
   autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
   autocmd FileType cs nnoremap <silent> <C-]> :OmniSharpGotoDefinition<CR>
   autocmd FileType cs nnoremap <leader>fi :OmniSharpFindImplementations<cr>
