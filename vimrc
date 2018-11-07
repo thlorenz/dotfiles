@@ -49,6 +49,9 @@ set wildmenu
 set wildmode=list:longest
 set wildignore+=*/dist/*,*/.git/*,*/.svn/*,*/node_modules/*,*.o,*.obj,*.hi,*.sqlite3
 
+" Macro related improvements https://www.hillelwayne.com/post/vim-macro-trickz/
+set lazyredraw
+
 " unhighlight search matches
 nmap <silent> <leader>w :nohl <CR>
 
@@ -129,6 +132,9 @@ set shiftwidth=2
 set	expandtab
 set nowrap
 
+" Dash Support
+noremap <leader>b :Dash <CR>
+
 " Scala specific
 au FileType scala noremap <leader>r :wa \| call Send_to_Screen(join(getline(1,'$'), "\n")) \| call Send_to_Screen("\n")<CR>
 
@@ -165,6 +171,7 @@ noremap <leader>m :wa \| r !(OCAT_COLOR=0 OCAT_DEPTH=0 OCAT_RM=1 node % 2>&1 > /
 "noremap <leader>m :wa \| r !(OCAT_COLOR=0 OCAT_DEPTH=0 OCAT_RM=1 ~/dev/ns/nsolid/nsolid-node/out/Release/nsolid % 2>&1 > /dev/null && cat /tmp/ocat.txt) <CR>
 
 au FileType javascript noremap <leader>r :wa \| ! node %<CR>
+"au FileType javascript noremap <leader>r :wa \| ! DEBUG=* nsolid %<CR>
 "au FileType javascript noremap <leader>r :wa \| ! /Users/thlorenz/dev/ns/nsolid/nsolid-node/out/Release/nsolid %<CR>
 "au FileType javascript noremap <leader>e :wa \| ! /Users/thlorenz/dev/ns/nsolid/nsolid-node/out/Release/nsolid --debug-brk  %<CR>
 "au FileType javascript noremap <leader>r :wa \| ! ./node %<CR>
@@ -172,6 +179,9 @@ au FileType javascript noremap <leader>r :wa \| ! node %<CR>
 "au FileType javascript noremap <leader>r :wa \| ! node --allow-natives-syntax %<CR>
 "au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
 " let g:syntastic_javascript_checkers=['eslint']
+
+" au FileType lua noremap <leader>r :wa \| !/Applications/CoronaSDK/Corona\ Simulator.app/Contents/MacOS/Corona\ Simulator -project %:p -skin iPhone <CR>
+au FileType lua noremap <leader>r :wa \| !lua %<CR>
 
 " npm install --save-dev word under cursor
 au FileType javascript nnoremap <leader>I :execute ":!npm install --save-dev " . expand("<cword>")<CR>
