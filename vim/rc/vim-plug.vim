@@ -62,6 +62,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 
   au FileType c,cc,cpp,cs nnoremap <silent> <C-]> :YcmCompleter GoTo <CR>
   au FileType c,cc,cpp,cs,javascript nnoremap <leader>ff :YcmCompleter FixIt<CR>
+  au FileType c,cc,cpp,cs,javascript nnoremap <leader>fm :YcmCompleter RefactorRename 
 
   let g:ycm_global_ycm_extra_conf = "~/.vim/rc/ycm_extra_conf.py"
 
@@ -141,6 +142,10 @@ Plug 'prabirshrestha/vim-lsp'              , { 'for': ['javascript', 'typescript
 Plug 'prabirshrestha/asyncomplete.vim'     , { 'for': ['javascript', 'typescript' ] }
 Plug 'ryanolsonx/vim-lsp-typescript'       , { 'for': ['javascript', 'typescript' ] }
 Plug 'prabirshrestha/asyncomplete-lsp.vim' , { 'for': ['javascript', 'typescript' ] }
+  " convert imports to requires
+  " (https://stackoverflow.com/a/2024537/97443)
+  let @r="gg/importcwconstf}a =/fromcf require(2f'a)ld$"
+  noremap <leader>fr @r
 
 " Status bar
 Plug 'vim-airline/vim-airline'
