@@ -25,7 +25,7 @@
     "when": "!inDebugMode"
   },
   {
-    "key": "shift+alt+r",
+    "key": "shift+cmd+r",
     "command": "workbench.action.debug.run",
     "when": "!inDebugMode"
   },
@@ -35,11 +35,7 @@
     "when": "inFilesPicker && inQuickOpen"
   },
   {
-    "key": "ctrl+shift+o",
-    "command": "workbench.action.gotoSymbol"
-  },
-  {
-    "key": "shift+cmd+o",
+    "key": "cmd+o",
     "command": "workbench.action.quickOpen"
   },
   {
@@ -57,7 +53,7 @@
     "when": "inFilesPicker && inQuickOpen"
   },
   {
-    "key": "shift+cmd+r",
+    "key": "ctrl+shift+r",
     "command": "workbench.action.debug.restart",
     "when": "inDebugMode"
   },
@@ -101,5 +97,35 @@
   {
     "key": "cmd+k cmd+right",
     "command": "-workbench.action.focusRightGroup"
+  },
+  {
+    "key": "ctrl+shift+cmd+c",
+    "command": "workbench.action.terminal.openNativeConsole",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "shift+cmd+c",
+    "command": "-workbench.action.terminal.openNativeConsole",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "shift+cmd+c",
+    "command": "copyRelativeFilePath",
+    "when": "!editorFocus"
+  },
+  {
+    "key": "shift+alt+cmd+c",
+    "command": "-copyRelativeFilePath",
+    "when": "!editorFocus"
+  },
+  {
+    "key": "cmd+o",
+    "command": "workbench.action.files.openFileFolder",
+    "when": "fileDialog == 'local'"
+  },
+  {
+    "key": "cmd+o",
+    "command": "-workbench.action.files.openFileFolder",
+    "when": "fileDialog == 'local'"
   }
 ]

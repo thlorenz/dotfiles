@@ -22,6 +22,10 @@
         {
           "before": ["<leader>", "d"],
           "commands": [ "workbench.action.togglePanel" ]
+        },
+        {
+          "before": ["<leader>", "D"],
+          "commands": [ "docthis.documentThis" ]
         }
     ],
     "vim.leader": ",",
