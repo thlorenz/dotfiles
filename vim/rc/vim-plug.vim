@@ -80,73 +80,6 @@ Plug 'leafgarland/typescript-vim'  , { 'for': [ 'typescript' ] }
 Plug 'posva/vim-vue'               , { 'for': [ 'vue' ] }
   autocmd BufRead,BufNewFile *.vue setlocal filetype=vue
 
-" AutoCompletion + Linters
-Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
-  Plug 'thlorenz/snippets'
-
-  let g:UltiSnipsExpandTrigger = "<tab>"
-  let g:UltiSnipsJumpForwardTrigger = "<tab>"
-  let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
-Plug 'w0rp/ale'
-  let g:ale_linters = {
-  \   'javascript': ['standard'],
-  \   'cs': ['OmniSharp']
-  \}
-  let g:ale_fixers = {'javascript': ['standard']}
-  let g:ale_lint_on_text_changed = 'never'
-  let g:ale_lint_on_enter = 0
-  let g:ale_lint_delay = 200
-
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
-  let g:ycm_complete_in_comments_and_strings=0
-  let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-  let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
-  let g:ycm_use_ultisnips_completer = 0
-  let g:ycm_add_preview_to_completeopt = 1
-  let g:ycm_autoclose_preview_window_after_completion = 1
-  let g:ycm_always_populate_location_list = 1
-  let g:ycm_auto_trigger=1
-  let g:ycm_show_diagnostics_ui = 1
-  let g:ycm_key_invoke_completion = '<C-k>'
-
-  au FileType c,cc,cpp,cs nnoremap <silent> <C-]> :YcmCompleter GoTo <CR>
-  au FileType c,cc,cpp,cs,javascript nnoremap <leader>ff :YcmCompleter FixIt<CR>
-  au FileType c,cc,cpp,cs,javascript nnoremap <leader>fm :YcmCompleter RefactorRename 
-
-  let g:ycm_global_ycm_extra_conf = "~/.vim/rc/ycm_extra_conf.py"
-
-Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
-  let g:tern_show_signature_in_pum = 1
-  let g:tern_show_argument_hints = 'on_hold'
-  set completeopt-=preview
-  autocmd FileType javascript map <buffer> gd :TernDef<CR>
-  autocmd FileType javascript nnoremap <buffer> <C-]> :TernDef<CR>
-
-" JavaScript Code Completion via TypeScript Server
-" Requires: npm install -g typescript typescript-language-server
-" Add the following (or similar) in <project-root>/jsconfig.json:
-"{
-"  "compilerOptions": {
-"    "module": "commonjs",
-"    "target": "es6",
-"    "checkJs": true,
-"    "lib": [ "es6" ],
-"    "resolveJsonModule": true
-"  },
-"  "exclude": [ "node_modules" ]
-"}
-Plug 'prabirshrestha/async.vim'            , { 'for': ['javascript', 'typescript' ] }
-Plug 'prabirshrestha/vim-lsp'              , { 'for': ['javascript', 'typescript' ] }
-Plug 'prabirshrestha/asyncomplete.vim'     , { 'for': ['javascript', 'typescript' ] }
-Plug 'ryanolsonx/vim-lsp-typescript'       , { 'for': ['javascript', 'typescript' ] }
-Plug 'prabirshrestha/asyncomplete-lsp.vim' , { 'for': ['javascript', 'typescript' ] }
-  " convert imports to requires
-  " (https://stackoverflow.com/a/2024537/97443)
-  let @r="gg/importcwconstf}a =/fromcf require(2f'a)ld$"
-  noremap <leader>fr @r
-
 " Status bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -209,10 +142,53 @@ Plug 'mrtazz/simplenote.vim'
 
 "" documentation
 Plug 'rizzatti/dash.vim'
+  noremap <leader>b :Dash <CR>
+  "" Dash BabylonJS
+  noremap <leader>v "zyiw:exe "Dash ".@z." babylonjs" <CR>
+
 
 "" sharing
 """ share code as a nice image
 Plug 'kristijanhusak/vim-carbon-now-sh'
+
+" AutoCompletion + Linters
+Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
+  Plug 'thlorenz/snippets'
+
+  let g:UltiSnipsExpandTrigger = "<tab>"
+  let g:UltiSnipsJumpForwardTrigger = "<tab>"
+  let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
+  let g:tern_show_signature_in_pum = 1
+  let g:tern_show_argument_hints = 'on_hold'
+  set completeopt-=preview
+  autocmd FileType javascript map <buffer> gd :TernDef<CR>
+  autocmd FileType javascript nnoremap <buffer> <C-]> :TernDef<CR>
+
+" JavaScript Code Completion via TypeScript Server
+" Requires: npm install -g typescript typescript-language-server
+" Add the following (or similar) in <project-root>/jsconfig.json:
+"{
+"  "compilerOptions": {
+"    "module": "commonjs",
+"    "target": "es6",
+"    "checkJs": true,
+"    "lib": [ "es6" ],
+"    "resolveJsonModule": true
+"  },
+"  "exclude": [ "node_modules" ]
+"}
+Plug 'prabirshrestha/async.vim'            , { 'for': ['javascript', 'typescript' ] }
+Plug 'prabirshrestha/vim-lsp'              , { 'for': ['javascript', 'typescript' ] }
+Plug 'prabirshrestha/asyncomplete.vim'     , { 'for': ['javascript', 'typescript' ] }
+Plug 'ryanolsonx/vim-lsp-typescript'       , { 'for': ['javascript', 'typescript' ] }
+Plug 'prabirshrestha/asyncomplete-lsp.vim' , { 'for': ['javascript', 'typescript' ] }
+  " convert imports to requires
+  " (https://stackoverflow.com/a/2024537/97443)
+  let @r="gg/importcwconstf}a =/fromcf require(2f'a)ld$"
+  noremap <leader>fr @r
 
 "" C#
 Plug 'OmniSharp/omnisharp-vim' , { 'for': [ 'cs' ] }
@@ -221,11 +197,44 @@ Plug 'OmniSharp/omnisharp-vim' , { 'for': [ 'cs' ] }
     set completeopt=longest,menuone,preview
     set previewheight=5
     nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
-  autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+  "autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
   autocmd FileType cs nnoremap <silent> <C-]> :OmniSharpGotoDefinition<CR>
   autocmd FileType cs nnoremap <leader>fi :OmniSharpFindImplementations<cr>
   autocmd FileType cs nnoremap <leader>ft :OmniSharpFindType<cr>
   autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<cr>
   autocmd FileType cs nnoremap <leader>fu :OmniSharpFindUsages<cr>
+
+Plug 'w0rp/ale'
+  let g:ale_linters = {
+  \   'javascript': ['standard'],
+  \   'cs': ['OmniSharp']
+  \}
+  let g:ale_fixers = {'javascript': ['standard']}
+  let g:ale_lint_on_text_changed = 'never'
+  let g:ale_lint_on_enter = 0
+  let g:ale_lint_delay = 200
+
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
+  let g:ycm_complete_in_comments_and_strings=0
+  let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+  let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+  let g:ycm_use_ultisnips_completer = 0
+  let g:ycm_add_preview_to_completeopt = 1
+  let g:ycm_always_populate_location_list = 1
+  let g:ycm_auto_trigger=1
+  let g:ycm_show_diagnostics_ui = 1
+  let g:ycm_key_invoke_completion = '<C-k>'
+
+  let g:ycm_autoclose_preview_window_after_completion = 1
+    au FileType typescript let g:ycm_autoclose_preview_window_after_completion = 0
+    au FileType typescript nnoremap <leader>wd :pclose<CR>
+
+  au FileType c,cc,cpp,cs,typescript nnoremap <silent> <C-]> :YcmCompleter GoTo <CR>
+  au FileType c,cc,cpp,cs,javascript,typescript nnoremap <leader>ff :YcmCompleter FixIt<CR>
+  au FileType c,cc,cpp,cs,javascript,typescript nnoremap <leader>fm :YcmCompleter RefactorRename<Space>
+  au FileType c,cc,cpp,cs,javascript,typescript nnoremap <leader>fd :YcmCompleter GetDoc<CR>
+  au FileType c,cc,cpp,cs,javascript,typescript vmap <leader>fo :YcmCompleter Format<CR>
+
+  let g:ycm_global_ycm_extra_conf = "~/.vim/rc/ycm_extra_conf.py"
 
 call plug#end()

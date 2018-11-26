@@ -13,7 +13,7 @@ compilation_database_folder = ''
 
 dev='/Volumes/d/dev'
 
-node_root=dev + '/ns/nsolid/node/'
+node_root=dev + '/ns/nsolid/nsolid-node/'
 uv_root=dev + '/ns/snapdiff/snapdiff/deps/uv/'
 
 # These are the compilation flags that will be used in case there's no
@@ -57,21 +57,9 @@ flags = [
   '-I', node_root + 'deps/v8',
   '-I', node_root + 'deps/v8/include',
   '-I', node_root + 'nsolid-ext/src/',
+  '-I', node_root + 'out/Debug/gen',
   '-I', node_root + 'out/Release/gen',
-  '-I', node_root,
-  '-I', dev + '/js/sandboxes/thread-communication-libuv/src',
-  '-I', dev + '/ns/snapdiff/snapdiff/deps/cjson/',
-  '-I', dev + '/ns/snapdiff/snapdiff/deps/rapidjson/include/',
-  '-I', dev + '/ns/snapdiff/snapdiff/deps/rapidjson_writable/src/',
-  '-I', dev + '/ns/snapdiff/snapdiff/src/',
-  '-I', dev + '/ns/snapdiff/snapdiff/src/api',
-  '-I', dev + '/ns/snapdiff/snapdiff/src/diff',
-  '-I', dev + '/ns/snapdiff/snapdiff/src/worker',
-  '-I', dev + '/ns/snapdiff/snapdiff/src/model',
-  '-I', dev + '/ns/snapdiff/snapdiff/node_modules/nan',
-  '-I', dev + '/ns/snapdiff/rapidjson-writable/include',
-  '-I', dev + '/ns/snapdiff/async-worker.h',
-  '-I', dev + '/ns/snapdiff/poblado/include'
+  '-I', node_root
 ]
 
 if compilation_database_folder:
