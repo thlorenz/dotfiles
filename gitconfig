@@ -122,7 +122,7 @@
 [mergetool]
 	keepBackup = true
 [credential]
-	helper = cache --timeout=1800
+	helper = osxkeychain
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
