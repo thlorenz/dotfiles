@@ -8,28 +8,6 @@
 		<array>
 			<dict>
 				<key>Action</key>
-				<string>showGuessPanel:</string>
-				<key>Alternate</key>
-				<string>NO</string>
-				<key>CommandID</key>
-				<string>Xcode.IDEKit.CmdDefinition.ShowSpellingAndGrammar</string>
-				<key>Group</key>
-				<string>Edit Menu</string>
-				<key>GroupID</key>
-				<string>Xcode.IDEKit.MenuDefinition.Main</string>
-				<key>GroupedAlternate</key>
-				<string>NO</string>
-				<key>Keyboard Shortcut</key>
-				<string>^~;</string>
-				<key>Navigation</key>
-				<string>NO</string>
-				<key>Parent Title</key>
-				<string>Spelling and Grammar</string>
-				<key>Title</key>
-				<string>Show Spelling and Grammar</string>
-			</dict>
-			<dict>
-				<key>Action</key>
 				<string>checkSpelling:</string>
 				<key>Alternate</key>
 				<string>NO</string>
@@ -52,31 +30,31 @@
 			</dict>
 			<dict>
 				<key>Action</key>
-				<string>goForwardInHistoryByCommand:</string>
+				<string>continueToCurrentLine:</string>
 				<key>Alternate</key>
 				<string>NO</string>
 				<key>CommandID</key>
-				<string>Xcode.IDEKit.CmdDefinition.GoForward</string>
+				<string>Xcode.IDEKit.CmdDefinition.ContinueToCurrentLine</string>
 				<key>Group</key>
-				<string>Navigate Menu</string>
+				<string>Debug Menu</string>
 				<key>GroupID</key>
 				<string>Xcode.IDEKit.MenuDefinition.Main</string>
 				<key>GroupedAlternate</key>
 				<string>NO</string>
 				<key>Keyboard Shortcut</key>
-				<string>^i</string>
+				<string>^@/</string>
 				<key>Navigation</key>
-				<string>YES</string>
+				<string>NO</string>
 				<key>Title</key>
-				<string>Go Forward</string>
+				<string>Continue To Current Line</string>
 			</dict>
 			<dict>
 				<key>Action</key>
-				<string>goForwardInHistoryByCommandWithAlternate:</string>
+				<string>fixNextIssue:</string>
 				<key>Alternate</key>
 				<string>YES</string>
 				<key>CommandID</key>
-				<string>Xcode.IDEKit.CmdDefinition.GoForwardWithAlternate</string>
+				<string>Xcode.IDEKit.CmdDefinition.FixNextIssue</string>
 				<key>Group</key>
 				<string>Navigate Menu</string>
 				<key>GroupID</key>
@@ -84,19 +62,19 @@
 				<key>GroupedAlternate</key>
 				<string>NO</string>
 				<key>Keyboard Shortcut</key>
-				<string>^~i</string>
+				<string>^@*</string>
 				<key>Navigation</key>
 				<string>YES</string>
 				<key>Title</key>
-				<string>Go Forward (option)</string>
+				<string>Fix Next Issue</string>
 			</dict>
 			<dict>
 				<key>Action</key>
-				<string>goForwardInHistoryByCommandWithShiftPlusAlternate:</string>
+				<string>fixPreviousIssue:</string>
 				<key>Alternate</key>
 				<string>YES</string>
 				<key>CommandID</key>
-				<string>Xcode.IDEKit.CmdDefinition.GoForwardWithShiftPlusAlternate</string>
+				<string>Xcode.IDEKit.CmdDefinition.FixPreviousIssue</string>
 				<key>Group</key>
 				<string>Navigate Menu</string>
 				<key>GroupID</key>
@@ -104,11 +82,11 @@
 				<key>GroupedAlternate</key>
 				<string>NO</string>
 				<key>Keyboard Shortcut</key>
-				<string>^~$I</string>
+				<string>^@&amp;</string>
 				<key>Navigation</key>
 				<string>YES</string>
 				<key>Title</key>
-				<string>Go Forward (shift+option)</string>
+				<string>Fix Previous Issue</string>
 			</dict>
 			<dict>
 				<key>Action</key>
@@ -172,6 +150,66 @@
 			</dict>
 			<dict>
 				<key>Action</key>
+				<string>goForwardInHistoryByCommand:</string>
+				<key>Alternate</key>
+				<string>NO</string>
+				<key>CommandID</key>
+				<string>Xcode.IDEKit.CmdDefinition.GoForward</string>
+				<key>Group</key>
+				<string>Navigate Menu</string>
+				<key>GroupID</key>
+				<string>Xcode.IDEKit.MenuDefinition.Main</string>
+				<key>GroupedAlternate</key>
+				<string>NO</string>
+				<key>Keyboard Shortcut</key>
+				<string>^i</string>
+				<key>Navigation</key>
+				<string>YES</string>
+				<key>Title</key>
+				<string>Go Forward</string>
+			</dict>
+			<dict>
+				<key>Action</key>
+				<string>goForwardInHistoryByCommandWithAlternate:</string>
+				<key>Alternate</key>
+				<string>YES</string>
+				<key>CommandID</key>
+				<string>Xcode.IDEKit.CmdDefinition.GoForwardWithAlternate</string>
+				<key>Group</key>
+				<string>Navigate Menu</string>
+				<key>GroupID</key>
+				<string>Xcode.IDEKit.MenuDefinition.Main</string>
+				<key>GroupedAlternate</key>
+				<string>NO</string>
+				<key>Keyboard Shortcut</key>
+				<string>^~i</string>
+				<key>Navigation</key>
+				<string>YES</string>
+				<key>Title</key>
+				<string>Go Forward (option)</string>
+			</dict>
+			<dict>
+				<key>Action</key>
+				<string>goForwardInHistoryByCommandWithShiftPlusAlternate:</string>
+				<key>Alternate</key>
+				<string>YES</string>
+				<key>CommandID</key>
+				<string>Xcode.IDEKit.CmdDefinition.GoForwardWithShiftPlusAlternate</string>
+				<key>Group</key>
+				<string>Navigate Menu</string>
+				<key>GroupID</key>
+				<string>Xcode.IDEKit.MenuDefinition.Main</string>
+				<key>GroupedAlternate</key>
+				<string>NO</string>
+				<key>Keyboard Shortcut</key>
+				<string>^~$I</string>
+				<key>Navigation</key>
+				<string>YES</string>
+				<key>Title</key>
+				<string>Go Forward (shift+option)</string>
+			</dict>
+			<dict>
+				<key>Action</key>
 				<string>jumpToNextIssue:</string>
 				<key>Alternate</key>
 				<string>NO</string>
@@ -189,26 +227,6 @@
 				<string>YES</string>
 				<key>Title</key>
 				<string>Jump to Next Issue</string>
-			</dict>
-			<dict>
-				<key>Action</key>
-				<string>fixNextIssue:</string>
-				<key>Alternate</key>
-				<string>YES</string>
-				<key>CommandID</key>
-				<string>Xcode.IDEKit.CmdDefinition.FixNextIssue</string>
-				<key>Group</key>
-				<string>Navigate Menu</string>
-				<key>GroupID</key>
-				<string>Xcode.IDEKit.MenuDefinition.Main</string>
-				<key>GroupedAlternate</key>
-				<string>NO</string>
-				<key>Keyboard Shortcut</key>
-				<string>^@*</string>
-				<key>Navigation</key>
-				<string>YES</string>
-				<key>Title</key>
-				<string>Fix Next Issue</string>
 			</dict>
 			<dict>
 				<key>Action</key>
@@ -232,275 +250,25 @@
 			</dict>
 			<dict>
 				<key>Action</key>
-				<string>fixPreviousIssue:</string>
+				<string>showGuessPanel:</string>
 				<key>Alternate</key>
-				<string>YES</string>
+				<string>NO</string>
 				<key>CommandID</key>
-				<string>Xcode.IDEKit.CmdDefinition.FixPreviousIssue</string>
+				<string>Xcode.IDEKit.CmdDefinition.ShowSpellingAndGrammar</string>
 				<key>Group</key>
-				<string>Navigate Menu</string>
+				<string>Edit Menu</string>
 				<key>GroupID</key>
 				<string>Xcode.IDEKit.MenuDefinition.Main</string>
 				<key>GroupedAlternate</key>
 				<string>NO</string>
 				<key>Keyboard Shortcut</key>
-				<string>^@&amp;</string>
-				<key>Navigation</key>
-				<string>YES</string>
-				<key>Title</key>
-				<string>Fix Previous Issue</string>
-			</dict>
-			<dict>
-				<key>Action</key>
-				<string>indentSelection:</string>
-				<key>Alternate</key>
-				<string>NO</string>
-				<key>CommandGroupID</key>
-				<string>Xcode.IDESourceEditor.CmdDefinition.ReIndent</string>
-				<key>CommandID</key>
-				<string>Xcode.IDESourceEditor.CmdDefinition.ReIndent</string>
-				<key>Group</key>
-				<string>Editor Menu for Data Model Comparison</string>
-				<key>GroupID</key>
-				<string>Xcode.IDESourceCodeComparisonEditor.MenuDefinition.Editor</string>
-				<key>GroupedAlternate</key>
-				<string>NO</string>
-				<key>Keyboard Shortcut</key>
-				<string>~i</string>
+				<string>^~;</string>
 				<key>Navigation</key>
 				<string>NO</string>
 				<key>Parent Title</key>
-				<string>Structure</string>
+				<string>Spelling and Grammar</string>
 				<key>Title</key>
-				<string>Re-Indent</string>
-			</dict>
-			<dict>
-				<key>Action</key>
-				<string>commentAndUncommentCurrentLines:</string>
-				<key>Alternate</key>
-				<string>NO</string>
-				<key>CommandGroupID</key>
-				<string>Xcode.IDESourceEditor.CmdDefinition.CommentUncomment</string>
-				<key>CommandID</key>
-				<string>Xcode.IDESourceEditor.CmdDefinition.CommentUncomment</string>
-				<key>Group</key>
-				<string>Editor Menu for Data Model Comparison</string>
-				<key>GroupID</key>
-				<string>Xcode.IDESourceCodeComparisonEditor.MenuDefinition.Editor</string>
-				<key>GroupedAlternate</key>
-				<string>NO</string>
-				<key>Keyboard Shortcut</key>
-				<string>~/</string>
-				<key>Navigation</key>
-				<string>NO</string>
-				<key>Parent Title</key>
-				<string>Structure</string>
-				<key>Title</key>
-				<string>Comment Selection</string>
-			</dict>
-			<dict>
-				<key>Action</key>
-				<string>indentSelection:</string>
-				<key>Alternate</key>
-				<string>NO</string>
-				<key>CommandGroupID</key>
-				<string>Xcode.IDESourceEditor.CmdDefinition.ReIndent</string>
-				<key>CommandID</key>
-				<string>Xcode.IDESourceEditor.CmdDefinition.ReIndent</string>
-				<key>Group</key>
-				<string>Editor Menu for Source Code</string>
-				<key>GroupID</key>
-				<string>Xcode.IDESourceEditor.MenuDefinition.Editor</string>
-				<key>GroupedAlternate</key>
-				<string>NO</string>
-				<key>Keyboard Shortcut</key>
-				<string>~i</string>
-				<key>Navigation</key>
-				<string>NO</string>
-				<key>Parent Title</key>
-				<string>Structure</string>
-				<key>Title</key>
-				<string>Re-Indent</string>
-			</dict>
-			<dict>
-				<key>Action</key>
-				<string>commentAndUncommentCurrentLines:</string>
-				<key>Alternate</key>
-				<string>NO</string>
-				<key>CommandGroupID</key>
-				<string>Xcode.IDESourceEditor.CmdDefinition.CommentUncomment</string>
-				<key>CommandID</key>
-				<string>Xcode.IDESourceEditor.CmdDefinition.CommentUncomment</string>
-				<key>Group</key>
-				<string>Editor Menu for Source Code</string>
-				<key>GroupID</key>
-				<string>Xcode.IDESourceEditor.MenuDefinition.Editor</string>
-				<key>GroupedAlternate</key>
-				<string>NO</string>
-				<key>Keyboard Shortcut</key>
-				<string>~/</string>
-				<key>Navigation</key>
-				<string>NO</string>
-				<key>Parent Title</key>
-				<string>Structure</string>
-				<key>Title</key>
-				<string>Comment Selection</string>
-			</dict>
-			<dict>
-				<key>Action</key>
-				<string>indentSelection:</string>
-				<key>Alternate</key>
-				<string>NO</string>
-				<key>CommandGroupID</key>
-				<string>Xcode.IDESourceEditor.CmdDefinition.ReIndent</string>
-				<key>CommandID</key>
-				<string>Xcode.IDESourceEditor.CmdDefinition.ReIndent</string>
-				<key>Group</key>
-				<string>Editor Menu for Source Code Comparison</string>
-				<key>GroupID</key>
-				<string>Xcode.IDESourceCodeComparisonEditor.MenuDefinition.Editor</string>
-				<key>GroupedAlternate</key>
-				<string>NO</string>
-				<key>Keyboard Shortcut</key>
-				<string>~i</string>
-				<key>Navigation</key>
-				<string>NO</string>
-				<key>Parent Title</key>
-				<string>Structure</string>
-				<key>Title</key>
-				<string>Re-Indent</string>
-			</dict>
-			<dict>
-				<key>Action</key>
-				<string>commentAndUncommentCurrentLines:</string>
-				<key>Alternate</key>
-				<string>NO</string>
-				<key>CommandGroupID</key>
-				<string>Xcode.IDESourceEditor.CmdDefinition.CommentUncomment</string>
-				<key>CommandID</key>
-				<string>Xcode.IDESourceEditor.CmdDefinition.CommentUncomment</string>
-				<key>Group</key>
-				<string>Editor Menu for Source Code Comparison</string>
-				<key>GroupID</key>
-				<string>Xcode.IDESourceCodeComparisonEditor.MenuDefinition.Editor</string>
-				<key>GroupedAlternate</key>
-				<string>NO</string>
-				<key>Keyboard Shortcut</key>
-				<string>~/</string>
-				<key>Navigation</key>
-				<string>NO</string>
-				<key>Parent Title</key>
-				<string>Structure</string>
-				<key>Title</key>
-				<string>Comment Selection</string>
-			</dict>
-			<dict>
-				<key>Action</key>
-				<string>releaseOpenGLESFrame:</string>
-				<key>Alternate</key>
-				<string>NO</string>
-				<key>CommandGroupID</key>
-				<string>Xcode.IDEKit.CmdDefinition.PauseContinue</string>
-				<key>CommandID</key>
-				<string>Xcode.GPUToolsKit.CmdDefinition.ReleaseOpenGLESFrame</string>
-				<key>Group</key>
-				<string>Debug Menu for OpenGL ES</string>
-				<key>GroupID</key>
-				<string>Xcode.GPUToolsKit.MenuDefinition.Debug</string>
-				<key>GroupedAlternate</key>
-				<string>NO</string>
-				<key>Keyboard Shortcut</key>
-				<string>@/</string>
-				<key>Navigation</key>
-				<string>NO</string>
-				<key>Title</key>
-				<string>Release OpenGL ES Frame</string>
-			</dict>
-			<dict>
-				<key>Action</key>
-				<string>stepToNextDrawCall:</string>
-				<key>Alternate</key>
-				<string>NO</string>
-				<key>CommandGroupID</key>
-				<string>Xcode.IDEKit.CmdDefinition.StepOver</string>
-				<key>CommandID</key>
-				<string>Xcode.GPUToolsKit.CmdDefinition.StepNextDrawCall</string>
-				<key>Group</key>
-				<string>Debug Menu for OpenGL ES</string>
-				<key>GroupID</key>
-				<string>Xcode.GPUToolsKit.MenuDefinition.Debug</string>
-				<key>GroupedAlternate</key>
-				<string>NO</string>
-				<key>Keyboard Shortcut</key>
-				<string>@'</string>
-				<key>Navigation</key>
-				<string>NO</string>
-				<key>Title</key>
-				<string>Step to Next OpenGL ES Draw Call</string>
-			</dict>
-			<dict>
-				<key>Action</key>
-				<string>pauseOrContinue:</string>
-				<key>Alternate</key>
-				<string>NO</string>
-				<key>CommandGroupID</key>
-				<string>Xcode.IDEKit.CmdDefinition.PauseContinue</string>
-				<key>CommandID</key>
-				<string>Xcode.IDEKit.CmdDefinition.PauseContinue</string>
-				<key>Group</key>
-				<string>Debug Menu</string>
-				<key>GroupID</key>
-				<string>Xcode.IDEKit.MenuDefinition.Main</string>
-				<key>GroupedAlternate</key>
-				<string>NO</string>
-				<key>Keyboard Shortcut</key>
-				<string>@/</string>
-				<key>Navigation</key>
-				<string>NO</string>
-				<key>Title</key>
-				<string>Pause / Continue</string>
-			</dict>
-			<dict>
-				<key>Action</key>
-				<string>continueToCurrentLine:</string>
-				<key>Alternate</key>
-				<string>NO</string>
-				<key>CommandID</key>
-				<string>Xcode.IDEKit.CmdDefinition.ContinueToCurrentLine</string>
-				<key>Group</key>
-				<string>Debug Menu</string>
-				<key>GroupID</key>
-				<string>Xcode.IDEKit.MenuDefinition.Main</string>
-				<key>GroupedAlternate</key>
-				<string>NO</string>
-				<key>Keyboard Shortcut</key>
-				<string>^@/</string>
-				<key>Navigation</key>
-				<string>NO</string>
-				<key>Title</key>
-				<string>Continue To Current Line</string>
-			</dict>
-			<dict>
-				<key>Action</key>
-				<string>stepOver:</string>
-				<key>Alternate</key>
-				<string>NO</string>
-				<key>CommandGroupID</key>
-				<string>Xcode.IDEKit.CmdDefinition.StepOver</string>
-				<key>CommandID</key>
-				<string>Xcode.IDEKit.CmdDefinition.StepOver</string>
-				<key>Group</key>
-				<string>Debug Menu</string>
-				<key>GroupID</key>
-				<string>Xcode.IDEKit.MenuDefinition.Main</string>
-				<key>GroupedAlternate</key>
-				<string>NO</string>
-				<key>Keyboard Shortcut</key>
-				<string>@'</string>
-				<key>Navigation</key>
-				<string>NO</string>
-				<key>Title</key>
-				<string>Step Over</string>
+				<string>Show Spelling and Grammar</string>
 			</dict>
 			<dict>
 				<key>Action</key>
@@ -541,6 +309,30 @@
 				<string>NO</string>
 				<key>Title</key>
 				<string>Step Out</string>
+			</dict>
+			<dict>
+				<key>Action</key>
+				<string>commentAndUncommentCurrentLines:</string>
+				<key>Alternate</key>
+				<string>NO</string>
+				<key>CommandGroupID</key>
+				<string>Xcode.IDESourceEditor.CmdDefinition.CommentUncomment</string>
+				<key>CommandID</key>
+				<string>Xcode.IDESourceEditor.CmdDefinition.CommentUncomment</string>
+				<key>Group</key>
+				<string>Editor Menu for Source Code Comparison</string>
+				<key>GroupID</key>
+				<string>Xcode.IDESourceCodeComparisonEditor.MenuDefinition.Editor</string>
+				<key>GroupedAlternate</key>
+				<string>NO</string>
+				<key>Keyboard Shortcut</key>
+				<string>@/</string>
+				<key>Navigation</key>
+				<string>NO</string>
+				<key>Parent Title</key>
+				<string>Structure</string>
+				<key>Title</key>
+				<string>Comment Selection</string>
 			</dict>
 		</array>
 		<key>Version</key>

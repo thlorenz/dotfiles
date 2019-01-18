@@ -45,4 +45,6 @@
     "editor.acceptSuggestionOnEnter": "smart",
     "workbench.statusBar.visible": true,
     "workbench.activityBar.visible": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "explorer.confirmDragAndDrop": false,
 }

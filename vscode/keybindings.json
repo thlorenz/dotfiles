@@ -11,12 +11,12 @@
     "when": "editorTextFocus"
   },
   {
-    "key": "cmd+b",
+    "key": "alt+cmd+b",
     "command": "extension.dash.specific",
     "when": "editorTextFocus"
   },
   {
-    "key": "shift+cmd+b",
+    "key": "cmd+b",
     "command": "workbench.action.tasks.build"
   },
   {
@@ -127,5 +127,21 @@
     "key": "cmd+o",
     "command": "-workbench.action.files.openFileFolder",
     "when": "fileDialog == 'local'"
+  },
+  {
+    "key": "ctrl+cmd+b",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "cmd+b",
+    "command": "-workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "-workbench.action.tasks.build"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "workbench.action.tasks.runTask"
   }
 ]
