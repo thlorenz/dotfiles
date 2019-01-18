@@ -207,9 +207,14 @@ Plug 'OmniSharp/omnisharp-vim' , { 'for': [ 'cs' ] }
 Plug 'w0rp/ale'
   let g:ale_linters = {
   \   'javascript': ['standard'],
-  \   'cs': ['OmniSharp']
+  \   'cs': ['OmniSharp'],
+  \   'typescript': ['tslint']
   \}
-  let g:ale_fixers = {'javascript': ['standard']}
+  let g:ale_fixers = {
+  \   'javascript': ['standard'],
+  \   'typescript': ['tslint']
+  \}
+  au FileType javascript,typescript nnoremap <leader>fi :ALEFix<CR>
   let g:ale_lint_on_text_changed = 'never'
   let g:ale_lint_on_enter = 0
   let g:ale_lint_delay = 200
@@ -234,7 +239,11 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
   au FileType c,cc,cpp,cs,javascript,typescript nnoremap <leader>fm :YcmCompleter RefactorRename<Space>
   au FileType c,cc,cpp,cs,javascript,typescript nnoremap <leader>fd :YcmCompleter GetDoc<CR>
   au FileType c,cc,cpp,cs,javascript,typescript vmap <leader>fo :YcmCompleter Format<CR>
+  au FileType c,cc,cpp,cs,javascript,typescript nnoremap <leader>fo :YcmCompleter Format<CR>
+  au FileType typescript nnoremap <leader>Fo :set autoread \| !tsfmt -r % > /dev/null \| set noautoread<CR>
 
   let g:ycm_global_ycm_extra_conf = "~/.vim/rc/ycm_extra_conf.py"
+
+  highlight link YcmErrorSection warning
 
 call plug#end()

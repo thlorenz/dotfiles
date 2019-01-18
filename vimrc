@@ -54,6 +54,7 @@ set lazyredraw
 
 " unhighlight search matches
 nmap <silent> <leader>w :nohl <CR>
+set nohlsearch
 
 " scroll viewport faster
 nnoremap <C-e> 5<C-e>
@@ -164,10 +165,11 @@ au FileType json set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0
 
 " JavaScript specific
 " au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-noremap <leader>m :wa \| r !(OCAT_COLOR=0 OCAT_DEPTH=0 OCAT_RM=1 node % 2>&1 > /dev/null) <CR>
+au FileType javascript noremap <leader>m :wa \| r !(OCAT_COLOR=0 OCAT_DEPTH=0 OCAT_RM=1 node % 2>&1 > /dev/null) <CR>
 "noremap <leader>m :wa \| r !(OCAT_COLOR=0 OCAT_DEPTH=0 OCAT_RM=1 ~/dev/ns/nsolid/nsolid-node/out/Release/nsolid % 2>&1 > /dev/null && cat /tmp/ocat.txt) <CR>
 
 au FileType javascript noremap <leader>r :wa \| ! node %<CR>
+au FileType typescript noremap <leader>r :wa \| ! ts-node %<CR>
 "au FileType javascript noremap <leader>r :wa \| ! DEBUG=* nsolid %<CR>
 "au FileType javascript noremap <leader>r :wa \| ! /Users/thlorenz/dev/ns/nsolid/nsolid-node/out/Release/nsolid %<CR>
 "au FileType javascript noremap <leader>e :wa \| ! /Users/thlorenz/dev/ns/nsolid/nsolid-node/out/Release/nsolid --debug-brk  %<CR>
