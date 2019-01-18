@@ -44,15 +44,38 @@ alias db='/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versi
 
 alias node_configure='./configure --gdb --debug --without-snapshot --xcode --v8-options="--gdbjit --gdbjit-full --expose-gc"'
 alias node_v8_options="node -e 'console.dir(process.config.variables.node_v8_options)'"
-alias nrel='./configure --xcode && tools/gyp_node.py -f ninja && ninja -C out/Release && ln -sf out/Release/nsolid node'
-alias ndeb='./configure --xcode && tools/gyp_node.py -f ninja && ninja -C out/Debug && ln -sf out/Debug/nsolid node_g'
-alias irel='./configure --xcode && tools/gyp_node.py -f ninja && ninja -C out/Release && ln -sf out/Release/node node'
-alias ideb='./configure --xcode && tools/gyp_node.py -f ninja && ninja -C out/Debug && ln -sf out/Debug/node node_g'
-alias itst='./tools/test.py --mode=release message parallel sequential -J'
+alias nrel='./configure --ninja -- -f xcode && ninja -C out/Release && ln -sf out/Release/nsolid node'
+alias ndeb='./configure --ninja -- -f xcode && ninja -C out/Debug && ln -sf out/Debug/nsolid node_g'
+alias nnm='ninja -C out/Debug; osascript -e "display notification \"Build Done $?\" with title \"Ninja Node.js\""'
 
 alias hydra='node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-track-positions --redirect-code-traces --redirect-code-traces-to=code.asm --print-opt-code'
+
+## corona
+function execute {
+  cmd=("$@")
+  echo "${cmd[*]}"
+  "${cmd[@]}"
+}
+
+CORONA_SIMULATOR="/Applications/CoronaSDK/Corona Simulator.app/Contents/MacOS/Corona Simulator"
+function corona_run () {
+  ROOT=`pwd`
+  MAIN="$ROOT/main.lua"
+  execute "$CORONA_SIMULATOR" -no-console YES -project $MAIN
+}
+
+function corona_debug () {
+  ROOT=`pwd`
+  MAIN="$ROOT/main.lua"
+  DEBUGGER=1 execute "$CORONA_SIMULATOR" -no-console YES -debug 1 -project $MAIN
+}
 
 ## tmux
 
 alias sb='tmux save-buffer -'
 alias sbc='tmux save-buffer - | pbcopy'
+
+## VsCode
+
+alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
+alias stud='/Applications/Visual\ Studio.app/Contents/MacOS/VisualStudio'

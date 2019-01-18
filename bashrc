@@ -22,6 +22,7 @@ function init () {
   [ -f $DIR/bash/vim-aliases.sh      ] && source $DIR/bash/vim-aliases.sh
   [ -f $DIR/bash/git-aliases.sh      ] && source $DIR/bash/git-aliases.sh
   [ -f $DIR/bash/node-aliases.sh     ] && source $DIR/bash/node-aliases.sh
+  [ -f $DIR/bash/lua-aliases.sh      ] && source $DIR/bash/lua-aliases.sh
 
   # Edit/source/cat this bashrc
   alias ,ev='vim ~/.bashrc'
@@ -81,6 +82,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   PROMPT_COMMAND=prompt_command
 
   PATH=~/.jsvu:~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:/usr/local/sbin/:$PATH
+  LUA_PATH=~/.luarocks/share/lua/5.3/
 
   alias go-udesktop='ssh tlorenz@udesktop -p 2104'
 

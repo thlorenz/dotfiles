@@ -17,6 +17,11 @@ pid () {
   echo $pid
 }
 
+# show zombie processes https://twitter.com/climagic/status/1045314605743034368
+zombies () {
+  ps auxww - | awk '$8=="Z"'
+}
+
 # kill process listening on port $1
 killport() {
   lsof -i tcp:${1} | awk 'NR!=1 {print $2}' | xargs kill
@@ -31,6 +36,11 @@ padd() {
       PATH="$p:$PATH"
   fi
 }
+
+hlpb () {
+  pbpaste | highlight -O rtf --syntax $1 --font="Source Code Pro" --font-size=24 | pbcopy
+}
+
 compresspdf() {
   \gs -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -dPDFSETTINGS=/${3:-"screen"} -dCompatibilityLevel=1.4 -sOutputFile=$2 $1
 }
