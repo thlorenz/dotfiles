@@ -1,0 +1,1 @@
+alias luarocks='luarocks --local'
