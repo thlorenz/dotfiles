@@ -48,3 +48,7 @@ compresspdf() {
 wps() {
   watch -n 3 "ps aeC -o pid,command,rss,%mem,cpu | grep '$1\|%MEM' | grep -v grep"
 }
+
+retag() {
+  git tag -a $1 $1^{} -f
+}

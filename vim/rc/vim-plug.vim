@@ -204,20 +204,34 @@ Plug 'OmniSharp/omnisharp-vim' , { 'for': [ 'cs' ] }
   autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<cr>
   autocmd FileType cs nnoremap <leader>fu :OmniSharpFindUsages<cr>
 
+"" Dart/Flutter
+Plug 'dart-lang/dart-vim-plugin', { 'for': [ 'dart' ] }
+Plug 'natebosch/vim-lsc', { 'for': [ 'dart' ] }
+  let g:lsc_server_commands = {'dart': 'dart_language_server'}
+  au FileType dart nnoremap <C-]> :LSClientGoToDefinition <CR>
+  au FileType dart nnoremap <C-[> :LSClientFindReferences <CR>
+
 Plug 'w0rp/ale'
   let g:ale_linters = {
   \   'javascript': ['standard'],
   \   'cs': ['OmniSharp'],
-  \   'typescript': ['tslint']
+  \   'typescript': ['tslint'],
+  \   'dart': ['dart_language_server']
   \}
   let g:ale_fixers = {
   \   'javascript': ['standard'],
-  \   'typescript': ['tslint']
+  \   'typescript': ['tslint'],
+  \   'dart': ['dartfmt']
   \}
-  au FileType javascript,typescript nnoremap <leader>fi :ALEFix<CR>
+  au FileType typescript,dart nnoremap <leader>fi :ALEFix<CR>
   let g:ale_lint_on_text_changed = 'never'
   let g:ale_lint_on_enter = 0
   let g:ale_lint_delay = 200
+  " The below three were added b/c AlEFix broke for reasons I don't understand
+  " This fixes it but hardcodes way more things than I'd like (esp. the config path)
+  let g:ale_typescript_tslint_use_global = 1
+  let g:ale_typescript_tslint_executable = '/Users/thlorenz/npm-global/bin/tslint'
+  let g:ale_typescript_tslint_config_path = '/Volumes/d/dev/ns/udacity/uda-instamap-web'
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
   let g:ycm_complete_in_comments_and_strings=0
@@ -232,14 +246,21 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 
   let g:ycm_autoclose_preview_window_after_completion = 1
     au FileType typescript let g:ycm_autoclose_preview_window_after_completion = 0
-    au FileType typescript nnoremap <leader>wd :pclose<CR>
+    au FileType typescript,javascript nnoremap <leader>wd :pclose<CR>
 
   au FileType c,cc,cpp,cs,typescript nnoremap <silent> <C-]> :YcmCompleter GoTo <CR>
   au FileType c,cc,cpp,cs,javascript,typescript nnoremap <leader>ff :YcmCompleter FixIt<CR>
   au FileType c,cc,cpp,cs,javascript,typescript nnoremap <leader>fm :YcmCompleter RefactorRename<Space>
-  au FileType c,cc,cpp,cs,javascript,typescript nnoremap <leader>fd :YcmCompleter GetDoc<CR>
-  au FileType c,cc,cpp,cs,javascript,typescript vmap <leader>fo :YcmCompleter Format<CR>
-  au FileType c,cc,cpp,cs,javascript,typescript nnoremap <leader>fo :YcmCompleter Format<CR>
+  au FileType c,cc,cpp,cs,dart,javascript,typescript nnoremap <leader>fd :YcmCompleter GetDoc<CR>
+  au FileType c,cc,cpp,cs,typescript,dart noremap <leader>fo :YcmCompleter Format<CR>
+  au FileType c,cc,cpp,cs,typescript,dart vmap <leader>fo :YcmCompleter Format<CR>
+
+  " autocmd bufwritepost *.js silent !standard % --fix
+  set autoread
+
+  au FileType javascript nnoremap <leader>fo :ALEFix<CR>
+  au FileType javascript noremap <leader>Fo :!standard --fix % > /dev/null<CR>
+  au FileType javascript vmap <leader>Fo :!standard --fix %<CR>
   au FileType typescript nnoremap <leader>Fo :set autoread \| !tsfmt -r % > /dev/null \| set noautoread<CR>
 
   let g:ycm_global_ycm_extra_conf = "~/.vim/rc/ycm_extra_conf.py"

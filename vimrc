@@ -79,8 +79,8 @@ au Bufenter * silent! guibg=darkblue
 " Keep small command-line window
 set cmdheight=1
 
-noremap <Space> A
-imap <S-Space> <Esc>A
+" noremap <Space> A
+" imap <S-Space> <Esc>A
 
 " next/prev file with right/left arrow keys
 noremap <right> :next <CR>
@@ -182,6 +182,8 @@ au FileType typescript noremap <leader>r :wa \| ! ts-node %<CR>
 " au FileType lua noremap <leader>r :wa \| !/Applications/CoronaSDK/Corona\ Simulator.app/Contents/MacOS/Corona\ Simulator -project %:p -skin iPhone <CR>
 au FileType lua noremap <leader>r :wa \| !lua %<CR>
 
+au FileType dart noremap <leader>m :wa \| !dart %<CR>
+
 " npm install --save-dev word under cursor
 au FileType javascript nnoremap <leader>I :execute ":!npm install --save-dev " . expand("<cword>")<CR>
 " npm install --save word under cursor
@@ -189,6 +191,7 @@ au FileType javascript nnoremap <leader>i :execute ":!npm install --save " . exp
 
 au FileType make set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 au FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+au FileType dart set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 au FileType stylus set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 au FileType jade set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 au FileType handlebars set tabstop=2 softtabstop=2 shiftwidth=2 expandtab

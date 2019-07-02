@@ -61,8 +61,8 @@ command -v clang   >/dev/null 2>&1 && export CC=clang && export GYP_DEFINES='cla
 command -v clang++ >/dev/null 2>&1 && export CXX=clang++ && LINK=clang++ && export GYP_DEFINES='clang=1'
 
 ### ccache and clang
-command -v ccache >/dev/null 2>&1 && command -v clang   >/dev/null 2>&1 && export CC='ccache clang -Qunused-arguments' clang && export GYP_DEFINES='clang=1'
-command -v ccache >/dev/null 2>&1 && command -v clang++ >/dev/null 2>&1 && export CXX='ccache clang++ -Qunused-arguments' && LINK=clang++ && export GYP_DEFINES='clang=1'
+# command -v ccache >/dev/null 2>&1 && command -v clang   >/dev/null 2>&1 && export CC='ccache clang -Qunused-arguments' clang && export GYP_DEFINES='clang=1'
+# command -v ccache >/dev/null 2>&1 && command -v clang++ >/dev/null 2>&1 && export CXX='ccache clang++ -Qunused-arguments' && LINK=clang++ && export GYP_DEFINES='clang=1'
 
 # Environment tweaks
 export HISTIGNORE='&:ll:ls:clear:gs:git status'
@@ -81,7 +81,8 @@ if [[ "$unamestr" == "Darwin" ]]; then
   echo "Configuring for $unamestr"
   PROMPT_COMMAND=prompt_command
 
-  PATH=~/.jsvu:~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:/usr/local/sbin/:$PATH
+  PATH=~/.jsvu:~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:/usr/local/sbin/:~/dev/flutter/sdk/bin:~/.pub-cache/bin:~/dev/flutter/sdk/.pub-cache/bin:$PATH
+  PATH=~/.fastlane/bin:$PATH
   LUA_PATH=~/.luarocks/share/lua/5.3/
 
   alias go-udesktop='ssh tlorenz@udesktop -p 2104'
@@ -103,6 +104,11 @@ if [[ "$unamestr" == "Darwin" ]]; then
   # git completion
   if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
     source /usr/local/etc/bash_completion.d/git-completion.bash
+  fi
+
+  # flutter completion
+  if [ -f /usr/local/etc/bash_completion.d/flutter-completion.bash ]; then
+    source /usr/local/etc/bash_completion.d/flutter-completion.bash
   fi
 
   # autojump

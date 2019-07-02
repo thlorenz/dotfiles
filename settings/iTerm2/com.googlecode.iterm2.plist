@@ -476,7 +476,7 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 139 606 469 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>103 452 770 429 0 0 1280 1001 </string>
+	<string>137 384 796 486 0 0 1440 877 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>1536 480 1024 480 0 0 2560 1417 </string>
 	<key>NSWindow Frame com.apple.typography_panel_InconsolataForPowerline</key>
@@ -484,7 +484,7 @@
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1440 900 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 11 1439 866 0 0 1440 877 </string>
+	<string>0 31 1124 846 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>0 11 1436 866 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -3052,13 +3052,13 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-12-11T20:49:02Z</date>
+	<date>2019-04-24T21:54:34Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SmartPlacement</key>
@@ -3108,6 +3108,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.2.6beta4</string>
+	<string>3.2.7</string>
 </dict>
 </plist>

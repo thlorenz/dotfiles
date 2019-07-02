@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+/* eslint-disable no-unused-vars */
+const MEDELLIN = -5
+const LONDON = -8
+const COPENHAGEN = 1
+const COSTA_RICA = -6
+/* eslint-enable no-unused-vars */
+
+const COMMIT = process.env.COMMIT || 'HEAD^'
+
+const TIMEZONE_DELTA = MEDELLIN
+const timezoneString = TIMEZONE_DELTA < 0
+  ? `-0${Math.abs(TIMEZONE_DELTA)}00`
+  : `+0${Math.abs(TIMEZONE_DELTA)}00`
+
+const { execSync: exec } = require('child_process')
+const minutes = process.argv[2] || 20
+const lastDate = new Date(exec(`git show -s --format=%ai ${COMMIT}`).toString())
+
+const randomSecs = Math.floor(Math.random() * 60000)
+const added = new Date(
+  lastDate.getTime() + minutes * 60000 +
+  (TIMEZONE_DELTA * 60 * 60000) +
+  randomSecs
+)
+const addedString = added.toUTCString() + timezoneString
+const cmd = `GIT_AUTHOR_DATE="${addedString}" GIT_COMMITTER_DATE="${addedString}" ` +
+            `git commit --amend --no-edit --date="${addedString}"`
+exec(cmd)
