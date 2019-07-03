@@ -1,9 +1,9 @@
 [user]
-	email = thlorenz@gmx.de
-	name = Thorsten Lorenz
+  email = thlorenz@gmx.de
+  name = thlorenz
 [core]
   editor = vim
-	excludesfile = /Users/thlorenz/.gitignore
+  excludesfile = /Users/thlorenz/.gitignore
 [core "diff"]
   tool = vimdiff
 
@@ -21,14 +21,14 @@
   new = green bold
 [color "status"]
   added = yellow
-  changed = red 
+  changed = red
   untracked = blue
 
 [diff]
   tool = vimdiff
 
 [merge]
-	tool = vimdiff
+  tool = vimdiff
   # Include summaries of merged commits in newly created merge commit messages
   log = true
 
@@ -41,10 +41,10 @@
   merge = refs/heads/master
 
 [push]
-	default = current
+  default = current
 
 [alias]
-  # Lots came from: 
+  # Lots came from:
   #   http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
   #   http://lukas.zapletalovi.com/2012/07/my-git-aliases-again.html
 
@@ -52,90 +52,90 @@
   al = "!git config -l | grep alias | cut -c 7-"
 
   # Logs
- 
+
     ## Summary with relative dates
-    lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
+  lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
     # Summary with full dates as first
-    ld = log --pretty=format:'%Cblue%ad%Creset | %s [ %Cred%h%Creset %C(yellow)%an%d%Creset ]' --date=format:'%Y-%m-%d %H:%M:%S'
-    ldd = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%ad)%Creset' --date=format:'%Y-%m-%d %H:%M:%S'
+  ld = log --pretty=format:'%Cblue%ad%Creset | %s [ %Cred%h%Creset %C(yellow)%an%d%Creset ]' --date=format:'%Y-%m-%d %H:%M:%S'
+  ldd = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%ad)%Creset' --date=format:'%Y-%m-%d %H:%M:%S'
 
     ## Very short summary (not authors or dates)
-    ls = log --oneline --decorate
+  ls = log --oneline --decorate
 
     ## Details (includes changed files)
-    ll = log --pretty=format:'%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]' --decorate --numstat
-    
+  ll = log --pretty=format:'%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]' --decorate --numstat
+
     ## Details of specific revision
-    llr  = "!f() { git ll "$1"^.."$1"; }; f"
-    
+  llr  = "!f() { git ll "$1"^.."$1"; }; f"
+
     ## Summary without Colors to allow piping
-    lnc = log --pretty=format:'%h\\ %s\\ [%cn]'
+  lnc = log --pretty=format:'%h\\ %s\\ [%cn]'
 
     ## Log differences between master and current branch (i.e. history since branching)
-    lh = !git --no-pager log origin/master..HEAD --abbrev-commit --pretty=oneline
+  lh = !git --no-pager log origin/master..HEAD --abbrev-commit --pretty=oneline
 
   # Diffs
-  
+
     ## Show modified files in last commit
-    dl = !git ll -1
+  dl = !git ll -1
 
     ## Show diff of last commit
-    dlc = diff --cached HEAD^
+  dlc = diff --cached HEAD^
 
-    ## Show diff of specific revision 
+    ## Show diff of specific revision
     ## Example: git dr HEAD~2
-    dr = "!f() { git diff "$1"^.."$1"; }; f"
-    dtr = "!f() { git difftool "$1"^.."$1"; }; f"
+  dr = "!f() { git diff "$1"^.."$1"; }; f"
+  dtr = "!f() { git difftool "$1"^.."$1"; }; f"
 
-    dt = difftool
-    dc = diff --cached
+  dt = difftool
+  dc = diff --cached
 
   # Grep
- 
+
     ## Find filepath in codebase
-    f = "!git ls-files | grep -i"
+  f = "!git ls-files | grep -i"
 
   # Remotes
-    
+
     ## Push origin/master showing differences and allowing abort
-    pom = !sh -c 'git lh && echo Ready to push? ENTER && read && git push origin master' -
+  pom = !sh -c 'git lh && echo Ready to push? ENTER && read && git push origin master' -
 
-    ra  =  remote add
-    rr  =  remote remove
-    rsu =  remote set-url
+  ra  =  remote add
+  rr  =  remote remove
+  rsu =  remote set-url
 
-    pu  =  pull
-    pur =  pull --rebase
+  pu  =  pull
+  pur =  pull --rebase
 
-    cl  =  clone
+  cl  =  clone
 
   # Workflow
 
-    st  = status --ignore-submodules -s
-    co  = checkout
-    ci  = commit
-    cm  = commit -m
-    cam = commit -am
-    br  = branch -v
-    amd = commit --amend --no-edit
-    up  = pull --rebase
+  st  = status --ignore-submodules -s
+  co  = checkout
+  ci  = commit
+  cm  = commit -m
+  cam = commit -am
+  br  = branch -v
+  amd = commit --amend --no-edit
+  up  = pull --rebase
 [mergetool]
-	keepBackup = true
+  keepBackup = true
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
 [rerere]
-	enabled = false
-	autoupdate = true
+  enabled = false
+  autoupdate = true
 [fetch]
-	prune = true
+  prune = true
 # Only needed for Gist.vim - screws up main user somehow
 # [github]
 # user = thlorenz
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
