@@ -8,7 +8,7 @@ brew tap phinze/cask
 brew install brew-cask
 
 # dev/terminal tools
-brew install macvim --override-system-vim
+brew install macvim
 brew install the_silver_searcher
 brew install tree
 brew install htop-osx
@@ -25,7 +25,7 @@ brew install chrome-cli
 brew install autoconf
 brew install cmake
 brew install ctags
-brew install homebrew/dupes/gdb 
+brew install homebrew/dupes/gdb
 brew install swig
 
 # devops
