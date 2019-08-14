@@ -81,8 +81,9 @@ if [[ "$unamestr" == "Darwin" ]]; then
   echo "Configuring for $unamestr"
   PROMPT_COMMAND=prompt_command
 
-  PATH=~/.jsvu:~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:/usr/local/sbin/:~/dev/flutter/sdk/bin:~/.pub-cache/bin:~/dev/flutter/sdk/.pub-cache/bin:$PATH
+  PATH=~/.jsvu:~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:/usr/local/sbin/:~/.pub-cache/bin:$PATH
   PATH=~/.fastlane/bin:$PATH
+  PATH=~/dev/flutter/sdk/bin:~/dev/flutter/sdk/bin/cache/dart-sdk/bin/:~/dev/flutter/sdk/.pub-cache/bin:$PATH
   LUA_PATH=~/.luarocks/share/lua/5.3/
 
   alias go-udesktop='ssh tlorenz@udesktop -p 2104'
