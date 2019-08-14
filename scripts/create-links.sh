@@ -9,6 +9,7 @@ ln -sf ~/dotfiles/bashrc             ~/.bashrc
 ln -sf ~/dotfiles/bashprofile        ~/.profile
 ln -sf ~/dotfiles/inputrc            ~/.inputrc
 ln -sf ~/dotfiles/vimrc              ~/.vimrc
+ln -sf ~/dotfiles/ideavimrc          ~/.ideavimrc
 ln -sf ~/dotfiles/irbrc              ~/.irbrc
 ln -sf ~/dotfiles/ctags              ~/.ctags
 ln -sf ~/dotfiles/gitconfig          ~/.gitconfig
@@ -41,6 +42,6 @@ fi
 
 # mac only
 if [ "$unamestr" == "Darwin" ]; then
-  ln -sf ~/dotfiles/slate ~/.slate
   echo "Run scripts/xcode.sh in order to setup Xcode plugins and settings"
+  echo "Run scripts/vscode.sh in order to setup VCcode plugins and settings"
 fi
