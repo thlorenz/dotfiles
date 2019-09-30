@@ -25,6 +25,10 @@
   },
   {
     "key": "shift+cmd+7",
+    "command": "-workbench.action.quickOpen"
+  },
+  {
+    "key": "ctrl+, ctrl+t",
     "command": "workbench.action.quickOpen"
   },
   {
@@ -206,11 +210,19 @@
   },
   {
     "key": "ctrl+, d",
-    "command": "workbench.action.togglePanel",
+    "command": "workbench.action.togglePanel"
+  },
+  {
+    "key": "shift+cmd+e",
+    "command": "-workbench.view.explorer"
+  },
+  {
+    "key": "ctrl+, ctrl+n",
+    "command": "workbench.view.explorer"
   },
   {
     "key": "ctrl+, ctrl+d",
-    "command": "workbench.action.toggleSidebarVisibility",
+    "command": "workbench.action.toggleSidebarVisibility"
   },
   {
     "key": "ctrl+s ctrl+a",
@@ -269,5 +281,55 @@
   {
     "key": "ctrl+, ctrl+f",
     "command": "tslint.fixAllProblems"
+  },
+  {
+    "key": "shift+cmd+]",
+    "command": "-workbench.action.nextEditor"
+  },
+  {
+    "key": "shift+cmd+]",
+    "command": "-workbench.action.nextEditor"
+  },
+  {
+    "key": "shift+cmd+]",
+    "command": "editor.action.referenceSearch.trigger",
+    "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  },
+  {
+    "key": "shift+f12",
+    "command": "-editor.action.referenceSearch.trigger",
+    "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  },
+  {
+    "key": "ctrl+cmd+]",
+    "command": "references-view.find",
+    "when": "editorHasReferenceProvider"
+  },
+  {
+    "key": "shift+alt+f12",
+    "command": "-references-view.find",
+    "when": "editorHasReferenceProvider"
+  },
+  {
+    "key": "cmd+e",
+    "command": "-actions.findWithSelection"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "-workbench.action.openRecent"
+  },
+  {
+    "key": "ctrl+cmd+space",
+    "command": "editor.action.triggerParameterHints",
+    "when": "editorHasSignatureHelpProvider && editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+space",
+    "command": "-editor.action.triggerParameterHints",
+    "when": "editorHasSignatureHelpProvider && editorTextFocus"
+  },
+  {
+    "key": "ctrl+, ctrl+r",
+    "command": "editor.action.rename"
   }
 ]

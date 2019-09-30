@@ -8,18 +8,9 @@
       "after": [
         "<Esc>"
       ]
-    },
+    }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": [
-        "<leader>",
-        "r"
-      ],
-      "commands": [
-        "workbench.action.debug.run"
-      ]
-    },
     {
       "before": [
         "<leader>",
@@ -33,73 +24,10 @@
     {
       "before": [
         "<leader>",
-        "n"
-      ],
-      "commands": [
-        "workbench.view.explorer"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "N"
-      ],
-      "commands": [
-        "workbench.action.toggleSidebarVisibility"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "t"
-      ],
-      "commands": [
-        "workbench.action.quickOpen"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "d"
-      ],
-      "commands": [
-        "workbench.action.togglePanel"
-      ]
-    },
-    {
-      "before": [
-        "<C-,>",
-        "<C-d>"
-      ],
-      "commands": [
-        "workbench.action.toggleSidebarVisibility"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
         "D"
       ],
       "commands": [
         "docthis.documentThis"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "R"
-      ],
-      "commands": [
-        "editor.action.rename"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "h"
-      ],
-      "commands": [
-        "extension.dash.specific"
       ]
     }
   ],
@@ -126,7 +54,6 @@
   "editor.formatOnSave": true,
   "workbench.statusBar.visible": true,
   "workbench.activityBar.visible": false,
-  "typescript.updateImportsOnFileMove.enabled": "always",
   "explorer.confirmDragAndDrop": false,
   "editor.suggestSelection": "first",
   "editor.tabCompletion": "on",
@@ -134,6 +61,7 @@
   "workbench.editor.showTabs": false,
   "csharp.suppressProjectJsonWarning": true,
   "breadcrumbs.enabled": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.format.enable": true,
   "git.decorations.enabled": false,
   "zenMode.hideStatusBar": false,
@@ -143,5 +71,6 @@
   "explorer.autoReveal": false,
   "editor.autoClosingBrackets": "never",
   "dart.flutterCreateOrganization": "com.thlorenz",
-  "dart.closingLabels": false
+  "dart.closingLabels": false,
+  "editor.parameterHints.enabled": false
 }
