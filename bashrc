@@ -100,7 +100,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   export CLICOLOR=1
 
   # npm completion (described method doesn't work at this point: http://npmjs.org/doc/completion.html)
-  source /Users/thlorenz/npm-global/lib/node_modules/npm/lib/utils/completion.sh
+  source /Users/thlorenz/npm-global/completion.sh
 
   # git completion
   if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
