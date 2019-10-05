@@ -5,7 +5,7 @@
     "when": "editorTextFocus"
   },
   {
-    "key": "alt+cmd+b",
+    "key": "ctrl+, ctrl+h",
     "command": "extension.dash.specific",
     "when": "editorTextFocus"
   },
@@ -199,7 +199,7 @@
     "command": "-workbench.action.files.saveAll"
   },
   {
-    "key": "cmd+.",
+    "key": "cmd+k cmd+i",
     "command": "editor.action.showHover",
     "when": "editorTextFocus"
   },
@@ -331,5 +331,47 @@
   {
     "key": "ctrl+, ctrl+r",
     "command": "editor.action.rename"
+  },
+  {
+    "key": "ctrl+, ctrl+i",
+    "command": "node_require.require"
+  },
+  {
+    "key": "ctrl+shift+1",
+    "command": "-node_require.require"
+  },
+  {
+    "key": "ctrl+shift+1",
+    "command": "-node_require.require"
+  },
+  {
+    "key": "ctrl+shift+]",
+    "command": "editor.action.marker.nextInFiles",
+    "when": "editorFocus && !editorReadonly"
+  },
+  {
+    "key": "f8",
+    "command": "-editor.action.marker.nextInFiles",
+    "when": "editorFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+[",
+    "command": "editor.action.marker.prevInFiles",
+    "when": "editorFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+f8",
+    "command": "-editor.action.marker.prevInFiles",
+    "when": "editorFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+, h",
+    "command": "extension.dash.emptySyntax",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+h",
+    "command": "-extension.dash.emptySyntax",
+    "when": "editorTextFocus"
   }
 ]
