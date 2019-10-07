@@ -20,6 +20,9 @@ alias gm='git commit -m'
 alias gam='git commit -am'
 alias gamd='git commit --amend --no-edit'
 
+# fix commit author
+alias gfa='git commit --amend --author="Thorsten Lorenz <thlorenz@gmx.de>"'
+
 # remotes
 alias gra='git remote add'
 alias grr='git remote rm'
@@ -29,3 +32,4 @@ alias gpu='git pull'
 alias gpur='git pull --rebase'
 
 alias gcl='git clone'
+

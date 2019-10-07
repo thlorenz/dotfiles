@@ -1,6 +1,6 @@
 [user]
+  name = Thorsten Lorenz
   email = thlorenz@gmx.de
-  name = thlorenz
 [core]
   editor = vim
   excludesfile = /Users/thlorenz/.gitignore
@@ -131,9 +131,6 @@
   autoupdate = true
 [fetch]
   prune = true
-# Only needed for Gist.vim - screws up main user somehow
-# [github]
-# user = thlorenz
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f

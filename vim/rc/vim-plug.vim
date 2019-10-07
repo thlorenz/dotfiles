@@ -122,7 +122,6 @@ Plug 'tpope/vim-fugitive'
   nnoremap <silent> <leader>gr :Gremove<CR>
   set diffopt=vertical " Show always vertical diff
 Plug 'mattn/webapi-vim'
-Plug 'mattn/gist-vim'
 
 "" misc
 Plug 'vim-scripts/vim-http-client'
