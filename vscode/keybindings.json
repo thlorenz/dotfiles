@@ -92,9 +92,9 @@
     "when": "!terminalFocus"
   },
   {
-    "key": "shift+cmd+c",
+    "key": "ctrl+, f",
     "command": "copyRelativeFilePath",
-    "when": "!editorFocus"
+    "when": "editorFocus"
   },
   {
     "key": "shift+alt+cmd+c",
@@ -191,7 +191,7 @@
     "command": "-workbench.action.splitEditor"
   },
   {
-    "key": "shift+alt+s",
+    "key": "ctrl+cmd+s",
     "command": "workbench.action.files.saveAll"
   },
   {
@@ -333,7 +333,7 @@
     "command": "editor.action.rename"
   },
   {
-    "key": "ctrl+, ctrl+i",
+    "key": "ctrl+, i",
     "command": "node_require.require"
   },
   {
@@ -373,5 +373,32 @@
     "key": "ctrl+shift+h",
     "command": "-extension.dash.emptySyntax",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+, ctrl+i",
+    "command": "editor.action.organizeImports",
+    "when": "editorTextFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)source\\.organizeImports\\b/"
+  },
+  {
+    "key": "shift+alt+o",
+    "command": "-editor.action.organizeImports",
+    "when": "editorTextFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)source\\.organizeImports\\b/"
+  },
+  {
+    "key": "cmd+k cmd+w",
+    "command": "-workbench.action.closeAllEditors"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.switchWindow"
+  },
+  {
+    "key": "cmd+l",
+    "command": "-expandLineSelection",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "cmd+l cmd+k",
+    "command": "workbench.action.quickSwitchWindow"
   }
 ]

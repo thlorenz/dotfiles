@@ -64,9 +64,6 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.format.enable": true,
   "git.decorations.enabled": false,
-  "zenMode.hideStatusBar": false,
-  "zenMode.hideActivityBar": false,
-  "zenMode.hideTabs": false,
   "zenMode.restore": true,
   "explorer.autoReveal": false,
   "editor.autoClosingBrackets": "never",
@@ -126,5 +123,19 @@
       "name": "Vue Green",
       "value": "#42b883"
     }
-  ]
+  ],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "window.restoreWindows": "folders",
+  "window.newWindowDimensions": "maximized",
+  "files.trimTrailingWhitespace": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.sideBar.location": "right",
+  "zenMode.hideLineNumbers": false,
+  "window.nativeFullScreen": false,
+  "editor.hover.delay": 1
 }
