@@ -325,6 +325,10 @@ highlight ALEWarning ctermbg=DarkMagenta
 "Commands
 command! -nargs=* Wrap set wrap linebreak nolist
 
+" Copy relative/full path to system clipboard
+map <leader>jf :let @+ = expand("%")<CR>
+map <leader>jF :let @+ = expand("%:p")<CR>
+
 " Diff current Buffer with original file
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
