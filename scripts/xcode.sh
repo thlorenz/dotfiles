@@ -8,10 +8,11 @@ ln -s ~/dotfiles/xcode/UserData/FontAndColorThemes ~/Library/Developer/Xcode/Use
 mv    ~/Library/Developer/Xcode/UserData/KeyBindings ~/Library/Developer/Xcode/UserData/KeyBindings.orig && \
 ln -s ~/dotfiles/xcode/UserData/KeyBindings        ~/Library/Developer/Xcode/UserData/KeyBindings
 
-echo "Installing Alcatraz Plugin Manager"
-curl -fsSL https://raw.github.com/supermarin/Alcatraz/master/Scripts/install.sh | sh
+echo "No longer Installing Alcatraz Plugin Manager"
+echo "Follow instructions at https://github.com/XVimProject/XVim2 instead"
+# curl -fsSL https://raw.github.com/supermarin/Alcatraz/master/Scripts/install.sh | sh
 
-echo "Now open Xcode and install ShowInGithub and XVim plugins"
+echo "Now open Xcode and allow XVim plugins"
 
 ## Plugins (Not working) -- need to be installed manually via Alcatraz manager
 # find  ~/dotfiles/xcode/Plug-ins -maxdepth 1 -mindepth 1 -type d -exec \
