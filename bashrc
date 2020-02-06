@@ -23,6 +23,7 @@ function init () {
   [ -f $DIR/bash/git-aliases.sh      ] && source $DIR/bash/git-aliases.sh
   [ -f $DIR/bash/node-aliases.sh     ] && source $DIR/bash/node-aliases.sh
   [ -f $DIR/bash/lua-aliases.sh      ] && source $DIR/bash/lua-aliases.sh
+  [ -f $DIR/bash/cy-aliases.sh       ] && source $DIR/bash/cy-aliases.sh
 
   # Edit/source/cat this bashrc
   alias ,ev='vim ~/.bashrc'
@@ -195,3 +196,5 @@ fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
