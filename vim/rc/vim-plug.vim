@@ -151,13 +151,13 @@ Plug 'rizzatti/dash.vim'
 Plug 'kristijanhusak/vim-carbon-now-sh'
 
 " AutoCompletion + Linters
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'thlorenz/snippets'
 
-  let g:UltiSnipsExpandTrigger = "<tab>"
-  let g:UltiSnipsJumpForwardTrigger = "<tab>"
-  let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+"  let g:UltiSnipsExpandTrigger = "<tab>"
+"  let g:UltiSnipsJumpForwardTrigger = "<tab>"
+"  let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
   let g:tern_show_signature_in_pum = 1
@@ -179,11 +179,11 @@ Plug 'marijnh/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
 "  },
 "  "exclude": [ "node_modules" ]
 "}
-Plug 'prabirshrestha/async.vim'            , { 'for': ['javascript', 'typescript' ] }
-Plug 'prabirshrestha/vim-lsp'              , { 'for': ['javascript', 'typescript' ] }
-Plug 'prabirshrestha/asyncomplete.vim'     , { 'for': ['javascript', 'typescript' ] }
-Plug 'ryanolsonx/vim-lsp-typescript'       , { 'for': ['javascript', 'typescript' ] }
-Plug 'prabirshrestha/asyncomplete-lsp.vim' , { 'for': ['javascript', 'typescript' ] }
+"Plug 'prabirshrestha/async.vim'            , { 'for': ['javascript', 'typescript' ] }
+"Plug 'prabirshrestha/asyncomplete.vim'     , { 'for': ['javascript', 'typescript' ] }
+"Plug 'prabirshrestha/vim-lsp'              , { 'for': ['javascript', 'typescript' ] }
+"Plug 'ryanolsonx/vim-lsp-typescript'       , { 'for': ['javascript', 'typescript' ] }
+"Plug 'prabirshrestha/asyncomplete-lsp.vim' , { 'for': ['javascript', 'typescript' ] }
   " convert imports to requires
   " (https://stackoverflow.com/a/2024537/97443)
   let @r="gg/importcwconstf}a =/fromcf require(2f'a)ld$"
@@ -205,24 +205,67 @@ Plug 'OmniSharp/omnisharp-vim' , { 'for': [ 'cs' ] }
 
 "" Dart/Flutter
 Plug 'dart-lang/dart-vim-plugin', { 'for': [ 'dart' ] }
+Plug 'thosakwe/vim-flutter', { 'for': [ 'dart' ] }
+  let g:flutter_show_log_on_run=0
+
+
+  au FileType dart nnoremap <leader>r :FlutterRun<CR>
+  au FileType dart nnoremap <leader>fl :FlutterVSplit<CR>
+  au FileType dart nnoremap <leader>fq :FlutterQuit<cr>
+  au FileType dart nnoremap <leader>fr :FlutterHotReload<cr>
+  au FileType dart nnoremap <leader>fR :FlutterHotRestart<cr>
+  au FileType dart nnoremap <leader>fD :FlutterVisualDebug<cr>
+  au FileType dart nnoremap <silent> <leader>fo :!flutter format %<CR>
+  
+
 Plug 'natebosch/vim-lsc', { 'for': [ 'dart' ] }
-  let g:lsc_server_commands = {'dart': 'dart_language_server'}
-  au FileType dart nnoremap <C-]> :LSClientGoToDefinition <CR>
-  au FileType dart nnoremap <C-[> :LSClientFindReferences <CR>
+  Plug 'natebosch/vim-lsc-dart', { 'for': [ 'dart' ] }
+  let g:lsc_auto_map = v:false
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " Sample config https://github.com/neoclide/coc.nvim#example-vim-configuration
+  nmap <silent> <C-]> <Plug>(coc-definition)
+  nmap <silent> <C-[> <Plug>(coc-references)
+
+  nmap <silent> [g <Plug>(coc-diagnostic-prev)
+  nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <leader><C-r> <Plug>(coc-rename)
+  inoremap <silent><expr> <c-space> coc#refresh()
+  xmap <C-t> <Plug>(coc-codeaction)
+  nmap <C-t> <Plug>(coc-codeaction)
+  nnoremap <silent> <C-s>a  :<C-u>CocList diagnostics<cr>
+
+  set signcolumn=yes
+
+
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+  inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+  function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    else
+      call CocAction('doHover')
+    endif
+  endfunction
+  " Installed coc extensions
+  "   - coc-flutter
+  "   - coc-tsserver
+  "   - coc-json
+  "   - coc-prettier
 
 Plug 'w0rp/ale'
   let g:ale_linters = {
   \   'javascript': ['standard'],
   \   'cs': ['OmniSharp'],
-  \   'typescript': ['tslint'],
-  \   'dart': ['dart_language_server']
   \}
   let g:ale_fixers = {
   \   'javascript': ['standard'],
-  \   'typescript': ['tslint'],
-  \   'dart': ['dartfmt']
   \}
-  au FileType typescript,dart nnoremap <leader>fi :ALEFix<CR>
+  au FileType javascript,cs nnoremap <leader>fi :ALEFix<CR>
   let g:ale_lint_on_text_changed = 'never'
   let g:ale_lint_on_enter = 0
   let g:ale_lint_delay = 200
@@ -232,7 +275,7 @@ Plug 'w0rp/ale'
   let g:ale_typescript_tslint_executable = '/Users/thlorenz/npm-global/bin/tslint'
   let g:ale_typescript_tslint_config_path = '/Volumes/d/dev/ns/udacity/uda-instamap-web'
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer', 'for': [ 'c', 'cpp' ] }
   let g:ycm_complete_in_comments_and_strings=0
   let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
   let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
@@ -247,12 +290,12 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
     au FileType typescript let g:ycm_autoclose_preview_window_after_completion = 0
     au FileType typescript,javascript nnoremap <leader>wd :pclose<CR>
 
-  au FileType c,cc,cpp,cs,typescript nnoremap <silent> <C-]> :YcmCompleter GoTo <CR>
-  au FileType c,cc,cpp,cs,javascript,typescript nnoremap <leader>ff :YcmCompleter FixIt<CR>
-  au FileType c,cc,cpp,cs,javascript,typescript nnoremap <leader>fm :YcmCompleter RefactorRename<Space>
-  au FileType c,cc,cpp,cs,dart,javascript,typescript nnoremap <leader>fd :YcmCompleter GetDoc<CR>
-  au FileType c,cc,cpp,cs,typescript,dart noremap <leader>fo :YcmCompleter Format<CR>
-  au FileType c,cc,cpp,cs,typescript,dart vmap <leader>fo :YcmCompleter Format<CR>
+  au FileType c,cc,cpp,cs nnoremap <silent> <C-]> :YcmCompleter GoTo <CR>
+  au FileType c,cc,cpp,cs,javascript nnoremap <leader>ff :YcmCompleter FixIt<CR>
+  au FileType c,cc,cpp,cs,javascript nnoremap <leader>fm :YcmCompleter RefactorRename<Space>
+  au FileType c,cc,cpp,cs,dart,javascript nnoremap <leader>fd :YcmCompleter GetDoc<CR>
+  au FileType c,cc,cpp,cs noremap <leader>fo :YcmCompleter Format<CR>
+  au FileType c,cc,cpp,cs vmap <leader>fo :YcmCompleter Format<CR>
 
   " autocmd bufwritepost *.js silent !standard % --fix
   set autoread
@@ -260,7 +303,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
   au FileType javascript nnoremap <leader>fo :ALEFix<CR>
   au FileType javascript noremap <leader>Fo :!standard --fix % > /dev/null<CR>
   au FileType javascript vmap <leader>Fo :!standard --fix %<CR>
-  au FileType typescript nnoremap <leader>Fo :set autoread \| !tsfmt -r % > /dev/null \| set noautoread<CR>
+  "au FileType typescript nnoremap <leader>Fo :set autoread \| !tsfmt -r % > /dev/null \| set noautoread<CR>
 
   let g:ycm_global_ycm_extra_conf = "~/.vim/rc/ycm_extra_conf.py"
 
