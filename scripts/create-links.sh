@@ -30,6 +30,7 @@ ln -sf ~/dotfiles/vim         ~/.vim
 mkdir -p .config
 ln -sf ~/dotfiles/config/nstart  ~/.config/nstart
 ln -sf ~/dotfiles/config/pkginit ~/.config/pkginit
+ln -sf ~/dotfiles/config/nvim    ~/.config/nvim
 
 # linux only
 if [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
