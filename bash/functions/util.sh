@@ -2,12 +2,12 @@
 
 # Open a man page in Preview:
 pman () {
-  man -t $@ | open -f -a /Applications/Preview.app
+  man -t $@ | open -f -a /System/Applications/Preview.app
 }
 
 # Open a man page in vim
 vman () {
-  MANWIDTH=150 MANPAGER='col -bx' man $@ | vim -R -c "set ft=man" -
+  MANWIDTH=80 MANPAGER='col -bx' man $@ | vim -R -c "set ft=man" -
 }
 
 # Get pid of node process
@@ -51,4 +51,22 @@ wps() {
 
 retag() {
   git tag -a $1 $1^{} -f
+}
+
+capture() {
+  sudo dtrace -p "$1" -qn '
+    syscall::write*:entry
+    /pid == $target && arg0 == 1/ {
+      printf("%s", copyinstr(arg1, arg2));
+    }
+  '
+}
+
+captureAll() {
+  sudo dtrace -p "$1" -qn '
+    syscall::write*:entry
+    /arg0 == 1/ {
+      printf("%s", copyinstr(arg1, arg2));
+    }
+  '
 }
