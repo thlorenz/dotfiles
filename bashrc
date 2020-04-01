@@ -24,6 +24,7 @@ function init () {
   [ -f $DIR/bash/node-aliases.sh     ] && source $DIR/bash/node-aliases.sh
   [ -f $DIR/bash/lua-aliases.sh      ] && source $DIR/bash/lua-aliases.sh
   [ -f $DIR/bash/cy-aliases.sh       ] && source $DIR/bash/cy-aliases.sh
+  [ -f $DIR/bash/flutter-aliases.sh  ] && source $DIR/bash/flutter-aliases.sh
 
   # Edit/source/cat this bashrc
   alias ,ev='vim ~/.bashrc'
@@ -78,6 +79,7 @@ prompt_command() {
 
 # ----------- DARWIN ---------------
 if [[ "$unamestr" == "Darwin" ]]; then
+  export BASH_SILENCE_DEPRECATION_WARNING=1
 
   echo "Configuring for $unamestr"
   PROMPT_COMMAND=prompt_command
@@ -85,7 +87,10 @@ if [[ "$unamestr" == "Darwin" ]]; then
   PATH=~/.jsvu:~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:/usr/local/sbin/:~/.pub-cache/bin:$PATH
   PATH=~/.fastlane/bin:$PATH
   PATH=~/dev/flutter/sdk/bin:~/dev/flutter/sdk/bin/cache/dart-sdk/bin/:~/dev/flutter/sdk/.pub-cache/bin:$PATH
+  PATH=/Users/thlorenz/Library/Python/2.7/bin:$PATH
   LUA_PATH=~/.luarocks/share/lua/5.3/
+  FLUTTER_SDK=~/dev/flutter/sdk
+  DART_SDK=$FLUTTER_SDK/bin/cache/dart-sdk/bin/
 
   alias go-udesktop='ssh tlorenz@udesktop -p 2104'
 
