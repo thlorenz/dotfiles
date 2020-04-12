@@ -2,17 +2,17 @@ set completion-ignore-case on
 set show-all-if-ambiguous on
 
 # Vim Terminal mode
-# want vi to be the default editor for readline                      
-#set editing-mode vi                                            
+# want vi to be the default editor for readline
+set editing-mode vi
 
-# vi settings                                         
-$if mode=vi                
-    # normal mode                           
-    # set keymap vi-command                                 
-    # insert mode             
-    set keymap vi-insert                          
-    "jk": vi-movement-mode # remap escape   
-    "\C-l":clear-screen 
+# vi settings
+$if mode=vi
+    # normal mode
+    # set keymap vi-command
+    # insert mode
+    set keymap vi-insert
+    "jk": vi-movement-mode # remap escape
+    "\C-l":clear-screen
     "\C-k":history-search-backward
     "\C-j":history-search-forward
-$endif 
+$endif
