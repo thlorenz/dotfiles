@@ -1,8 +1,8 @@
 {
   "dependencies": {
-    "coc-flutter": ">=1.2.0",
-    "coc-json": ">=1.2.4",
-    "coc-prettier": ">=1.1.11",
-    "coc-tsserver": ">=1.4.9"
+    "coc-flutter": ">=1.2.2",
+    "coc-json": ">=1.2.5",
+    "coc-prettier": ">=1.1.12",
+    "coc-tsserver": ">=1.4.13"
   }
 }

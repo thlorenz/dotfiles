@@ -1,4 +1,4 @@
 {
   "coc.preferences.formatOnSaveFiletypes": ["dart", "typescript"],
-  "flutter.provider.hot-reload": true
+  "prettier.disableSuccessMessage": true
 }

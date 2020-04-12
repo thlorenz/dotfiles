@@ -1,6 +1,6 @@
 let mapleader=","
 
-" initialize vim-plut
+source ~/dotfiles/commonvimrc
 source ~/.vim/rc/vim-plug.vim
 
 
@@ -8,57 +8,14 @@ if !empty(glob("~/dotfiles/vim-secretrc"))
   source ~/dotfiles/vim-secretrc
 endif
 
-" Detect Environment
-let isGui  = has("gui_running")
-let isUnix = has("unix")
-let isMac  = has("mac")
-
-set clipboard=unnamed
-
 " cn specific
 set backupdir=~/.vimtmpdir,.
 set directory=~/.vimtmpdir,.
 set shell=/bin/bash
 
-" lots of those come from http://nvie.com/posts/how-i-boosted-my-vim/
-set nocompatible
-set virtualedit=
-
-set nobackup
-set nowritebackup
-set noswapfile
-
-set autoindent
-set copyindent
-
-set showmatch
-set shiftround
-set ruler
-set scrolloff=4
-
-set incsearch
-set ignorecase
-set smartcase
-
-set backspace=2
-set nu
-set hidden
-set mouse=a
-
-set wildmenu
-set wildmode=list:longest
-set wildignore+=*/dist/*,*/.git/*,*/.svn/*,*/node_modules/*,*.o,*.obj,*.hi,*.sqlite3
-
-" Macro related improvements https://www.hillelwayne.com/post/vim-macro-trickz/
-set lazyredraw
-
 " unhighlight search matches
 nmap <silent> <leader>w :nohl <CR>
 set nohlsearch
-
-" scroll viewport faster
-nnoremap <C-e> 5<C-e>
-nnoremap <C-y> 5<C-y>
 
 " limit "Press Enter or ... to continue"
 set shortmess=atI

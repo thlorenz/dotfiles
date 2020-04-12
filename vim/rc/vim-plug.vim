@@ -217,20 +217,23 @@ Plug 'thosakwe/vim-flutter', { 'for': [ 'dart' ] }
   au FileType dart nnoremap <leader>fD :FlutterVisualDebug<cr>
   au FileType dart nnoremap <silent> <leader>fo :!flutter format %<CR>
   
+  " open current file/line in idea (in case some coc features aren't working)
+  au FileType dart,typescript nmap <silent>gi :update \|!idea --line " . line(".") . " %:p<CR>
+
 
 Plug 'natebosch/vim-lsc', { 'for': [ 'dart' ] }
   Plug 'natebosch/vim-lsc-dart', { 'for': [ 'dart' ] }
   let g:lsc_auto_map = v:false
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " Sample config https://github.com/neoclide/coc.nvim#example-vim-configuration
-  nmap <silent> <C-]> <Plug>(coc-definition)
+  nmap <silent> <C-]> <Plug>(coc-type-definition)
   nmap <silent> <C-[> <Plug>(coc-references)
 
   nmap <silent> [g <Plug>(coc-diagnostic-prev)
   nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-  nmap <silent> gy <Plug>(coc-type-definition)
-  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gd <Plug>(coc-type-definition)
+  nmap <silent> gy <Plug>(coc-implementation)
   nmap <leader><C-r> <Plug>(coc-rename)
   inoremap <silent><expr> <c-space> coc#refresh()
   xmap <C-t> <Plug>(coc-codeaction)
@@ -308,5 +311,8 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer', 'for': 
   let g:ycm_global_ycm_extra_conf = "~/.vim/rc/ycm_extra_conf.py"
 
   highlight link YcmErrorSection warning
+
+" Svelte
+Plug 'evanleck/vim-svelte'
 
 call plug#end()
