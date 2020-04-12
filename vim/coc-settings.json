@@ -1,4 +1,17 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["dart", "typescript"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "dart",
+    "css",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "typescript",
+    "typescriptreact"
+  ],
+  "prettier.disableSuccessMessage": true,
+  "suggest.autoTrigger": "always",
+  "suggest.minTriggerInputLength": 3,
+  "suggest.noselect": false,
   "flutter.provider.hot-reload": true
 }

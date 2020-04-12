@@ -1,4 +1,11 @@
+document.jumpToNextSymbol
+workspace.renameCurrentFile
+workspace.showOutput
+workspace.workspaceFolders
+tsserver.goToProjectConfig
+tsserver.executeAutofix
+editor.action.organizeImport
+prettier.formatFile
 flutter.run
 flutter.devices
 flutter.dev.openDevLog
-prettier.formatFile

@@ -1,4 +1,1 @@
-{
-  "coc.preferences.formatOnSaveFiletypes": ["dart", "typescript"],
-  "prettier.disableSuccessMessage": true
-}
+../vim/coc-settings.json
