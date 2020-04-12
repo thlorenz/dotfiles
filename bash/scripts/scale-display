@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+# brew cask install avibrazil-rdm
+set_res=/Applications/RDM.app/Contents/MacOS/SetResX
+
+if $set_res -ld | grep -q 'Display 0: {resolution=1920x1080'; then
+  echo "low"
+  $set_res -w 2560 -h 1440 -s 2.0 -b 16
+else
+  $set_res -w 1920 -h 1080 -s 2.0 -b 16
+fi
