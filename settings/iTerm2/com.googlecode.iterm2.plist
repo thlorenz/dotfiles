@@ -20,6 +20,8 @@
 	<string>manual</string>
 	<key>AutoHideTmuxClientSession</key>
 	<false/>
+	<key>CGFontRenderingFontSmoothingDisabled</key>
+	<false/>
 	<key>CheckTestRelease</key>
 	<false/>
 	<key>ClosingHotkeySwitchesSpaces</key>
@@ -479,7 +481,11 @@
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
 	<string>475 470 841 470 0 0 1792 1097 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1792 1120 0 0 1792 1097 </string>
+	<string>0 1011 1452 406 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>0 0 2560 1418 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>0 0 1276 1417 0 0 2560 1417 </string>
 	<key>NeverWarnAboutShortLivedSessions_02DDFD8E-720C-492C-B2EB-80F22EFEC21A</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_02DDFD8E-720C-492C-B2EB-80F22EFEC21A_selection</key>
@@ -730,7 +736,7 @@
 			<key>Cursor Type</key>
 			<integer>2</integer>
 			<key>Custom Command</key>
-			<string>No</string>
+			<string>Custom Shell</string>
 			<key>Custom Directory</key>
 			<string>Recycle</string>
 			<key>Default Bookmark</key>
@@ -2922,28 +2928,31 @@
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
+		<string>Inconsolata for Powerline</string>
 		<string>Menlo for Powerline</string>
 		<string>Menlo</string>
 	</array>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1792, 1120}}</string>
+		<string>{{0, 0}, {2560, 1440}}</string>
 		<key>topLeft</key>
-		<string>{574, 895}</string>
+		<string>{663, 896}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
 	<string>EF6A1572-90B2-4F4E-A7B2-C8C24C12455C</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>4</integer>
+	<integer>13</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
-	<real>603999494.54936802</real>
+	<real>604532202.33423102</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
 	<true/>
+	<key>NoSyncPermissionToShowTip</key>
+	<false/>
 	<key>NoSyncRecordedVariables</key>
 	<dict>
 		<key>0</key>
@@ -3722,7 +3731,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-02-19T17:46:51Z</date>
+	<date>2020-04-18T15:42:01Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
