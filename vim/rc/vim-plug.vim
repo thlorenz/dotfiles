@@ -31,6 +31,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   map <leader>n :NERDTreeToggle<CR>
+  map <leader><s-n> :NERDTreeFind<CR>
 
 Plug 'thinca/vim-quickrun'
   noremap <silent> <leader>R :QuickRun -mode n<CR>
@@ -120,14 +121,13 @@ Plug 'vim-airline/vim-airline-themes'
 """"""""""
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
-	\ 'coc-tsserver',
-	\ 'coc-python',
-	\ 'coc-emmet',
-	\ 'coc-css',
-	\ 'coc-html',
-	\ 'coc-json',
-	\ 'coc-prettier',
-	\ 'coc-highlight',
+  \ 'coc-tsserver',
+  \ 'coc-python',
+  \ 'coc-css',
+  \ 'coc-html',
+  \ 'coc-json',
+  \ 'coc-prettier',
+  \ 'coc-highlight',
   \ 'coc-flutter'
 \]
 Plug 'ianks/vim-tsx'
@@ -140,7 +140,7 @@ Plug 'ianks/vim-tsx'
   nmap <silent> ]g <Plug>(coc-diagnostic-next)
   nmap <silent> [g <Plug>(coc-diagnostic-prev)
   command! -nargs=0 CoqGotoProjectConfig :call CocAction('runCommand', 'tsserver.goToProjectConfig')
-  nmap <leader>gc :CoqGotoProjectConfig<cr> 
+  nmap <leader>gc :CoqGotoProjectConfig<cr>
 
   " select inner/outer function in visual mode
   xmap if <Plug>(coc-funcobj-i)
@@ -157,13 +157,16 @@ Plug 'ianks/vim-tsx'
   " fixes
   nmap <leader>ff <Plug>(coc-fix-current)
   command! -nargs=0 CoqOrganizeImports :call CocAction('runCommand', 'editor.action.organizeImport')
-  nmap <leader> fo :CoqOrganizeImports<cr> 
+  nmap <leader> fo :CoqOrganizeImports<cr>
   command! -nargs=0 CoqAutofix :call CocAction('runCommand', 'tsserver.executeAutofix')
-  nmap <leader>fi :CoqAutofix<cr> 
+  nmap <leader>fi :CoqAutofix<cr>
+  nmap <leader>ff :CocFix<cr>
 
   " Completion
   inoremap <silent><expr> <c-n> coc#refresh()
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  inoremap <expr> <tab> pumvisible() ? "\<C-y>" : "\<tab>"
 
+  " outline
+  Plug 'liuchengxu/vista.vim'
 
 call plug#end()
