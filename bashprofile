@@ -8,6 +8,18 @@ if [[ "$unamestr" == "Darwin" ]]; then
   if [ -d `brew --prefix`/etc/bash_completion.d ]; then
     for f in `brew --prefix`/etc/bash_completion.d/*; do source $f; done
   fi
+
+  PATH=~/.jsvu:~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:/usr/local/sbin/:~/.pub-cache/bin:$PATH
+  PATH=~/.fastlane/bin:$PATH
+  PATH=~/dev/flutter/sdk/bin:~/dev/flutter/sdk/bin/cache/dart-sdk/bin/:~/dev/flutter/sdk/.pub-cache/bin:$PATH
+  PATH=/Users/thlorenz/Library/Python/2.7/bin:$PATH
+  PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+  LUA_PATH=~/.luarocks/share/lua/5.3/
+  FLUTTER_SDK=~/dev/flutter/sdk
+  DART_SDK=$FLUTTER_SDK/bin/cache/dart-sdk/bin/
+elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
+  PATH=~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:$PATH
 fi
 
 # followed by local completions/overrides

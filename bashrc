@@ -84,14 +84,6 @@ if [[ "$unamestr" == "Darwin" ]]; then
   echo "Configuring for $unamestr"
   PROMPT_COMMAND=prompt_command
 
-  PATH=~/.jsvu:~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:/usr/local/sbin/:~/.pub-cache/bin:$PATH
-  PATH=~/.fastlane/bin:$PATH
-  PATH=~/dev/flutter/sdk/bin:~/dev/flutter/sdk/bin/cache/dart-sdk/bin/:~/dev/flutter/sdk/.pub-cache/bin:$PATH
-  PATH=/Users/thlorenz/Library/Python/2.7/bin:$PATH
-  LUA_PATH=~/.luarocks/share/lua/5.3/
-  FLUTTER_SDK=~/dev/flutter/sdk
-  DART_SDK=$FLUTTER_SDK/bin/cache/dart-sdk/bin/
-
   alias go-udesktop='ssh tlorenz@udesktop -p 2104'
 
   alias eject='diskutil eject'
@@ -132,7 +124,6 @@ elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
   echo "Configuring for ARCH-$unamestr"
   PS1="\n\[\033[00;34m\]arch:\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
 
-  PATH=~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:$PATH
   eval "$(tmuxifier init -)"
 
   shopt -s checkwinsize
@@ -163,8 +154,6 @@ elif [[ "$unamestr" == "Linux" ]]; then
 
   echo "Configuring for $unamestr"
   PS1="\n\[\033[00;34m\]$(whoami):\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
-
-  PATH=~/npm-global/bin:$GEM_HOME/bin:$PATH
 
   # apt-get aliases
   alias update="sudo apt-get update"
@@ -201,5 +190,3 @@ fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
