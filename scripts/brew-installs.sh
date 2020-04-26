@@ -49,5 +49,18 @@ brew install pkg-config
 # brew cask install transmission
 # brew cask install vlc
 
+# emacs
+brew tap d12frosted/emacs-plus
+brew install emacs-plus
+ln -s /usr/local/opt/emacs-plus/Emacs.app /Applications/Emacs.app
+
+# To have launchd start d12frosted/emacs-plus/emacs-plus now and restart at login:
+#   brew services start d12frosted/emacs-plus/emacs-plus
+
+## emacs/doom deps
+# https://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org#with-homebrew
+brew install ripgrep
+brew install coreutils fd
+
 brew link
 brew doctor
