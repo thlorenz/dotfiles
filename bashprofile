@@ -13,6 +13,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   PATH=~/.fastlane/bin:$PATH
   PATH=~/dev/flutter/sdk/bin:~/dev/flutter/sdk/bin/cache/dart-sdk/bin/:~/dev/flutter/sdk/.pub-cache/bin:$PATH
   PATH=/Users/thlorenz/Library/Python/2.7/bin:$PATH
+  PATH=~/.emacs.d/bin:$PATH
   PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
   LUA_PATH=~/.luarocks/share/lua/5.3/
