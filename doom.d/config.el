@@ -51,3 +51,6 @@
 ;;
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
+
+(setq local-function-key-map (delq '(kp-tab . [9]) local-function-key-map))
+(global-set-key (kbd "C-i") 'evil-jump-forward)
