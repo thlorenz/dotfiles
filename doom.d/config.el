@@ -52,5 +52,27 @@
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
 
+;; fix forward jump via C-i in terminal
 (setq local-function-key-map (delq '(kp-tab . [9]) local-function-key-map))
 (global-set-key (kbd "C-i") 'evil-jump-forward)
+
+;; navigate buffers with C-{hjkl}
+;; (define-key evil-normal-state-map (kbd "C-h") #'evil-window-left)
+;; (define-key evil-normal-state-map (kbd "C-j") #'evil-window-down)
+;; (define-key evil-normal-state-map (kbd "C-k") #'evil-window-up)
+;; (define-key evil-normal-state-map (kbd "C-l") #'evil-window-right)
+(use-package! tmux-pane
+  :config
+  (tmux-pane-mode)
+  (map! :leader
+        (:prefix ("v" . "tmux pane")
+          :desc "Open vpane" :nv "o" #'tmux-pane-open-vertical
+          :desc "Open hpane" :nv "h" #'tmux-pane-open-horizontal
+          :desc "Open hpane" :nv "s" #'tmux-pane-open-horizontal
+          :desc "Open vpane" :nv "v" #'tmux-pane-open-vertical
+          :desc "Close pane" :nv "c" #'tmux-pane-close
+          :desc "Rerun last command" :nv "r" #'tmux-pane-rerun))
+  (map! :leader
+        (:prefix "t"
+          :desc "vpane" :nv "v" #'tmux-pane-toggle-vertical
+          :desc "hpane" :nv "h" #'tmux-pane-toggle-horizontal)))
