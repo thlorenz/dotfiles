@@ -63,7 +63,7 @@
 ;; (define-key evil-normal-state-map (kbd "C-l") #'evil-window-right)
 (use-package! tmux-pane
   :config
-  (tmux-pane-mode)
+  (tmux-pane-mode))
   (map! :leader
         (:prefix ("v" . "tmux pane")
           :desc "Open vpane" :nv "o" #'tmux-pane-open-vertical
@@ -76,3 +76,22 @@
         (:prefix "t"
           :desc "vpane" :nv "v" #'tmux-pane-toggle-vertical
           :desc "hpane" :nv "h" #'tmux-pane-toggle-horizontal)))
+
+;; no backup/lock files
+(setq make-backup-files nil)
+(setq create-lockfiles nil)
+
+;; typescript/javascript formatting with prettier
+(use-package! prettier-js
+  :commands (typescript-mode js2-mode))
+(use-package! add-node-modules-path
+  :commands (typescript-mode js2-mode))
+
+(eval-after-load 'js2-mode
+  '(progn
+    (add-hook 'js2-mode-hook #'add-node-modules-path)
+    (add-hook 'js2-mode-hook #'prettier-js-mode)))
+(eval-after-load 'typescript-mode
+  '(progn
+    (add-hook 'typescript-mode-hook #'add-node-modules-path)
+    (add-hook 'typescript-mode-hook #'prettier-js-mode)))

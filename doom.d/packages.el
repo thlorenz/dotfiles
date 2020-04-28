@@ -48,3 +48,5 @@
 
 ;; integrate in terminal buffer navigation with tmux
 (package! tmux-pane)
+(package! prettier-js)
+(package! add-node-modules-path)
