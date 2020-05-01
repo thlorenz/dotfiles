@@ -1,9 +1,5 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here! Remember, you do not need to run 'doom
-;; sync' after modifying this file!
-
-
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Thorsten Lorenz"
@@ -21,10 +17,6 @@
 ;; font string. You generally only need these two:
 (setq doom-font (font-spec :family "Source Code Pro" :size 12))
 
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -78,8 +70,26 @@
 (eval-after-load 'js2-mode
   '(progn
     (add-hook 'js2-mode-hook #'add-node-modules-path)
-    (add-hook 'js2-mode-hook #'prettier-js-mode)))
+    (add-hook 'js2-mode-hook #'prettier-js-mode)
+    (add-hook 'typescript-mode-hook (lambda () (setq-local global-hl-line-mode -1)))))
 (eval-after-load 'typescript-mode
   '(progn
     (add-hook 'typescript-mode-hook #'add-node-modules-path)
-    (add-hook 'typescript-mode-hook #'prettier-js-mode)))
+    (add-hook 'typescript-mode-hook #'prettier-js-mode)
+    (add-hook 'typescript-mode-hook (lambda () (setq-local global-hl-line-mode -1)))))
+
+(map! :leader :desc "rename" "r" #'tide-rename-symbol)
+
+;; projectile
+(setq projectile-project-search-path '(
+  "/Volumes/d/dotfiles/doom.d"
+  "/Volumes/d//dev/cy/cypress-node"
+  "/Volumes/d/dev/ts/macualay"
+  "/Volumes/d/dev/gdev/flutter/ufo-2d"
+  "/Volumes/d/dev/flutter/projects"))
+
+;; theme
+(setq doom-theme 'wombat)
+
+;; org mode
+(eval-after-load 'org '(require 'ox-gfm nil t))
