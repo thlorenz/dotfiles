@@ -106,3 +106,6 @@
 
 (setq interprogram-cut-function 'paste-to-osx)
 (setq interprogram-paste-function 'copy-from-osx)
+
+;; which-key
+(setq which-key-idle-delay 0.2)
