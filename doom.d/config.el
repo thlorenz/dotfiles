@@ -94,6 +94,9 @@
 ;; org mode
 (eval-after-load 'org '(require 'ox-gfm nil t))
 
+(global-set-key (kbd "C-c l") 'org-store-link)
+
+
 ;; clipboard
 (defun copy-from-osx ()
   (shell-command-to-string "pbpaste"))
