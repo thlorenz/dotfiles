@@ -54,6 +54,9 @@ brew tap d12frosted/emacs-plus
 brew install emacs-plus
 ln -s /usr/local/opt/emacs-plus/Emacs.app /Applications/Emacs.app
 
+# pdflatex to convert emacs org files to pdf
+brew cask install mactex
+
 # To have launchd start d12frosted/emacs-plus/emacs-plus now and restart at login:
 #   brew services start d12frosted/emacs-plus/emacs-plus
 
