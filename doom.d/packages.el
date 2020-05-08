@@ -52,3 +52,4 @@
 (package! add-node-modules-path)
 (package! ox-gfm)
 (package! dash-at-point)
+(package! eglot)

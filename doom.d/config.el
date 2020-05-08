@@ -119,3 +119,13 @@
 ;; documentation
 (define-key evil-normal-state-map "gh" 'dash-at-point)
 
+;; dart
+;; dart /Volumes/d/dev/flutter/sdk/bin/cache/dart-sdk/bin/snapshots/analysis_server.dart.snapshot --lsp
+(eval-after-load 'eglot
+  '(progn
+      (add-to-list
+      'eglot-server-programs
+      '(dart-mode . ("dart"
+                    "/Volumes/d/dev/flutter/sdk/bin/cache/dart-sdk/bin/snapshots/analysis_server.dart.snapshot" "--lsp"
+                    )))))
+(add-hook 'dart-mode-hook 'eglot-ensure)
