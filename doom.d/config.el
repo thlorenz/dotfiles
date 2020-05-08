@@ -48,11 +48,6 @@
 (setq local-function-key-map (delq '(kp-tab . [9]) local-function-key-map))
 (global-set-key (kbd "C-i") 'evil-jump-forward)
 
-;; navigate buffers with C-{hjkl}
-;; (define-key evil-normal-state-map (kbd "C-h") #'evil-window-left)
-;; (define-key evil-normal-state-map (kbd "C-j") #'evil-window-down)
-;; (define-key evil-normal-state-map (kbd "C-k") #'evil-window-up)
-;; (define-key evil-normal-state-map (kbd "C-l") #'evil-window-right)
 (use-package! tmux-pane
   :config
   (tmux-pane-mode))
@@ -80,14 +75,6 @@
 
 (map! :leader :desc "rename" "r" #'tide-rename-symbol)
 
-;; projectile
-(setq projectile-project-search-path '(
-  "/Volumes/d/dotfiles/doom.d"
-  "/Volumes/d//dev/cy/cypress-node"
-  "/Volumes/d/dev/ts/macualay"
-  "/Volumes/d/dev/gdev/flutter/ufo-2d"
-  "/Volumes/d/dev/flutter/projects"))
-
 ;; theme
 (setq doom-theme 'wombat)
 
@@ -98,9 +85,6 @@
 
 
 ;; clipboard
-(defun copy-from-osx ()
-  (shell-command-to-string "pbpaste"))
-
 (defun paste-to-osx (text &optional push)
   (let ((process-connection-type nil))
     (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
@@ -108,7 +92,6 @@
       (process-send-eof proc))))
 
 (setq interprogram-cut-function 'paste-to-osx)
-(setq interprogram-paste-function 'copy-from-osx)
 
 ;; which-key
 (setq which-key-idle-delay 0.2)
@@ -128,3 +111,11 @@
         ((((type x)) (:inherit company-tooltip-selection :weight bold))
           (t (:inherit company-tooltip-selection)))))
      ))
+
+;; projectile
+;; https://github.com/bbatsov/projectile/issues/1416#issuecomment-554730770
+(setq projectile-indexing-method 'hybrid)
+
+;; documentation
+(define-key evil-normal-state-map "gh" 'dash-at-point)
+

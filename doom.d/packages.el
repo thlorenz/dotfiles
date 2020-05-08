@@ -51,3 +51,4 @@
 (package! prettier-js)
 (package! add-node-modules-path)
 (package! ox-gfm)
+(package! dash-at-point)
