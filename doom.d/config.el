@@ -120,12 +120,16 @@
 (define-key evil-normal-state-map "gh" 'dash-at-point)
 
 ;; dart
-;; dart /Volumes/d/dev/flutter/sdk/bin/cache/dart-sdk/bin/snapshots/analysis_server.dart.snapshot --lsp
-(eval-after-load 'eglot
-  '(progn
-      (add-to-list
-      'eglot-server-programs
-      '(dart-mode . ("dart"
-                    "/Volumes/d/dev/flutter/sdk/bin/cache/dart-sdk/bin/snapshots/analysis_server.dart.snapshot" "--lsp"
-                    )))))
-(add-hook 'dart-mode-hook 'eglot-ensure)
+(with-eval-after-load "projectile"
+  (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
+  (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
+(setq lsp-auto-guess-root t)
+(setq dart-server-format-on-save t)
+
+;; LSP related to TypeScript, Dart, etc.
+;; https://github.com/emacs-lsp/lsp-mode/blob/master/README.org#settings
+(use-package! lsp-mode
+  :init
+  (add-hook 'before-save-hook 'lsp-format-buffer)
+  :config
+  (setq lsp-response-timeout 25))
