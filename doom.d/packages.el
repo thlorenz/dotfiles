@@ -53,3 +53,4 @@
 (package! ox-gfm)
 (package! dash-at-point)
 (package! protobuf-mode)
+(package! pdf-tools)

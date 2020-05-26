@@ -20,6 +20,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   LUA_PATH=~/.luarocks/share/lua/5.3/
   FLUTTER_SDK=~/dev/flutter/sdk
   DART_SDK=$FLUTTER_SDK/bin/cache/dart-sdk/bin/
+  PKG_CONFIG_PATH="/usr/local/opt/qt/lib/pkgconfig"
 elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
   PATH=~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:$PATH
 fi

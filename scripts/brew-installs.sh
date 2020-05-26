@@ -56,6 +56,9 @@ ln -s /usr/local/opt/emacs-plus/Emacs.app /Applications/Emacs.app
 
 # pdflatex to convert emacs org files to pdf
 brew cask install mactex
+# Emacs pdf tools dependencies (https://github.com/politza/pdf-tools)
+brew install poppler automake 
+brew install pkg-config poppler automake 
 
 # To have launchd start d12frosted/emacs-plus/emacs-plus now and restart at login:
 #   brew services start d12frosted/emacs-plus/emacs-plus
