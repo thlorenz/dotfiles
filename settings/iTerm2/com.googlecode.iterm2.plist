@@ -400,7 +400,7 @@
 	<key>HideScrollbar</key>
 	<false/>
 	<key>HideTab</key>
-	<true/>
+	<false/>
 	<key>HighlightTabLabels</key>
 	<true/>
 	<key>HotKeyBookmark</key>
@@ -480,12 +480,22 @@
 	</dict>
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
 	<string>475 470 841 470 0 0 1792 1097 </string>
+	<key>NSWindow Frame ProfilesPanel</key>
+	<string>532 978 735 382 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 1011 1452 406 0 0 2560 1417 </string>
+	<string>-2560 54 1644 989 -2560 48 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 0 2560 1418 0 0 2560 1417 </string>
+	<string>-2560 426 652 669 -2560 48 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 0 1276 1417 0 0 2560 1417 </string>
+	<string>320 1068 316 349 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 3</key>
+	<string>764 367 764 342 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 4</key>
+	<string>640 716 636 701 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 5</key>
+	<string>0 947 380 470 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 6</key>
+	<string>0 12 764 454 0 0 2560 1417 </string>
 	<key>NeverWarnAboutShortLivedSessions_02DDFD8E-720C-492C-B2EB-80F22EFEC21A</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_02DDFD8E-720C-492C-B2EB-80F22EFEC21A_selection</key>
@@ -697,7 +707,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>180</integer>
+			<integer>80</integer>
 			<key>Command</key>
 			<string>/usr/local/bin/bash</string>
 			<key>Cursor Boost</key>
@@ -1131,7 +1141,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>25</integer>
+			<integer>40</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -1268,6 +1278,8 @@
 					<string>\btelnet:([a-z0-9A-Z_]+@)?([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+\b</string>
 				</dict>
 			</array>
+			<key>Space</key>
+			<integer>0</integer>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
@@ -1277,7 +1289,7 @@
 			<key>Thin Strokes</key>
 			<integer>1</integer>
 			<key>Transparency</key>
-			<real>0.50951915917360235</real>
+			<real>0.2287331502903536</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
@@ -2932,17 +2944,24 @@
 		<string>Menlo for Powerline</string>
 		<string>Menlo</string>
 	</array>
-	<key>NoSyncFrame_SharedPreferences</key>
+	<key>NoSyncFrame_SessionsPreferences</key>
 	<dict>
 		<key>screenFrame</key>
 		<string>{{0, 0}, {2560, 1440}}</string>
 		<key>topLeft</key>
-		<string>{663, 896}</string>
+		<string>{977, 1209}</string>
+	</dict>
+	<key>NoSyncFrame_SharedPreferences</key>
+	<dict>
+		<key>screenFrame</key>
+		<string>{{-2560, 48}, {2560, 1440}}</string>
+		<key>topLeft</key>
+		<string>{-2291, 643}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
 	<string>EF6A1572-90B2-4F4E-A7B2-C8C24C12455C</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>13</integer>
+	<integer>20</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -3731,7 +3750,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-04-18T15:42:01Z</date>
+	<date>2020-06-02T22:00:47Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3755,7 +3774,7 @@
 	<key>TabStyle</key>
 	<integer>0</integer>
 	<key>TabStyleWithAutomaticOption</key>
-	<integer>4</integer>
+	<integer>5</integer>
 	<key>TabViewType</key>
 	<integer>1</integer>
 	<key>ThreeFingerEmulates</key>
