@@ -890,5 +890,8 @@
   "coc-python|/Volumes/d/dev/gdev/flutter/ufo-2d/batufo/client": {
     "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
     "INTERPRETERS_CACHE_v3_PipEnvService": []
+  },
+  "coc-rust-analyzer|global": {
+    "release": "2020-06-29"
   }
 }
