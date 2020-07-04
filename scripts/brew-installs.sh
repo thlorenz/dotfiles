@@ -37,6 +37,12 @@ brew install nmap
 brew install openssl
 brew install pkg-config
 
+# change brightness of monitors programatically
+brew install brightness
+
+# cast keys
+brew cask install keycastr
+
 # testing
 # brew install wrk
 # brew install siege
@@ -50,26 +56,28 @@ brew install pkg-config
 # brew cask install vlc
 
 # emacs
-# brew tap d12frosted/emacs-plus
-# brew install emacs-plus
-# ln -s /usr/local/opt/emacs-plus/Emacs.app /Applications/Emacs.app
-
-# mac emacs
-brew tap railwaycat/emacsmacport
+brew tap d12frosted/emacs-plus
+brew install emacs-plus
 rm -rf /Applications/Emacs.app
-brew cask install emacs-mac 
-brew untap railwaycat/emacsmacport
+ln -s /usr/local/opt/emacs-plus/Emacs.app /Applications/Emacs.app
+
+# mac emacs (needed to work well with tools like yabai)
+# brew tap railwaycat/emacsmacport
+# rm -rf /Applications/Emacs.app
+# brew cask install emacs-mac
+# brew untap railwaycat/emacsmacport
 
 # pdflatex to convert emacs org files to pdf
 brew cask install mactex
 
-#yabai and related keyboard hooks
-brew install koekeishiya/formulae/yabai
-sudo yabai --install-sa
-brew services start yabai
-brew install koekeishiya/formulae/skhd
-brew services start skhd
-killall Dock
+# yabai and related keyboard hooks
+# this tool proved too unstable for now
+# brew install koekeishiya/formulae/yabai
+# sudo yabai --install-sa
+# brew services start yabai
+# brew install koekeishiya/formulae/skhd
+# brew services start skhd
+# killall Dock
 
 # To have launchd start d12frosted/emacs-plus/emacs-plus now and restart at login:
 #   brew services start d12frosted/emacs-plus/emacs-plus
