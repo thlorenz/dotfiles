@@ -24,11 +24,24 @@
     enable_tabline_filetype_icon = true
     enable_statusline_mode = false
 
+    bootstrap_after="myspacevim#after"
+
 # Enable autocomplete layer
 [[layers]]
 name = 'autocomplete'
 auto_completion_return_key_behavior = "complete"
 auto_completion_tab_key_behavior = "smart"
+
+[[layers]]
+name="lang#rust"
+
+[[layers]]
+name="lsp"
+filetypes = [
+  "rust"
+]
+[layers.override_cmd]
+  rust = ["rls"]
 
 [[layers]]
 name = 'shell'
