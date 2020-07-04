@@ -30,8 +30,11 @@
       compilation-scroll-output t
 
       org-directory "~/dotfiles/org/"
+      org-export-with-broken-links 1
+
       which-key-idle-delay 0.2
       projectile-indexing-method 'alien)
+
 
 ;; typescript/javascript formatting with prettier
 (use-package! add-node-modules-path
@@ -52,6 +55,8 @@
 
 ;; org
 (global-set-key (kbd "C-c l") 'org-store-link)
+(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
 ;; elisp
 (use-package! format-all
@@ -74,7 +79,26 @@
 
 ;; elisp
 (define-key evil-normal-state-map "g'" 'eval-last-sexp )
+(define-key evil-normal-state-map ",r" 'rustic-cargo-run)
 (define-key evil-normal-state-map "g\"" 'eval-defun)
+
+;; compile on save minor mode
+;; https://rtime.ciirc.cvut.cz/~sojka/blog/compile-on-save/
+(defun compile-on-save-start ()
+  (let ((buffer (compilation-find-buffer)))
+    (unless (get-buffer-process buffer)
+      (recompile))))
+
+(define-minor-mode compile-on-save-mode
+  "Minor mode to automatically call `recompile' whenever the
+current buffer is saved. When there is ongoing compilation,
+nothing happens."
+  :lighter " CoS"
+    (if compile-on-save-mode
+    (progn  (make-local-variable 'after-save-hook)
+        (add-hook 'after-save-hook 'compile-on-save-start nil t))
+      (kill-local-variable 'after-save-hook)))
+;; /compile on save minor mode
 
 ;; TODO: non ui settings
 ;; (setq doom-theme 'wombat)
