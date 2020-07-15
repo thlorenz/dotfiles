@@ -6,8 +6,9 @@
     "javascript",
     "javascriptreact",
     "json",
+    "rust",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
   ],
   "prettier.disableSuccessMessage": true,
   "suggest.autoTrigger": "always",
