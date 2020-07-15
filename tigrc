@@ -1,1 +1,2 @@
-set vertical-split = yes
+set vertical-split = no
+bind generic P !git push origin
