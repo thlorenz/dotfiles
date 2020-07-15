@@ -57,6 +57,9 @@ Plug 'rizzatti/dash.vim'
   "" Dash BabylonJS
   noremap <leader>v "zyiw:exe "Dash ".@z." babylonjs" <CR>
 Plug 'kristijanhusak/vim-carbon-now-sh'
+Plug 'tpope/vim-fugitive'
+  nnoremap gs :Gstatus<cr>
+  nnoremap gp :Gpush<cr>
 
 " open current file in idea
 au FileType dart,typescript,javascript nmap <silent>gI :update \|!idea --line " . line(".") . " %:p<CR>
