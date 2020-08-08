@@ -63,16 +63,14 @@ Plug 'kannokanno/previm', { 'for': [ 'markdown' ] }
 Plug 'wakatime/vim-wakatime'
 Plug 'mrtazz/simplenote.vim'
 Plug 'rizzatti/dash.vim'
-  noremap <leader>b :Dash <CR>
-  "" Dash BabylonJS
-  noremap <leader>v "zyiw:exe "Dash ".@z." babylonjs" <CR>
+  noremap <leader>h :Dash <CR>
 Plug 'kristijanhusak/vim-carbon-now-sh'
 Plug 'tpope/vim-fugitive'
   noremap gs :Gstatus<cr>
   noremap gp :Gpush<cr>
 
 " open current file in idea
-au FileType dart,typescript,javascript nmap <silent>gI :update \|!idea --line " . line(".") . " %:p<CR>
+au FileType dart,typescript,javascript,rust nmap <silent>gI :update \|!idea --line " . line(".") . " %:p<CR>
 
 
 """""""""""""""""
