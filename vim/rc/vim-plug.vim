@@ -181,6 +181,19 @@ Plug 'ianks/vim-tsx'
   inoremap <silent><expr> <c-n> coc#refresh()
   inoremap <expr> <tab> pumvisible() ? "\<C-y>" : "\<tab>"
 
+  " Documentation for Symbol under Cursor
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+  " Highlight References of Symbol under Cursor
+  nnoremap <silent> L :call CocActionAsync('highlight')<CR>
+
+  function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    else
+      call CocAction('doHover')
+    endif
+  endfunction
+
   " outline
   Plug 'liuchengxu/vista.vim'
 
