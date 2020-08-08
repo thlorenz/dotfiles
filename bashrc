@@ -28,9 +28,10 @@ function init () {
   [ -f $DIR/bash/rust-aliases.sh     ] && source $DIR/bash/rust-aliases.sh
 
   # Edit/source/cat this bashrc
-  alias ,ev='vim ~/.bashrc'
+  alias ,ev='nvim ~/.bashrc'
   alias ,sv='source ~/.bashrc'
   alias ,cv='c ~/.bashrc'
+  alias vim='nvim'
 
   # Source vim inputrc
   alias ,vi='bind -f ~/.vimputrc'
