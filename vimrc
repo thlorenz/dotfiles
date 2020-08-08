@@ -43,12 +43,20 @@ set cmdheight=1
 noremap <right> :next <CR>
 noremap <left> :prev <CR>
 
-if(isGui)
-  colo wombat
+"
+" Colors/Themes
+"
+if has('nvim')
+  set termguicolors
+  colo challenger_deep
+elseif(isGui)
+  colo challenger_deep
 else
   colo wombat256mod
 endif
 
+
+"
 " highlight things that hang over 80th column
 "highlight OverLength ctermbg=black ctermfg=white guibg=black
 "match OverLength /\%81v.\+/

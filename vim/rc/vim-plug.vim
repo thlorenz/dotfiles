@@ -1,10 +1,10 @@
 call plug#begin('~/.vim/plugged')
 
-"""""""""
+""""""""
 " Themes
-"""""""""
+""""""""
 
-Plug 'doums/darcula'
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 
 """""""""
 " Editing
