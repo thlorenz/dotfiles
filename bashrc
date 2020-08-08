@@ -25,6 +25,7 @@ function init () {
   [ -f $DIR/bash/lua-aliases.sh      ] && source $DIR/bash/lua-aliases.sh
   [ -f $DIR/bash/cy-aliases.sh       ] && source $DIR/bash/cy-aliases.sh
   [ -f $DIR/bash/flutter-aliases.sh  ] && source $DIR/bash/flutter-aliases.sh
+  [ -f $DIR/bash/rust-aliases.sh     ] && source $DIR/bash/rust-aliases.sh
 
   # Edit/source/cat this bashrc
   alias ,ev='vim ~/.bashrc'
