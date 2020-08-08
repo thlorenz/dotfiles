@@ -306,3 +306,11 @@ function! SearchCamelCase(dir)
   let @/ = '\C\<' . join(map(l, 'v:val . "[0-9a-z_]*"'), '') . '\>'
   return a:dir . "\r"
 endfunction
+
+" Apply Macro to Visual selection
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
