@@ -2,7 +2,7 @@
   name = Thorsten Lorenz
   email = thlorenz@gmx.de
 [core]
-  editor = vim
+  editor = nvim
   excludesfile = /Users/thlorenz/.gitignore
 [core "diff"]
   tool = vimdiff
