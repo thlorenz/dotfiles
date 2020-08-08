@@ -195,6 +195,9 @@ Plug 'ianks/vim-tsx'
     endif
   endfunction
 
+  " coc status line additions
+  set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
   " outline
   Plug 'liuchengxu/vista.vim'
 
