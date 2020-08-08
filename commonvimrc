@@ -45,3 +45,10 @@ nnoremap <C-y> 5<C-y>
 
 inoremap jk <Esc>
 set timeoutlen=600
+set updatetime=300
+
+if has("patch-8.1.1564")
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
