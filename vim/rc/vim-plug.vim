@@ -1,6 +1,12 @@
 call plug#begin('~/.vim/plugged')
 
 """""""""
+" Themes
+"""""""""
+
+Plug 'doums/darcula'
+
+"""""""""
 " Editing
 """""""""
 
@@ -58,8 +64,8 @@ Plug 'rizzatti/dash.vim'
   noremap <leader>v "zyiw:exe "Dash ".@z." babylonjs" <CR>
 Plug 'kristijanhusak/vim-carbon-now-sh'
 Plug 'tpope/vim-fugitive'
-  nnoremap gs :Gstatus<cr>
-  nnoremap gp :Gpush<cr>
+  noremap gs :Gstatus<cr>
+  noremap gp :Gpush<cr>
 
 " open current file in idea
 au FileType dart,typescript,javascript nmap <silent>gI :update \|!idea --line " . line(".") . " %:p<CR>
@@ -103,7 +109,11 @@ Plug 'Glench/Vim-Jinja2-Syntax'    , { 'for': [ 'jinja' ] }
 Plug 'leafgarland/typescript-vim'  , { 'for': [ 'typescript' ] }
 Plug 'posva/vim-vue'               , { 'for': [ 'vue' ] }
   autocmd BufRead,BufNewFile *.vue setlocal filetype=vue
-Plug 'evanleck/vim-svelte'
+Plug 'evanleck/vim-svelte'         , { 'for': [ 'svelte' ] }
+Plug 'cespare/vim-toml'            ,  { 'for': [ 'toml' ] }
+Plug 'tikhomirov/vim-glsl'         ,  { 'for': [ 'glsl' ] }
+  autocmd! BufNewFile,BufRead *.vs,*.fs,*.vert,*.frag set ft=glsl
+
 
 """"""""""""
 " Status bar
