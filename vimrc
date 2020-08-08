@@ -84,11 +84,11 @@ autocmd BufReadPost *
 
 " Font
 if (isGui)
-  set gfn=Inconsolata\ for\ Powerline:h15
+  set gfn=SourceCodePro:h18
 elseif(isMac)
-  set gfn=Inconsolata-Powerline:h12
+  set gfn=SourceCodePro:h12
 else
-  set gfn=Inconsolata-Powerline:h12
+  set gfn=SourceCodePro:h12
 endif
 
 "Set tab size -- may be overridden for specific filetypes
