@@ -118,16 +118,16 @@ Plug 'tikhomirov/vim-glsl'         ,  { 'for': [ 'glsl' ] }
 """"""""""""
 " Status bar
 """"""""""""
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-  let g:airline_theme = 'jellybeans'
-  let g:airline#extensions#tagbar#enabled = 1
-  let g:airline_powerline_fonts = 1
-  let g:airline#extensions#tabline#enabled = 0
-  let g:airline#extensions#tabline#left_sep=' '
-  let g:airline#extensions#tabline#left_alt_sep='¦'
-  let g:airline#extensions#tabline#buffer_nr_show = 1
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+      \  'colorscheme': 'challenger_deep',
+      \  'active': {
+      \    'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']],
+      \  },
+      \  'inactive': {
+      \    'left': [['relativepath']],
+      \  }
+      \}
 
 """""""""""
 " Coc
