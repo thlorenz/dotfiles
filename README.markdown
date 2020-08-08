@@ -45,6 +45,10 @@ Vim scripts without a repo will be pulled down during clone. They can be updated
 
     cp ~/dotfiles/fonts/* ~/Library/Fonts/
 
+## Dotfiles Inspirations
+
+- [halzy/dotfiles](https://github.com/halzy/dotfiles/) tweaked for nvim
+
 ## Tagbar Plugin
 
 In order for the tagbar plugin to work, we replace the original ctags with a [better version][exuberant].
