@@ -2,13 +2,13 @@
   "dependencies": {
     "coc-css": ">=1.2.4",
     "coc-emmet": ">=1.1.6",
-    "coc-flutter": ">=1.4.1",
+    "coc-flutter": ">=1.5.1",
     "coc-highlight": ">=1.2.5",
     "coc-html": ">=1.2.4",
     "coc-json": ">=1.2.5",
     "coc-prettier": ">=1.1.17",
     "coc-python": ">=1.2.9",
-    "coc-rust-analyzer": ">=0.7.13",
-    "coc-tsserver": ">=1.5.3"
+    "coc-rust-analyzer": ">=0.7.14",
+    "coc-tsserver": ">=1.5.4"
   }
 }
