@@ -6,6 +6,8 @@
   excludesfile = /Users/thlorenz/.gitignore
 [core "diff"]
   tool = vimdiff
+[mergetool "vimdiff"]
+  cmd = nvim -d $LOCAL $BASE -c '$wincmd w'
 
 [color]
   diff = true
