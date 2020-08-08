@@ -154,6 +154,7 @@ Plug 'ianks/vim-tsx'
   nmap <silent> gr <Plug>(coc-references)
   nmap <silent> ]g <Plug>(coc-diagnostic-next)
   nmap <silent> [g <Plug>(coc-diagnostic-prev)
+  nmap <silent> ]G :CocList diagnostics<CR> 
   command! -nargs=0 CoqGotoProjectConfig :call CocAction('runCommand', 'tsserver.goToProjectConfig')
   nmap <leader>gc :CoqGotoProjectConfig<cr>
 
