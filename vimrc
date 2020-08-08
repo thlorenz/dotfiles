@@ -55,7 +55,6 @@ else
   colo wombat256mod
 endif
 
-
 "
 " highlight things that hang over 80th column
 "highlight OverLength ctermbg=black ctermfg=white guibg=black

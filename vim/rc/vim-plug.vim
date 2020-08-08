@@ -23,10 +23,14 @@ Plug 'sjl/gundo.vim'
 """"""""""
 " Snippets
 """"""""""
-
+" Follow `:h provider-python` instructions -> `python3 -m pip install --user --upgrade pynvim`
+Plug 'SirVer/ultisnips'
+  let g:UltiSnipsSnippetDirectories = ['/Users/thlorenz/.vim/UltiSnips']
+  let g:UltiSnipsExpandTrigger="<TAB>"
+  let g:UltiSnipsJumpForwardTrigger="<C-j>"
+  let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+  let g:UltiSnipsEditSplit="vertical"
 Plug 'honza/vim-snippets'
-Plug 'thlorenz/snippets'
-Plug 'thlorenz/snipmate-mine'
 
 """"""""""""""""""""""""""""""""""
 " Integration with System/Terminal
