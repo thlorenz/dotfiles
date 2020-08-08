@@ -27,7 +27,7 @@
 	<key>ClosingHotkeySwitchesSpaces</key>
 	<false/>
 	<key>Command</key>
-	<string>/usr/local/bin/bash</string>
+	<string></string>
 	<key>CommandSelection</key>
 	<true/>
 	<key>Control</key>
@@ -482,20 +482,22 @@
 	<string>475 470 841 470 0 0 1792 1097 </string>
 	<key>NSWindow Frame ProfilesPanel</key>
 	<string>532 978 735 382 0 0 2560 1440 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>930 596 700 622 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-2560 54 1644 989 -2560 48 2560 1417 </string>
+	<string>0 0 2560 1440 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>-2560 426 652 669 -2560 48 2560 1417 </string>
+	<string>-800 15 794 636 -2560 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>320 1068 316 349 0 0 2560 1417 </string>
+	<string>-796 667 794 750 -2560 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>764 367 764 342 0 0 2560 1417 </string>
+	<string>1718 700 860 717 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>640 716 636 701 0 0 2560 1417 </string>
+	<string>1 0 860 717 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
-	<string>0 947 380 470 0 0 2560 1417 </string>
+	<string>862 0 860 717 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
-	<string>0 12 764 454 0 0 2560 1417 </string>
+	<string>1723 0 860 717 0 0 2560 1417 </string>
 	<key>NeverWarnAboutShortLivedSessions_02DDFD8E-720C-492C-B2EB-80F22EFEC21A</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_02DDFD8E-720C-492C-B2EB-80F22EFEC21A_selection</key>
@@ -505,6 +507,8 @@
 		<dict>
 			<key>ASCII Anti Aliased</key>
 			<true/>
+			<key>ASCII Ligatures</key>
+			<false/>
 			<key>Allow Title Reporting</key>
 			<false/>
 			<key>Ambiguous Double Width</key>
@@ -758,7 +762,7 @@
 			<key>Disable Window Resizing</key>
 			<true/>
 			<key>Draw Powerline Glyphs</key>
-			<true/>
+			<false/>
 			<key>Flashing Bell</key>
 			<false/>
 			<key>Foreground Color</key>
@@ -1131,7 +1135,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Menlo-RegularForPowerline 13</string>
+			<string>SourceCodePro-Medium 14</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<true/>
 			<key>Option Key Sends</key>
@@ -1307,7 +1311,7 @@
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>0.98999999999999999</real>
+			<real>1.05</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
@@ -2937,12 +2941,12 @@
 	<key>NoSyncAllAppVersions</key>
 	<array>
 		<string>3.3.9</string>
+		<string>3.3.11</string>
+		<string>3.3.12</string>
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
-		<string>Inconsolata for Powerline</string>
-		<string>Menlo for Powerline</string>
-		<string>Menlo</string>
+		<string>Source Code Pro</string>
 	</array>
 	<key>NoSyncFrame_SessionsPreferences</key>
 	<dict>
@@ -2954,14 +2958,14 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{-2560, 48}, {2560, 1440}}</string>
+		<string>{{0, 0}, {2560, 1440}}</string>
 		<key>topLeft</key>
-		<string>{-2291, 643}</string>
+		<string>{310, 759}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
 	<string>EF6A1572-90B2-4F4E-A7B2-C8C24C12455C</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>20</integer>
+	<integer>38</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -3750,8 +3754,12 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-06-02T22:00:47Z</date>
+	<date>2020-08-07T01:33:21Z</date>
 	<key>SUSendProfileInfo</key>
+	<false/>
+	<key>SUUpdateGroupIdentifier</key>
+	<integer>1971825902</integer>
+	<key>SUUpdateRelaunchingMarker</key>
 	<false/>
 	<key>SavePasteHistory</key>
 	<false/>
@@ -3810,6 +3818,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.9</string>
+	<string>3.3.12</string>
 </dict>
 </plist>
