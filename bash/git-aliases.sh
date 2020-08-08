@@ -13,7 +13,7 @@ alias gc='git checkout'
 alias gd='git diff'
 alias gt='git difftool'
 alias gdc='git diff --cached'
-alias gtc='git diff --cached'
+alias gtc='git difftool --cached'
 
 # committing
 alias gm='git commit -m'
@@ -33,3 +33,7 @@ alias gpur='git pull --rebase'
 
 alias gcl='git clone'
 
+# Fugitive
+
+alias vgs='nvim -c :Gstatus'
+alias vgl='nvim -c :Glog'
