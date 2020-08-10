@@ -83,11 +83,11 @@ autocmd BufReadPost *
 
 " Font
 if (isGui)
-  set gfn=SourceCodePro:h18
+  set gfn=SourceCodePro-Regular:h18
 elseif(isMac)
-  set gfn=SourceCodePro:h12
+  set gfn=SourceCodePro-Regular:h12
 else
-  set gfn=SourceCodePro:h12
+  set gfn=SourceCodePro-Regular:h14
 endif
 
 "Set tab size -- may be overridden for specific filetypes
@@ -96,6 +96,13 @@ set softtabstop=2
 set shiftwidth=2
 set	expandtab
 set nowrap
+
+" terminal mode
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-j> <C-\><C-N><C-w>j
+tnoremap <C-k> <C-\><C-N><C-w>k
+tnoremap <C-l> <C-\><C-N><C-w>l
+tnoremap <C-h> <C-\><C-N><C-w>h
 
 " Scala specific
 au FileType scala noremap <leader>r :wa \| call Send_to_Screen(join(getline(1,'$'), "\n")) \| call Send_to_Screen("\n")<CR>
