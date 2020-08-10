@@ -39,3 +39,6 @@ if [ -f '/Volumes/d/dev/devops/google-cloud-sdk/path.bash.inc' ]; then . '/Volum
 if [ -f '/Volumes/d/dev/devops/google-cloud-sdk/completion.bash.inc' ]; then . '/Volumes/d/dev/devops/google-cloud-sdk/completion.bash.inc'; fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
