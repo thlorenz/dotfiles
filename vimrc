@@ -282,9 +282,15 @@ map <C-p> :r !tmux save-buffer - <CR>
 "hi ColorColumn ctermbg=138 guibg=black
 "set colorcolumn=102
 
-" Override Ale Linter Highlights (not working if done directly in vim-plug.vim)
-highlight ALEError ctermbg=DarkYellow
-highlight ALEWarning ctermbg=DarkMagenta
+" Highlight Line Number for current Line only
+set cursorline 
+au FileType,BufEnter * if &filetype != "nerdtree" 
+  \| hi clear CursorLine 
+  \| else | hi CursorLine ctermbg=236 guibg=#32322f
+  \| endif
+
+" AutoComplete Select Item with Tab
+inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<CR>"
 
 "Commands
 command! -nargs=* Wrap set wrap linebreak nolist
