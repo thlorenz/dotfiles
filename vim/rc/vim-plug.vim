@@ -121,14 +121,18 @@ Plug 'tikhomirov/vim-glsl'         ,  { 'for': [ 'glsl' ] }
 " Status bar
 """"""""""""
 Plug 'itchyny/lightline.vim'
-let g:lightline = {
-      \  'colorscheme': 'challenger_deep',
-      \  'active': {
-      \    'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']],
-      \  },
-      \  'inactive': {
-      \    'left': [['relativepath']],
-      \  }
+  let g:lightline = {
+      \ 'colorscheme': 'challenger_deep',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'currentfunction', 'readonly', 'relativepath', 'modified' ] ]
+      \ },
+      \ 'inactive': {
+      \   'left': [['relativepath']],
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status',
+      \ },
       \}
 
 """""""""""
@@ -166,9 +170,10 @@ Plug 'ianks/vim-tsx'
 
   " refactorings
   nmap <leader><C-r> <Plug>(coc-rename)
-  nmap <leader>ac <Plug>(coc-codeaction)
-  xmap <leader>a  <Plug>(coc-codeaction-selected)
-  nmap <leader>a  <Plug>(coc-codeaction-selected)
+  nmap <leader>a <Plug>(coc-codeaction)
+  xmap <leader>a <Plug>(coc-codeaction-selected)
+  nmap <leader>co :copen<CR>
+  nmap <leader>cc :cclose<CR>
 
   " fixes
   nmap <leader>ff <Plug>(coc-fix-current)
@@ -180,8 +185,7 @@ Plug 'ianks/vim-tsx'
 
   " Completion
   inoremap <silent><expr> <c-n> coc#refresh()
-  inoremap <expr> <tab> pumvisible() ? "\<C-y>" : "\<tab>"
-
+    
   " Documentation for Symbol under Cursor
   nnoremap <silent> K :call <SID>show_documentation()<CR>
   " Highlight References of Symbol under Cursor
@@ -194,9 +198,6 @@ Plug 'ianks/vim-tsx'
       call CocAction('doHover')
     endif
   endfunction
-
-  " coc status line additions
-  set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
   " outline
   Plug 'liuchengxu/vista.vim'
