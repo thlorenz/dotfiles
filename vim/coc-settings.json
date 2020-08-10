@@ -10,8 +10,9 @@
     "typescript",
     "typescriptreact",
   ],
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "prettier.disableSuccessMessage": true,
-  "suggest.autoTrigger": "always",
+  "suggest.autoTrigger": "trigger",
   "suggest.minTriggerInputLength": 3,
   "suggest.noselect": false,
   "flutter.provider.hot-reload": true
