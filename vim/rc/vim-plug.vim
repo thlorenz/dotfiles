@@ -121,17 +121,28 @@ Plug 'tikhomirov/vim-glsl'         ,  { 'for': [ 'glsl' ] }
 " Status bar
 """"""""""""
 Plug 'itchyny/lightline.vim'
+  function! CocCurrentFunction()
+      return get(b:, 'coc_current_function', '')
+  endfunction
+
   let g:lightline = {
       \ 'colorscheme': 'challenger_deep',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'currentfunction', 'readonly', 'relativepath', 'modified' ] ]
+      \             [ 'cocstatus', 'readonly', 'relativepath', 'modified', 'cocfunction' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ] ],
       \ },
       \ 'inactive': {
       \   'left': [['relativepath']],
       \ },
       \ 'component_function': {
       \   'cocstatus': 'coc#status',
+      \   'cocfunction': 'CocCurrentFunction',
+      \ },
+      \ 'component': {
+      \   'charvaluehex': '0x%B'
       \ },
       \}
 
