@@ -24,13 +24,13 @@ Plug 'sjl/gundo.vim'
 " Snippets
 """"""""""
 " Follow `:h provider-python` instructions -> `python3 -m pip install --user --upgrade pynvim`
-Plug 'SirVer/ultisnips'
-  let g:UltiSnipsSnippetDirectories = ['/Users/thlorenz/.vim/UltiSnips']
-  let g:UltiSnipsExpandTrigger="<TAB>"
-  let g:UltiSnipsJumpForwardTrigger="<C-j>"
-  let g:UltiSnipsJumpBackwardTrigger="<C-k>"
-  let g:UltiSnipsEditSplit="vertical"
-Plug 'honza/vim-snippets'
+ Plug 'SirVer/ultisnips'
+   let g:UltiSnipsSnippetDirectories = ['/Users/thlorenz/.vim/UltiSnips']
+   let g:UltiSnipsExpandTrigger="<TAB>"
+   let g:UltiSnipsJumpForwardTrigger="<C-j>"
+   let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+   let g:UltiSnipsEditSplit="vertical"
+ Plug 'honza/vim-snippets'
 
 """"""""""""""""""""""""""""""""""
 " Integration with System/Terminal
@@ -169,7 +169,7 @@ Plug 'ianks/vim-tsx'
   nmap <silent> gr <Plug>(coc-references)
   nmap <silent> ]g <Plug>(coc-diagnostic-next)
   nmap <silent> [g <Plug>(coc-diagnostic-prev)
-  nmap <silent> ]G :CocList diagnostics<CR> 
+  nmap <silent> ]G :CocList diagnostics<CR>
   command! -nargs=0 CoqGotoProjectConfig :call CocAction('runCommand', 'tsserver.goToProjectConfig')
   nmap <leader>gc :CoqGotoProjectConfig<cr>
 
@@ -196,7 +196,7 @@ Plug 'ianks/vim-tsx'
 
   " Completion
   inoremap <silent><expr> <c-n> coc#refresh()
-    
+
   " Documentation for Symbol under Cursor
   nnoremap <silent> K :call <SID>show_documentation()<CR>
   " Highlight References of Symbol under Cursor
