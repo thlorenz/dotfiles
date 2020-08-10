@@ -283,9 +283,9 @@ map <C-p> :r !tmux save-buffer - <CR>
 "set colorcolumn=102
 
 " Highlight Line Number for current Line only
-set cursorline 
-au FileType,BufEnter * if &filetype != "nerdtree" 
-  \| hi clear CursorLine 
+set cursorline
+au FileType,BufEnter * if &filetype != "nerdtree"
+  \| hi clear CursorLine
   \| else | hi CursorLine ctermbg=236 guibg=#32322f
   \| endif
 
