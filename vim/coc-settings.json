@@ -10,10 +10,11 @@
     "typescript",
     "typescriptreact",
   ],
-  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "prettier.disableSuccessMessage": true,
-  "suggest.autoTrigger": "trigger",
+  "suggest.autoTrigger": "none",
   "suggest.minTriggerInputLength": 3,
   "suggest.noselect": false,
-  "flutter.provider.hot-reload": true
+  "flutter.provider.hot-reload": true,
+  "rust-analyzer.updates.channel": "nightly", 
+  "rust-analyzer.inlayHints.chainingHints": true
 }
