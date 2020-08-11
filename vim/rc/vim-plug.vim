@@ -178,9 +178,15 @@ Plug 'ianks/vim-tsx'
   nmap <silent> gr <Plug>(coc-references)
   nmap <silent> ]g <Plug>(coc-diagnostic-next)
   nmap <silent> [g <Plug>(coc-diagnostic-prev)
-  nmap <silent> ]G :CocList diagnostics<CR>
   command! -nargs=0 CoqGotoProjectConfig :call CocAction('runCommand', 'tsserver.goToProjectConfig')
-  nmap <leader>gc :CoqGotoProjectConfig<cr>
+  nmap <leader>gp :CoqGotoProjectConfig<cr>
+
+  " coc list + commands
+  nmap <silent> <leader>cx :CocList --number-select diagnostics<CR>
+  nmap <silent> <leader>cc :CocList --number-select commands<CR>
+  nmap <silent> <leader>cs :CocList --interactive symbols<CR>
+  nmap <silent> <leader>cr :CocRestart<CR>
+  nmap <silent> <leader>s<Space> :CocSearch
 
   " select inner/outer function in visual mode
   xmap if <Plug>(coc-funcobj-i)
