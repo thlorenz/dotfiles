@@ -72,7 +72,8 @@ nmap Q gqap
 cmap w!! w !sudo tee % >/dev/null
 
 " Editing and reloading vimrc
-nmap <silent> <leader>ev :e $MYVIMRC <CR>
+nmap <silent> <leader>ev :e ~/.vimrc <CR>
+nmap <silent> <leader>ep :e ~/.vim/rc/vim-plug.vim<CR>
 nmap <silent> <leader>sv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " Restore cursor position to the last when file was open
@@ -225,10 +226,6 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 filetype plugin on
 filetype indent on
 
-" toggle highlight line
-hi CursorLine term=underline ctermbg=236 guibg=#32322f
-noremap <leader><S-j> :set cursorline!<CR>
-
 " alt+n or alt+p to navigate between entries in QuickFix
 map <silent> <M-p> :cp <CR>
 map <silent> <M-n> :cn <CR>
@@ -289,12 +286,14 @@ map <C-p> :r !tmux save-buffer - <CR>
 "hi ColorColumn ctermbg=138 guibg=black
 "set colorcolumn=102
 
-" Highlight Line Number for current Line only
+
 set cursorline
-au FileType,BufEnter * if &filetype != "nerdtree"
-  \| hi clear CursorLine
-  \| else | hi CursorLine ctermbg=236 guibg=#32322f
-  \| endif
+noremap <leader><S-j> :set cursorline!<CR>
+"
+"au FileType,BufEnter * if &filetype != "nerdtree"
+"  \| hi clear CursorLine
+"  \| else | hi CursorLine ctermbg=236 guibg=#32322f
+"  \| endif
 
 " AutoComplete Select Item with Tab
 inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<CR>"
