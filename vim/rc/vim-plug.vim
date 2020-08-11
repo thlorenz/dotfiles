@@ -121,28 +121,37 @@ Plug 'tikhomirov/vim-glsl'         ,  { 'for': [ 'glsl' ] }
 " Status bar
 """"""""""""
 Plug 'itchyny/lightline.vim'
-  function! CocCurrentFunction()
-      return get(b:, 'coc_current_function', '')
-  endfunction
-
   let g:lightline = {
       \ 'colorscheme': 'challenger_deep',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'relativepath', 'modified', 'cocfunction' ] ],
+      \   'left': [ [ 'gitbranch', 'mode', 'paste' ],
+      \             [ 'readonly', 'relativepath', 'status', 'modified' ] ],
       \   'right': [ [ 'lineinfo' ],
       \              [ 'percent' ],
-      \              [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ] ],
+      \              [ 'fileformat', 'fileencoding', 'filetype' ] ],
       \ },
       \ 'inactive': {
       \   'left': [['relativepath']],
       \ },
       \ 'component_function': {
-      \   'cocstatus': 'coc#status',
-      \   'cocfunction': 'CocCurrentFunction',
+      \   'status': 'coc#status',
+      \   'gitbranch': 'FugitiveHead'
       \ },
       \ 'component': {
       \   'charvaluehex': '0x%B'
+      \ },
+      \ 'mode_map': {
+      \   'n' : 'NO',
+      \   'i' : 'IN',
+      \   'R' : 'RO',
+      \   'v' : 'VI',
+      \   'V' : 'VL',
+      \   "\<C-v>": 'VB',
+      \   'c' : 'CO',
+      \   's' : 'SE',
+      \   'S' : 'SL',
+      \   "\<C-s>": 'SB',
+      \   't': 'TE',
       \ },
       \}
 
