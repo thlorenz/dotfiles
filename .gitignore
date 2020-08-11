@@ -5,4 +5,11 @@ vim/.netrwhist
 vim/plugged
 vim-secretrc
 
+config/coc/explorer-actions
+config/coc/commands
+config/coc/extensions/db.json
+config/coc/history.json
+config/coc/lists
+config/coc/memos.json
+
 org/
