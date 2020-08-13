@@ -1,4 +1,5 @@
-let mapleader=","
+let mapleader="\<Space>"
+let maplocalleader = ","
 
 " Detect Environment
 let isGui  = has("gui_running")

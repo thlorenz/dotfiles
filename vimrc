@@ -1,5 +1,3 @@
-let mapleader=","
-
 source ~/dotfiles/commonvimrc
 source ~/.vim/rc/vim-plug.vim
 
@@ -35,9 +33,6 @@ au Bufenter * silent! guibg=darkblue
 
 " Keep small command-line window
 set cmdheight=1
-
-" noremap <Space> A
-" imap <S-Space> <Esc>A
 
 " next/prev file with right/left arrow keys
 noremap <right> :next <CR>
@@ -311,21 +306,6 @@ if !exists(":DiffOrig")
         \ | wincmd p | diffthis
 endif
 
-" Enable Camel-Case search
-nnoremap <expr> <leader>/ SearchCamelCase('/')
-nnoremap <expr> <leader>? SearchCamelCase('?')
-function! SearchCamelCase(dir)
-  call inputsave()
-  let ab = input(a:dir)
-  call inputrestore()
-  let l = filter(split(toupper(ab), '\zs'), 'v:val =~ "\\w"')
-  if len(l) > 0
-    let l[0] = '[' . l[0] . tolower(l[0]) . ']'
-  end
-  let @/ = '\C\<' . join(map(l, 'v:val . "[0-9a-z_]*"'), '') . '\>'
-  return a:dir . "\r"
-endfunction
-
 " Apply Macro to Visual selection
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
@@ -333,3 +313,10 @@ function! ExecuteMacroOverVisualRange()
   echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
+
+"
+" Completing WhichKey Map setup
+" IMPORTANT: This needs to run after all of the mappings were setup
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+vnoremap <silent><leader>       :<c-u>WhichKeyVisual '<Space>'<CR>

@@ -72,6 +72,11 @@ Plug 'tpope/vim-fugitive'
 " open current file in idea
 au FileType dart,typescript,javascript,rust nmap <silent>gI :update \|!idea --line " . line(".") . " %:p<CR>
 
+""""""""""""""""""
+" Keyboard Mapping
+""""""""""""""""""
+
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!', 'WhichKeyVisual', 'WhichKeyVisual!'] }
 
 """""""""""""""""
 " File navigation
@@ -186,7 +191,9 @@ Plug 'ianks/vim-tsx'
   nmap <silent> <leader>cc :CocList --number-select commands<CR>
   nmap <silent> <leader>cs :CocList --interactive symbols<CR>
   nmap <silent> <leader>cr :CocRestart<CR>
-  nmap <silent> <leader>s<Space> :CocSearch
+  nmap <silent> <leader>sc :CocSearch
+  nmap <silent> <leader>sa :Ag 
+  nmap <silent> <leader>ss :<C-u>vimgrep 
 
   " select inner/outer function in visual mode
   xmap if <Plug>(coc-funcobj-i)
