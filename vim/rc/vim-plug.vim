@@ -83,15 +83,26 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!', 'WhichKeyVisu
 """""""""""""""""
 
 Plug 'rking/ag.vim'
-Plug 'ctrlpvim/ctrlp.vim'
-  let g:ctrlp_max_files=0
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0
-  let g:ctrlp_map='<Leader>t'
-  let g:ctrlp_working_path_mode='r'
-  let g:ctrlp_match_window='bottom'
-  nnoremap <leader>l :CtrlPBuffer <CR>
+  nnoremap <leader>sa :Ag<CR>
 
+" brew install fzf bat
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+  let g:fzf_layout = { 'down': '60%' }
+  "let g:fzf_layout = { 'window': { 'width': 1.0, 'height': 0.9 } }
+  let $FZF_DEFAULT_COMMAND = 'rg --files'
+  let $FZF_DEFAULT_OPTS='--reverse' 
+
+  if executable('rg')
+    let g:ackprg = 'rg --vimgrep'
+    set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+  endif
+  nnoremap <leader>l :Buffers<CR>
+  nnoremap <C-t> :Files<CR>
+  nnoremap <leader>sb :BLines<CR>
+  nnoremap <leader>sl :Lines<CR>
+  nnoremap <leader>sm :Marks<CR>
+  nnoremap <leader>ss :Rg<CR>
 
 """""""""""""""""""""""""""""
 " Syntax highlighters/support
@@ -191,9 +202,6 @@ Plug 'ianks/vim-tsx'
   nmap <silent> <leader>cc :CocList --number-select commands<CR>
   nmap <silent> <leader>cs :CocList --interactive symbols<CR>
   nmap <silent> <leader>cr :CocRestart<CR>
-  nmap <silent> <leader>sc :CocSearch
-  nmap <silent> <leader>sa :Ag 
-  nmap <silent> <leader>ss :<C-u>vimgrep 
 
   " select inner/outer function in visual mode
   xmap if <Plug>(coc-funcobj-i)
