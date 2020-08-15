@@ -1,4 +1,4 @@
-alias tr='yarn tsc:tr && yarn lint:tr && yarn test'
+alias ytr='yarn tsc:tr && yarn lint:tr && yarn test'
 
 function jtc () {
   node --require '/Users/thlorenz/Library/Application Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/193.6494.35/IntelliJ IDEA.app/Contents/plugins/JavaScriptLanguage/helpers/jest-intellij/lib/jest-intellij-stdin-fix.js' \
