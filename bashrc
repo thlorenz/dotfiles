@@ -112,6 +112,10 @@ if [[ "$unamestr" == "Darwin" ]]; then
   if [ -f /usr/local/etc/bash_completion.d/flutter-completion.bash ]; then
     source /usr/local/etc/bash_completion.d/flutter-completion.bash
   fi
+  # tmux completion
+  if [ -f /usr/local/etc/bash_completion.d/tmux ]; then
+    source /usr/local/etc/bash_completion.d/tmux 
+  fi
 
   # autojump
   [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
@@ -193,3 +197,5 @@ fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
