@@ -214,6 +214,16 @@ Plug 'itchyny/lightline.vim'
 """""""""""
 " Coc
 """"""""""
+
+"""""""""""""""""""""""""
+" # Notes
+"
+" ## Fix timeouts
+" 
+" npm i -g vim-node-rpc
+"
+" """""""""""""""""""""""
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
@@ -223,7 +233,8 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-prettier',
   \ 'coc-highlight',
-  \ 'coc-flutter'
+  \ 'coc-flutter',
+  \ 'coc-rust-analyzer'
 \]
 Plug 'ianks/vim-tsx'
 
@@ -239,9 +250,10 @@ Plug 'ianks/vim-tsx'
 
   " coc list + commands
   nmap <silent> <leader>cx :CocList --number-select diagnostics<CR>
-  nmap <silent> <leader>cc :CocList --number-select commands<CR>
   nmap <silent> <leader>cs :CocList --interactive symbols<CR>
   nmap <silent> <leader>cr :CocRestart<CR>
+  nmap <silent> <leader>cd :CocDisable<CR>
+  nmap <silent> <leader>ce :CocEnable<CR>
 
   " select inner/outer function in visual mode
   xmap if <Plug>(coc-funcobj-i)
@@ -251,7 +263,7 @@ Plug 'ianks/vim-tsx'
 
   " refactorings
   nmap <leader><C-r> <Plug>(coc-rename)
-  nmap <leader>a <Plug>(coc-codeaction)
+  nmap <leader>a v<Plug>(coc-codeaction-selected)
   xmap <leader>a <Plug>(coc-codeaction-selected)
   nmap co :wincmd b \| bel copen 16<CR> 
   nmap cc :cclose<CR>
@@ -267,6 +279,12 @@ Plug 'ianks/vim-tsx'
   " Completion
   inoremap <silent><expr> <c-n> coc#refresh()
 
+  if exists('*complete_info')
+    inoremap <expr> <tab> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<tab>"
+  else
+    inoremap <expr> <tab> pumvisible() ? "\<C-y>" : "\<tab>"
+  endif
+
   " Documentation for Symbol under Cursor
   nnoremap <silent> K :call <SID>show_documentation()<CR>
   " Highlight References of Symbol under Cursor
@@ -279,6 +297,10 @@ Plug 'ianks/vim-tsx'
       call CocAction('doHover')
     endif
   endfunction
+
+  """""""""""""""
+  " Coc Plugins "
+  """""""""""""""
 
   " outline
   Plug 'liuchengxu/vista.vim'
