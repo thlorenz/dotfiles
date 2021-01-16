@@ -94,10 +94,11 @@ Plug 'rking/ag.vim'
   nnoremap <leader>sa :Ag<CR>
 
 " brew install fzf bat
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-  let g:fzf_layout = { 'down': '60%' }
-  "let g:fzf_layout = { 'window': { 'width': 1.0, 'height': 0.9 } }
+  set rtp+=/usr/local/opt/fzf
+  " let g:fzf_layout = { 'down': '60%' }
+  let g:fzf_layout = { 'window': { 'width': 1.0, 'height': 0.9 } }
   let $FZF_DEFAULT_COMMAND = 'rg --files'
   let $FZF_DEFAULT_OPTS='--reverse' 
 
