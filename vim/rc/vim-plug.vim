@@ -121,6 +121,11 @@ Plug 'troydm/zoomwintab.vim'
 " Syntax highlighters/support
 """""""""""""""""""""""""""""
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  nnoremap <leader>z za
+  nnoremap <leader>Z zA
+  " More setup in below section outside of call plug#end()
+
 Plug 'flazz/vim-colorschemes'
 Plug 'pangloss/vim-javascript'     , { 'for': ['javascript'] }
 Plug 'thlorenz/vim-markdown'       , { 'for': ['markdown'] }
@@ -259,3 +264,34 @@ Plug 'ianks/vim-tsx'
   Plug 'liuchengxu/vista.vim'
 
 call plug#end()
+
+"""""""""""
+" PostInstalls
+""""""""""
+" These need to happen after `call plug#end()`
+
+"
+" nvim-treesitter
+"
+
+" :TSInstall bash c cpp c_sharp css go dart graphql html javascript json lua rust toml typescript
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  highlight = { 
+    disable = { "markdown", "javascript" },
+    enable = true,
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<leader>s;",
+      node_incremental = ";",
+      node_decremental = "'",
+      scope_incremental = "[",
+    },
+  },
+}
+EOF
+
+au FileType * set foldmethod=expr foldexpr=nvim_treesitter#foldexpr() nofoldenable foldlevelstart=10
