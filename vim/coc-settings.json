@@ -8,13 +8,14 @@
     "json",
     "rust",
     "typescript",
-    "typescriptreact",
+    "typescriptreact"
   ],
   "prettier.disableSuccessMessage": true,
-  "suggest.autoTrigger": "none",
+  "suggest.autoTrigger": "always",
   "suggest.minTriggerInputLength": 3,
   "suggest.noselect": false,
   "flutter.provider.hot-reload": true,
-  "rust-analyzer.updates.channel": "nightly", 
-  "rust-analyzer.inlayHints.chainingHints": true
+  "rust-analyzer.serverPath": "~/.cargo/bin/rust-analyzer",
+  "coc.preferences.highlightTimeout": 5000,
+  "jest.terminalPosition": "right"
 }
