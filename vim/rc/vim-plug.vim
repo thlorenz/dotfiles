@@ -20,6 +20,9 @@ Plug 'godlygeek/tabular'
 Plug 'sjl/gundo.vim'
   nnoremap <silent> <S-u> :GundoToggle <CR>
 
+Plug 'preservim/nerdcommenter'
+  let NERDSpaceDelims=1
+
 """"""""""
 " Snippets
 """"""""""
@@ -64,13 +67,17 @@ Plug 'wakatime/vim-wakatime'
 Plug 'mrtazz/simplenote.vim'
 Plug 'rizzatti/dash.vim'
   noremap <leader>h :Dash <CR>
+  noremap <leader>H :Dash! <CR>
 Plug 'kristijanhusak/vim-carbon-now-sh'
 Plug 'tpope/vim-fugitive'
-  noremap gs :Gstatus<cr>
-  noremap gp :Gpush<cr>
+  noremap <leader>gs :Gstatus<cr>
+  noremap <leader>gp :Gpush<cr>
+
+" RustPlay command depends on this
+Plug 'mattn/webapi-vim', { 'for': [ 'rust' ] }
 
 " open current file in idea
-au FileType dart,typescript,javascript,rust nmap <silent>gI :update \|!idea --line " . line(".") . " %:p<CR>
+au FileType dart,typescript,javascript,rust,go nmap <silent>gI :update \|!idea --line " . ( line(".") + 1 ) " %:p<CR>
 
 """"""""""""""""""
 " Keyboard Mapping
@@ -104,6 +111,10 @@ Plug 'junegunn/fzf.vim'
   nnoremap <leader>sm :Marks<CR>
   nnoremap <leader>ss :Rg<CR>
 
+Plug 'troydm/zoomwintab.vim'
+  let g:zoomwintab_remap = 0
+  nnoremap <C-w>o :ZoomWinTabToggle<CR>
+
 """""""""""""""""""""""""""""
 " Syntax highlighters/support
 """""""""""""""""""""""""""""
@@ -118,6 +129,7 @@ Plug 'ekalinin/Dockerfile.vim'     , { 'for': ['docker'] }
 Plug 'kelan/gyp.vim'               , { 'for': ['gyp'] }
 Plug 'chase/vim-ansible-yaml'      , { 'for': ['ansible'] }
 Plug 'elzr/vim-json'               , { 'for': ['json'] }
+  autocmd! BufNewFile,BufRead *.gltf set ft=json
 Plug 'nono/vim-handlebars'         , { 'for': ['handlebars'] }
 Plug 'tsaleh/vim-tmux'             , { 'for': ['tmux'] }
 Plug 'moll/vim-node'               , { 'for': ['javascript'] }
@@ -131,6 +143,7 @@ Plug 'evanleck/vim-svelte'         , { 'for': [ 'svelte' ] }
 Plug 'cespare/vim-toml'            ,  { 'for': [ 'toml' ] }
 Plug 'tikhomirov/vim-glsl'         ,  { 'for': [ 'glsl' ] }
   autocmd! BufNewFile,BufRead *.vs,*.fs,*.vert,*.frag set ft=glsl
+  au FileType glsl set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 
 """"""""""""
