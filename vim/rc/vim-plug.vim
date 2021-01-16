@@ -146,11 +146,12 @@ Plug 'Glench/Vim-Jinja2-Syntax'    , { 'for': [ 'jinja' ] }
 Plug 'leafgarland/typescript-vim'  , { 'for': [ 'typescript' ] }
 Plug 'posva/vim-vue'               , { 'for': [ 'vue' ] }
   autocmd BufRead,BufNewFile *.vue setlocal filetype=vue
-Plug 'evanleck/vim-svelte'         , { 'for': [ 'svelte' ] }
 Plug 'cespare/vim-toml'            ,  { 'for': [ 'toml' ] }
 Plug 'tikhomirov/vim-glsl'         ,  { 'for': [ 'glsl' ] }
   autocmd! BufNewFile,BufRead *.vs,*.fs,*.vert,*.frag set ft=glsl
   au FileType glsl set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+Plug 'ron-rs/ron.vim'              ,  { 'for': [ 'ron' ] }
+  autocmd! BufNewFile,BufRead *.scn set ft=ron
 
 
 """"""""""""
