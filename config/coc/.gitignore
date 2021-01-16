@@ -1,3 +1,8 @@
 commands
 extensions/coc-rust-analyzer-data/
 extensions/coc/db.json
+extensions/coc-go-data/
+extensions/coc-lua-data/
+list-commands-history.json
+list-lists-history.json
+list-location-history.json
