@@ -35,5 +35,5 @@ alias gcl='git clone'
 
 # Fugitive
 
-alias vgs='nvim -c :Gstatus'
+alias vgs='FORCE_COLOR=0 nvim -c :Gstatus'
 alias vgl='nvim -c :Glog'

@@ -4,6 +4,12 @@ unamestr=`uname`
 
 # ----------- DARWIN ---------------
 if [[ "$unamestr" == "Darwin" ]]; then
+  # local completions/overrides need to run before global ones as they supply things like __git_complete
+  # which are used by the global ones
+  if [ -d ~/dotfiles/bash/completion ]; then
+    for f in ~/dotfiles/bash/completion/*; do source $f; done
+  fi
+
   # global/brew completions
   if [ -d `brew --prefix`/etc/bash_completion.d ]; then
     for f in `brew --prefix`/etc/bash_completion.d/*; do source $f; done
@@ -23,11 +29,6 @@ if [[ "$unamestr" == "Darwin" ]]; then
   PKG_CONFIG_PATH="/usr/local/opt/qt/lib/pkgconfig"
 elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
   PATH=~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:$PATH
-fi
-
-# followed by local completions/overrides
-if [ -d ~/dotfiles/bash/completion ]; then
-  for f in ~/dotfiles/bash/completion/*; do source $f; done
 fi
 
 source ~/dotfiles/bashrc
