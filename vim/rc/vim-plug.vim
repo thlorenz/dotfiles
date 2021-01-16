@@ -153,6 +153,25 @@ Plug 'tikhomirov/vim-glsl'         ,  { 'for': [ 'glsl' ] }
 Plug 'ron-rs/ron.vim'              ,  { 'for': [ 'ron' ] }
   autocmd! BufNewFile,BufRead *.scn set ft=ron
 
+""""""""""""
+" Make and Quickfix 
+""""""""""""
+Plug 'tpope/vim-dispatch'
+Plug 'radenling/vim-dispatch-neovim'
+
+" Compilers
+autocmd BufRead,BufNewFile Cargo.toml,Cargo.lock,*.rs compiler cargo
+autocmd BufRead,BufNewFile package.json,*.ts,*.js set makeprg=yarn
+
+" Make Commands
+au FileType rust nmap <silent><leader>bc :w \| Make build --all-targets<CR>
+au FileType rust nmap <silent><leader>bb :w \| Make check --all-targets<CR>
+au FileType rust nmap <silent><leader>bt :w \| Make test --features=test -- --show-output<CR>
+au FileType rust nmap <silent><leader>bl :w \| Make clippy -Z unstable-options<CR>
+au FileType rust nmap <silent><leader>fi :Make clippy --fix -Z unstable-options<CR>
+
+au FileType typescript nmap <silent><leader>bb :w \| Make build<CR>
+au FileType typescript nmap <silent><leader>bt :w \| Make test<CR>
 
 """"""""""""
 " Status bar
@@ -234,8 +253,8 @@ Plug 'ianks/vim-tsx'
   nmap <leader><C-r> <Plug>(coc-rename)
   nmap <leader>a <Plug>(coc-codeaction)
   xmap <leader>a <Plug>(coc-codeaction-selected)
-  nmap <leader>co :copen<CR>
-  nmap <leader>cc :cclose<CR>
+  nmap co :wincmd b \| bel copen 16<CR> 
+  nmap cc :cclose<CR>
 
   " fixes
   nmap <leader>ff <Plug>(coc-fix-current)
