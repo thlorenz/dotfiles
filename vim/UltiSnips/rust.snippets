@@ -1,0 +1,15 @@
+## Rust Snippets
+
+
+# Commenting
+snippet todo "TODO comment"
+// TODO(thlorenz): $0
+endsnippet
+
+# Testing
+snippet tst "Unit test function"
+#[test]
+fn ${1:function_name}() {
+	${0}
+}
+endsnippet

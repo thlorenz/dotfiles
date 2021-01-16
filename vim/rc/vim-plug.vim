@@ -28,11 +28,12 @@ Plug 'preservim/nerdcommenter'
 """"""""""
 " Follow `:h provider-python` instructions -> `python3 -m pip install --user --upgrade pynvim`
  Plug 'SirVer/ultisnips'
-   let g:UltiSnipsSnippetDirectories = ['/Users/thlorenz/.vim/UltiSnips']
-   let g:UltiSnipsExpandTrigger="<TAB>"
-   let g:UltiSnipsJumpForwardTrigger="<C-j>"
-   let g:UltiSnipsJumpBackwardTrigger="<C-k>"
-   let g:UltiSnipsEditSplit="vertical"
+  let g:UltiSnipsSnippetDirectories = ['/Users/thlorenz/.vim/UltiSnips']
+  let g:UltiSnipsExpandTrigger="<C-j>"
+  let g:UltiSnipsJumpForwardTrigger="<C-j>"
+  let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+  let g:UltiSnipsEditSplit="vertical"
+  nmap <silent> <leader>es :UltiSnipsEdit<CR>
  Plug 'honza/vim-snippets'
 
 """"""""""""""""""""""""""""""""""
