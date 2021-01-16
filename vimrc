@@ -79,7 +79,7 @@ autocmd BufReadPost *
 
 " Font
 if (isGui)
-  set gfn=SourceCodePro-Regular:h18
+  set gfn=SourceCodePro-Regular:h14
 elseif(isMac)
   set gfn=SourceCodePro-Regular:h12
 else
@@ -99,6 +99,9 @@ tnoremap <C-j> <C-\><C-N><C-w>j
 tnoremap <C-k> <C-\><C-N><C-w>k
 tnoremap <C-l> <C-\><C-N><C-w>l
 tnoremap <C-h> <C-\><C-N><C-w>h
+
+" cursor
+set guicursor=n:blinkwait500-blinkon400-blinkoff250
 
 " Scala specific
 au FileType scala noremap <leader>r :wa \| call Send_to_Screen(join(getline(1,'$'), "\n")) \| call Send_to_Screen("\n")<CR>
@@ -122,6 +125,9 @@ let g:haddock_browser_callformat = "%s %s"
 
 " Yesod specific
 au FileType hamlet set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+
+" Rust specific
+au FileType rust noremap <leader>r :wa \| ! cargo run<CR>
 
 " Perl specific
 au FileType perl noremap <leader>r :wa \| ! perl %<CR>
@@ -266,13 +272,6 @@ noremap <leader>d <C-Z>
 " Edit file under cursor even if it doesn't exist
 map <leader>gf :e <cfile><cr>
 
-" VimRoom options
-let g:vimroom_sidebar_height=2
-let g:vimroom_width=120
-
-nnoremap <leader>vs :set lz<CR>:silent call ZoomWin#ZoomWin()<CR>:set nolz<CR>:VimroomToggle<CR>:set nu<CR>
-nnoremap <leader>ve :VimroomToggle<CR>:set lz<CR>:silent call ZoomWin#ZoomWin()<CR>:set nolz<CR>
-
 " tmux integration
 " read tmux buffer into current file
 map <C-p> :r !tmux save-buffer - <CR>
@@ -284,14 +283,6 @@ map <C-p> :r !tmux save-buffer - <CR>
 
 set cursorline
 noremap <leader><S-j> :set cursorline!<CR>
-"
-"au FileType,BufEnter * if &filetype != "nerdtree"
-"  \| hi clear CursorLine
-"  \| else | hi CursorLine ctermbg=236 guibg=#32322f
-"  \| endif
-
-" AutoComplete Select Item with Tab
-inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<CR>"
 
 "Commands
 command! -nargs=* Wrap set wrap linebreak nolist
@@ -317,6 +308,5 @@ endfunction
 "
 " Completing WhichKey Map setup
 " IMPORTANT: This needs to run after all of the mappings were setup
-nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
-vnoremap <silent><leader>       :<c-u>WhichKeyVisual '<Space>'<CR>
+nnoremap <silent> <leader>      :<c-u>WhichKey ','<CR>
+vnoremap <silent><leader>       :<c-u>WhichKeyVisual ','<CR>
