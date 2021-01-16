@@ -137,5 +137,6 @@
   "workbench.sideBar.location": "right",
   "zenMode.hideLineNumbers": false,
   "window.nativeFullScreen": false,
-  "editor.hover.delay": 1
+  "editor.hover.delay": 1,
+  "debug.typescript.usePreview": true
 }
