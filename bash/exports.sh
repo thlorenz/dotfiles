@@ -11,3 +11,6 @@ export GIT_AUTHOR_EMAIL=$(git config --get user.email)
 
 export GEM_HOME=/usr/local/lib/gems/ruby/2.0/gems
 export GEM_PATH="$GEM_HOME:/usr/lib/ruby/gems/2.0.0/gems/"
+
+# Go
+export GOPATH=$HOME/go
