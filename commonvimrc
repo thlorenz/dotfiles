@@ -1,4 +1,5 @@
-let mapleader = ","
+nnoremap <SPACE> <Nop>
+let mapleader = " "
 
 " Detect Environment
 let isGui  = has("gui_running")

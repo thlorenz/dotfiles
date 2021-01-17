@@ -309,8 +309,10 @@ nnoremap <S-h> :m .-2<CR>==
 nnoremap <S-l> :m .+1<CR>==
 vnoremap <S-h> :m '<-2<CR>gv=gv
 vnoremap <S-l> :m '>+1<CR>gv=gv
+
 "
 " Completing WhichKey Map setup
 " IMPORTANT: This needs to run after all of the mappings were setup
-nnoremap <silent> <leader>      :<c-u>WhichKey ','<CR>
-vnoremap <silent><leader>       :<c-u>WhichKeyVisual ','<CR>
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+vnoremap <silent><leader>       :<c-u>WhichKeyVisual '<Space>'<CR>
