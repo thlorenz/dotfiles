@@ -11,12 +11,12 @@ Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 """""""""
 
 Plug 'godlygeek/tabular'
-  noremap <silent> <leader>f=  :Tabularize /=<CR>
-  noremap <silent> <leader>f,  :Tabularize /,<CR>
-  noremap <silent> <leader>f;  :Tabularize /;<CR>
-  noremap <silent> <leader>f:  :Tabularize /:<CR>
-  noremap <silent> <leader>f(  :Tabularize /(<CR>
-  noremap <silent> <leader>f\  :Tabularize /\<CR>
+  noremap <silent> <leader>t=  :Tabularize /=<CR>
+  noremap <silent> <leader>t,  :Tabularize /,<CR>
+  noremap <silent> <leader>t;  :Tabularize /;<CR>
+  noremap <silent> <leader>t:  :Tabularize /:<CR>
+  noremap <silent> <leader>t(  :Tabularize /(<CR>
+  noremap <silent> <leader>t\  :Tabularize /\<CR>
 Plug 'sjl/gundo.vim'
   nnoremap <silent> <S-u> :GundoToggle <CR>
 
@@ -98,7 +98,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
   set rtp+=/usr/local/opt/fzf
   " let g:fzf_layout = { 'down': '60%' }
-  let g:fzf_layout = { 'window': { 'width': 1.0, 'height': 0.9 } }
+  let g:fzf_layout = { 'window': { 'width': 0.5, 'height': 0.5 } }
   let $FZF_DEFAULT_COMMAND = 'rg --files'
   let $FZF_DEFAULT_OPTS='--reverse' 
 
@@ -106,8 +106,9 @@ Plug 'junegunn/fzf.vim'
     let g:ackprg = 'rg --vimgrep'
     set grepprg=rg\ --vimgrep\ --smart-case\ --follow
   endif
-  nnoremap <leader>l :Buffers<CR>
-  nnoremap <C-t> :Files<CR>
+  nnoremap <leader>l  :Buffers<CR>
+  nnoremap <leader>f  :FZF<CR>
+  nnoremap <C-t>      :Files<CR>
   nnoremap <leader>sb :BLines<CR>
   nnoremap <leader>sl :Lines<CR>
   nnoremap <leader>sm :Marks<CR>
@@ -168,10 +169,20 @@ au FileType rust nmap <silent><leader>bc :w \| Make build --all-targets<CR>
 au FileType rust nmap <silent><leader>bb :w \| Make check --all-targets<CR>
 au FileType rust nmap <silent><leader>bt :w \| Make test --features=test -- --show-output<CR>
 au FileType rust nmap <silent><leader>bl :w \| Make clippy -Z unstable-options<CR>
-au FileType rust nmap <silent><leader>fi :Make clippy --fix -Z unstable-options<CR>
+au FileType rust nmap <silent><leader>bf :Make clippy --fix -Z unstable-options<CR>
 
 au FileType typescript nmap <silent><leader>bb :w \| Make build<CR>
 au FileType typescript nmap <silent><leader>bt :w \| Make test<CR>
+
+" Quickfix tweaks and mappings
+au FileType qf call AdjustWindowHeight(10, 20)
+function! AdjustWindowHeight(minheight, maxheight)
+  exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
+endfunction
+
+nmap cO :wincmd b \| bel copen 20<CR> 
+nmap cc :cclose<CR>
+nmap co cc cO
 
 """"""""""""
 " Status bar
@@ -265,16 +276,14 @@ Plug 'ianks/vim-tsx'
   nmap <leader><C-r> <Plug>(coc-rename)
   nmap <leader>a v<Plug>(coc-codeaction-selected)
   xmap <leader>a <Plug>(coc-codeaction-selected)
-  nmap co :wincmd b \| bel copen 16<CR> 
-  nmap cc :cclose<CR>
 
   " fixes
-  nmap <leader>ff <Plug>(coc-fix-current)
+  nmap <leader>cff <Plug>(coc-fix-current)
   command! -nargs=0 CoqOrganizeImports :call CocAction('runCommand', 'editor.action.organizeImport')
-  nmap <leader> fo :CoqOrganizeImports<cr>
+  nmap <leader> cfo :CoqOrganizeImports<cr>
   command! -nargs=0 CoqAutofix :call CocAction('runCommand', 'tsserver.executeAutofix')
-  nmap <leader>fi :CoqAutofix<cr>
-  nmap <leader>ff :CocFix<cr>
+  nmap <leader>cfi :CoqAutofix<cr>
+  nmap <leader>cff :CocFix<cr>
 
   " Completion
   inoremap <silent><expr> <c-n> coc#refresh()
