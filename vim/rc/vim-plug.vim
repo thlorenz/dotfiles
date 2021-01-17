@@ -310,6 +310,9 @@ Plug 'ianks/vim-tsx'
     endif
   endfunction
 
+  " Inlay Hints
+  au FileType rust nmap <silent><leader>ch  :CocCommand rust-analyzer.toggleInlayHints<CR>
+
   """""""""""""""
   " Coc Plugins "
   """""""""""""""
