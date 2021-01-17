@@ -12,7 +12,7 @@ set directory=~/.vimtmpdir,.
 set shell=/bin/bash
 
 " unhighlight search matches
-nmap <silent> <leader>w :nohl <CR>
+nmap <silent> <leader>u :nohl <CR>
 set nohlsearch
 
 " limit "Press Enter or ... to continue"

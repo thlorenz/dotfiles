@@ -77,6 +77,9 @@ Plug 'tpope/vim-fugitive'
 " RustPlay command depends on this
 Plug 'mattn/webapi-vim', { 'for': [ 'rust' ] }
 
+Plug 'vimwiki/vimwiki'
+  let g:vimwiki_list = [{'path': '~/.wiki', 'syntax': 'markdown', 'ext': '.md'}]
+
 " open current file in idea
 au FileType dart,typescript,javascript,rust,go nmap <silent>gI :update \|!idea --line " . ( line(".") + 1 ) " %:p<CR>
 
