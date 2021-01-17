@@ -80,6 +80,8 @@ Plug 'mattn/webapi-vim', { 'for': [ 'rust' ] }
 
 Plug 'vimwiki/vimwiki'
   let g:vimwiki_list = [{'path': '~/.wiki', 'syntax': 'markdown', 'ext': '.md'}]
+  au FileType vimwiki nmap <Leader>tl <Plug>VimwikiToggleListItem
+  au FileType vimwiki vmap <Leader>tl <Plug>VimwikiToggleListItem
 
 " open current file in idea
 au FileType dart,typescript,javascript,rust,go nmap <silent>gI :update \|!idea --line " . ( line(".") + 1 ) " %:p<CR>
