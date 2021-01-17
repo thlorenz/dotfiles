@@ -57,8 +57,9 @@ Plug 'thinca/vim-quickrun'
 \    'outputter/buffer/close_on_empty':1
 \ }
 
-Plug 'kannokanno/previm', { 'for': [ 'markdown' ] }
-  let g:previm_open_cmd = 'open -a Google\ Chrome'
+Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'npm -g install instant-markdown-d'}
+  let g:instant_markdown_autostart = 0
+  map <leader>md :InstantMarkdownPreview<CR>
 
 """"""""""""""""""""""""""""""""
 " Integration with External Tools
