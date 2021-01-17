@@ -305,6 +305,10 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
+nnoremap <S-h> :m .-2<CR>==
+nnoremap <S-l> :m .+1<CR>==
+vnoremap <S-h> :m '<-2<CR>gv=gv
+vnoremap <S-l> :m '>+1<CR>gv=gv
 "
 " Completing WhichKey Map setup
 " IMPORTANT: This needs to run after all of the mappings were setup
