@@ -15,7 +15,7 @@
   "suggest.minTriggerInputLength": 3,
   "suggest.noselect": false,
   "flutter.provider.hot-reload": true,
-  "rust-analyzer.serverPath": "~/.cargo/bin/rust-analyzer",
-  "coc.preferences.highlightTimeout": 5000,
-  "jest.terminalPosition": "right"
+  "rust-analyzer.updates.channel": "stable",
+  "rust-analyzer.updates.prompt": false,
+  "coc.preferences.highlightTimeout": 5000
 }
