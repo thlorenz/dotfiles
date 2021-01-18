@@ -310,6 +310,10 @@ nnoremap <S-l> :m .+1<CR>==
 vnoremap <S-h> :m '<-2<CR>gv=gv
 vnoremap <S-l> :m '>+1<CR>gv=gv
 
+" Paste/Put/Read into Buffer
+nnoremap <leader>pdt :pu=strftime('%a %b %d %Y %H:%M:%S')<CR>
+nnoremap <leader>pdd :pu=strftime('%a %b %d %Y')<CR>
+
 "
 " Completing WhichKey Map setup
 " IMPORTANT: This needs to run after all of the mappings were setup
