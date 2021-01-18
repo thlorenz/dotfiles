@@ -103,36 +103,70 @@ au FileType dart,typescript,javascript,rust,go nmap <silent>gI :update \|!idea -
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!', 'WhichKeyVisual', 'WhichKeyVisual!'] }
 " }}}
 
-" File navigation {{{
+" File navigation {{{1
 """""""""""""""""
 
-Plug 'rking/ag.vim'
-  nnoremap <leader>sa :Ag<CR>
-
+" FZF {{{2
 " brew install fzf bat
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
   set rtp+=/usr/local/opt/fzf
-  " let g:fzf_layout = { 'down': '60%' }
-  let g:fzf_layout = { 'window': { 'width': 0.5, 'height': 0.5 } }
+  let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.5 } }
+  let g:fzf_preview_window = ['right:70%:hidden', 'ctrl-o']
   let $FZF_DEFAULT_COMMAND = 'rg --files'
   let $FZF_DEFAULT_OPTS='--reverse' 
+
+  if has('nvim')
+    hi NormalFloat guibg=None
+    if exists('g:fzf_colors.bg')
+      call remove(g:fzf_colors, 'bg')
+    endif
+    let g:fzf_layout = { 'window': { 
+          \'width': 0.75, 
+          \'height': 0.50, 
+          \'highlight': 'Special',
+          \} }
+  endif
+
+  augroup FZF
+    autocmd! FileType fzf
+    autocmd FileType fzf setlocal nonumber norelativenumber signcolumn=no
+    autocmd FileType fzf tnoremap <buffer> jk <C-c>
+    autocmd FileType fzf tnoremap <buffer> <C-j> <C-n>
+    autocmd FileType fzf tnoremap <buffer> <C-k> <C-p>
+  augroup end
 
   if executable('rg')
     let g:ackprg = 'rg --vimgrep'
     set grepprg=rg\ --vimgrep\ --smart-case\ --follow
   endif
+function! s:fzf_statusline()
+  " Override statusline as you like
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+endfunction
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
+
   nnoremap <leader>l  :Buffers<CR>
-  nnoremap <leader>f  :FZF<CR>
-  nnoremap <C-t>      :Files<CR>
+  nnoremap <leader>f  :Files<CR>
+  nnoremap <leader>sg :GFiles<CR>
   nnoremap <leader>sb :BLines<CR>
   nnoremap <leader>sl :Lines<CR>
   nnoremap <leader>sm :Marks<CR>
+  nnoremap <leader>sc :Commits<CR>
   nnoremap <leader>ss :Rg<CR>
+
+Plug 'rking/ag.vim'
+  nnoremap <leader>sa :Ag<CR>
+"}}}2
 
 Plug 'troydm/zoomwintab.vim'
   let g:zoomwintab_remap = 0
-  nnoremap <C-w>o :ZoomWinTabToggle<CR>"}}}
+  nnoremap <C-w>o :ZoomWinTabToggle<CR>
+"}}}1
 
 " Syntax highlighters/support {{{
 """""""""""""""""""""""""""""""""
