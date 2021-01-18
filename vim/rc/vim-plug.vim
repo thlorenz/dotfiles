@@ -1,14 +1,14 @@
 call plug#begin('~/.vim/plugged')
 
-""""""""
-" Themes
-""""""""
+" Themes {{{
+"""""""""""
 
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 
-"""""""""
-" Editing
-"""""""""
+" }}}
+
+" Editing {{{
+"""""""""""""
 
 Plug 'godlygeek/tabular'
   noremap <silent> <leader>t=  :Tabularize /=<CR>
@@ -21,11 +21,11 @@ Plug 'sjl/gundo.vim'
   nnoremap <silent> <S-u> :GundoToggle <CR>
 
 Plug 'preservim/nerdcommenter'
-  let NERDSpaceDelims=1
+  let NERDSpaceDelims=1"
+" }}}
 
-""""""""""
-" Snippets
-""""""""""
+" Snippets {{{
+""""""""""""""
 " Follow `:h provider-python` instructions -> `python3 -m pip install --user --upgrade pynvim`
  Plug 'SirVer/ultisnips'
   let g:UltiSnipsSnippetDirectories = ['/Users/thlorenz/.vim/UltiSnips']
@@ -35,10 +35,10 @@ Plug 'preservim/nerdcommenter'
   let g:UltiSnipsEditSplit="vertical"
   nmap <silent> <leader>es :UltiSnipsEdit<CR>
  Plug 'honza/vim-snippets'
+" }}}
 
-""""""""""""""""""""""""""""""""""
-" Integration with System/Terminal
-""""""""""""""""""""""""""""""""""
+" Integration with System, Terminal, External Tools {{{1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Plug 'christoomey/vim-system-copy'
 Plug 'christoomey/vim-tmux-navigator'
@@ -55,15 +55,30 @@ Plug 'thinca/vim-quickrun'
 \    'outputter/buffer/append':0,
 \    'outputter/buffer/into':0,
 \    'outputter/buffer/close_on_empty':1
-\ }
+\ }"
+
+" Markdown/VimWiki {{{2
+Plug 'vimwiki/vimwiki'
+  let g:vimwiki_list = [{'path': '~/.wiki', 'syntax': 'markdown', 'ext': '.md'}]
+  let g:vimwiki_ext2syntax =  { '.md': 'markdown', '.markdown': 'markdown' }
+  let g:vimwiki_markdown_link_ext = 1
+  au FileType vimwiki nmap <leader>tl <Plug>VimwikiToggleListItem
+  au FileType vimwiki vmap <leader>tl <Plug>VimwikiToggleListItem
+
+Plug 'tpope/vim-markdown', { 'for': ['markdown'] }
+  au FileType markdown,vimwiki noremap <leader>mc :call ToggleConcealLevel()<CR>
+  function! ToggleConcealLevel()
+      if &conceallevel
+          setlocal conceallevel=0
+      else
+          setlocal conceallevel=2
+      endif
+  endfunction
 
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'npm -g install instant-markdown-d'}
   let g:instant_markdown_autostart = 0
-  map <leader>md :InstantMarkdownPreview<CR>
-
-""""""""""""""""""""""""""""""""
-" Integration with External Tools
-""""""""""""""""""""""""""""""""
+  au FileType markdown,vimwiki nnoremap <leader>md :InstantMarkdownPreview<CR>
+" }}}2
 
 Plug 'wakatime/vim-wakatime'
 Plug 'mrtazz/simplenote.vim'
@@ -78,22 +93,17 @@ Plug 'tpope/vim-fugitive'
 " RustPlay command depends on this
 Plug 'mattn/webapi-vim', { 'for': [ 'rust' ] }
 
-Plug 'vimwiki/vimwiki'
-  let g:vimwiki_list = [{'path': '~/.wiki', 'syntax': 'markdown', 'ext': '.md'}]
-  au FileType vimwiki nmap <Leader>tl <Plug>VimwikiToggleListItem
-  au FileType vimwiki vmap <Leader>tl <Plug>VimwikiToggleListItem
-
 " open current file in idea
 au FileType dart,typescript,javascript,rust,go nmap <silent>gI :update \|!idea --line " . ( line(".") + 1 ) " %:p<CR>
+" }}}1
 
-""""""""""""""""""
-" Keyboard Mapping
-""""""""""""""""""
+" Keyboard Mapping Helpers {{{
+""""""""""""""""""""""""""""""
 
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!', 'WhichKeyVisual', 'WhichKeyVisual!'] }
+" }}}
 
-"""""""""""""""""
-" File navigation
+" File navigation {{{
 """""""""""""""""
 
 Plug 'rking/ag.vim'
@@ -122,11 +132,10 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'troydm/zoomwintab.vim'
   let g:zoomwintab_remap = 0
-  nnoremap <C-w>o :ZoomWinTabToggle<CR>
+  nnoremap <C-w>o :ZoomWinTabToggle<CR>"}}}
 
-"""""""""""""""""""""""""""""
-" Syntax highlighters/support
-"""""""""""""""""""""""""""""
+" Syntax highlighters/support {{{
+"""""""""""""""""""""""""""""""""
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   nnoremap <leader>z za
@@ -135,7 +144,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'flazz/vim-colorschemes'
 Plug 'pangloss/vim-javascript'     , { 'for': ['javascript'] }
-Plug 'thlorenz/vim-markdown'       , { 'for': ['markdown'] }
 Plug 'kchmck/vim-coffee-script'    , { 'for': ['coffee'] }
 Plug 'vim-ruby/vim-ruby'           , { 'for': ['ruby'] }
 Plug 'lukerandall/haskellmode-vim' , { 'for': ['haskell'] }
@@ -159,10 +167,12 @@ Plug 'tikhomirov/vim-glsl'         ,  { 'for': [ 'glsl' ] }
   au FileType glsl set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 Plug 'ron-rs/ron.vim'              ,  { 'for': [ 'ron' ] }
   autocmd! BufNewFile,BufRead *.scn set ft=ron
+Plug 'ianks/vim-tsx'
+" }}}
 
-""""""""""""
-" Make and Quickfix 
-""""""""""""
+" Make and Quickfix {{{
+"""""""""""""""""""""""
+
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
 
@@ -189,10 +199,11 @@ endfunction
 nmap cO :wincmd b \| bel copen 20<CR> 
 nmap cc :cclose<CR>
 nmap co cc cO
+"}}}
 
-""""""""""""
-" Status bar
-""""""""""""
+" Status bar {{{
+""""""""""""""""
+
 Plug 'itchyny/lightline.vim'
   let g:lightline = {
       \ 'colorscheme': 'challenger_deep',
@@ -227,21 +238,21 @@ Plug 'itchyny/lightline.vim'
       \   't': 'TE',
       \ },
       \}
+"}}}
 
-"""""""""""
-" Coc
+" Coc {{{1
 """"""""""
 
-"""""""""""""""""""""""""
-" # Notes
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" # Coc Setup {{{2
 "
 " ## Fix timeouts
 " 
 " npm i -g vim-node-rpc
-"
-" """""""""""""""""""""""
+""""""""""""""""""""""""
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-python',
@@ -253,9 +264,11 @@ let g:coc_global_extensions = [
   \ 'coc-flutter',
   \ 'coc-rust-analyzer'
 \]
-Plug 'ianks/vim-tsx'
+"}}}2
 
-  " naviation
+  " Coc Commands {{{2
+  
+  " navigatoin
   nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gi <Plug>(coc-implementation)
@@ -264,6 +277,7 @@ Plug 'ianks/vim-tsx'
   nmap <silent> [g <Plug>(coc-diagnostic-prev)
   command! -nargs=0 CoqGotoProjectConfig :call CocAction('runCommand', 'tsserver.goToProjectConfig')
   nmap <leader>gp :CoqGotoProjectConfig<cr>
+"}}}
 
   " coc list + commands
   nmap <silent> <leader>cx :CocList --number-select diagnostics<CR>
@@ -290,8 +304,15 @@ Plug 'ianks/vim-tsx'
   command! -nargs=0 CoqAutofix :call CocAction('runCommand', 'tsserver.executeAutofix')
   nmap <leader>cfi :CoqAutofix<cr>
   nmap <leader>cff :CocFix<cr>
+  
+  " Highlight References of Symbol under Cursor
+  nnoremap <silent> L :call CocActionAsync('highlight')<CR>
 
-  " Completion
+  " Rust Inlay Hints
+  au FileType rust nmap <silent><leader>ch  :CocCommand rust-analyzer.toggleInlayHints<CR>
+  "}}}2
+  
+  " Coc Completion {{{2
   inoremap <silent><expr> <c-n> coc#refresh()
 
   if exists('*complete_info')
@@ -299,11 +320,10 @@ Plug 'ianks/vim-tsx'
   else
     inoremap <expr> <tab> pumvisible() ? "\<C-y>" : "\<tab>"
   endif
+  "}}}2
 
-  " Documentation for Symbol under Cursor
+  " Coc Documentation for Symbol under Cursor {{{2
   nnoremap <silent> K :call <SID>show_documentation()<CR>
-  " Highlight References of Symbol under Cursor
-  nnoremap <silent> L :call CocActionAsync('highlight')<CR>
 
   function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
@@ -312,22 +332,21 @@ Plug 'ianks/vim-tsx'
       call CocAction('doHover')
     endif
   endfunction
+  "}}}2
 
-  " Inlay Hints
-  au FileType rust nmap <silent><leader>ch  :CocCommand rust-analyzer.toggleInlayHints<CR>
-
-  """""""""""""""
-  " Coc Plugins "
-  """""""""""""""
+  " Coc Plugins {{{2
+  """""""""""""""""
 
   " outline
-  Plug 'liuchengxu/vista.vim'
+  Plug 'liuchengxu/vista.vim'"
+  "}}}2
+  
+" }}}1
 
 call plug#end()
 
-"""""""""""
-" PostInstalls
-""""""""""
+" PostInstalls {{{
+""""""""""""""""""
 " These need to happen after `call plug#end()`
 
 "
@@ -353,5 +372,11 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+" }}}
 
-au FileType * set foldmethod=expr foldexpr=nvim_treesitter#foldexpr() nofoldenable foldlevelstart=10
+" Folding {{{
+""""""""""""
+au FileType rust,javascript,typescript set foldmethod=expr foldexpr=nvim_treesitter#foldexpr() nofoldenable foldlevelstart=10
+au FileType vim set foldmethod=marker foldexpr=VimFolds(v:lnum) nofoldenable foldlevelstart=10
+au FileType vim normal zM
+" }}}
