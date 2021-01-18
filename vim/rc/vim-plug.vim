@@ -47,15 +47,27 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   map <leader>n :NERDTreeToggle<CR>
   map <leader><s-n> :NERDTreeFind<CR>
 
-Plug 'thinca/vim-quickrun'
-  noremap <silent> <leader>R :QuickRun -mode n<CR>
-  vnoremap <silent> <leader>R :QuickRun -mode v<CR>
-  let b:quickrun_config={
-\    'hook/shebang':1,
-\    'outputter/buffer/append':0,
-\    'outputter/buffer/into':0,
-\    'outputter/buffer/close_on_empty':1
-\ }"
+Plug 'voldikss/vim-floaterm' 
+  let g:floaterm_keymap_toggle = ',,'
+  let g:floaterm_autoinsert = 0
+
+  let g:executed_floaterm = 0
+  function! FloatermExec(tool, cmd)
+    let autoinsert = g:floaterm_autoinsert
+    let title = g:floaterm_title
+
+    let g:floaterm_autoinsert = 1
+    let g:floaterm_title = a:tool 
+      if g:executed_floaterm == 0
+        exe 'silent! FloatermNew --silent --name=' . a:tool . ' --height=0.9 --width=0.6'
+        let g:executed_floaterm = 1
+      endif
+      exe 'silent! FloatermSend --name=' . a:tool . ' ' . a:tool . ' ' . a:cmd
+      exe 'silent! FloatermShow ' . a:tool
+    let g:floaterm_title = title
+    let g:floaterm_autoinsert = autoinsert 
+  endfunction
+
 
 " Markdown/VimWiki {{{2
 Plug 'vimwiki/vimwiki'
@@ -219,10 +231,18 @@ au FileType rust nmap <silent><leader>bc :w \| Make build --all-targets<CR>
 au FileType rust nmap <silent><leader>bb :w \| Make check --all-targets<CR>
 au FileType rust nmap <silent><leader>bt :w \| Make test --features=test -- --show-output<CR>
 au FileType rust nmap <silent><leader>bl :w \| Make clippy -Z unstable-options<CR>
-au FileType rust nmap <silent><leader>bf :Make clippy --fix -Z unstable-options<CR>
+
+au FileType rust nmap <silent>,bc :call FloatermExec('cargo', 'build --all-targets')<CR>
+au FileType rust nmap <silent>,bb :call FloatermExec('cargo', 'check --all-targets')<CR>
+au FileType rust nmap <silent>,bt :call FloatermExec('cargo', 'test --features=test -- --show-output')<CR>
+au FileType rust nmap <silent>,bl :call FloatermExec('cargo', 'clippy -Z unstable-options')<CR>
+au FileType rust nmap <silent>,bf :call FloatermExec('cargo', 'clippy --fix -Z unstable-options')<CR>
 
 au FileType typescript nmap <silent><leader>bb :w \| Make build<CR>
 au FileType typescript nmap <silent><leader>bt :w \| Make test<CR>
+
+au FileType typescript nmap <silent>,bb :call FloatermExec('yarn', 'build')<CR>
+au FileType typescript nmap <silent>,bt :call FloatermExec('yarn', 'test')<CR>
 
 " Quickfix tweaks and mappings
 au FileType qf call AdjustWindowHeight(10, 20)
