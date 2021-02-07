@@ -1,6 +1,7 @@
 # Open all modified an new files
 alias vmno='vim -O `git status --porcelain | awk '"'"'{ print $2 }'"'"'`'
 alias vmn='vim `git status --porcelain | awk '"'"'{ print $2 }'"'"'`'
+alias vnp='vim -u ~/dotfiles/commonvimrc'
 
 # Switch standard used
 alias std='(cd /Users/thlorenz/npm-global/bin/ && rm -f standard && ln -s standardd standard)'
