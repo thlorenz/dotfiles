@@ -1,5 +1,6 @@
 {
   "coc.preferences.formatOnSaveFiletypes": [
+    "go",
     "dart",
     "css",
     "html",
@@ -15,7 +16,15 @@
   "suggest.minTriggerInputLength": 3,
   "suggest.noselect": false,
   "flutter.provider.hot-reload": true,
-  "rust-analyzer.updates.channel": "stable",
+  "rust-analyzer.updates.channel": "nightly",
   "rust-analyzer.updates.prompt": false,
+  "rust-analyzer.inlayHints.maxLength": 18,
+  "rust-analyzer.inlayHints.chainingHints": true,
+  "rust-analyzer.inlayHints.typeHints": false,
+  "rust-analyzer.cargo.allFeatures": true,
+  "rust-analyzer.checkOnSave.allFeatures": true,
+  "rust-analyzer.diagnostics.disabled": ["missing-unsafe"],
+  "rust-analyzer.cargo.loadOutDirsFromCheck": true,
+  "rust-analyzer.procMacro.enable": true,
   "coc.preferences.highlightTimeout": 5000
 }

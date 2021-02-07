@@ -10,7 +10,7 @@
     "coc-lua": ">=1.0.0",
     "coc-prettier": ">=1.1.20",
     "coc-python": ">=1.2.13",
-    "coc-rust-analyzer": ">=0.28.0",
+    "coc-rust-analyzer": ">=0.29.0",
     "coc-tsserver": ">=1.6.5"
   }
 }
