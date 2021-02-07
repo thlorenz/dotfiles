@@ -77,6 +77,9 @@ autocmd BufReadPost *
       \   exe "normal! g`\"" |
       \ endif
 
+" Reload changed JSON files when :set autoread is on
+au FocusGained,BufEnter * :checktime
+
 " Font
 if (isGui)
   set gfn=SourceCodePro-Regular:h14
@@ -313,6 +316,21 @@ vnoremap <S-l> :m '>+1<CR>gv=gv
 " Paste/Put/Read into Buffer
 nnoremap <leader>pdt :pu=strftime('%a %b %d %Y %H:%M:%S')<CR>
 nnoremap <leader>pdd :pu=strftime('%a %b %d %Y')<CR>
+
+let g:is_opaque=0
+function! ToggleOpacity()
+  if g:is_opaque == 1
+    let g:is_opaque = 0
+    hi! Normal ctermfg=253 ctermbg=233 guifg=#cbe3e7 guibg=#1e1c31
+    hi! NonText ctermfg=236 guifg=#565575
+  else
+    hi! Normal ctermbg=NONE guibg=NONE 
+    hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE 
+    let g:is_opaque = 1
+  endif
+endfunction
+nnoremap <leader><S-o> :call ToggleOpacity()<CR>
+
 
 "
 " Completing WhichKey Map setup
