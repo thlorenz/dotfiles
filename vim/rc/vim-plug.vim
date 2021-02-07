@@ -52,17 +52,20 @@ Plug 'voldikss/vim-floaterm'
   let g:floaterm_autoinsert = 0
 
   let g:executed_floaterm = 0
-  function! FloatermExec(tool, cmd)
+  function! FloatermExec(tool, cmd, ...)
+    let width = get(a:, 2, 0.6)
+    let height = get(a:, 3, 0.9)
     let autoinsert = g:floaterm_autoinsert
     let title = g:floaterm_title
 
     let g:floaterm_autoinsert = 1
     let g:floaterm_title = a:tool 
       if g:executed_floaterm == 0
-        exe 'silent! FloatermNew --silent --name=' . a:tool . ' --height=0.9 --width=0.6'
+        exe 'silent! FloatermNew --silent --name=' . a:tool . 
+              \ ' --width=' . string(width) . ' --height=' . string(height)
         let g:executed_floaterm = 1
       endif
-      exe 'silent! FloatermSend --name=' . a:tool . ' ' . a:tool . ' ' . a:cmd
+      exe 'silent! FloatermSend --name=' . a:tool .  ' ' . a:tool . ' ' . a:cmd
       exe 'silent! FloatermShow ' . a:tool
     let g:floaterm_title = title
     let g:floaterm_autoinsert = autoinsert 
@@ -99,8 +102,10 @@ Plug 'rizzatti/dash.vim'
   noremap <leader>H :Dash! <CR>
 Plug 'kristijanhusak/vim-carbon-now-sh'
 Plug 'tpope/vim-fugitive'
-  noremap <leader>gs :Gstatus<cr>
   noremap <leader>gp :Gpush<cr>
+  noremap <silent> <leader>gs :wa \| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Gstatus')<CR>
+  noremap <silent> <leader>gl :wa \| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Glog')<CR>
+  noremap <silent> <leader>go :wa \| Dispatch! gh repo view --web<CR>
 
 " RustPlay command depends on this
 Plug 'mattn/webapi-vim', { 'for': [ 'rust' ] }
@@ -144,6 +149,7 @@ Plug 'junegunn/fzf.vim'
     autocmd! FileType fzf
     autocmd FileType fzf setlocal nonumber norelativenumber signcolumn=no
     autocmd FileType fzf tnoremap <buffer> jk <C-c>
+    autocmd FileType fzf tnoremap <buffer> <ESC> <C-c>
     autocmd FileType fzf tnoremap <buffer> <C-j> <C-n>
     autocmd FileType fzf tnoremap <buffer> <C-k> <C-p>
   augroup end
@@ -216,7 +222,7 @@ Plug 'ron-rs/ron.vim'              ,  { 'for': [ 'ron' ] }
 Plug 'ianks/vim-tsx'
 " }}}
 
-" Make and Quickfix {{{
+" Make and Quickfix {{{1
 """""""""""""""""""""""
 
 Plug 'tpope/vim-dispatch'
@@ -226,23 +232,64 @@ Plug 'radenling/vim-dispatch-neovim'
 autocmd BufRead,BufNewFile Cargo.toml,Cargo.lock,*.rs compiler cargo
 autocmd BufRead,BufNewFile package.json,*.ts,*.js set makeprg=yarn
 
-" Make Commands
-au FileType rust nmap <silent><leader>bc :w \| Make build --all-targets<CR>
-au FileType rust nmap <silent><leader>bb :w \| Make check --all-targets<CR>
-au FileType rust nmap <silent><leader>bt :w \| Make test --features=test -- --show-output<CR>
-au FileType rust nmap <silent><leader>bl :w \| Make clippy -Z unstable-options<CR>
+" Dispatchers {{{2
+function! s:DispatchTmuxInit(win, cmd) 
+  exe 'silent Dispatch! tmux ' . a:win . ' "bash --init-file <(echo ''' . a:cmd . ''')"'
+endfunction
+
+function! s:DispatchTmuxCmd(win, cmd)
+ exe 'silent Dispatch! tmux ' . a:win . ' "' . a:cmd . '"'
+endfunction
+
+function! TmuxSplitInit(cmd)
+  call s:DispatchTmuxInit('split-window -h', a:cmd)
+endfunction
+
+function! TmuxWindowInit(name, cmd)
+  call s:DispatchTmuxInit('new-window -n ' . a:name . ' -t 0', a:cmd)
+endfunction
+
+function! TmuxWindowInit(name, cmd)
+  call s:DispatchTmuxInit('new-window -n ' . a:name . ' -t 0',, a:cmd)
+endfunction
+
+function! TmuxWindowCmd(name, cmd)
+  call s:DispatchTmuxCmd('new-window -n ' . a:name . ' -t 0', a:cmd)
+endfunction
+" }}}2
+
+" Make Commands {{{2
+au FileType rust nmap <silent><leader>bc :wa \| Make build --all-targets --all-features<CR>
+au FileType rust nmap <silent><leader>bb :wa \| Make check --all-targets --all-features<CR>
+au FileType rust nmap <silent><leader>bR :wa \| Make run<CR>
+au FileType rust nmap <silent><leader>br :wa \| Make run --release<CR>
+au FileType rust nmap <silent><leader>bt :wa \| Make test -- --show-output<CR>
+au FileType rust nmap <silent><leader>bl :wa \| Make clippy -Z unstable-options<CR>
 
 au FileType rust nmap <silent>,bc :call FloatermExec('cargo', 'build --all-targets')<CR>
 au FileType rust nmap <silent>,bb :call FloatermExec('cargo', 'check --all-targets')<CR>
+au FileType rust nmap <silent>,br :call FloatermExec('cargo', 'run')<CR>
 au FileType rust nmap <silent>,bt :call FloatermExec('cargo', 'test --features=test -- --show-output')<CR>
 au FileType rust nmap <silent>,bl :call FloatermExec('cargo', 'clippy -Z unstable-options')<CR>
 au FileType rust nmap <silent>,bf :call FloatermExec('cargo', 'clippy --fix -Z unstable-options')<CR>
 
-au FileType typescript nmap <silent><leader>bb :w \| Make build<CR>
-au FileType typescript nmap <silent><leader>bt :w \| Make test<CR>
+au FileType rust nmap <silent> <leader>tc :wa \| :call TmuxSplitInit('cargo build --all-targets')<CR>
+au FileType rust nmap <silent> <leader>tb :wa \| :call TmuxSplitInit('cargo check --all-targets')<CR>
+au FileType rust nmap <silent> <leader>tr :wa \| :call TmuxSplitInit('cargo run --release')<CR>
+au FileType rust nmap <silent> <leader>tR :wa \| :call TmuxSplitInit('cargo run')<CR>
+au FileType rust nmap <silent> <leader>tt :wa \| :call TmuxSplitInit('cargo test --features=test -- --show-output')<CR>
+au FileType rust nmap <silent> <leader>tl :wa \| :call TmuxSplitInit('cargo clippy -Z unstable-options')<CR>
+au FileType rust nmap <silent> <leader>tf :wa \| :call TmuxSplitInit('cargo clippy --fix -Z unstable-options')<CR>
 
-au FileType typescript nmap <silent>,bb :call FloatermExec('yarn', 'build')<CR>
-au FileType typescript nmap <silent>,bt :call FloatermExec('yarn', 'test')<CR>
+au FileType typescript nmap <silent><leader>bb :wa \| Make build<CR>
+au FileType typescript nmap <silent><leader>bt :wa \| Make test<CR>
+
+au FileType typescript nmap <silent>,bb :call FloatermExec('yarn', 'yarn build')<CR>
+au FileType typescript nmap <silent>,bt :call FloatermExec('yarn', 'yarn test')<CR>
+
+au FileType typescript nmap <silent><leader>tt :wa \| :call TmuxSplitInit('yarn test')<CR>
+au FileType typescript nmap <silent><leader>tb :wa \| :call TmuxSplitInit('yarn build')<CR>
+" }}}2
 
 " Quickfix tweaks and mappings
 au FileType qf call AdjustWindowHeight(10, 20)
@@ -252,8 +299,8 @@ endfunction
 
 nmap cO :wincmd b \| bel copen 20<CR> 
 nmap cc :cclose<CR>
-nmap co cc cO
-"}}}
+nmap co :cclose \| wincmd b \| bel copen 20<CR>
+"}}}1
 
 " Status bar {{{
 """"""""""""""""
@@ -322,7 +369,7 @@ let g:coc_global_extensions = [
 
   " Coc Commands {{{2
   
-  " navigatoin
+  " navigation
   nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gi <Plug>(coc-implementation)
@@ -330,13 +377,13 @@ let g:coc_global_extensions = [
   nmap <silent> ]g <Plug>(coc-diagnostic-next)
   nmap <silent> [g <Plug>(coc-diagnostic-prev)
   command! -nargs=0 CoqGotoProjectConfig :call CocAction('runCommand', 'tsserver.goToProjectConfig')
-  nmap <leader>gp :CoqGotoProjectConfig<cr>
+  nmap <silent> gp :CoqGotoProjectConfig<cr>
 "}}}
 
   " coc list + commands
   nmap <silent> <leader>cx :CocList --number-select diagnostics<CR>
   nmap <silent> <leader>cs :CocList --interactive symbols<CR>
-  nmap <silent> <leader>cr :CocRestart<CR>
+  " nmap <silent> <leader>cr :CocRestart<CR>
   nmap <silent> <leader>cd :CocDisable<CR>
   nmap <silent> <leader>ce :CocEnable<CR>
 
@@ -413,7 +460,7 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
   highlight = { 
     disable = { "markdown", "javascript" },
-    enable = true,
+    enable = false,
   },
   incremental_selection = {
     enable = true,
@@ -431,6 +478,5 @@ EOF
 " Folding {{{
 """"""""""""
 au FileType rust,javascript,typescript set foldmethod=expr foldexpr=nvim_treesitter#foldexpr() nofoldenable foldlevelstart=10
-au FileType vim set foldmethod=marker foldexpr=VimFolds(v:lnum) nofoldenable foldlevelstart=10
-au FileType vim normal zM
+" au FileType vim set foldmethod=marker foldexpr=VimFolds(v:lnum)
 " }}}
