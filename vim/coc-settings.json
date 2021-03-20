@@ -12,8 +12,10 @@
     "typescriptreact"
   ],
   "prettier.disableSuccessMessage": true,
+  "suggest.triggerAfterInsertEnter": false,
+  "suggest.enablePreview": true,
   "suggest.autoTrigger": "always",
-  "suggest.minTriggerInputLength": 3,
+  "suggest.minTriggerInputLength": 5,
   "suggest.noselect": false,
   "flutter.provider.hot-reload": true,
   "rust-analyzer.updates.channel": "nightly",
@@ -26,5 +28,11 @@
   "rust-analyzer.diagnostics.disabled": ["missing-unsafe"],
   "rust-analyzer.cargo.loadOutDirsFromCheck": true,
   "rust-analyzer.procMacro.enable": true,
-  "coc.preferences.highlightTimeout": 5000
+  "rust-analyzer.lens.enable": true,
+  "coc.preferences.highlightTimeout": 5000,
+  "list.source.symbols.defaultOptions": ["--interactive", "--number-select"],
+  "list.source.diagnostics.defaultOptions": ["--normal", "--number-select"],
+  "list.source.diagnostics.includeCode": true,
+  "list.source.diagnostics.pathFormat": "full",
+  "javascript.suggestionActions.enabled": false
 }
