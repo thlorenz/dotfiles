@@ -8,7 +8,13 @@ env:
 window:
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
-  startup_mode: SimpleFullscreen
+
+ # Values for `startup_mode`:
+  #   - Windowed
+  #   - Maximized
+  #   - Fullscreen
+  #
+  startup_mode: Maximized
   padding:
     x: 0 
     y: 0 
@@ -85,7 +91,14 @@ live_config_reload: true
 url:
   modifiers: none
 
-background_opacity: 0.8
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+# hide_cursor_when_typing: true
+
+
+background_opacity: .99
 colors:
   # Default colors
   primary:
