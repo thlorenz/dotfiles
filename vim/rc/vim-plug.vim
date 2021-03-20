@@ -226,6 +226,9 @@ Plug 'tikhomirov/vim-glsl'         ,  { 'for': [ 'glsl' ] }
 Plug 'ron-rs/ron.vim'              ,  { 'for': [ 'ron' ] }
   autocmd! BufNewFile,BufRead *.scn set ft=ron
 Plug 'ianks/vim-tsx'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'lilyball/vim-swift'          ,  { 'for': [ 'swift' ] }
+Plug 'dcharbon/vim-flatbuffers'	   ,  { 'for': [ 'fbs' ] } 
 " }}}
 
 " Make and Quickfix {{{1
