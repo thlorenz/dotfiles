@@ -337,8 +337,8 @@ nnoremap <leader><S-o> :call ToggleOpacity()<CR>
 
 
 "
-" Completing WhichKey Map setup
+" Completing WhichKey Map setup (Turned off, see ./rc/vim-plugin.vim)
 " IMPORTANT: This needs to run after all of the mappings were setup
-nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
-vnoremap <silent><leader>       :<c-u>WhichKeyVisual '<Space>'<CR>
+" nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+" nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+" vnoremap <silent><leader>       :<c-u>WhichKeyVisual '<Space>'<CR>

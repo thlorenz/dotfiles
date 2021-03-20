@@ -117,7 +117,9 @@ au FileType dart,typescript,javascript,rust,go nmap <silent>gI :update \|!idea -
 " Keyboard Mapping Helpers {{{
 """"""""""""""""""""""""""""""
 
-Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!', 'WhichKeyVisual', 'WhichKeyVisual!'] }
+" Turned off for now as it caused problems and I don't much look at the popup
+" anyways
+" Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!', 'WhichKeyVisual', 'WhichKeyVisual!'] }
 " }}}
 
 " File navigation {{{1
