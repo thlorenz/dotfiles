@@ -354,6 +354,10 @@ Plug 'itchyny/lightline.vim'
 """"""""""
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'antoinemadec/coc-fzf'
+
+" Fix cursor disappearing
+let g:coc_disable_transparent_cursor = 1
 
 " # Coc Setup {{{2
 "
@@ -382,7 +386,8 @@ let g:coc_global_extensions = [
   nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gi <Plug>(coc-implementation)
-  nmap <silent> gr <Plug>(coc-references)
+  nmap <silent> gr <Plug>(coc-references-used)
+  nmap <silent> gR <Plug>(coc-references)
   nmap <silent> ]g <Plug>(coc-diagnostic-next)
   nmap <silent> [g <Plug>(coc-diagnostic-prev)
   command! -nargs=0 CoqGotoProjectConfig :call CocAction('runCommand', 'tsserver.goToProjectConfig')
@@ -390,9 +395,10 @@ let g:coc_global_extensions = [
 "}}}
 
   " coc list + commands
-  nmap <silent> <leader>cx :CocList --number-select diagnostics<CR>
-  nmap <silent> <leader>cs :CocList --interactive symbols<CR>
-  " nmap <silent> <leader>cr :CocRestart<CR>
+  nmap <silent> <leader>e :CocFzfList diagnostics<CR>
+  nmap <silent> <leader>o :CocFzfList symbols<CR>
+  nmap <silent> <leader>O :CocFzfList outline<CR>
+  nmap <silent> <leader>cr :CocRestart<CR>
   nmap <silent> <leader>cd :CocDisable<CR>
   nmap <silent> <leader>ce :CocEnable<CR>
 
@@ -403,21 +409,20 @@ let g:coc_global_extensions = [
   omap of <Plug>(coc-funcobj-a)
 
   " refactorings
-  nmap <leader><C-r> <Plug>(coc-rename)
+  nmap <leader>r <Plug>(coc-rename)
   nmap <leader>a v<Plug>(coc-codeaction-selected)
   xmap <leader>a <Plug>(coc-codeaction-selected)
 
   " fixes
   nmap <leader>cff <Plug>(coc-fix-current)
   command! -nargs=0 CoqOrganizeImports :call CocAction('runCommand', 'editor.action.organizeImport')
-  nmap <leader> cfo :CoqOrganizeImports<cr>
+  " Disabled since this somehow triggers on <Space> followed by nothing for a
+  " while in normal mode
+  " nmap <leader> cfo :CoqOrganizeImports<cr>
   command! -nargs=0 CoqAutofix :call CocAction('runCommand', 'tsserver.executeAutofix')
   nmap <leader>cfi :CoqAutofix<cr>
   nmap <leader>cff :CocFix<cr>
   
-  " Highlight References of Symbol under Cursor
-  nnoremap <silent> L :call CocActionAsync('highlight')<CR>
-
   " Rust Inlay Hints
   au FileType rust nmap <silent><leader>ch  :CocCommand rust-analyzer.toggleInlayHints<CR>
   "}}}2

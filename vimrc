@@ -335,6 +335,8 @@ function! ToggleOpacity()
 endfunction
 nnoremap <leader><S-o> :call ToggleOpacity()<CR>
 
+hi NormalFloat ctermfg=253 ctermbg=133 guifg=#cbe3e7 guibg=#000000
+
 
 "
 " Completing WhichKey Map setup (Turned off, see ./rc/vim-plugin.vim)
