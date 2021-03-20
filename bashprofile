@@ -22,6 +22,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   PATH=~/.emacs.d/bin:$PATH
   PATH=/Library/TeX/texbin:$PATH
   PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+  PATH="/usr/local/opt/ruby/bin:$PATH"
 
   LUA_PATH=~/.luarocks/share/lua/5.3/
   FLUTTER_SDK=~/dev/flutter/sdk

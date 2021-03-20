@@ -9,8 +9,9 @@ export GIT_AUTHOR_EMAIL=$(git config --get user.email)
 
 # Ruby Gems
 
-export GEM_HOME=/usr/local/lib/gems/ruby/2.0/gems
-export GEM_PATH="$GEM_HOME:/usr/lib/ruby/gems/2.0.0/gems/"
+# export GEM_HOME=/usr/local/lib/gems/ruby/2.0/gems
+export GEM_HOME=/usr/local/Cellar/ruby/3.0.0_1/lib/ruby/gems/3.0.0
+export GEM_PATH="$GEM_HOME"
 
 # Go
 export GOPATH=$HOME/go
