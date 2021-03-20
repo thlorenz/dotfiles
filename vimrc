@@ -333,7 +333,7 @@ function! ToggleOpacity()
     let g:is_opaque = 1
   endif
 endfunction
-nnoremap <leader><S-o> :call ToggleOpacity()<CR>
+nnoremap <leader><S-p> :call ToggleOpacity()<CR>
 
 hi NormalFloat ctermfg=253 ctermbg=133 guifg=#cbe3e7 guibg=#000000
 
