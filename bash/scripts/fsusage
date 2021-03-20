@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+sudo fs_usage -w -f filesys $1
