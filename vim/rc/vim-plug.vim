@@ -131,7 +131,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
   set rtp+=/usr/local/opt/fzf
   let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.5 } }
-  let g:fzf_preview_window = ['right:70%:hidden', 'ctrl-o']
+  let g:fzf_preview_window = ['right:50%:hidden', 'ctrl-o']
   let $FZF_DEFAULT_COMMAND = 'rg --files'
   let $FZF_DEFAULT_OPTS='--reverse' 
 
@@ -141,8 +141,8 @@ Plug 'junegunn/fzf.vim'
       call remove(g:fzf_colors, 'bg')
     endif
     let g:fzf_layout = { 'window': { 
-          \'width': 0.75, 
-          \'height': 0.50, 
+          \'width': 0.95, 
+          \'height': 0.70, 
           \'highlight': 'Special',
           \} }
   endif
