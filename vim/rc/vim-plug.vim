@@ -352,7 +352,6 @@ Plug 'itchyny/lightline.vim'
 
 " Coc {{{1
 """"""""""
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
 
@@ -365,7 +364,6 @@ let g:coc_disable_transparent_cursor = 1
 " 
 " npm i -g vim-node-rpc
 """"""""""""""""""""""""
-
 
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
@@ -493,4 +491,9 @@ EOF
 """"""""""""
 au FileType rust,javascript,typescript set foldmethod=expr foldexpr=nvim_treesitter#foldexpr() nofoldenable foldlevelstart=10
 " au FileType vim set foldmethod=marker foldexpr=VimFolds(v:lnum)
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * silent! mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
 " }}}
