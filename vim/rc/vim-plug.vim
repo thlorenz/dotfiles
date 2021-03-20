@@ -286,7 +286,7 @@ au FileType rust nmap <silent> <leader>tc :wa \| :call TmuxSplitInit('cargo buil
 au FileType rust nmap <silent> <leader>tb :wa \| :call TmuxSplitInit('cargo check --all-targets')<CR>
 au FileType rust nmap <silent> <leader>tr :wa \| :call TmuxSplitInit('cargo run --release')<CR>
 au FileType rust nmap <silent> <leader>tR :wa \| :call TmuxSplitInit('cargo run')<CR>
-au FileType rust nmap <silent> <leader>tt :wa \| :call TmuxSplitInit('cargo test --features=test -- --show-output')<CR>
+au FileType rust nmap <silent> <leader>tt :wa \| :call TmuxSplitInit('cargo test -- --show-output')<CR>
 au FileType rust nmap <silent> <leader>tl :wa \| :call TmuxSplitInit('cargo clippy -Z unstable-options')<CR>
 au FileType rust nmap <silent> <leader>tf :wa \| :call TmuxSplitInit('cargo clippy --fix -Z unstable-options')<CR>
 
