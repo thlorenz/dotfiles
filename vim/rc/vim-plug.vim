@@ -102,7 +102,7 @@ Plug 'rizzatti/dash.vim'
   noremap <leader>H :Dash! <CR>
 Plug 'kristijanhusak/vim-carbon-now-sh'
 Plug 'tpope/vim-fugitive'
-  noremap <leader>gp :Gpush<cr>
+  noremap <leader>gp :Git push<cr>
   noremap <silent> <leader>gs :wa \| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Gstatus')<CR>
   noremap <silent> <leader>gl :wa \| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Glog')<CR>
   noremap <silent> <leader>go :wa \| Dispatch! gh repo view --web<CR>
