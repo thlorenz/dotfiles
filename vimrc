@@ -21,7 +21,11 @@ set shortmess=atI
 syn on
 
 inoremap jk <Esc>
-set timeoutlen=600
+inoremap jK <Esc>
+inoremap Jk <Esc>
+inoremap JK <Esc>
+set timeoutlen=800 ttimeoutlen=800
+
 
 set pastetoggle=<F3>
 
