@@ -158,7 +158,7 @@ Plug 'junegunn/fzf.vim'
 
   if executable('rg')
     let g:ackprg = 'rg --vimgrep'
-    set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+    set grepprg=rg\ -F\ --vimgrep\ --smart-case\ --follow
   endif
 function! s:fzf_statusline()
   " Override statusline as you like
@@ -169,6 +169,10 @@ function! s:fzf_statusline()
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
+  " Ensure we don't match on filenames when searching via Rg/Ag
+  " https://github.com/junegunn/fzf.vim/issues/609#issuecomment-549390273
+  command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+  command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
   nnoremap <leader>l  :Buffers<CR>
   nnoremap <leader>f  :Files<CR>
