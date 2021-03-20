@@ -15,6 +15,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
     for f in `brew --prefix`/etc/bash_completion.d/*; do source $f; done
   fi
 
+  PATH=~/dotfiles/bash/scripts:$PATH
   PATH=~/.jsvu:~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:/usr/local/sbin/:~/.pub-cache/bin:$PATH
   PATH=~/.fastlane/bin:$PATH
   PATH=~/dev/flutter/sdk/bin:~/dev/flutter/sdk/bin/cache/dart-sdk/bin/:~/dev/flutter/sdk/.pub-cache/bin:$PATH
