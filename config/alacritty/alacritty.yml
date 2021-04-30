@@ -74,7 +74,7 @@ font:
   use_thin_strokes: true
   
   shell:
-    program: /usr/local/bin/bash
+    program: /usr/bin/bash
     args:
       - --login
 
@@ -130,4 +130,3 @@ colors:
     magenta: '#d3869b'
     cyan:    '#8ec07c'
     white:   '#ebdbb2'
-
