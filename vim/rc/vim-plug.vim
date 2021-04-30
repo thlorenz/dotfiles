@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged')
 """""""""""
 
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-
+"
 " }}}
 
 " Editing {{{
@@ -22,6 +22,8 @@ Plug 'sjl/gundo.vim'
 
 Plug 'preservim/nerdcommenter'
   let NERDSpaceDelims=1"
+
+Plug 'mg979/vim-visual-multi'
 " }}}
 
 " Snippets {{{
@@ -174,8 +176,8 @@ autocmd! User FzfStatusLine call <SID>fzf_statusline()
   command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
   command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
-  nnoremap <leader>l  :Buffers<CR>
-  nnoremap <leader>f  :Files<CR>
+  nnoremap <leader>l :Buffers<CR>
+  nnoremap <leader>ff :Files<CR>
   nnoremap <leader>sg :GFiles<CR>
   nnoremap <leader>sb :BLines<CR>
   nnoremap <leader>sl :Lines<CR>
@@ -394,8 +396,8 @@ let g:coc_global_extensions = [
 
   " coc list + commands
   nmap <silent> <leader>e :CocFzfList diagnostics<CR>
-  nmap <silent> <leader>o :CocFzfList symbols<CR>
-  nmap <silent> <leader>O :CocFzfList outline<CR>
+  nmap <silent> <leader>fo :CocFzfList symbols<CR>
+  nmap <silent> <leader>fO :CocFzfList outline<CR>
   nmap <silent> <leader>cr :CocRestart<CR>
   nmap <silent> <leader>cd :CocDisable<CR>
   nmap <silent> <leader>ce :CocEnable<CR>
@@ -489,11 +491,12 @@ EOF
 
 " Folding {{{
 """"""""""""
-au FileType rust,javascript,typescript set foldmethod=expr foldexpr=nvim_treesitter#foldexpr() nofoldenable foldlevelstart=10
+au FileType javascript,typescript set foldmethod=expr foldexpr=nvim_treesitter#foldexpr() nofoldenable foldlevelstart=10
+au FileType rust set foldmethod=expr foldexpr=syntax nofoldenable foldlevelstart=10
 " au FileType vim set foldmethod=marker foldexpr=VimFolds(v:lnum)
 augroup remember_folds
   autocmd!
-  autocmd BufWinLeave * silent! mkview
+  " autocmd BufWinLeave * silent! mkview
   autocmd BufWinEnter * silent! loadview
 augroup END
 " }}}
