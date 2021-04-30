@@ -64,8 +64,8 @@ endif
 "highlight ColorColumn ctermbg=lightblue guibg=lightblue
 
 " Use Q for formatting the current paragraph (or selection)
-vmap Q gq
-nmap Q gqap
+" vmap Q gq
+" nmap Q gqap
 
 " sudo write open file
 cmap w!! w !sudo tee % >/dev/null
@@ -333,10 +333,11 @@ function! ToggleOpacity()
     let g:is_opaque = 1
   endif
 endfunction
-nnoremap <leader><S-p> :call ToggleOpacity()<CR>
+nnoremap <leader><S-o> :call ToggleOpacity()<CR>
 
+" Theme tweaks
 hi NormalFloat ctermfg=253 ctermbg=133 guifg=#cbe3e7 guibg=#000000
-
+hi Folded ctermfg=243 ctermbg=141 guifg=#767676 guibg=NONE
 
 "
 " Completing WhichKey Map setup (Turned off, see ./rc/vim-plugin.vim)
