@@ -34,5 +34,6 @@
   "list.source.diagnostics.defaultOptions": ["--normal", "--number-select"],
   "list.source.diagnostics.includeCode": true,
   "list.source.diagnostics.pathFormat": "full",
+  "html.format.enable": true,
   "javascript.suggestionActions.enabled": false
 }
