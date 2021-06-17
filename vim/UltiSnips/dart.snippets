@@ -1,0 +1,30 @@
+# Commenting
+snippet todo "TODO comment"
+// TODO(thlorenz): $0
+endsnippet
+
+snippet hdr "header comment"
+// -----------------
+// $1
+// -----------------
+endsnippet
+
+snippet stless "StatelessWidget"
+class $1 extends StatelessWidget {
+	@override
+	Widget build(BuildContext context) {
+		return Container(
+			$2
+		);
+	}
+}
+endsnippet
+
+snippet op== "Equality operator and Hashcode"
+@override
+bool operator ==(Object other) =>
+	identical(this, other) || other is $1 && other.$3 == $3;
+
+@override
+int get hashCode => $3.hashCode;
+endsnippet
