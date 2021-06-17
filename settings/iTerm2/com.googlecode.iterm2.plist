@@ -419,6 +419,8 @@
 	<integer>2</integer>
 	<key>MaxVertically</key>
 	<false/>
+	<key>MetalRedrawPeriod</key>
+	<real>10</real>
 	<key>MetalSlowFrameRate</key>
 	<real>60</real>
 	<key>NeverWarnAboutShortLivedSessions_02DDFD8E-720C-492C-B2EB-80F22EFEC21A</key>
@@ -2945,7 +2947,7 @@
 	<key>TabStyle</key>
 	<integer>0</integer>
 	<key>TabStyleWithAutomaticOption</key>
-	<integer>5</integer>
+	<integer>6</integer>
 	<key>TabViewType</key>
 	<integer>1</integer>
 	<key>ThreeFingerEmulates</key>
