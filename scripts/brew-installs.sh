@@ -55,6 +55,30 @@ brew cask install keycastr
 # brew cask install transmission
 # brew cask install vlc
 
+###########################
+# Improved Command line utilities
+###########################
+# https://github.com/ibraheemdev/modern-unix
+
+## lsd  (ls Deluxe)
+### Setup fonts on iTerm2: (https://github.com/Peltoche/lsd/issues/199#issuecomment-494218334)
+brew tap homebrew/cask-fonts
+brew install --cask font-sauce-code-pro-nerd-font
+# alternative font: brew install --cask font-hack-nerd-font
+brew install lsd
+
+## dust (better du)
+brew tap tgotwig/linux-dust && brew install dust
+
+## duf (better df)
+brew install duf
+
+## bottom (better top)
+### Configure via $HOME/.config/bottom/bottom.toml
+### https://github.com/ClementTsang/bottom/tree/master/sample_configs
+### https://clementtsang.github.io/bottom/configuration/config-file/flags/
+brew tap clementtsang/bottom && brew install bottom
+
 # emacs
 brew tap d12frosted/emacs-plus
 brew install emacs-plus
