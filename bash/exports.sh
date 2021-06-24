@@ -15,3 +15,6 @@ export GEM_PATH="$GEM_HOME"
 
 # Go
 export GOPATH=$HOME/go
+
+# Cypress Project Related
+export SNAPSHOT=$HOME/dev/cy/perf-tr1/esbuild/esbuild/snapshot

@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 
-const COMMIT = process.env.COMMIT || 'HEAD^'
+// @ts-check
+'use strict'
+
+const { execSync: exec } = require('child_process')
 
 function timezoneOffset() {
   const date = new Date()
@@ -11,15 +14,12 @@ function timezoneOffset() {
 
 const [timezoneDelta, timezoneString] = timezoneOffset()
 
-const { execSync: exec } = require('child_process')
-const minutes = process.argv[2] || 20
-const lastDate = new Date(exec(`git show -s --format=%ai ${COMMIT}`).toString())
+// GIT_COMMITTER_DATE="Wed 23 June 2021 22:09:09 MDT" git commit --amend --no-edit --date "Wed 23 June 2021 22:09:09 MDT"
 
-const randomSecs = Math.floor(Math.random() * 60000)
-const added = new Date(
-  lastDate.getTime() + minutes * 60000 + timezoneDelta * 60 * 60000 + randomSecs
+const yesterday = new Date(
+  Date.now() - 12 * 60 * 60000 + timezoneDelta * 60 * 60000
 )
-const addedString = added.toUTCString() + timezoneString
+const addedString = yesterday.toUTCString() + timezoneString
 const cmd =
   `GIT_AUTHOR_DATE="${addedString}" GIT_COMMITTER_DATE="${addedString}" ` +
   `git commit --amend --no-edit --date="${addedString}"`

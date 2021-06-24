@@ -339,9 +339,15 @@ nnoremap <leader><S-o> :call ToggleOpacity()<CR>
 hi NormalFloat ctermfg=253 ctermbg=133 guifg=#cbe3e7 guibg=#000000
 hi Folded ctermfg=243 ctermbg=141 guifg=#767676 guibg=NONE
 
+" Project specific .vimrc
+let $git_vimrc= expand(system("echo -n $(git rev-parse --show-toplevel)/.vimrc")) 
+if filereadable($git_vimrc) && $git_vimrc != expand("$HOME/.vimrc") 
+    source $git_vimrc 
+endif
 "
 " Completing WhichKey Map setup (Turned off, see ./rc/vim-plugin.vim)
 " IMPORTANT: This needs to run after all of the mappings were setup
 " nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 " nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 " vnoremap <silent><leader>       :<c-u>WhichKeyVisual '<Space>'<CR>
+

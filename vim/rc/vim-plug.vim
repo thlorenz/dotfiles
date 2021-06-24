@@ -105,7 +105,7 @@ Plug 'rizzatti/dash.vim'
 Plug 'kristijanhusak/vim-carbon-now-sh'
 Plug 'tpope/vim-fugitive'
   noremap <leader>gp :Git push<cr>
-  noremap <silent> <leader>gs :wa \| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Gstatus')<CR>
+  noremap <silent> <leader>gs :wa \| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Gstatus -c 27wincmd_')<CR>
   noremap <silent> <leader>gl :wa \| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Glog')<CR>
   noremap <silent> <leader>go :wa \| Dispatch! gh repo view --web<CR>
 
@@ -280,7 +280,7 @@ au FileType rust nmap <silent><leader>bl :wa \| Make clippy -Z unstable-options<
 au FileType rust nmap <silent>,bc :call FloatermExec('cargo', 'build --all-targets')<CR>
 au FileType rust nmap <silent>,bb :call FloatermExec('cargo', 'check --all-targets')<CR>
 au FileType rust nmap <silent>,br :call FloatermExec('cargo', 'run')<CR>
-au FileType rust nmap <silent>,bt :call FloatermExec('cargo', 'test --features=test -- --show-output')<CR>
+au FileType rust nmap <silent>,bt :call FloatermExec('cargo', 'test -- --show-output')<CR>
 au FileType rust nmap <silent>,bl :call FloatermExec('cargo', 'clippy -Z unstable-options')<CR>
 au FileType rust nmap <silent>,bf :call FloatermExec('cargo', 'clippy --fix -Z unstable-options')<CR>
 
@@ -300,6 +300,8 @@ au FileType typescript nmap <silent>,bt :call FloatermExec('yarn', 'yarn test')<
 
 au FileType typescript nmap <silent><leader>tt :wa \| :call TmuxSplitInit('yarn test')<CR>
 au FileType typescript nmap <silent><leader>tb :wa \| :call TmuxSplitInit('yarn build')<CR>
+
+nmap <silent>,t :call FloatermExec('ls', '-la')<CR>
 " }}}2
 
 " Quickfix tweaks and mappings
