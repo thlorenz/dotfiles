@@ -31,7 +31,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   PKG_CONFIG_PATH="/usr/local/opt/qt/lib/pkgconfig"
   ANDROID_HOME=/Users/$USER/Library/Android/sdk/22.0.7026061/
   ANDROID_NDK_HOME=$ANDROID_HOME/ndk/
-elif [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
+elif [ "$unamestr" == "Linux" ]; then
   PATH=~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:$PATH
 fi
 
