@@ -48,6 +48,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   map <leader>n :NERDTreeToggle<CR>
   map <leader><s-n> :NERDTreeFind<CR>
+  let NERDTreeIgnore = ['\.js\.map$', '\.d\.ts$']
 
 Plug 'voldikss/vim-floaterm' 
   let g:floaterm_keymap_toggle = ',,'
@@ -105,12 +106,16 @@ Plug 'rizzatti/dash.vim'
 Plug 'kristijanhusak/vim-carbon-now-sh'
 Plug 'tpope/vim-fugitive'
   noremap <leader>gp :Git push<cr>
-  noremap <silent> <leader>gs :wa \| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Gstatus -c 27wincmd_')<CR>
+  noremap <silent> <leader>gs :wa \| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Git -c 27wincmd_')<CR>
   noremap <silent> <leader>gl :wa \| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Glog')<CR>
   noremap <silent> <leader>go :wa \| Dispatch! gh repo view --web<CR>
+Plug 'skanehira/gh.vim'
 
 " RustPlay command depends on this
 Plug 'mattn/webapi-vim', { 'for': [ 'rust' ] }
+
+" Database Access
+Plug 'tpope/vim-dadbod'
 
 " open current file in idea
 au FileType dart,typescript,javascript,rust,go nmap <silent>gI :update \|!idea --line " . ( line(".") + 1 ) " %:p<CR>
@@ -231,6 +236,7 @@ Plug 'ianks/vim-tsx'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'lilyball/vim-swift'          ,  { 'for': [ 'swift' ] }
 Plug 'dcharbon/vim-flatbuffers'	   ,  { 'for': [ 'fbs' ] } 
+Plug 'mtdl9/vim-log-highlighting'
 " }}}
 
 " Make and Quickfix {{{1
@@ -400,9 +406,11 @@ let g:coc_global_extensions = [
   nmap <silent> <leader>e :CocFzfList diagnostics<CR>
   nmap <silent> <leader>fo :CocFzfList symbols<CR>
   nmap <silent> <leader>fO :CocFzfList outline<CR>
+  nmap <silent> <leader>fc :CocFzfList commands<CR>
   nmap <silent> <leader>cr :CocRestart<CR>
   nmap <silent> <leader>cd :CocDisable<CR>
   nmap <silent> <leader>ce :CocEnable<CR>
+  nmap <silent> <leader>cw :call coc#float#close_all()<CR>
 
   " select inner/outer function in visual mode
   xmap if <Plug>(coc-funcobj-i)
@@ -433,10 +441,10 @@ let g:coc_global_extensions = [
   inoremap <silent><expr> <c-n> coc#refresh()
 
   if exists('*complete_info')
-    inoremap <expr> <tab> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<tab>"
-  else
-    inoremap <expr> <tab> pumvisible() ? "\<C-y>" : "\<tab>"
-  endif
+     inoremap <expr> <tab> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<tab>"
+   else
+     inoremap <expr> <tab> pumvisible() ? "\<C-y>" : "\<tab>"
+   endif
   "}}}2
 
   " Coc Documentation for Symbol under Cursor {{{2
@@ -459,6 +467,9 @@ let g:coc_global_extensions = [
   "}}}2
   
 " }}}1
+
+" Flutter/Dart Language Server Support (did not work on with just Coc latest dev/stable channels)
+" See also: https://github.com/dart-lang/sdk/blob/master/pkg/analysis_server/tool/lsp_spec/README.md
 
 call plug#end()
 

@@ -18,22 +18,48 @@
   "suggest.minTriggerInputLength": 5,
   "suggest.noselect": false,
   "flutter.provider.hot-reload": true,
+  "flutter.sdk.path": "/Users/thlorenz/dev/flutter/sdk/",
+  "flutter.sdk.searchPaths": ["/Users/thlorenz/dev/flutter/sdk/"],
   "rust-analyzer.updates.channel": "nightly",
   "rust-analyzer.updates.prompt": false,
   "rust-analyzer.inlayHints.maxLength": 18,
   "rust-analyzer.inlayHints.chainingHints": true,
   "rust-analyzer.inlayHints.typeHints": false,
-  "rust-analyzer.cargo.allFeatures": true,
-  "rust-analyzer.checkOnSave.allFeatures": true,
-  "rust-analyzer.diagnostics.disabled": ["missing-unsafe"],
-  "rust-analyzer.cargo.loadOutDirsFromCheck": true,
+  "rust-analyzer.cargo.allFeatures": false,
+  "rust-analyzer.checkOnSave.allFeatures": false,
+  "rust-analyzer.diagnostics.disabled": ["missing-unsafe", "inactive-code"],
   "rust-analyzer.procMacro.enable": true,
   "rust-analyzer.lens.enable": true,
-  "coc.preferences.highlightTimeout": 5000,
+  "rust-analyzer.checkOnSave.extraArgs": [
+    "--target-dir",
+    "/tmp/rust-analyzer-check"
+  ],
   "list.source.symbols.defaultOptions": ["--interactive", "--number-select"],
   "list.source.diagnostics.defaultOptions": ["--normal", "--number-select"],
   "list.source.diagnostics.includeCode": true,
   "list.source.diagnostics.pathFormat": "full",
   "html.format.enable": true,
-  "javascript.suggestionActions.enabled": false
+  "javascript.suggestionActions.enabled": false,
+  "flutter.autoOpenDevLog": true,
+  "flutter.autoHideDevLog": true,
+  "flutter.openDevLogSplitCommand": "botright 60vsplit",
+  "languageserver": {
+    "dart": {
+      "command": "dart",
+      "args": [
+        "/Users/thlorenz/dev/flutter/sdk/bin/cache/dart-sdk/bin/snapshots/analysis_server.dart.snapshot",
+        "--lsp",
+        "--client-id",
+        "nvim"
+      ],
+      "filetypes": ["dart"],
+      "initializationOptions": {},
+      "settings": {
+        "dart": {
+          "validation": {},
+          "completion": {}
+        }
+      }
+    }
+  }
 }

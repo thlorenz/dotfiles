@@ -293,6 +293,8 @@ noremap <leader><S-j> :set cursorline!<CR>
 
 "Commands
 command! -nargs=* Wrap set wrap linebreak nolist
+"" Close current buffer
+command! BufferClose :bn|:bd#
 
 " Copy relative/full path to system clipboard
 map <leader>jf :let @+ = expand("%")<CR>
