@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo -n "$(git remote -v | grep origin | grep https | grep fetch | awk '{ print $2 }')" | pbcopy
