@@ -1,18 +1,18 @@
 {
   "dependencies": {
-    "coc-bloc": ">=0.1.1",
+    "coc-bloc": ">=0.1.3",
     "coc-css": ">=1.2.6",
     "coc-emmet": ">=1.1.6",
-    "coc-flutter": ">=1.8.0",
+    "coc-flutter": ">=1.9.5",
     "coc-go": ">=0.13.3",
-    "coc-highlight": ">=1.2.7",
+    "coc-highlight": ">=1.2.8",
     "coc-html": ">=1.4.1",
-    "coc-json": ">=1.3.4",
+    "coc-json": ">=1.3.6",
     "coc-lua": ">=1.0.1",
-    "coc-prettier": ">=1.1.22",
+    "coc-prettier": ">=1.1.24",
     "coc-python": ">=1.2.13",
-    "coc-rust-analyzer": ">=0.36.1",
+    "coc-rust-analyzer": ">=0.52.0",
     "coc-sourcekit": ">=0.0.3",
-    "coc-tsserver": ">=1.6.8"
+    "coc-tsserver": ">=1.8.6"
   }
 }
