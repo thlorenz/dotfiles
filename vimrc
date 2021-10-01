@@ -71,26 +71,26 @@ endif
 cmap w!! w !sudo tee % >/dev/null
 
 " Editing and reloading vimrc
-nmap <silent> <leader>ev :e ~/.vimrc <CR>
-nmap <silent> <leader>ep :e ~/.vim/rc/vim-plug.vim<CR>
+nmap <silent> <leader>ev :e $HOME/.vimrc <CR>
+nmap <silent> <leader>ep :e $HOME/.vim/rc/vim-plug.vim<CR>
 nmap <silent> <leader>sv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " Restore cursor position to the last when file was open
 autocmd BufReadPost *
-      \ if line("'\"") > 1 && line("'\"") <= line("$") |
-      \   exe "normal! g`\"" |
-      \ endif
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
 
 " Reload changed JSON files when :set autoread is on
 au FocusGained,BufEnter * :checktime
 
 " Font
 if (isGui)
-  set gfn=SourceCodePro-Regular:h14
+set gfn=SourceCodePro-Regular:h14
 elseif(isMac)
-  set gfn=SourceCodePro-Regular:h12
+set gfn=SourceCodePro-Regular:h12
 else
-  set gfn=SourceCodePro-Regular:h14
+set gfn=SourceCodePro-Regular:h14
 endif
 
 "Set tab size -- may be overridden for specific filetypes
@@ -252,14 +252,6 @@ au FileType ruby noremap <leader><C-r> !ruby %<CR>
 " Flex/ActionScript
 au FileType actionscript,mxml set omnifunc=actionscriptcomplete#Complete
 
-" CoffeeScript specific
-au FileType coffee noremap <leader><C-r> :wa \| ! coffee %<CR>
-"Auto Compile CoffeScript on save
-if(isGui)
-  " Below prevents saving
-  let coffee_make_options = "-p"
-  au BufWritePost *.coffee silent CoffeeMake -b | cwindow
-endif
 
 " Show $ at end of line and trailing space as ~
 set lcs=tab:\ \ ,eol:$,trail:~,extends:>,precedes:<
@@ -302,16 +294,16 @@ map <leader>jF :let @+ = expand("%:p")<CR>
 
 " Diff current Buffer with original file
 if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-        \ | wincmd p | diffthis
+command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+      \ | wincmd p | diffthis
 endif
 
 " Apply Macro to Visual selection
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
 function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
+echo "@".getcmdline()
+execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
 nnoremap <S-h> :m .-2<CR>==
@@ -325,15 +317,15 @@ nnoremap <leader>pdd :pu=strftime('%a %b %d %Y')<CR>
 
 let g:is_opaque=0
 function! ToggleOpacity()
-  if g:is_opaque == 1
-    let g:is_opaque = 0
-    hi! Normal ctermfg=253 ctermbg=233 guifg=#cbe3e7 guibg=#1e1c31
-    hi! NonText ctermfg=236 guifg=#565575
-  else
-    hi! Normal ctermbg=NONE guibg=NONE 
-    hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE 
-    let g:is_opaque = 1
-  endif
+if g:is_opaque == 1
+  let g:is_opaque = 0
+  hi! Normal ctermfg=253 ctermbg=233 guifg=#cbe3e7 guibg=#1e1c31
+  hi! NonText ctermfg=236 guifg=#565575
+else
+  hi! Normal ctermbg=NONE guibg=NONE 
+  hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE 
+  let g:is_opaque = 1
+endif
 endfunction
 nnoremap <leader><S-o> :call ToggleOpacity()<CR>
 
