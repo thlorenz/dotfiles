@@ -21,9 +21,11 @@ if [[ "$unamestr" == "Darwin" ]]; then
   PATH=~/dev/flutter/sdk/bin:~/dev/flutter/sdk/bin/cache/dart-sdk/bin/:~/dev/flutter/sdk/.pub-cache/bin:$PATH
   PATH=/Users/thlorenz/Library/Python/2.7/bin:$PATH
   PATH=~/.emacs.d/bin:$PATH
+  PATH="/Users/thlorenz/.local/share/solana/install/active_release/bin:$PATH"
   PATH=/Library/TeX/texbin:$PATH
   PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
   PATH="/usr/local/opt/ruby/bin:$PATH"
+  PATH="/usr/local/opt/llvm/bin:$PATH"
 
   LUA_PATH=~/.luarocks/share/lua/5.3/
   FLUTTER_SDK=~/dev/flutter/sdk
@@ -46,3 +48,4 @@ if [ -f '/Volumes/d/dev/devops/google-cloud-sdk/completion.bash.inc' ]; then . '
 export PATH="$HOME/.cargo/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash" 
+export PATH="/Users/thlorenz/.local/share/solana/install/active_release/bin:$PATH"

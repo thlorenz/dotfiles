@@ -200,4 +200,4 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
-export PATH="$GEM_HOME/bin:$PATH"
+export PATH="$GEM_HOME/ruby/2.6.0/bin:$PATH"

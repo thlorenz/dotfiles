@@ -9,12 +9,15 @@ export GIT_AUTHOR_EMAIL=$(git config --get user.email)
 
 # Ruby Gems
 
-# export GEM_HOME=/usr/local/lib/gems/ruby/2.0/gems
-export GEM_HOME=/usr/local/Cellar/ruby/3.0.0_1/lib/ruby/gems/3.0.0
-export GEM_PATH="$GEM_HOME"
+# export GEM_HOME=$HOME/.gem
+# export GEM_PATH="$GEM_HOME"
 
 # Go
 export GOPATH=$HOME/go
 
 # Cypress Project Related
 export SNAPSHOT=$HOME/dev/cy/perf-tr1/esbuild/esbuild/snapshot
+
+# Rust incremental breaks some project's compilation
+# https://github.com/rust-lang/rust/issues/83291#issuecomment-812958848
+export CARGO_INCREMENTAL=0
