@@ -80,10 +80,10 @@ brew install duf
 brew tap clementtsang/bottom && brew install bottom
 
 # emacs
-brew tap d12frosted/emacs-plus
-brew install emacs-plus
-rm -rf /Applications/Emacs.app
-ln -s /usr/local/opt/emacs-plus/Emacs.app /Applications/Emacs.app
+# brew tap d12frosted/emacs-plus
+# brew install emacs-plus
+# rm -rf /Applications/Emacs.app
+# ln -s /usr/local/opt/emacs-plus/Emacs.app /Applications/Emacs.app
 
 # mac emacs (needed to work well with tools like yabai)
 # brew tap railwaycat/emacsmacport
@@ -92,7 +92,7 @@ ln -s /usr/local/opt/emacs-plus/Emacs.app /Applications/Emacs.app
 # brew untap railwaycat/emacsmacport
 
 # pdflatex to convert emacs org files to pdf
-brew cask install mactex
+# brew cask install mactex
 
 # yabai and related keyboard hooks
 # this tool proved too unstable for now
@@ -110,6 +110,10 @@ brew cask install mactex
 # https://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org#with-homebrew
 brew install ripgrep
 brew install coreutils fd
+
+# productivity
+brew install terminal-notifier
+
 
 brew link
 brew doctor
