@@ -122,6 +122,11 @@
   amd = commit --amend --no-edit
   up  = pull --rebase
 
+  bip = rebase -i --committer-date-is-author-date
+  bi = rebase -i
+  bc = rebase --continue 
+  ba = rebase --abort 
+
   cleanup = "!git branch --no-color --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
 
 [mergetool]
