@@ -550,9 +550,4 @@ EOF
 au FileType javascript,typescript set foldmethod=expr foldexpr=nvim_treesitter#foldexpr() nofoldenable foldlevelstart=10
 au FileType rust set foldmethod=expr foldexpr=syntax nofoldenable foldlevelstart=10
 " au FileType vim set foldmethod=marker foldexpr=VimFolds(v:lnum)
-augroup remember_folds
-  autocmd!
-  " autocmd BufWinLeave * silent! mkview
-  autocmd BufWinEnter * silent! loadview
-augroup END
 " }}}
