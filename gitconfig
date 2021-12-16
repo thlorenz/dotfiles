@@ -122,6 +122,10 @@
   amd = commit --amend --no-edit
   up  = pull --rebase
 
+  ## Merging
+  mx = "!f() { git merge $1; git branch -d $1; }; f"
+
+  ## Rebasing
   bip = rebase -i --committer-date-is-author-date
   bi = rebase -i
   bc = rebase --continue 
