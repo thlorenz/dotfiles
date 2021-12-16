@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+URL=$(git remote get-url $1)
+git remote set-url origin $URL
+
+echo "Origin is now: '$(git remote get-url origin)'"

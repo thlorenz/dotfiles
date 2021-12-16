@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+# npm i -g repo-to-pdf
+
+dir=$1
+title=$2
+
+repo-to-pdf $dir $dir.pdf \
+  -d desktop              \
+  -t '$2'                 \
+  -s 1024                 \
+  -r calibre -f pdf

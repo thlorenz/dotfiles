@@ -26,6 +26,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
   PATH="/usr/local/opt/ruby/bin:$PATH"
   PATH="/usr/local/opt/llvm/bin:$PATH"
+  PATH="$HOME/dev/mp/solana/sh:$PATH"
 
   LUA_PATH=~/.luarocks/share/lua/5.3/
   FLUTTER_SDK=~/dev/flutter/sdk

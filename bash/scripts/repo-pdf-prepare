@@ -1,0 +1,11 @@
+find . -name node_modules -exec rm -rf {} \;
+find . -name *.svg -exec rm {} \;
+find . -name *.jpeg -exec rm {} \;
+find . -name *.jpg -exec rm {} \;
+find . -name *.png -exec rm {} \;
+find . -name *.lock -exec rm {} \;
+find . -name *.ico -exec rm {} \;
+find . -name *.woff -exec rm {} \;
+find . -name *.woff2 -exec rm {} \;
+
+find . -type f -name '*.*' | sed 's|.*\.||' | sort -u
