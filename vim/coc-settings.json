@@ -25,7 +25,7 @@
   "rust-analyzer.inlayHints.maxLength": 18,
   "rust-analyzer.inlayHints.chainingHints": true,
   "rust-analyzer.inlayHints.typeHints": false,
-  "rust-analyzer.cargo.allFeatures": false,
+  "rust-analyzer.cargo.allFeatures": true,
   "rust-analyzer.checkOnSave.allFeatures": false,
   "rust-analyzer.diagnostics.disabled": ["missing-unsafe", "inactive-code"],
   "rust-analyzer.procMacro.enable": true,
