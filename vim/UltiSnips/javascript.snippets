@@ -1,3 +1,23 @@
-snippet todo
+snippet ima "import strict assert"
+import { strict as assert } from 'assert'
+endsnippet
+
+snippet rma "require strict assert"
+const { strict as assert } = require('assert')
+endsnippet
+
+snippet todo "TODO"
 // TODO(thlorenz): $0
+endsnippet
+
+snippet hdr "header comment"
+// -----------------
+// $1
+// -----------------
+endsnippet
+
+snippet atst "async tape test"
+test('$1', async (t) => {
+	$2
+})
 endsnippet
