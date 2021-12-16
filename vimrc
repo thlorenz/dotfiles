@@ -26,6 +26,9 @@ inoremap Jk <Esc>
 inoremap JK <Esc>
 set timeoutlen=800 ttimeoutlen=800
 
+" Prevent Clipboard from getting overwritten
+xnoremap <expr> p 'pgv"'.v:register.'y`>'
+xnoremap <expr> P 'Pgv"'.v:register.'y`>'
 
 set pastetoggle=<F3>
 
@@ -111,11 +114,11 @@ tnoremap <C-h> <C-\><C-N><C-w>h
 set guicursor=n:blinkwait500-blinkon400-blinkoff250
 
 " Scala specific
-au FileType scala noremap <leader><C-r> :wa \| call Send_to_Screen(join(getline(1,'$'), "\n")) \| call Send_to_Screen("\n")<CR>
+au FileType scala noremap tr :wa \| call Send_to_Screen(join(getline(1,'$'), "\n")) \| call Send_to_Screen("\n")<CR>
 
 " Haskell specific
 au FileType haskell compiler ghc
-au FileType haskell noremap <leader><C-r> :wa \| !runghc %<CR>
+au FileType haskell noremap tr :wa \| !runghc %<CR>
 au FileType haskell noremap mm        :wa \| !ghc -e :q %<CR>
 au FileType haskell noremap <leader>m :wa \| !ghc -e runTests %<CR>
 
@@ -134,10 +137,10 @@ let g:haddock_browser_callformat = "%s %s"
 au FileType hamlet set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 " Rust specific
-au FileType rust noremap <leader><C-r> :wa \| ! cargo run<CR>
+au FileType rust noremap tr :wa \| ! cargo run<CR>
 
 " Perl specific
-au FileType perl noremap <leader><C-r> :wa \| ! perl %<CR>
+au FileType perl noremap tr :wa \| ! perl %<CR>
 
 " JSON specific
 "au FileType json set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0 conceallevel=2 concealcursor=nvc
@@ -148,19 +151,19 @@ au FileType json set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0
 au FileType javascript noremap <leader>m :wa \| r !(OCAT_COLOR=0 OCAT_DEPTH=0 OCAT_RM=1 node % 2>&1 > /dev/null) <CR>
 "noremap <leader>m :wa \| r !(OCAT_COLOR=0 OCAT_DEPTH=0 OCAT_RM=1 ~/dev/ns/nsolid/nsolid-node/out/Release/nsolid % 2>&1 > /dev/null && cat /tmp/ocat.txt) <CR>
 
-au FileType javascript noremap <leader><C-r> :wa \| ! node %<CR>
-au FileType typescript noremap <leader><C-r> :wa \| ! ts-node %<CR>
-"au FileType javascript noremap <leader><C-r> :wa \| ! DEBUG=* nsolid %<CR>
-"au FileType javascript noremap <leader><C-r> :wa \| ! /Users/thlorenz/dev/ns/nsolid/nsolid-node/out/Release/nsolid %<CR>
+au FileType javascript noremap tr :wa \| ! DEBUG=* node --trace-deprecation %<CR>
+au FileType typescript noremap tr :wa \| ! DEBUG=*,-sol:* esr %<CR>
+"au FileType javascript noremap tr :wa \| ! DEBUG=* nsolid %<CR>
+"au FileType javascript noremap tr :wa \| ! /Users/thlorenz/dev/ns/nsolid/nsolid-node/out/Release/nsolid %<CR>
 "au FileType javascript noremap <leader>e :wa \| ! /Users/thlorenz/dev/ns/nsolid/nsolid-node/out/Release/nsolid --debug-brk  %<CR>
-"au FileType javascript noremap <leader><C-r> :wa \| ! ./node %<CR>
-"au FileType javascript noremap <leader><C-r> :wa \| ! node %<CR>
-"au FileType javascript noremap <leader><C-r> :wa \| ! node --allow-natives-syntax %<CR>
+"au FileType javascript noremap tr :wa \| ! ./node %<CR>
+"au FileType javascript noremap tr :wa \| ! node %<CR>
+"au FileType javascript noremap tr :wa \| ! node --allow-natives-syntax %<CR>
 "au FileType javascript noremap <leader>m :wa \| !mocha %<CR>
 " let g:syntastic_javascript_checkers=['eslint']
 
-" au FileType lua noremap <leader><C-r> :wa \| !/Applications/CoronaSDK/Corona\ Simulator.app/Contents/MacOS/Corona\ Simulator -project %:p -skin iPhone <CR>
-au FileType lua noremap <leader><C-r> :wa \| !lua %<CR>
+" au FileType lua noremap tr :wa \| !/Applications/CoronaSDK/Corona\ Simulator.app/Contents/MacOS/Corona\ Simulator -project %:p -skin iPhone <CR>
+au FileType lua noremap tr :wa \| !lua %<CR>
 
 au FileType dart noremap <leader>m :wa \| !dart %<CR>
 
@@ -188,15 +191,15 @@ au FileType html set omnifunc=htmlcomplete#CompleteTags
 inoremap {<CR> {<CR>}<C-o>O
 
 " Assembler specific
-" au FileType nasm noremap <leader><C-r> :wa \| !nasm -f elf32 -g -F stabs % && ld -melf_i386 -o %:r %:r.o && echo "" && ./%:r && rm -f ./%:r ./%:r.o<CR>
-au FileType nasm noremap <leader><C-r> :wa \| make %:r && ./%:r && make clean<CR>
+" au FileType nasm noremap tr :wa \| !nasm -f elf32 -g -F stabs % && ld -melf_i386 -o %:r %:r.o && echo "" && ./%:r && rm -f ./%:r ./%:r.o<CR>
+au FileType nasm noremap tr :wa \| make %:r && ./%:r && make clean<CR>
 
 " C, C++ specific
 set ut=100000
-au FileType c,cc,cpp,h noremap <leader><C-r> :wa \| make! %:r && echo "" && ./%:r && rm ./%:r<CR>
-" au FileType c noremap <leader><C-r> :wa \| !cc -Wall -g % -o %:r && ./%:r && rm ./%:r<CR>
-" au FileType c,cc,cpp noremap <leader><C-r> :wa \| make! run<CR>
-" au FileType c,cc,cpp noremap <leader><C-r> :wa \| make! run-pgrep<CR>
+au FileType c,cc,cpp,h noremap tr :wa \| make! %:r && echo "" && ./%:r && rm ./%:r<CR>
+" au FileType c noremap tr :wa \| !cc -Wall -g % -o %:r && ./%:r && rm ./%:r<CR>
+" au FileType c,cc,cpp noremap tr :wa \| make! run<CR>
+" au FileType c,cc,cpp noremap tr :wa \| make! run-pgrep<CR>
 au FileType c,cc,cpp noremap <leader>m :wa \| make test<CR>
 
 " Complete options (disable preview scratch window)
@@ -204,7 +207,7 @@ set completeopt=menu,longest
 
 " Python specific
 au FileType python set omnifunc=pythoncomplete#Complete
-au FileType python noremap <leader><C-r> :wa \| !python %<CR>
+au FileType python noremap tr :wa \| !python %<CR>
 au FileType python set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 "
 " Java specific
@@ -218,6 +221,7 @@ set guioptions=-M
 set guioptions-=r
 set guioptions-=b
 
+au BufRead,BufNewFile *.md setfiletype markdown
 au FileType markdown set tabstop=2 softtabstop=2 shiftwidth=2 tw=95 fo=cqt wm=0 conceallevel=0 concealcursor=nvc
 
 " Line numbers
@@ -247,7 +251,7 @@ au FileType ruby mlet g:rubycomplete_classes_in_global = 1
 
 au FileType ruby map <F1> :!ri	<CR>
 au FileType ruby map <F3> :!irb<CR>
-au FileType ruby noremap <leader><C-r> !ruby %<CR>
+au FileType ruby noremap tr !ruby %<CR>
 
 " Flex/ActionScript
 au FileType actionscript,mxml set omnifunc=actionscriptcomplete#Complete
@@ -300,6 +304,7 @@ endif
 
 " Apply Macro to Visual selection
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+let @t=':s/readonly //0wyeithis.jkweai €kb€kb = args.jkpld$j'
 
 function! ExecuteMacroOverVisualRange()
 echo "@".getcmdline()

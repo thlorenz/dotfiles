@@ -61,8 +61,6 @@ let g:startify_custom_header = [
 \ ]
 " }}}
 
-
-
 " Snippets {{{
 """"""""""""""
 " Follow `:h provider-python` instructions -> `python3 -m pip install --user --upgrade pynvim`
@@ -119,6 +117,7 @@ Plug 'vimwiki/vimwiki'
   let g:vimwiki_markdown_link_ext = 1
   au FileType vimwiki nmap <leader>tl <Plug>VimwikiToggleListItem
   au FileType vimwiki vmap <leader>tl <Plug>VimwikiToggleListItem
+  au BufRead,BufNewFile *.md setfiletype markdown
 
 Plug 'tpope/vim-markdown', { 'for': ['markdown'] }
   au FileType markdown,vimwiki noremap <leader>mc :call ToggleConcealLevel()<CR>
@@ -146,6 +145,7 @@ Plug 'tpope/vim-fugitive'
   noremap <silent> <leader>gs :wa \| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Git -c 27wincmd_')<CR>
   noremap <silent> <leader>gl :wa \| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Glog')<CR>
   noremap <silent> <leader>go :wa \| Dispatch! gh repo view --web<CR>
+  noremap <silent> <leader>gO :wa \| Dispatch! gh browse %<CR>
 Plug 'skanehira/gh.vim'
 
 " RustPlay command depends on this
@@ -157,6 +157,7 @@ Plug 'tpope/vim-dadbod'
 " Running Tests
 Plug 'vim-test/vim-test'
 au FileType rust nmap <silent> tn :TestNearest -- --nocapture<CR>
+au FileType rust nmap <silent> tN :TestNearest --features test-bpf -- --nocapture<CR>
 nmap <silent> tl :TestLast<CR>
 
 
@@ -375,7 +376,7 @@ Plug 'itchyny/lightline.vim'
       \             [ 'readonly', 'relativepath', 'status', 'modified' ] ],
       \   'right': [ [ 'lineinfo' ],
       \              [ 'percent' ],
-      \              [ 'fileformat', 'fileencoding', 'filetype' ] ],
+      \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
       \ 'inactive': {
       \   'left': [['relativepath']],
@@ -547,7 +548,7 @@ EOF
 
 " Folding {{{
 """"""""""""
-au FileType javascript,typescript set foldmethod=expr foldexpr=nvim_treesitter#foldexpr() nofoldenable foldlevelstart=10
-au FileType rust set foldmethod=expr foldexpr=syntax nofoldenable foldlevelstart=10
-" au FileType vim set foldmethod=marker foldexpr=VimFolds(v:lnum)
+au FileType javascript,typescript,rust set foldmethod=expr foldexpr=nvim_treesitter#foldexpr() nofoldenable foldlevelstart=10 foldminlines=5
+" au FileType rust set foldmethod=expr foldexpr=syntax nofoldenable foldminlines=5
+au FileType vim set foldmethod=marker foldexpr=VimFolds(v:lnum) nofoldenable foldlevelstart=10 foldminlines=5
 " }}}
