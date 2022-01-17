@@ -1,0 +1,3 @@
+#!/bin/bash
+
+node --inspect-brk -r $HOME/npm-global/lib/node_modules/esbuild-runner/register.js $1
