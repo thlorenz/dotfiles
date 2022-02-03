@@ -21,3 +21,6 @@ export SNAPSHOT=$HOME/dev/cy/perf-tr1/esbuild/esbuild/snapshot
 # Rust incremental breaks some project's compilation
 # https://github.com/rust-lang/rust/issues/83291#issuecomment-812958848
 export CARGO_INCREMENTAL=0
+
+# Solana Explorer
+export ADDRESS_LABEL_PATH='/Volumes/d/dev/mp/solana/solana-labs/solana/explorer/src/data/address-labels.json'

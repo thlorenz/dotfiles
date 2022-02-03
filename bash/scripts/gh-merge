@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git checkout master && \
+gh pr merge -sd $1  && \
+git pull
