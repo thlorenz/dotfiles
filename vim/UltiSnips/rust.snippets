@@ -18,3 +18,13 @@ snippet hdr "header comment"
 // $1
 // -----------------
 endsnippet
+
+# Logging
+snippet epr "eprintln! debug"
+eprintln!("{:#?}", ${1});${0}
+endsnippet
+
+# Custom Imports
+snippet syne "syn ParseError and ParseResult"
+use syn::{Error as ParseError, Result as ParseResult};
+endsnippet
