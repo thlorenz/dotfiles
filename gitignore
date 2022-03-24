@@ -5,3 +5,5 @@ node_g
 node_modules/
 spikes/
 tmp/
+.vimrc
+.idea
