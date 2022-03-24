@@ -1,5 +1,7 @@
 #!/bin/bash
 
-git checkout master && \
+MASTER=${2:-master}
+
+git checkout ${MASTER} && \
 gh pr merge -sd $1  && \
 git pull

@@ -1,0 +1,1 @@
+export RUST_LOG=solana_runtime::system_instruction_processor=$1,solana_runtime::message_processor=$1,solana_bpf_loader=debug,solana_rbpf=$1

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+lsof -a -r1 -itcp | egrep -wv -e '^Google' -e '^PowerChim' -e '^Slack' -e '^rapportd' -e '^StocksWid' -e '^VimR' -e '^AMPDevice'
