@@ -35,7 +35,7 @@ set mouse=a
 
 set wildmenu
 set wildmode=list:longest
-set wildignore+=*/dist/*,*/.git/*,*/.svn/*,*/node_modules/*,*.o,*.obj,*.hi,*.sqlite3
+set wildignore+=*/src-old/*,*/dist/*,*/docs/*,*/.git/*,*/.svn/*,*/node_modules/*,*.o,*.obj,*.hi,*.sqlite3
 
 " Macro related improvements https://www.hillelwayne.com/post/vim-macro-trickz/
 set lazyredraw
