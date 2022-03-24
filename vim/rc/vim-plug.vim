@@ -64,14 +64,21 @@ let g:startify_custom_header = [
 " Snippets {{{
 """"""""""""""
 " Follow `:h provider-python` instructions -> `python3 -m pip install --user --upgrade pynvim`
- Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
   let g:UltiSnipsSnippetDirectories = ['/Users/thlorenz/.vim/UltiSnips']
   let g:UltiSnipsExpandTrigger="<C-j>"
   let g:UltiSnipsJumpForwardTrigger="<C-j>"
   let g:UltiSnipsJumpBackwardTrigger="<C-k>"
   let g:UltiSnipsEditSplit="vertical"
   nmap <silent> <leader>es :UltiSnipsEdit<CR>
- Plug 'honza/vim-snippets'
+  Plug 'honza/vim-snippets'
+
+Plug 'github/copilot.vim'
+  " imap <silent><script><expr> <C-j> copilot#Accept("\<CR>")
+  " let g:copilot_no_tab_map = v:true
+  imap <silent><script><nowait><expr> <C-\> copilot#Dismiss() . "\<C-\>"
+  imap <C-]> <Plug>(copilot-next)
+  imap <C-[> <Plug>(copilot-previous)
 " }}}
 
 " Integration with System, Terminal, External Tools {{{1
@@ -117,7 +124,7 @@ Plug 'vimwiki/vimwiki'
   let g:vimwiki_markdown_link_ext = 1
   au FileType vimwiki nmap <leader>tl <Plug>VimwikiToggleListItem
   au FileType vimwiki vmap <leader>tl <Plug>VimwikiToggleListItem
-  au BufRead,BufNewFile *.md setfiletype markdown
+  au BufRead,BufNewFile *.md set filetype=markdown conceallevel=0
 
 Plug 'tpope/vim-markdown', { 'for': ['markdown'] }
   au FileType markdown,vimwiki noremap <leader>mc :call ToggleConcealLevel()<CR>
@@ -144,8 +151,8 @@ Plug 'tpope/vim-fugitive'
   noremap <leader>gp :Git push<cr>
   noremap <silent> <leader>gs :wa \| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Git -c 27wincmd_')<CR>
   noremap <silent> <leader>gl :wa \| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Glog')<CR>
-  noremap <silent> <leader>go :wa \| Dispatch! gh repo view --web<CR>
-  noremap <silent> <leader>gO :wa \| Dispatch! gh browse %<CR>
+  noremap <silent> <leader>go :wa \| Dispatch! gh repo view --web --branch $(git branch --show-current)<CR>
+  noremap <silent> <leader>gO :wa \| Dispatch! gh browse --branch $(git branch --show-current) %<CR>
 Plug 'skanehira/gh.vim'
 
 " RustPlay command depends on this
@@ -321,10 +328,12 @@ endfunction
 
 " Make Commands {{{2
 au FileType rust nmap <silent><leader>bc :wa \| Make build --all-targets --all-features<CR>
-au FileType rust nmap <silent><leader>bb :wa \| Make check --all-targets --all-features<CR>
+"au FileType rust nmap <silent><leader>bb :wa \| Make check --all-targets --all-features<CR>
+au FileType rust nmap <silent><leader>bb :wa \| Make build-bpf<CR>
 au FileType rust nmap <silent><leader>bR :wa \| Make run<CR>
 au FileType rust nmap <silent><leader>br :wa \| Make run --release<CR>
-au FileType rust nmap <silent><leader>bt :wa \| Make test -- --show-output<CR>
+" au FileType rust nmap <silent><leader>bt :wa \| Make test -- --show-output<CR>
+au FileType rust nmap <silent><leader>bt :wa \| Make test-bpf -- --show-output<CR>
 au FileType rust nmap <silent><leader>bl :wa \| Make clippy -Z unstable-options<CR>
 
 au FileType rust nmap <silent>,bc :call FloatermExec('cargo', 'build --all-targets')<CR>
@@ -350,6 +359,8 @@ au FileType typescript nmap <silent>,bt :call FloatermExec('yarn', 'yarn test')<
 
 au FileType typescript nmap <silent><leader>tt :wa \| :call TmuxSplitInit('yarn test')<CR>
 au FileType typescript nmap <silent><leader>tb :wa \| :call TmuxSplitInit('yarn build')<CR>
+"au FileType typescript nmap <silent><leader>tr :wa \| :call TmuxSplitInit('(DEBUG=pkr* esr % && exit) \|\| sleep 4; exit')<CR>
+au FileType typescript nmap <silent><leader>tr :wa \| :call TmuxSplitInit('(DEBUG=* esr % && exit)')<CR>
 
 nmap <silent>,t :call FloatermExec('ls', '-la')<CR>
 " }}}2
