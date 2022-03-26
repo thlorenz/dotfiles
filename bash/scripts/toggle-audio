@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# brew install switchaudio-osx
+
+HEADPHONES="External Headphones"
+DISPLAY="Display Audio"
+CURRENT=$(SwitchAudioSource -c)
+
+if [ "$CURRENT" = "$HEADPHONES" ]; then
+    SwitchAudioSource -s 'Display Audio'
+else
+    SwitchAudioSource -s 'External Headphones'
+fi

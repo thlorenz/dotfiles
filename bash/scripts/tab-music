@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# brew install chrome-cli
+
+chrome-cli list tabs                                                    |\
+  egrep 'DI.FM|JAZZRADIO|RadioTunes|ClassicalRadio|ROCKRADIO|Zen Radio' |\
+  head -n 1 | cut -d ' ' -f 1 | cut -d ':' -f 2 | ghead -c -2           |\
+  xargs -I {} chrome-cli activate -t {}

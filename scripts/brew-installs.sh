@@ -40,6 +40,9 @@ brew install pkg-config
 # change brightness of monitors programatically
 brew install brightness
 
+# change audio output programatically used in ../bash/scripts/audio
+brew install switchaudio-osx
+
 # cast keys
 brew cask install keycastr
 
