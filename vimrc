@@ -225,8 +225,8 @@ au BufRead,BufNewFile *.md setfiletype markdown
 au FileType markdown set tabstop=2 softtabstop=2 shiftwidth=2 tw=95 fo=cqt wm=0 conceallevel=0 concealcursor=nvc
 
 " Line numbers
-nmap <leader>' :set relativenumber!<cr>
-nmap <leader>" :set number!<cr>
+nmap <leader>" :set relativenumber!<cr>
+nmap <leader>' :set number!<cr>
 
 "strip all trailing whitespace in the current file"
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
