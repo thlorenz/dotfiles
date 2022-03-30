@@ -1,7 +1,11 @@
-snippet dd "date header"
+snippet dh "date header"
 # `!v strftime('%a %b %d %Y')`
 endsnippet
 
 snippet dt "date + time"
 `!v strftime('%a %b %d %Y %H:%M:%S')`
+endsnippet
+
+snippet dl "date link"
+[`!v strftime('%a %b %d %Y')`](`!v strftime('%Y-%m-%d')`.md)
 endsnippet
