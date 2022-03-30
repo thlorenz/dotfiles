@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# https://www.rockradio.com/#favorites
+
+URI="https://listen.rockradio.com/premium_high/favorites.pls?$DI_KEY"
+PLAYLIST="/tmp/ROCKRADIO.COM - Favorites.pls"
+
+vlc_ $URI "$PLAYLIST" 

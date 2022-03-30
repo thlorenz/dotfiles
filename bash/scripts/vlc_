@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# brew install vlc
+
+URL=$1
+
+# all arguments except the first one
+shift
+PLAYLIST="$@"
+
+curl -iL $URL > "$PLAYLIST"
+ 
+TERM=xterm-256color \
+vlc --intf http --extraintf ncurses --http-password $VLC_PASS --http-port 9999 "$PLAYLIST"

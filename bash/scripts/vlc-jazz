@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# https://www.jazzradio.com/member/favorite/channels
+
+URI="https://listen.jazzradio.com/premium_high/favorites.pls?$DI_KEY"
+PLAYLIST="/tmp/JAZZRADIO.COM - Favorites.pls"
+
+vlc_ $URI "$PLAYLIST" 

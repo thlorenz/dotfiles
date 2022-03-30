@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# https://www.di.fm/member/favorite/channels
+
+URI="https://listen.di.fm/premium_high/favorites.pls?$DI_KEY"
+PLAYLIST="/tmp/DI.FM - Favorites.pls"
+
+vlc_ $URI "$PLAYLIST" 

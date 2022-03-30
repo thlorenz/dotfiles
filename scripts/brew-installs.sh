@@ -56,7 +56,7 @@ brew cask install keycastr
 # brew cask install iterm2
 # brew cask install limechat
 # brew cask install transmission
-# brew cask install vlc
+brew install vlc
 
 ###########################
 # Improved Command line utilities
