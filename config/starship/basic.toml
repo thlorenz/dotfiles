@@ -1,13 +1,17 @@
+# https://starship.rs/config/
 # $all is shorthand for $username$hostname$localip$shlvl$singularity$kubernetes$directory$vcsh$git_branch$git_commit$git_state$git_metrics$git_status$hg_branch$docker_context$package$c$cmake$cobol$dart$deno$dotnet$elixir$elm$erlang$golang$haskell$helm$java$julia$kotlin$lua$nim$nodejs$ocaml$perl$php$pulumi$purescript$python$rlang$red$ruby$rust$scala$swift$terraform$vlang$vagrant$zig$buf$nix_shell$conda$spack$memory_usage$aws$gcloud$openstack$azure$env_var$crystal$custom$sudo$cmd_duration$line_break$jobs$battery$time$status$container$shell$character
 "$schema" = 'https://starship.rs/config-schema.json'
 format = """
 $username\
 $hostname\
 $localip\
+
 $shlvl\
 $singularity\
 $kubernetes\
+
 $directory\
+
 $vcsh\
 $git_branch\
 $git_commit\
@@ -15,6 +19,7 @@ $git_state\
 $git_metrics\
 $git_status\
 $hg_branch\
+
 $docker_context\
 $package\
 $c\
@@ -51,6 +56,7 @@ $terraform\
 $vlang\
 $vagrant\
 $zig\
+
 $buf\
 $nix_shell\
 $conda\
@@ -60,15 +66,18 @@ $aws\
 $gcloud\
 $openstack\
 $azure\
+
 $env_var\
 $crystal\
 $custom\
 $sudo\
+
 $cmd_duration\
+$time\
 $line_break\
+
 $jobs\
 $battery\
-$time\
 $status\
 $container\
 $shell\
@@ -108,7 +117,7 @@ disabled = false
 format = '[$symbol$percentage]($style) '
 
 [[battery.display]]
-threshold = 10
+threshold = 30 
 style = 'red bold'
 
 [buf]
@@ -126,7 +135,7 @@ detect_files = [
 detect_folders = []
 
 [c]
-format = 'via [$symbol($version(-$name) )]($style)'
+format = '[$symbol($version(-$name) )]($style)'
 version_format = 'v${raw}'
 style = '149 bold'
 symbol = 'C '
@@ -160,7 +169,7 @@ vicmd_symbol = '[❮](bold green)'
 disabled = false
 
 [cmake]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '△ '
 style = 'bold blue'
@@ -182,7 +191,7 @@ show_notifications = false
 min_time_to_notify = 45000
 
 [cobol]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '⚙️ '
 style = 'bold blue'
@@ -198,7 +207,7 @@ detect_folders = []
 
 [conda]
 truncation_length = 1
-format = 'via [$symbol$environment]($style) '
+format = '[$symbol$environment]($style) '
 symbol = '🅒 '
 style = 'green bold'
 ignore_base = true
@@ -211,7 +220,7 @@ style = 'red bold dimmed'
 disabled = false
 
 [crystal]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '🔮 '
 style = 'bold red'
@@ -221,7 +230,7 @@ detect_files = ['shard.yml']
 detect_folders = []
 
 [dart]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '🎯 '
 style = 'bold blue'
@@ -235,7 +244,7 @@ detect_files = [
 detect_folders = ['.dart_tool']
 
 [deno]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '🦕 '
 style = 'green bold'
@@ -271,7 +280,7 @@ use_os_path_sep = true
 [docker_context]
 symbol = '🐳 '
 style = 'blue bold'
-format = 'via [$symbol$context]($style) '
+format = '[$symbol$context]($style) '
 only_with_files = true
 disabled = false
 detect_extensions = []
@@ -283,7 +292,7 @@ detect_files = [
 detect_folders = []
 
 [dotnet]
-format = 'via [$symbol($version )(🎯 $tfm )]($style)'
+format = '[$symbol($version )(🎯 $tfm )]($style)'
 version_format = 'v${raw}'
 symbol = '.NET '
 style = 'blue bold'
@@ -304,7 +313,7 @@ detect_files = [
 detect_folders = []
 
 [elixir]
-format = 'via [$symbol($version \(OTP $otp_version\) )]($style)'
+format = '[$symbol($version \(OTP $otp_version\) )]($style)'
 version_format = 'v${raw}'
 symbol = '💧 '
 style = 'bold purple'
@@ -314,7 +323,7 @@ detect_files = ['mix.exs']
 detect_folders = []
 
 [elm]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '🌳 '
 style = 'cyan bold'
@@ -330,7 +339,7 @@ detect_folders = ['elm-stuff']
 [env_var]
 
 [erlang]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = ' '
 style = 'bold red'
@@ -351,7 +360,7 @@ disabled = false
 format = 'on [$symbol$account(@$domain)(\($region\))]($style) '
 symbol = '☁️  '
 style = 'bold blue'
-disabled = false
+disabled = true
 
 [gcloud.region_aliases]
 
@@ -411,10 +420,10 @@ modified = '!'
 staged = '+'
 untracked = '?'
 ignore_submodules = false
-disabled = false
+disabled = true
 
 [golang]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '🐹 '
 style = 'bold cyan'
@@ -431,7 +440,7 @@ detect_files = [
 detect_folders = ['Godeps']
 
 [haskell]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = 'λ '
 style = 'bold purple'
@@ -448,7 +457,7 @@ detect_files = [
 detect_folders = []
 
 [helm]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '⎈ '
 style = 'bold white'
@@ -473,11 +482,11 @@ ssh_only = true
 trim_at = '.'
 format = '[$hostname]($style) in '
 style = 'green dimmed bold'
-disabled = false
+disabled = true
 
 [java]
 disabled = false
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 style = 'red dimmed'
 symbol = '☕ '
@@ -510,7 +519,7 @@ style = 'bold blue'
 disabled = false
 
 [julia]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = 'ஃ '
 style = 'bold purple'
@@ -523,7 +532,7 @@ detect_files = [
 detect_folders = []
 
 [kotlin]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '🅺 '
 style = 'bold blue'
@@ -554,7 +563,7 @@ style = 'yellow bold'
 disabled = true
 
 [lua]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '🌙 '
 style = 'bold blue'
@@ -566,13 +575,13 @@ detect_folders = ['lua']
 
 [memory_usage]
 threshold = 75
-format = 'via $symbol[$ram( | $swap)]($style) '
+format = '$symbol[$ram( | $swap)]($style) '
 style = 'white bold dimmed'
 symbol = '🐏 '
 disabled = true
 
 [nim]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '👑 '
 style = 'yellow bold'
@@ -586,7 +595,7 @@ detect_files = ['nim.cfg']
 detect_folders = []
 
 [nix_shell]
-format = 'via [$symbol$state( \($name\))]($style) '
+format = '[$symbol$state( \($name\))]($style) '
 symbol = '❄️  '
 style = 'bold blue'
 impure_msg = 'impure'
@@ -594,7 +603,7 @@ pure_msg = 'pure'
 disabled = false
 
 [nodejs]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = ' '
 style = 'bold green'
@@ -616,7 +625,7 @@ detect_files = [
 detect_folders = ['node_modules']
 
 [ocaml]
-format = 'via [$symbol($version )(\($switch_indicator$switch_name\) )]($style)'
+format = '[$symbol($version )(\($switch_indicator$switch_name\) )]($style)'
 version_format = 'v${raw}'
 global_switch_indicator = ''
 local_switch_indicator = '*'
@@ -657,7 +666,7 @@ disabled = false
 version_format = 'v${raw}'
 
 [perl]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '🐪 '
 style = '149 bold'
@@ -679,7 +688,7 @@ detect_files = [
 detect_folders = []
 
 [php]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '🐘 '
 style = '147 bold'
@@ -692,14 +701,14 @@ detect_files = [
 detect_folders = []
 
 [pulumi]
-format = 'via [$symbol($username@)$stack]($style) '
+format = '[$symbol($username@)$stack]($style) '
 version_format = 'v${raw}'
 symbol = ' '
 style = 'bold 5'
 disabled = false
 
 [purescript]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '<=> '
 style = 'bold white'
@@ -716,7 +725,7 @@ python_binary = [
     'python3',
     'python2',
 ]
-format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 version_format = 'v${raw}'
 style = 'yellow bold'
 symbol = '🐍 '
@@ -734,7 +743,7 @@ detect_files = [
 detect_folders = []
 
 [red]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '🔺 '
 style = 'red bold'
@@ -747,7 +756,7 @@ detect_files = []
 detect_folders = []
 
 [rlang]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 style = 'blue bold'
 symbol = '📐 '
@@ -763,7 +772,7 @@ detect_files = ['.Rprofile']
 detect_folders = ['.Rproj.user']
 
 [ruby]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '💎 '
 style = 'bold red'
@@ -780,7 +789,7 @@ detect_variables = [
 ]
 
 [rust]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '🦀 '
 style = 'bold red'
@@ -790,7 +799,7 @@ detect_files = ['Cargo.toml']
 detect_folders = []
 
 [scala]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 disabled = false
 style = 'red bold'
@@ -838,7 +847,7 @@ disabled = false
 
 [spack]
 truncation_length = 1
-format = 'via [$symbol$environment]($style) '
+format = '[$symbol$environment]($style) '
 symbol = '🅢 '
 style = 'blue bold'
 disabled = false
@@ -867,7 +876,7 @@ allow_windows = false
 disabled = true
 
 [swift]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '🐦 '
 style = 'bold 202'
@@ -877,7 +886,7 @@ detect_files = ['Package.swift']
 detect_folders = []
 
 [terraform]
-format = 'via [$symbol$workspace]($style) '
+format = '[$symbol$workspace]($style) '
 version_format = 'v${raw}'
 symbol = '💠 '
 style = 'bold 105'
@@ -894,7 +903,7 @@ detect_folders = ['.terraform']
 format = 'at [$time]($style) '
 style = 'bold yellow'
 use_12hr = false
-disabled = true
+disabled = false
 utc_time_offset = 'local'
 time_range = '-'
 
@@ -903,10 +912,10 @@ format = '[$user]($style) in '
 style_root = 'red bold'
 style_user = 'yellow bold'
 show_always = false
-disabled = false
+disabled = true
 
 [vagrant]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '⍱ '
 style = 'cyan bold'
@@ -922,7 +931,7 @@ format = 'vcsh [$symbol$repo]($style) '
 disabled = false
 
 [vlang]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = 'V '
 style = 'blue bold'
@@ -936,7 +945,7 @@ detect_files = [
 detect_folders = []
 
 [zig]
-format = 'via [$symbol($version )]($style)'
+format = '[$symbol($version )]($style)'
 version_format = 'v${raw}'
 symbol = '↯ '
 style = 'bold yellow'
