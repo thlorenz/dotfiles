@@ -43,3 +43,27 @@ if (module === require.main) {
 		})
 }
 endsnippet
+
+snippet react_provider "React Provider"
+import React from 'react'
+import { strict as assert } from 'assert'
+
+export type $1 = {}
+
+const $1Context = React.createContext<$1>({})
+
+export function use$1() {
+  const context = React.useContext($1Context)
+  assert(
+    context != null,
+    'use$1 must be used within a $1 provider'
+  )
+  return context
+}
+
+export function $1Provider(props: any) {
+  $2
+
+  return <$1Context.Provider value={} {...props} />
+}
+endsnippet
