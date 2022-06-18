@@ -123,6 +123,10 @@ if [[ "$unamestr" == "Darwin" ]]; then
   # bash completions installed via brew
   [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
+  # https://github.com/starship/starship#%F0%9F%9A%80-installation
+  # brew install starship
+  eval "$(starship init bash)"
+
 # ----------- LINUX ---------------
 
 # ---- ARCH ----
@@ -201,3 +205,4 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$GEM_HOME/ruby/2.6.0/bin:$PATH"
+export PATH=$PATH:/Users/thlorenz/.spicetify

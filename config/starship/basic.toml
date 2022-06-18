@@ -658,7 +658,7 @@ style = 'bold yellow'
 disabled = false
 
 [package]
-format = 'is [$symbol$version]($style) '
+format = '[$symbol$version]($style) '
 symbol = '📦 '
 style = '208 bold'
 display_private = false
