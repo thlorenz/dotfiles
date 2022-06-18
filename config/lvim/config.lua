@@ -143,15 +143,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   },
 -- }
 
--- Additional Plugins
--- lvim.plugins = {
---     {"folke/tokyonight.nvim"},
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
--- }
-
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
 --   pattern = { "*.json", "*.jsonc" },
@@ -165,3 +156,41 @@ lvim.builtin.treesitter.highlight.enabled = true
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
+
+
+------------------
+-- Plugins
+------------------
+lvim.plugins = {
+  -- Tmux Integration
+  { 'alexghergh/nvim-tmux-navigation', config = function()
+    require 'nvim-tmux-navigation'.setup {
+      disable_when_zoomed = true, -- defaults to false
+      keybindings = {
+        left = "<C-h>",
+        down = "<C-j>",
+        up = "<C-k>",
+        right = "<C-l>",
+      }
+    }
+  end
+  }
+}
+
+------------------
+-- Which Key Mappings
+------------------
+vim.cmd [[
+  set timeoutlen=800 ttimeoutlen=800
+]]
+
+-- VimTree
+lvim.builtin.which_key.mappings["e"] = nil
+lvim.builtin.which_key.mappings["n"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" }
+
+------------------
+-- Keymaps
+------------------
+---@diagnostic disable-next-line: undefined-global
+lvim.keys.normal_mode["]g"] = vim.diagnostic.goto_next
+lvim.keys.normal_mode["N"] = "<cmd>NvimTreeFocus<CR>"
