@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+DI_URI="https://listen.di.fm/premium_high/favorites.pls?$DI_KEY"
+JAZZ_URI="https://listen.jazzradio.com/premium_high/favorites.pls?$DI_KEY"
+ROCK_URI="https://listen.rockradio.com/premium_high/favorites.pls?$DI_KEY"
+TUNES_URI="https://listen.radiotunes.com/premium_high/favorites.pls?$DI_KEY"
+CLASSICAL_URI="https://listen.classicalradio.com/premium_high/favorites.pls?$DI_KEY"
+
+VLC=/Applications/VLC.app/Contents/MacOS/VLC
+
+TERM=xterm-256color                     \
+ $VLC --intf macosx --extraintf ncurses \
+  "$JAZZ_URI"                           \
+  "$DI_URI"                             \
+  "$ROCK_URI"                           \
+  "$TUNES_URI"                          \
+  "$CLASSICAL_URI"
+
+stty sane

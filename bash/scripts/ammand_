@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+export DEBUG=${DEBUG:-'amman:(info|error|debug)'}
+
+node --inspect ~/dev/mp/metaplex/metaplex-foundation/amman/dist/cli/amman.js $@

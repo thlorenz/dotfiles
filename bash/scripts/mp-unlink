@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+yarn unlink "@metaplex-foundation/$1" && yarn install --force

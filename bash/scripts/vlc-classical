@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# https://www.classicalradio.com/#favorites
+
+URI="https://listen.classicalradio.com/premium_high/favorites.pls?$DI_KEY"
+PLAYLIST="/tmp/ClassicalRadio.com - Favorites.pls"
+
+vlc_ $URI "$PLAYLIST" 

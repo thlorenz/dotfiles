@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd ~/.config
+rm nvim
+ln -s nvim-core nvim

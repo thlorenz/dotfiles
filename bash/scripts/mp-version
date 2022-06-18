@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+yarn info "@metaplex-foundation/$1" version

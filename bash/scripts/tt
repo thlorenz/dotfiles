@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# https://superuser.com/a/534813/35373
+stty sane

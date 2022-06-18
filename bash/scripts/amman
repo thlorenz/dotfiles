@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-COMMAND=${1:-validator}
-
-DEBUG='amman:*' node ~/dev/mp/metaplex/metaplex-foundation/amman/dist/cli/amman.js $COMMAND

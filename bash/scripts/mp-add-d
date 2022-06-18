@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+yarn add -D "@metaplex-foundation/$1"

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+export DEBUG=${DEBUG:-'solita:(info|error|debug)'}
+
+node ~/dev/mp/metaplex/metaplex-foundation/solita/dist/src/cli/solita.js $@

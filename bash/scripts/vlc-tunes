@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# https://www.radiotunes.com/#favorites
+
+URI="https://listen.radiotunes.com/premium_high/favorites.pls?$DI_KEY"
+PLAYLIST="/tmp/RadioTunes - Favorites.pls"
+
+vlc_ $URI "$PLAYLIST" 

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+yarn link "@metaplex-foundation/$1"
