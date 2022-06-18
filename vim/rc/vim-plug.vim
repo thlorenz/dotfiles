@@ -23,7 +23,8 @@ Plug 'sjl/gundo.vim'
 Plug 'preservim/nerdcommenter'
   let NERDSpaceDelims=1"
 
-Plug 'mg979/vim-visual-multi'
+" case-sensitive replacement and misc others
+Plug 'tpope/vim-abolish'
 
 " Vim Sessions + Startscreen
 Plug 'mhinz/vim-startify'
@@ -79,6 +80,7 @@ Plug 'github/copilot.vim'
   imap <silent><script><nowait><expr> <C-\> copilot#Dismiss() . "\<C-\>"
   imap <C-]> <Plug>(copilot-next)
   imap <C-[> <Plug>(copilot-previous)
+  map  <leader>cp :Copilot split<CR>
 " }}}
 
 " Integration with System, Terminal, External Tools {{{1
@@ -149,7 +151,7 @@ Plug 'rizzatti/dash.vim'
 Plug 'kristijanhusak/vim-carbon-now-sh'
 Plug 'tpope/vim-fugitive'
   noremap <leader>gp :Git push<cr>
-  noremap <silent> <leader>gs :wa \| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Git -c 27wincmd_')<CR>
+  noremap <silent> <leader>gs :wa \| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Git -c 20wincmd_')<CR>
   noremap <silent> <leader>gl :wa \| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Glog')<CR>
   noremap <silent> <leader>go :wa \| Dispatch! gh repo view --web --branch $(git branch --show-current)<CR>
   noremap <silent> <leader>gO :wa \| Dispatch! gh browse --branch $(git branch --show-current) %<CR>
@@ -253,9 +255,9 @@ Plug 'troydm/zoomwintab.vim'
 " Syntax highlighters/support {{{
 """""""""""""""""""""""""""""""""
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  nnoremap <leader>z za
-  nnoremap <leader>Z zA
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+"   nnoremap <leader>z za
+"   nnoremap <leader>Z zA
   " More setup in below section outside of call plug#end()
 
 Plug 'flazz/vim-colorschemes'
@@ -537,24 +539,24 @@ call plug#end()
 "
 
 " :TSInstall bash c cpp c_sharp css go dart graphql html javascript json lua rust toml typescript
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
-  highlight = { 
-    disable = { "markdown", "javascript" },
-    enable = false,
-  },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "<leader>;",
-      node_incremental = ";",
-      node_decremental = "'",
-      scope_incremental = "[",
-    },
-  },
-}
-EOF
+" lua <<EOF
+" require'nvim-treesitter.configs'.setup {
+"   ensure_installed = "maintained",
+"   highlight = { 
+"     disable = { "markdown", "javascript" },
+"     enable = false,
+"   },
+"   incremental_selection = {
+"     enable = true,
+"     keymaps = {
+"       init_selection = "<leader>;",
+"       node_incremental = ";",
+"       node_decremental = "'",
+"       scope_incremental = "[",
+"     },
+"   },
+" }
+" EOF
 " }}}
 
 " Folding {{{

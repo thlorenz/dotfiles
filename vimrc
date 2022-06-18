@@ -57,6 +57,8 @@ else
   colo wombat256mod
 endif
 
+highlight CopilotSuggestion guifg=#3333DD ctermfg=8
+
 "
 " highlight things that hang over 80th column
 "highlight OverLength ctermbg=black ctermfg=white guibg=black
@@ -152,7 +154,7 @@ au FileType javascript noremap <leader>m :wa \| r !(OCAT_COLOR=0 OCAT_DEPTH=0 OC
 "noremap <leader>m :wa \| r !(OCAT_COLOR=0 OCAT_DEPTH=0 OCAT_RM=1 ~/dev/ns/nsolid/nsolid-node/out/Release/nsolid % 2>&1 > /dev/null && cat /tmp/ocat.txt) <CR>
 
 au FileType javascript noremap tr :wa \| ! DEBUG=* node --trace-deprecation %<CR>
-au FileType typescript noremap tr :wa \| ! DEBUG=*,-sol,-beet:* esr %<CR>
+au FileType typescript noremap tr :wa \| ! esr %<CR>
 "au FileType javascript noremap tr :wa \| ! DEBUG=* nsolid %<CR>
 "au FileType javascript noremap tr :wa \| ! /Users/thlorenz/dev/ns/nsolid/nsolid-node/out/Release/nsolid %<CR>
 "au FileType javascript noremap <leader>e :wa \| ! /Users/thlorenz/dev/ns/nsolid/nsolid-node/out/Release/nsolid --debug-brk  %<CR>
