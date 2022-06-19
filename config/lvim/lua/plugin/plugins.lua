@@ -16,7 +16,7 @@ lvim.builtin.autopairs.active = false
 lvim.builtin.bufferline.active = false
 lvim.builtin.comment.active = false
 lvim.builtin.project.active = false
-lvim.builtin.dap.active = false
+-- lvim.builtin.dap.active = false
 lvim.builtin.alpha.active = false
 lvim.builtin.terminal.active = false
 
@@ -52,7 +52,25 @@ lvim.plugins = {
   { 'wakatime/vim-wakatime' },
   { 'kristijanhusak/vim-carbon-now-sh', opt = true, cmd = { 'CarbonNowSh' } },
 
-  { 'tpope/vim-fugitive', opt = true, cmd = { 'Git' } },
+  { 'tpope/vim-fugitive',
+    opt = true,
+    cmd = {
+      "G",
+      "Git",
+      "Gdiffsplit",
+      "Gread",
+      "Gwrite",
+      "Ggrep",
+      "GMove",
+      "GDelete",
+      "GBrowse",
+      "GRemove",
+      "GRename",
+      "Glgrep",
+      "Gedit"
+    },
+    ft = { "fugitive" }
+  },
   { 'skanehira/gh.vim', opt = true, cmd = { 'gh' } },
 
   -- Make and Quickfix
@@ -72,8 +90,15 @@ lvim.plugins = {
         end
       end)
     end,
-    disable = lvim.colorscheme ~= 'challenger_deep'
-  }
+    -- disable = lvim.colorscheme ~= 'challenger_deep'
+  },
+
+  -- startup
+  { 'mhinz/vim-startify',
+    config = function()
+      require 'plugin.startify'
+    end
+  },
 }
 
 -- TODO:
