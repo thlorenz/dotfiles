@@ -1,3 +1,2 @@
-*
-!config.lua
-!.gitignore
+plugin/packer_compiled.lua
+ignore
