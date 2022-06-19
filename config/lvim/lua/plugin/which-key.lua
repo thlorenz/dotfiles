@@ -1,3 +1,5 @@
 vim.cmd [[
-  set timeoutlen=800 ttimeoutlen=800
+  set timeoutlen=600
+  set ttimeoutlen=600
+  set updatetime=300
 ]]
