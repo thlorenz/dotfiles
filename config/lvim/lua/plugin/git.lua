@@ -1,19 +1,17 @@
--- vim.api.nvim_set_keymap('n',
---   "<leader>gs :wa \\| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Git -c 20wincmd_')<CR>",
---   { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', "<leader>gl :wa \\| call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Glog')<CR>",
---   { noremap = true, silent = true })
+require('plugin.dispatch')
 
 lvim.builtin.which_key.mappings["g"] = {
   name = "Git",
   j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
   k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-  l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+  L = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+  l = { "<cmd>call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Gclog')<cr>", "Git log" },
   P = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
   p = { "<cmd>Git push<CR>", "Git push" },
   r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
   R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-  s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+  S = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+  s = { "<cmd>call TmuxWindowCmd('fugitive', 'FORCE_COLOR=0 nvim -c :Git -c 20wincmd_')<CR>", "Git status" },
   u = {
     "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
     "Undo Stage Hunk",
