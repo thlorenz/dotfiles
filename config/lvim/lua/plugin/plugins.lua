@@ -5,6 +5,7 @@ require('plugin.which-key')
 require('plugin.dash')
 require('plugin.git')
 require('plugin.nvim-tree')
+require('plugin.tabular')
 require('plugin.telescope')
 require('plugin.treesitter')
 
@@ -23,6 +24,10 @@ lvim.plugins = {
   end
   },
 
+  -- Editing
+  { 'godlygeek/tabular', opt = true, cmd = { "Tabularize" } },
+  { 'tpope/vim-abolish' },
+
   -- Tools
   { 'rizzatti/dash.vim',
     opt = true,
@@ -30,19 +35,10 @@ lvim.plugins = {
   },
 
   { 'wakatime/vim-wakatime' },
-  { 'kristijanhusak/vim-carbon-now-sh',
-    opt = true,
-    cmd = { 'CarbonNowSh' }
-  },
+  { 'kristijanhusak/vim-carbon-now-sh', opt = true, cmd = { 'CarbonNowSh' } },
 
-  { 'tpope/vim-fugitive',
-    opt = true,
-    cmd = { 'Git' }
-  },
-  { 'skanehira/gh.vim',
-    opt = true,
-    cmd = { 'gh' }
-  },
+  { 'tpope/vim-fugitive', opt = true, cmd = { 'Git' } },
+  { 'skanehira/gh.vim', opt = true, cmd = { 'gh' } },
 
   -- Make and Quickfix
   { 'radenling/vim-dispatch-neovim',
