@@ -1,4 +1,5 @@
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
+-- https://lunarvim.org/plugins
 
 require('plugin.which-key')
 
@@ -11,6 +12,16 @@ require('plugin.treesitter')
 
 require('plugin.null-ls')
 
+-- Disabled Core Plugins
+lvim.builtin.autopairs.active = false
+lvim.builtin.bufferline.active = false
+lvim.builtin.comment.active = false
+lvim.builtin.project.active = false
+lvim.builtin.dap.active = false
+lvim.builtin.alpha.active = false
+lvim.builtin.terminal.active = false
+
+-- Added Plugins
 lvim.plugins = {
   -- Tmux Integration
   { 'alexghergh/nvim-tmux-navigation', config = function()
