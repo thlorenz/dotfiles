@@ -43,7 +43,12 @@ lvim.keys.normal_mode = {
 }
 
 lvim.keys.visual_mode = {}
-lvim.keys.visual_block_mode = {}
+lvim.keys.visual_block_mode = {
+  ["K"] = false,
+  ["J"] = false,
+  ["<A-j>"] = false,
+  ["<A-k>"] = false,
+}
 
 lvim.keys.command_mode = {
   -- navigate tab completion with <c-j> and <c-k>
