@@ -4,8 +4,54 @@ vim.cmd [[
   let mapleader = " "
 ]]
 
-lvim.keys.normal_mode["]g"] = vim.diagnostic.goto_next
-lvim.keys.normal_mode["N"] = "<cmd>NvimTreeFocus<CR>"
+-- Disable some mappings we don't like
+lvim.keys.insert_mode = {
+  -- 'jk' for quitting insert mode
+  ["jk"] = "<ESC>",
+  -- 'kj' for quitting insert mode
+  ["kj"] = "<ESC>",
+  -- 'jj' for quitting insert mode
+  ["jj"] = "<ESC>"
+}
+
+lvim.keys.normal_mode = {
+  -- Better window movement
+  ["<C-h>"] = "<C-w>h",
+  ["<C-j>"] = "<C-w>j",
+  ["<C-k>"] = "<C-w>k",
+  ["<C-l>"] = "<C-w>l",
+
+  -- Resize with arrows
+  ["<C-Up>"] = ":resize -2<CR>",
+  ["<C-Down>"] = ":resize +2<CR>",
+  ["<C-Left>"] = ":vertical resize -2<CR>",
+  ["<C-Right>"] = ":vertical resize +2<CR>",
+
+  -- Tab switch buffer
+  ["<A-l>"] = ":BufferLineCycleNext<CR>",
+  ["<A-h>"] = ":BufferLineCyclePrev<CR>",
+
+
+  -- QuickFix
+  ["]q"] = ":cnext<CR>",
+  ["[q"] = ":cprev<CR>",
+  ["<C-q>"] = ":call QuickFixToggle()<CR>",
+
+  ["]g"] = vim.diagnostic.goto_next,
+  ["N"] = "<cmd>NvimTreeFocus<CR>"
+
+}
+
+lvim.keys.visual_mode = {}
+lvim.keys.visual_block_mode = {}
+
+lvim.keys.command_mode = {
+  -- navigate tab completion with <c-j> and <c-k>
+  -- runs conditionally
+  ["<C-j>"] = { 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
+  ["<C-k>"] = { 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
+}
+
 
 -- Copy file paths
 vim.cmd [[

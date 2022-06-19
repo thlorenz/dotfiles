@@ -9,6 +9,8 @@ require('plugin.tabular')
 require('plugin.telescope')
 require('plugin.treesitter')
 
+require('plugin.null-ls')
+
 lvim.plugins = {
   -- Tmux Integration
   { 'alexghergh/nvim-tmux-navigation', config = function()
