@@ -27,3 +27,31 @@
 --   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
 --   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
 -- }
+
+lvim.builtin.which_key.mappings["f"] = {
+  name = "Find",
+  l = { "<cmd>Telescope buffers<cr>", "Find Buffer" },
+  f = { "<cmd>Telescope find_files<cr>", "Find File" },
+  g = { "<cmd>Telescope git_files<cr>", "Find Git File" },
+  r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+}
+-- Telescope lsp_document_symbols
+lvim.builtin.which_key.mappings["s"] = {
+  name = "Search",
+  b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+  h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+  H = { "<cmd>Telescope highlights<cr>", "Find highlight groups" },
+  m = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+  r = { "<cmd>Telescope registers<cr>", "Registers" },
+  s = { "<cmd>Telescope live_grep<cr>", "Text" },
+  k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+  c = { "<cmd>Telescope commands<cr>", "Commands" },
+  o = { "<cmd>Telescope lsp_document_symbols<cr>", "Symbols" },
+  O = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Symbols" },
+
+  C = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+  p = {
+    "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
+    "Colorscheme with Preview",
+  },
+}
