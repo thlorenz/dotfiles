@@ -7,6 +7,7 @@ require('plugin.nvim-tree')
 require('plugin.rust-tools')
 require('plugin.tabular')
 require('plugin.telescope')
+require('plugin.test')
 require('plugin.treesitter')
 
 require('plugin.null-ls')
@@ -99,6 +100,12 @@ lvim.plugins = {
       require 'plugin.startify'
     end
   },
+
+  -- tests
+  { 'vim-test/vim-test',
+    opt = true,
+    cmd = { 'TestNearest', 'TestLast' }
+  }
 }
 
 -- TODO:
