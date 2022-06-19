@@ -28,8 +28,8 @@ lvim.keys.normal_mode = {
   ["<C-Right>"] = ":vertical resize +2<CR>",
 
   -- Tab switch buffer
-  ["<A-l>"] = ":BufferLineCycleNext<CR>",
-  ["<A-h>"] = ":BufferLineCyclePrev<CR>",
+  ["]]"] = ":BufferLineCycleNext<CR>",
+  ["[["] = ":BufferLineCyclePrev<CR>",
 
 
   -- QuickFix
