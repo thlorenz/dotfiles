@@ -20,6 +20,19 @@ vim.cmd [[
   vnoremap <S-h> :m '<-2<CR>gv=gv
   vnoremap <S-l> :m '>+1<CR>gv=gv
 ]]
+
+-- TODO: add without vim script if possible
+vim.cmd [[
+" strip all trailing whitespace in the current file"
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Open new terminal shell
+noremap <leader>d <C-Z>
+
+" Paste/Put/Read into Buffer
+nnoremap <leader>pdt :pu=strftime('%a %b %d %Y %H:%M:%S')<CR>
+nnoremap <leader>pdd :pu=strftime('%a %b %d %Y')<CR>
+]]
 -- keymappings [view all the defaults by pressing <leader>Lk]
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
