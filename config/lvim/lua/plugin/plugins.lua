@@ -1,11 +1,10 @@
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 -- https://lunarvim.org/plugins
 
-require('plugin.which-key')
-
 require('plugin.dash')
 require('plugin.git')
 require('plugin.nvim-tree')
+require('plugin.rust-tools')
 require('plugin.tabular')
 require('plugin.telescope')
 require('plugin.treesitter')
@@ -40,6 +39,10 @@ lvim.plugins = {
   -- Editing
   { 'godlygeek/tabular', opt = true, cmd = { "Tabularize" } },
   { 'tpope/vim-abolish' },
+
+  -- Language LSP
+  { 'simrat39/rust-tools.nvim' },
+
 
   -- Tools
   { 'rizzatti/dash.vim',
