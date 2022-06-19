@@ -12,6 +12,14 @@ vim.cmd [[
   map <leader>jf :let @+ = expand("%")<CR>
   map <leader>jF :let @+ = expand("%:p")<CR>
 ]]
+
+-- Move line or selection up/down
+vim.cmd [[
+  nnoremap <S-h> :m .-2<CR>==
+  nnoremap <S-l> :m .+1<CR>==
+  vnoremap <S-h> :m '<-2<CR>gv=gv
+  vnoremap <S-l> :m '>+1<CR>gv=gv
+]]
 -- keymappings [view all the defaults by pressing <leader>Lk]
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
