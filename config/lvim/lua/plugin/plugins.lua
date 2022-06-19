@@ -43,7 +43,6 @@ lvim.plugins = {
   -- Language LSP
   { 'simrat39/rust-tools.nvim' },
 
-
   -- Tools
   { 'rizzatti/dash.vim',
     opt = true,
@@ -61,6 +60,19 @@ lvim.plugins = {
     requires = { 'tpope/vim-dispatch' },
     opt = true,
     cmd = { 'Dispatch', 'Make', 'Focus', 'Start' }
+  },
+
+  -- Theme
+  { 'challenger-deep-theme/vim',
+    as = 'challenger_deep',
+    config = function()
+      pcall(function()
+        if lvim and lvim.colorscheme == "challenger_deep" then
+          lvim.builtin.lualine.options.theme = "challenger_deep"
+        end
+      end)
+    end,
+    disable = lvim.colorscheme ~= 'challenger_deep'
   }
 }
 
