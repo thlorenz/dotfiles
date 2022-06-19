@@ -11,15 +11,11 @@ lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
-
 ------------------
+
 -- Plugins
 ------------------
 require('plugin.plugins')
-require('plugin.nvim-tree')
-require('plugin.telescope')
-require('plugin.treesitter')
-require('plugin.which-key')
 
 ------------------
 -- Core
