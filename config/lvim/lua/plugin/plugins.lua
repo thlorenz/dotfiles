@@ -1,6 +1,8 @@
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 -- https://lunarvim.org/plugins
 
+require('plugin.cmp')
+require('plugin.copilot')
 require('plugin.dap')
 require('plugin.dapui')
 require('plugin.dash')
@@ -49,7 +51,7 @@ lvim.plugins = {
     require = { 'mfussenegger/nvim-dap' }
   },
   { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' } },
-  -- { 'nvim-telescope/telescope-ui-select.nvim' },
+  { 'github/copilot.vim' },
 
   -- Tools
   { 'rizzatti/dash.vim',
