@@ -2,6 +2,9 @@ lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "challenger_deep"
 
+-- to disable icons and use a minimalist setup, uncomment the following
+-- lvim.use_icons = false
+
 local o         = vim.opt
 o.clipboard     = "unnamedplus" -- allows neovim to access the system clipboard
 o.cmdheight     = 1
@@ -83,30 +86,38 @@ o.whichwrap:append "<,>,[,],h,l"
 
 -- TODO: rewrite as non-vim script
 
+lvim.builtin.which_key.mappings["b"] = nil
 vim.cmd [[
   au FileType rust noremap tr :wa \| ! cargo run<CR>
   au FileType json set tabstop=2 softtabstop=2 shiftwidth=2 tw=120 fo=cqt wm=0
 
+
+  au BufRead,BufNewFile package.json,*.ts,*.js set makeprg=yarn
   au FileType javascript noremap tr :wa \| ! DEBUG=* node --trace-deprecation %<CR>
   au FileType typescript noremap tr :wa \| ! esr %<CR>
+  au FileType typescript nmap <silent><leader>bb :wa \| Make build<CR>
+  au FileType typescript nmap <silent><leader>bt :wa \| Make test<CR>
 
+
+  au BufRead,BufNewFile Cargo.toml,Cargo.lock,*.rs compiler cargo
+  au FileType rust nmap <silent><leader>bb :wa \| Make check --all-targets --all-features<CR>
+  au FileType rust nmap <silent><leader>bB :wa \| Make build-bpf<CR>
 
   au FileType lua noremap tr :wa \| !lua %<CR>
 
   au FileType dart noremap <leader>m :wa \| !dart %<CR>
 
-
   au FileType python set omnifunc=pythoncomplete#Complete
   au FileType python noremap tr :wa \| !python %<CR>
-  au FileType python set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
+  au BufRead,BufNewFile *.md setfiletype markdown
+
+  au FileType python set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType make set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
   au FileType javascript set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType dart set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType css set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   au FileType yaml set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-
-  au BufRead,BufNewFile *.md setfiletype markdown
   au FileType markdown set tabstop=2 softtabstop=2 shiftwidth=2 tw=95 fo=cqt wm=0 conceallevel=0 concealcursor=nvc
 ]]
 

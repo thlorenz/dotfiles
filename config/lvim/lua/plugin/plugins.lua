@@ -84,8 +84,7 @@ lvim.plugins = {
   { 'skanehira/gh.vim', opt = true, cmd = { 'gh' } },
 
   -- Make and Quickfix
-  { 'radenling/vim-dispatch-neovim',
-    requires = { 'tpope/vim-dispatch' },
+  { 'tpope/vim-dispatch',
     opt = true,
     cmd = { 'Dispatch', 'Make', 'Focus', 'Start' }
   },

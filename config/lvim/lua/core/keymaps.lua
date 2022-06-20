@@ -35,9 +35,10 @@ lvim.keys.normal_mode = {
   -- QuickFix
   ["]q"] = ":cnext<CR>",
   ["[q"] = ":cprev<CR>",
-  ["<C-q>"] = ":call QuickFixToggle()<CR>",
+  ["cc"] = ":call QuickFixToggle()<CR>",
 
   ["]g"] = vim.diagnostic.goto_next,
+
   ["N"] = "<cmd>NvimTreeFocus<CR>"
 
 }
