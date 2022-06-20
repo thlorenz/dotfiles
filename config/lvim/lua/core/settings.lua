@@ -59,7 +59,10 @@ o.spelllang      = "en"
 o.scrolloff      = 8 -- is one of my fav
 o.sidescrolloff  = 8
 
-o.shortmess = "atI"
+o.shortmess:append "a"
+o.shortmess:append "t" --	truncate file message
+o.shortmess:append "c" -- don't show redundant messages from ins-completion-menu
+o.shortmess:append "I" -- don't show the default intro message
 o.whichwrap:append "<,>,[,],h,l"
 
 -- TODO: rewrite as non-vim script
