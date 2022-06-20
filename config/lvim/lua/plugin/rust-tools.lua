@@ -1,7 +1,15 @@
 local opts = {
   tools = { -- rust-tools options
     autoSetHints = true,
-    hover_with_actions = true,
+
+    -- whether to show hover actions inside the hover window
+    -- this overrides the default hover handler so something like lspsaga.nvim's hover would be overriden by this
+    -- default: true
+    hover_with_actions = false,
+    -- whether the hover action window gets automatically focused
+    -- default: false
+    auto_focus = true,
+
     inlay_hints = {
       show_parameter_hints = false,
       parameter_hints_prefix = "",
@@ -9,6 +17,21 @@ local opts = {
     },
   },
 
+  hover_actions = {
+    -- the border that is used for the hover window
+    -- see vim.api.nvim_open_win()
+    border = {
+      { "╭", "FloatBorder" },
+      { "─", "FloatBorder" },
+      { "╮", "FloatBorder" },
+      { "│", "FloatBorder" },
+      { "╯", "FloatBorder" },
+      { "─", "FloatBorder" },
+      { "╰", "FloatBorder" },
+      { "│", "FloatBorder" },
+    },
+
+  },
   -- all the opts to send to nvim-lspconfig
   -- these override the defaults set by rust-tools.nvim
   -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
@@ -55,9 +78,21 @@ local opts = {
       }
     }
   },
+  dap = {
+    adapter = {
+      type = "executable",
+      command = "lldb-vscode",
+      name = "rt_lldb",
+    },
+  },
 }
 
 require('rust-tools').setup(opts)
+
+vim.cmd [[
+ au FileType rust nnoremap <silent> K :RustHoverActions<CR>
+]]
+
 
 -- local opts = {
 --   tools = { -- rust-tools options

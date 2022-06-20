@@ -78,7 +78,7 @@ vim.cmd [[
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Open new terminal shell
-noremap <leader>d <C-Z>
+noremap <leader>D <C-Z>
 
 " Paste/Put/Read into Buffer
 nnoremap <leader>pdt :pu=strftime('%a %b %d %Y %H:%M:%S')<CR>

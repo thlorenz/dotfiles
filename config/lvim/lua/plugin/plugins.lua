@@ -1,8 +1,11 @@
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 -- https://lunarvim.org/plugins
 
+require('plugin.dap')
+require('plugin.dapui')
 require('plugin.dash')
 require('plugin.git')
+require('plugin.lsp')
 require('plugin.nvim-tree')
 require('plugin.rust-tools')
 require('plugin.tabular')
@@ -17,9 +20,9 @@ lvim.builtin.autopairs.active = false
 lvim.builtin.bufferline.active = false
 lvim.builtin.comment.active = false
 lvim.builtin.project.active = false
--- lvim.builtin.dap.active = false
 lvim.builtin.alpha.active = false
 lvim.builtin.terminal.active = false
+lvim.builtin.dap.active = true
 
 -- Added Plugins
 lvim.plugins = {
@@ -41,8 +44,12 @@ lvim.plugins = {
   { 'godlygeek/tabular', opt = true, cmd = { "Tabularize" } },
   { 'tpope/vim-abolish' },
 
-  -- Language LSP
-  { 'simrat39/rust-tools.nvim' },
+  -- Tools/LSP/Debugging
+  { 'simrat39/rust-tools.nvim',
+    require = { 'mfussenegger/nvim-dap' }
+  },
+  { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' } },
+  -- { 'nvim-telescope/telescope-ui-select.nvim' },
 
   -- Tools
   { 'rizzatti/dash.vim',
