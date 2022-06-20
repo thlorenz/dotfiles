@@ -30,3 +30,8 @@ lvim.builtin.which_key.mappings["l"] = {
   },
   e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
 }
+
+vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true })
+-- vim.cmd [[
+--  au FileType rust nnoremap <silent> K :RustHoverActions<CR>
+-- ]]

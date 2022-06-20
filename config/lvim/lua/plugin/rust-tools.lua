@@ -89,11 +89,6 @@ local opts = {
 
 require('rust-tools').setup(opts)
 
-vim.cmd [[
- au FileType rust nnoremap <silent> K :RustHoverActions<CR>
-]]
-
-
 -- local opts = {
 --   tools = { -- rust-tools options
 --     -- automatically set inlay hints (type hints)
