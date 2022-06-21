@@ -119,7 +119,9 @@ lvim.builtin.cmp = {
   },
   experimental = {
     ghost_text = false,
-    native_menu = false,
+  },
+  view = {
+    entries = 'native'
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
@@ -153,6 +155,7 @@ lvim.builtin.cmp = {
     },
     source_names = {
       nvim_lsp = "(LSP)",
+      nvim_lua = "(API)",
       emoji = "(Emoji)",
       path = "(Path)",
       calc = "(Calc)",
@@ -192,11 +195,11 @@ lvim.builtin.cmp = {
     documentation = cmp.config.window.bordered(),
   },
   sources = {
+    { name = "nvim_lua" },
     { name = "nvim_lsp" },
     { name = "path" },
     { name = "luasnip" },
-    { name = "nvim_lua" },
-    { name = "buffer" },
+    { name = "buffer", keyword_length = 5 },
     { name = "calc" },
     { name = "emoji" },
     { name = "treesitter" },

@@ -44,6 +44,9 @@ lvim.plugins = {
 
   -- Telescope Extensions
   { 'nvim-telescope/telescope-ui-select.nvim' },
+  -- cmp
+  { 'hrsh7th/cmp-nvim-lua', },
+
   -- Editing
   { 'godlygeek/tabular', opt = true, cmd = { "Tabularize" } },
   { 'tpope/vim-abolish' },
