@@ -212,7 +212,7 @@ lvim.builtin.cmp = {
 
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.abort(),
-    ["<CR>"] = cmp.mapping(function(fallback)
+    ["<C-y>"] = cmp.mapping(function(fallback)
       if cmp.visible() and cmp.confirm(lvim.builtin.cmp.confirm_opts) then
         if jumpable() then
           luasnip.jump(1)
