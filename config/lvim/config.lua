@@ -15,7 +15,7 @@ lvim.builtin.terminal.active = true
 
 -- Plugins
 ------------------
-require('plugin.plugins')
+require('plugin')
 
 ------------------
 -- Core
