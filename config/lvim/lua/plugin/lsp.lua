@@ -4,6 +4,8 @@ lvim.builtin.which_key.mappings["l"] = {
   d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
   w = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
   f = { require("lvim.lsp.utils").format, "Format" },
+  e = { "<cmd>Trouble document_diagnostics<cr>", "Trouble diagnostics" },
+  E = { "<cmd>TroubleClose<cr>", "Trouble diagnostics" },
   i = { "<cmd>LspInfo<cr>", "Info" },
   I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
   j = {

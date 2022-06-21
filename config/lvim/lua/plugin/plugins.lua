@@ -44,6 +44,16 @@ lvim.plugins = {
 
   -- Telescope Extensions
   { 'nvim-telescope/telescope-ui-select.nvim' },
+  {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    opt = true,
+    cmd = 'Trouble',
+    config = function()
+      require("plugin.trouble")
+    end
+  },
+
   -- cmp
   { 'hrsh7th/cmp-nvim-lua', },
 
