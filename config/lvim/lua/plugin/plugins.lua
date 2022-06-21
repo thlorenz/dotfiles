@@ -2,7 +2,7 @@
 -- https://lunarvim.org/plugins
 
 require('plugin.cmp')
-require('plugin.copilot')
+-- require('plugin.copilot')
 require('plugin.dap')
 require('plugin.dapui')
 require('plugin.dash')
@@ -56,7 +56,7 @@ lvim.plugins = {
     require = { 'mfussenegger/nvim-dap' }
   },
   { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' } },
-  { 'github/copilot.vim' },
+  -- { 'github/copilot.vim' },
 
   -- Tools
   { 'rizzatti/dash.vim',
