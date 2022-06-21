@@ -31,8 +31,8 @@
 lvim.builtin.which_key.mappings["f"] = {
   name = "Find",
   l = { "<cmd>Telescope buffers<cr>", "Find Buffer" },
-  f = { "<cmd>Telescope find_files<cr>", "Find File" },
-  g = { "<cmd>Telescope git_files<cr>", "Find Git File" },
+  F = { "<cmd>Telescope find_files<cr>", "Find File" },
+  f = { "<cmd>Telescope git_files<cr>", "Find Git File" },
   r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 }
 -- Telescope lsp_document_symbols
@@ -55,3 +55,21 @@ lvim.builtin.which_key.mappings["s"] = {
     "Colorscheme with Preview",
   },
 }
+
+-- Extensions
+lvim.builtin.telescope['extensions'] = {
+  fzf = {
+    fuzzy = true, -- false will only do exact matching
+    override_generic_sorter = true, -- override the generic sorter
+    override_file_sorter = true, -- override the file sorter
+    case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+  },
+  ["ui-select"] = {
+    require("telescope.themes").get_dropdown {
+      -- even more opts
+    }
+  }
+}
+lvim.builtin.telescope.on_config_done = function(telescope)
+  telescope.load_extension("ui-select")
+end
