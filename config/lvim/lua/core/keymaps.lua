@@ -39,8 +39,7 @@ lvim.keys.normal_mode = {
 
   ["]g"] = vim.diagnostic.goto_next,
 
-  ["N"] = "<cmd>NvimTreeFocus<CR>"
-
+  ["N"] = "<cmd>NvimTreeFocus<CR>",
 }
 
 lvim.keys.visual_mode = {}

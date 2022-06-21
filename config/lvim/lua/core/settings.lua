@@ -66,7 +66,7 @@ o.cursorline = true -- highlight the current line
 o.number         = true -- set numbered lines
 o.relativenumber = false -- set relative numbered lines
 o.numberwidth    = 4 -- set number column width to 2 {default 4}
-o.signcolumn     = "number" -- always show the sign column otherwise it would shift the text each time
+o.signcolumn     = "yes" -- always show the sign column otherwise it would shift the text each time
 o.spell          = false
 o.spelllang      = "en"
 
