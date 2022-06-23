@@ -55,6 +55,7 @@ M.setup = function()
   ls.add_snippets("lua", {
     header(),
     todo(),
+    { key = "rust" }
   })
 
   -- --------------
@@ -63,6 +64,24 @@ M.setup = function()
   ls.add_snippets("rust", {
     header(),
     todo(),
+    s({ trig = "epr", name = "eprintln debug" },
+      fmt([[ eprintln!("{{:#?}}", {}); ]], { i(1) })
+    ),
+
+    s({ trig = "tst", name = "Unit test function" },
+      fmt([[
+        #[test]
+        fn {}() {{
+          {}
+        }}
+      ]], { i(1, "function_name"), i(0) })
+    ),
+
+    s({ trig = "syne", name = "syn ParseError and ParseResult" },
+      t "use syn::{Error as ParseError, Result as ParseResult};"
+    ),
+
+    { key = "rust" }
   })
 
   -- --------------
@@ -110,4 +129,5 @@ M.setup = function()
   })
 end
 
+M.setup()
 return M
