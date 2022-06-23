@@ -127,6 +127,22 @@ M.setup = function()
 
     { key = "typescript" }
   })
+
+  -- --------------
+  -- Markdown
+  -- --------------
+  ls.add_snippets("markdown", {
+    header(),
+    { key = "markdown" }
+  })
+
+  -- --------------
+  -- Yaml
+  -- --------------
+  ls.add_snippets("yaml", {
+    header(),
+    { key = "yaml" }
+  })
 end
 
 M.setup()
