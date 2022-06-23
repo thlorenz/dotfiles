@@ -8,6 +8,7 @@ require('plugin.dapui')
 require('plugin.dash')
 require('plugin.git')
 require('plugin.lsp')
+require('plugin.luasnip')
 require('plugin.nvim-tree')
 require('plugin.rust-tools')
 require('plugin.tabular')
@@ -25,6 +26,12 @@ lvim.builtin.project.active = false
 lvim.builtin.alpha.active = false
 lvim.builtin.terminal.active = false
 lvim.builtin.dap.active = true
+lvim.builtin.luasnip.sources.friendly_snippets = false
+
+-- snippets
+local snippets = require('sx.snippets')
+snippets.setup()
+
 
 -- Added Plugins
 lvim.plugins = {

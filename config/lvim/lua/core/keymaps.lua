@@ -8,10 +8,8 @@ vim.cmd [[
 lvim.keys.insert_mode = {
   -- 'jk' for quitting insert mode
   ["jk"] = "<ESC>",
-  -- 'kj' for quitting insert mode
-  ["kj"] = "<ESC>",
   -- 'jj' for quitting insert mode
-  ["jj"] = "<ESC>"
+  ["jj"] = "<ESC>",
 }
 
 lvim.keys.normal_mode = {
@@ -53,8 +51,8 @@ lvim.keys.visual_block_mode = {
 lvim.keys.command_mode = {
   -- navigate tab completion with <c-j> and <c-k>
   -- runs conditionally
-  ["<C-j>"] = { 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
-  ["<C-k>"] = { 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
+  -- ["<C-j>"] = { 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
+  -- ["<C-k>"] = { 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
 }
 
 

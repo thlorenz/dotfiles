@@ -156,11 +156,11 @@ lvim.builtin.cmp = {
     source_names = {
       nvim_lsp = "(LSP)",
       nvim_lua = "(API)",
+      luasnip = "(LuaSnip)",
       emoji = "(Emoji)",
       path = "(Path)",
       calc = "(Calc)",
       vsnip = "(Snippet)",
-      luasnip = "(Snippet)",
       buffer = "(Buffer)",
       tmux = "(TMUX)",
     },
@@ -195,10 +195,10 @@ lvim.builtin.cmp = {
     documentation = cmp.config.window.bordered(),
   },
   sources = {
+    { name = "luasnip", keyword_length = 3 },
     { name = "nvim_lua" },
     { name = "nvim_lsp" },
     { name = "path" },
-    { name = "luasnip" },
     { name = "buffer", keyword_length = 5 },
     { name = "calc" },
     { name = "emoji" },
@@ -210,9 +210,36 @@ lvim.builtin.cmp = {
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-u>"] = cmp.mapping.scroll_docs(4),
 
+    ["<C-n>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expandable() then
+        luasnip.expand()
+      elseif jumpable() then
+        luasnip.jump(1)
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
+    ["<C-p>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
+
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.abort(),
-    ["<C-y>"] = cmp.mapping(function(fallback)
+    ["<CR>"] = cmp.mapping(function(fallback)
       if cmp.visible() and cmp.confirm(lvim.builtin.cmp.confirm_opts) then
         if jumpable() then
           luasnip.jump(1)
