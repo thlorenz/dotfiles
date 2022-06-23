@@ -68,8 +68,19 @@ lvim.builtin.telescope['extensions'] = {
     require("telescope.themes").get_dropdown {
       -- even more opts
     }
+  },
+  ["emoji"] = {
+    action = function(emoji)
+      vim.fn.setreg("*", emoji.value)
+      print([[Press p or "*p to paste this emoji]] .. emoji.value)
+
+      -- insert emoji when picked
+      vim.api.nvim_put({ emoji.value }, 'c', false, true)
+    end,
   }
 }
+
 lvim.builtin.telescope.on_config_done = function(telescope)
   telescope.load_extension("ui-select")
+  telescope.load_extension("emoji")
 end

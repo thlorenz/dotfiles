@@ -60,6 +60,7 @@ lvim.plugins = {
       require("plugin.trouble")
     end
   },
+  { 'xiyaowong/telescope-emoji.nvim' },
 
   -- cmp
   { 'hrsh7th/cmp-nvim-lua', },
