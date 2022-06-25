@@ -5,22 +5,28 @@ lvim.colorscheme = "challenger_deep"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
-local o         = vim.opt
-o.clipboard     = "unnamedplus" -- allows neovim to access the system clipboard
-o.cmdheight     = 1
-o.colorcolumn   = "99999" -- fixes indentline for now
-o.completeopt   = { "menuone", "noselect", "longest" }
-o.conceallevel  = 0 -- so that `` is visible in markdown files
-o.fileencoding  = "utf-8" -- the encoding written to a file
-o.foldmethod    = "manual" -- folding set to "expr" for treesitter based folding
-o.foldexpr      = "" -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
-o.guifont       = "SourceCodePro-Regular:h12" -- the font used in graphical neovim applications
-o.hlsearch      = false -- highlight all matches on previous search pattern
-o.mouse         = "a" -- allow the mouse to be used in neovim
-o.pumheight     = 10 -- pop up menu height
-o.showmode      = false -- we don't need to see things like -- INSERT -- anymore
-o.showtabline   = 0 -- never show tabs
-o.smartindent   = true -- make indenting smarter again
+local o        = vim.opt
+o.clipboard    = "unnamedplus" -- allows neovim to access the system clipboard
+o.cmdheight    = 1
+o.colorcolumn  = "99999" -- fixes indentline for now
+o.completeopt  = { "menuone", "noselect", "longest" }
+o.conceallevel = 0 -- so that `` is visible in markdown files
+o.fileencoding = "utf-8" -- the encoding written to a file
+o.foldmethod   = "manual" -- folding set to "expr" for treesitter based folding
+o.foldexpr     = "" -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
+o.guifont      = "SourceCodePro-Regular:h12" -- the font used in graphical neovim applications
+o.hlsearch     = false -- highlight all matches on previous search pattern
+o.mouse        = "a" -- allow the mouse to be used in neovim
+o.pumheight    = 10 -- pop up menu height
+o.showmode     = false -- we don't need to see things like -- INSERT -- anymore
+o.showtabline  = 0 -- never show tabs
+
+o.autoindent  = false
+o.smartindent = false
+o.cindent     = false
+o.copyindent  = false
+o.indentexpr  = ""
+
 o.splitbelow    = true -- force all horizontal splits to go below current window
 o.splitright    = true -- force all vertical splits to go to the right of current window
 o.termguicolors = true -- set term gui colors (most terminals support this)
@@ -40,9 +46,6 @@ o.updatetime  = 300 -- faster completion
 o.backup      = false -- creates a backup file
 o.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program) it is not allowed to be edited
 o.swapfile    = false -- creates a swapfile
-
-o.autoindent = true
-o.copyindent = true
 
 o.showmatch  = true
 o.shiftround = true
