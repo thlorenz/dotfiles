@@ -1,22 +1,31 @@
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 -- https://lunarvim.org/plugins
 
-require('plugin.cmp')
--- require('plugin.copilot')
-require('plugin.dap')
-require('plugin.dapui')
-require('plugin.dash')
-require('plugin.git')
-require('plugin.lsp')
-require('plugin.luasnip')
-require('plugin.nvim-tree')
-require('plugin.rust-tools')
-require('plugin.tabular')
-require('plugin.telescope')
-require('plugin.test')
-require('plugin.treesitter')
+local init_plugins = function()
+  require('plugin.cmp')
+  -- require('plugin.copilot')
+  require('plugin.dap')
+  require('plugin.dapui')
+  require('plugin.dash')
+  require('plugin.git')
+  require('plugin.lsp')
+  require('plugin.luasnip')
+  require('plugin.nvim-tree')
+  require('plugin.rust-tools')
+  require('plugin.tabular')
+  require('plugin.telescope')
+  require('plugin.test')
+  require('plugin.treesitter')
 
-require('plugin.null-ls')
+  -- TODO (thlorenz): FIX this
+  require('plugin.null-ls').setup()
+
+  -- snippets
+  local snippets = require('sx.snippets')
+  snippets.setup()
+end
+-- coment this when first setting up so packer is happy
+init_plugins()
 
 -- Disabled Core Plugins
 lvim.builtin.autopairs.active = false
@@ -28,9 +37,6 @@ lvim.builtin.terminal.active = false
 lvim.builtin.dap.active = true
 lvim.builtin.luasnip.sources.friendly_snippets = false
 
--- snippets
-local snippets = require('sx.snippets')
-snippets.setup()
 
 
 -- Added Plugins
@@ -105,6 +111,16 @@ lvim.plugins = {
     ft = { "fugitive" }
   },
   { 'skanehira/gh.vim', opt = true, cmd = { 'gh' } },
+
+  -- Org Mode
+  -- https://github.com/nvim-neorg/neorg
+  {
+    "nvim-neorg/neorg",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require('plugin.neorg').setup()
+    end
+  },
 
   -- Make and Quickfix
   { 'tpope/vim-dispatch',
