@@ -94,6 +94,10 @@ M.setup = function()
       t "import { promises as fs } from 'fs'"
     ),
 
+    s({ trig = "ima", name = "import strict assert" },
+      t "import { strict as assert } from 'assert'"
+    ),
+
     s({ trig = "tst", name = "tape test" },
       fmt([[
       test('{}', (t) => {{
