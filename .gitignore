@@ -12,4 +12,7 @@ config/coc/history.json
 config/coc/lists
 config/coc/memos.json
 
+config/lvim.old/
+.luarc.json
+
 org/

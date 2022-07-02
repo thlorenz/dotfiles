@@ -165,7 +165,7 @@ au FileType typescript noremap tr :wa \| ! esr %<CR>
 " let g:syntastic_javascript_checkers=['eslint']
 
 " au FileType lua noremap tr :wa \| !/Applications/CoronaSDK/Corona\ Simulator.app/Contents/MacOS/Corona\ Simulator -project %:p -skin iPhone <CR>
-au FileType lua noremap tr :wa \| !lua %<CR>
+au FileType lua noremap tr :wa \| luafile %<CR>
 
 au FileType dart noremap <leader>m :wa \| !dart %<CR>
 
