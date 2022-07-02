@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+ROOT=$HOME/dotfiles/nvim/
+rm -f $HOME/.config/nvim
+
+ln -s $ROOT $HOME/.config/nvim 
+exec nvim "$@"

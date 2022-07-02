@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+ROOT=$HOME/dev/neovim/dotfiles-nvim/
+rm -f $HOME/.config/nvim
+
+ln -s $ROOT $HOME/.config/nvim 
+
+## exec nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+exec nvim "$@"
