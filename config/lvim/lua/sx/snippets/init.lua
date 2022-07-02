@@ -20,7 +20,6 @@ local fmta = require("luasnip.extras.fmt").fmta
 local types = require("luasnip.util.types")
 local conds = require("luasnip.extras.expand_conditions")
 
-
 local buffer = require('sx.snippets.utils.buffer')
 
 local M = {}
