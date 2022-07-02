@@ -16,3 +16,5 @@ config/lvim.old/
 .luarc.json
 
 org/
+
+bash/scripts/playlists/
