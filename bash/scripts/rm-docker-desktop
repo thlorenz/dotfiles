@@ -1,0 +1,46 @@
+#!/usr/bin/env sh
+
+if [ "$EUID" -ne 0 ]; then
+	echo "Please run with 'sudo'"
+	exit
+fi
+LOGGED_USER=$(logname)
+
+set -x
+
+cd /Users/${LOGGED_USER}/Library
+rm -rf Application\ Scripts/group.com.docker
+rm -rf Application\ Support/Docker\ Desktop
+rm -rf Caches/com.docker.docker/
+rm -rf Containers/com.docker.docker/
+rm -rf Group\ Containers/group.com.docker/
+rm -rf HTTPStorages/com.docker.docker/
+rm -rf HTTPStorages/com.docker.docker.binarycookies
+rm -rf Saved Application State/com.electron.docker-frontend.savedState/
+rm -rf Saved Application State/com.electron.dockerdesktop.savedState/
+rm -rf Preferences/com.electron.dockerdesktop.plist
+rm -rf Preferences/com.electron.docker-frontend.plist
+rm -rf Preferences/com.docker.docker.plist
+rm -rf HTTPStorages/com.docker.docker.binarycookies
+rm -rf Cookies/com.docker.docker.binarycookies
+rm -rf Logs/Docker Desktop
+
+rm -rf /Library/PrivilegedHelperTools/com.docker.vmnetd
+rm -rf /Library/Logs/DiagnosticReports/com.docker.hyperkit_*.wakeups_resource.diag
+rm -rf /Library/Logs/DiagnosticReports/com.docker.cli_*.wakeups_resource.diag
+rm -rf /Library/Logs/DiagnosticReports/com.docker.driver.amd64-linux_*.wakeups_resource.diag
+rm -rf /Library/Logs/DiagnosticReports/com.docker.hyperkit_*.wakeups_resource.diag
+rm -rf /Library/LaunchDaemons/com.docker.vmnetd.plist
+
+rm -rf /Applications/Docker.app
+rm -rf /Users/${LOGGED_USER}/.docker
+rm -rf /usr/local/lib/docker
+rm -rf /usr/local/bin/docker-compose
+rm -rf /usr/local/bin/docker-compose-v1
+rm -rf /usr/local/bin/docker-credential-desktop
+rm -rf /usr/local/bin/docker-credential-ecr-login
+rm -rf /usr/local/bin/docker-credential-osxkeychain
+rm -rf /usr/local/bin/hub-tool
+rm -rf /usr/local/bin/com.docker.cli
+
+set +x

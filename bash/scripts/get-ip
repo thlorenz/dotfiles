@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+ifconfig | grep 'inet 192'| awk '{ print $2}'
