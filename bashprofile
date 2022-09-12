@@ -18,9 +18,17 @@ if [[ "$unamestr" == "Darwin" ]]; then
   PATH=~/.jsvu:~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:/usr/local/sbin/:~/.pub-cache/bin:$PATH
   PATH=~/.fastlane/bin:$PATH
   PATH=~/dev/flutter/sdk/bin:~/dev/flutter/sdk/bin/cache/dart-sdk/bin/:~/dev/flutter/sdk/.pub-cache/bin:$PATH
-  PATH=/Users/thlorenz/Library/Python/2.7/bin:$PATH
+
+  # Python 
+  #PATH=/Users/thlorenz/Library/Python/2.7/bin:$PATH
+  PATH=/usr/local/opt/python@3.10/libexec/bin:$PATH
+  LDFLAGS="-L/usr/local/opt/python@3.10/lib::$LDFLAGS"
+
+  # pip will install into the site-package directory
+  #   /usr/local/lib/python3.10/site-packages
+
   PATH=~/.emacs.d/bin:$PATH
-  PATH="/Users/thlorenz/.local/share/solana/install/active_release/bin:$PATH"
+  #PATH="/Users/thlorenz/.local/share/solana/install/active_release/bin:$PATH"
   PATH=/Library/TeX/texbin:$PATH
   PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
   PATH="/usr/local/opt/ruby/bin:$PATH"
@@ -34,6 +42,24 @@ if [[ "$unamestr" == "Darwin" ]]; then
   PKG_CONFIG_PATH="/usr/local/opt/qt/lib/pkgconfig"
   ANDROID_HOME=/Users/$USER/Library/Android/sdk/22.0.7026061/
   ANDROID_NDK_HOME=$ANDROID_HOME/ndk/
+
+  # brew recommendations after upgrading to Python3.10 (regrading upgraded llvm)
+  # ==> llvm
+  # To use the bundled libc++ please add the following LDFLAGS:
+  #   LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
+  #
+  # llvm is keg-only, which means it was not symlinked into /usr/local,
+  # because macOS already provides this software and installing another version in
+  # parallel can cause all kinds of trouble.
+  # 
+  # If you need to have llvm first in your PATH, run:
+  #   echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> ~/.profile
+  # 
+  # For compilers to find llvm you may need to set:
+  #   export LDFLAGS="-L/usr/local/opt/llvm/lib"
+  #   export CPPFLAGS="-I/usr/local/opt/llvm/include"
+  # 
+  
 elif [ "$unamestr" == "Linux" ]; then
   PATH=~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:$PATH
 fi
@@ -46,7 +72,8 @@ if [ -f '/Volumes/d/dev/devops/google-cloud-sdk/path.bash.inc' ]; then . '/Volum
 # The next line enables shell command completion for gcloud.
 if [ -f '/Volumes/d/dev/devops/google-cloud-sdk/completion.bash.inc' ]; then . '/Volumes/d/dev/devops/google-cloud-sdk/completion.bash.inc'; fi
 
-export PATH="$HOME/.cargo/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash" 
+
 export PATH="/Users/thlorenz/.local/share/solana/install/active_release/bin:$PATH"
+. "$HOME/.cargo/env"

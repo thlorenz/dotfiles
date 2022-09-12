@@ -54,7 +54,7 @@ alias yay!='git push origin master && git push --tags && npm publish'
 
 # other
 # alias serve='echo "http://localhost:3000" && http-server -p 3000 -c-1'
-alias serve='echo "http://localhost:3000" && python -m SimpleHTTPServer 3000'
+alias serve='echo "http://localhost:3000" && python -m http.server 3000'
 
 # Environment Variables
 export EDITOR=vim
@@ -205,4 +205,5 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$GEM_HOME/ruby/2.6.0/bin:$PATH"
-export PATH=$PATH:/Users/thlorenz/.spicetify
+export PATH=$PATH:/Users/thlorenz/.luarocks/bin
+. "$HOME/.cargo/env"
