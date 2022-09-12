@@ -7,7 +7,7 @@ pman () {
 
 # Open a man page in vim
 vman () {
-  MANWIDTH=80 MANPAGER='col -bx' man $@ | vim -R -c "set ft=man" -
+  MANWIDTH=80 MANPAGER='col -bx' man $@ | nvim -R -c "set ft=man" -
 }
 
 # Get pid of node process
