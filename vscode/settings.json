@@ -36,7 +36,11 @@
   "vim.statusBarColorControl": false,
   "vim.autoindent": false,
   "vim.surround": false,
-  "editor.quickSuggestions": false,
+  "editor.quickSuggestions": {
+    "comments": "off",
+    "strings": "off",
+    "other": "off"
+  },
   "editor.suggestOnTriggerCharacters": false,
   "window.zoomLevel": 1,
   "workbench.colorTheme": "Darcula",
