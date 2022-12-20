@@ -1,3 +1,3 @@
 #!/bin/bash
 
-esr $1 | tap-spec
+esr $@ | tap-spec

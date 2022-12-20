@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+gifsicle -i $1 -O3 --colors 256 -o opt_$1

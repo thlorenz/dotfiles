@@ -25,3 +25,8 @@ function cg-watch-bin-release() {
   local command="clear; cargo run --release --bin ${bin}"
   cargo-watch -s "$command"
 }
+
+function cg-test-sbf() {
+  clear; 
+  cargo test-sbf $1 -- --nocapture --test-threads=1 2>&1 | solfmt
+}
