@@ -26,7 +26,7 @@ function cg-watch-bin-release() {
   cargo-watch -s "$command"
 }
 
-function cg-test-sbf() {
+function cg-tsbf() {
   clear; 
-  cargo test-sbf $1 -- --nocapture --test-threads=1 2>&1 | solfmt
+  CARGO_TERM_COLOR=always cargo test-sbf $1 -- --nocapture --test-threads=1 2>&1 | solfmt
 }
