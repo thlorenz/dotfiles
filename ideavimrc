@@ -1,1 +1,5 @@
 source ~/dotfiles/commonvimrc
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+set clipboard+=ideaput
