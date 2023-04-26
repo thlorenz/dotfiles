@@ -116,6 +116,10 @@ if [[ "$unamestr" == "Darwin" ]]; then
   if [ -f /usr/local/etc/bash_completion.d/tmux ]; then
     source /usr/local/etc/bash_completion.d/tmux 
   fi
+  # rustup completion
+  if [ -f /usr/local/etc/bash_completion.d/rustup-completion.bash ]; then
+    source /usr/local/etc/bash_completion.d/rustup-completion.bash
+  fi
 
   # autojump
   [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
@@ -183,12 +187,12 @@ elif [[ "$unamestr" == "Linux" ]]; then
   # check the window size after each command and, if necessary,
   # update the values of LINES and COLUMNS.
   shopt -s checkwinsize
+else
 
   # set variable identifying the chroot you work in (used in the prompt below)
   if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
       debian_chroot=$(cat /etc/debian_chroot)
   fi
-else
   PS1="\n\[\033[00;34m\]\w\[\033[00m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\n➝  "
   echo "No special configuration known for $unamestr"
 fi
@@ -205,5 +209,5 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$GEM_HOME/ruby/2.6.0/bin:$PATH"
-export PATH=$PATH:/Users/thlorenz/.luarocks/bin
+export PATH="$PATH:$HOME/.luarocks/bin"
 . "$HOME/.cargo/env"
