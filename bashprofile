@@ -35,6 +35,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   PATH="/usr/local/opt/llvm/bin:$PATH"
   PATH="$HOME/dev/mp/solana/sh:$PATH"
   PATH="$HOME/dotfiles/bash/scripts:$PATH"
+  PATH="$HOME/dotfiles/bash/scripts/aws:$PATH"
 
   LUA_PATH=~/.luarocks/share/lua/5.3/
   FLUTTER_SDK=~/dev/flutter/sdk

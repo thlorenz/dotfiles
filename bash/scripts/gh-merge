@@ -3,5 +3,5 @@
 MASTER=${2:-master}
 
 git checkout ${MASTER} && \
-gh pr merge -sd $@  && \
+gh pr merge -sd $1  && \
 git pull

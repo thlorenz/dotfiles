@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+REQUEST="${1:-usd1-full.json}"
+
+LAMBDA_ID=indexer-platform-stack-fngrootD9A3CE0D-3XPzErihoqPW
+ACCOUNT_ID=808750564248
+
+# ACCOUNT_ID_OLD=901283073488
+# LAMBDA_ID_OLD=IndexerPlatformStack-fnhulk8AF9E17A-cQ4MmKFvs8QQ
+
+ARN=arn:aws:lambda:us-east-1:$ACCOUNT_ID:function:$LAMBDA_ID
+
+aws-vault exec ironforge-dev -- \
+  cargo lambda invoke --remote \
+    --data-file ../fixtures/requests/$REQUEST \
+    --output-format json \
+    $ARN

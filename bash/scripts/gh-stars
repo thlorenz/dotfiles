@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# https://gist.github.com/yyx990803/7745157
+curl https://gist.githubusercontent.com/yyx990803/7745157/raw/dbcf4874d55490f3c2af9d593950964fe48b1e31/starcounter.js -sSL | node - thlorenz -t 10

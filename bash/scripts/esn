@@ -1,0 +1,3 @@
+#!/bin/bash
+
+node -r $HOME/npm-global/lib/node_modules/esbuild-runner/register.js --test-reporter=spec $@ --cache

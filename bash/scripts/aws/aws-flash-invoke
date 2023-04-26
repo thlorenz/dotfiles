@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+REQUEST="${1:-usd1-full.json}"
+
+aws-vault exec ironforge-dev -- \
+  cargo lambda invoke --remote \
+    --data-file ../fixtures/requests/$REQUEST \
+    --output-format json \
+    arn:aws:lambda:us-east-1:901283073488:function:IndexerPlatformStack-fnhulk8AF9E17A-cQ4MmKFvs8QQ

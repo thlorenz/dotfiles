@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Regularly update hash especially when things stop working:
+#
+#   sudo visudo -f /private/etc/sudoers.d/yabai
+#   Replace hash with: shasum -a 256 $(which yabai)
+#
+# https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(from-HEAD)#configure-scripting-addition
+brew services start yabai
+brew services stop yabai

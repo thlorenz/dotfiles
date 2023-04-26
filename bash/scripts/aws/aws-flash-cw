@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+LAMBDA_ID=indexer-platform-stack-fnflash4DEA3CFB-kGwdyAeLj0Xn
+
+# LAMBDA_ID_OLD=IndexerPlatformStack-fnflash4DEA3CFB-KqXVOwHEvsEs
+aws-vault exec ironforge-dev -- \
+  cw tail \
+    --follow \
+    /aws/lambda/$LAMBDA_ID

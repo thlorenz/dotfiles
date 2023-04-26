@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# brew install vlc
+
+URL=$1
+VLC=/Applications/VLC.app/Contents/MacOS/VLC
+
+if [[ -z "${PLAYLIST_FILE}" ]]; then
+  TERM=xterm-256color \
+  $VLC --intf macosx --extraintf ncurses "$URL"; stty sane
+
+  # $VLC --intf http --extraintf ncurses --http-password $VLC_PASS --http-port 9999 "$URL"
+else
+  curl $URL > $PLAYLIST_FILE
+fi
+

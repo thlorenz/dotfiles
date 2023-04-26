@@ -1,0 +1,3 @@
+#!/bin/bash
+
+tail -f /usr/local/var/log/mongodb/mongo.log | jq
