@@ -50,6 +50,11 @@ alias nnm='ninja -C out/Debug; osascript -e "display notification \"Build Done $
 
 alias hydra='node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-track-positions --redirect-code-traces --redirect-code-traces-to=code.asm --print-opt-code'
 
+alias nt='node -r $HOME/npm-global/lib/node_modules/esbuild-runner/register.js'
+alias nts='node -r $HOME/npm-global/lib/node_modules/esbuild-runner/register.js --test-reporter=spec'
+alias ntw='node -r $HOME/npm-global/lib/node_modules/esbuild-runner/register.js --test-reporter=spec --watch'
+alias ntd='node -r $HOME/npm-global/lib/node_modules/esbuild-runner/register.js --test-reporter=dot'
+
 ## corona
 function execute {
   cmd=("$@")
