@@ -11,6 +11,7 @@ config/coc/extensions/db.json
 config/coc/history.json
 config/coc/lists
 config/coc/memos.json
+config/gptcommit/config.toml
 
 config/lvim.old/
 .luarc.json

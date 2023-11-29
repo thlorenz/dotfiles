@@ -7,6 +7,7 @@ function sourceFns () {
   [ -f $DIR/github.sh ] && source $DIR/github.sh
   [ -f $DIR/c.sh      ] && source $DIR/c.sh
   [ -f $DIR/util.sh   ] && source $DIR/util.sh
+  [ -f $DIR/tools.sh   ] && source $DIR/tools.sh
 }
 
 sourceFns

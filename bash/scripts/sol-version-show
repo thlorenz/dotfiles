@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+SOLANA=$HOME/.local/share/solana
+RELEASES=$SOLANA/install/releases
+
+solana-test-validator --version
+echo
+ls -1 $RELEASES

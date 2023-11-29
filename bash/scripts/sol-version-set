@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+SOLANA=$HOME/.local/share/solana
+INSTALL=$SOLANA/install
+RELEASES=$INSTALL/releases
+ACTIVE_RELEASE=$INSTALL/active_release
+
+# rm $ACTIVE_RELEASE
+# ln -s $RELEASES/$1/solana-release/ $ACTIVE_RELEASE
+
+(cd $INSTALL && 
+  rm active_release &&
+  ln -s $RELEASES/$1/solana-release active_release)
+
+solana-test-validator --version
+
+# active_release@ -> 
+# /Users/thlorenz/.local/share/solana/install/releases/1.14.15/solana-release/
+

@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+# https://askubuntu.com/a/243753
+
+ps2pdf -dPDFSETTINGS=/ebook $1 compressed-$1                  

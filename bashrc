@@ -27,6 +27,7 @@ function init () {
   [ -f $DIR/bash/flutter-aliases.sh  ] && source $DIR/bash/flutter-aliases.sh
   [ -f $DIR/bash/rust-aliases.sh     ] && source $DIR/bash/rust-aliases.sh
   [ -f $DIR/bash/fzf.sh              ] && source $DIR/bash/fzf.sh
+  [ -f $DIR/bash/if.sh              ] && source $DIR/bash/if.sh
 
   # Edit/source/cat this bashrc
   alias ,ev='nvim ~/.bashrc'

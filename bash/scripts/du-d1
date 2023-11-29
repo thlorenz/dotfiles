@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+du -h -d1 $1 | gsort -h

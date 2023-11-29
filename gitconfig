@@ -131,7 +131,7 @@
   bc = rebase --continue 
   ba = rebase --abort 
 
-  cleanup = "!git branch --no-color --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+  cleanup = "!git branch --no-color --merged | grep  -v '\\*\\|master\\|develop\\|main' | xargs -n 1 git branch -d"
 
 [mergetool]
   keepBackup = true
