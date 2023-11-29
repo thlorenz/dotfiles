@@ -51,7 +51,6 @@
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
   "editor.renderLineHighlight": "gutter",
-  "csharp.referencesCodeLens.enabled": false,
   "editor.minimap.enabled": false,
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.acceptSuggestionOnEnter": "smart",
@@ -142,5 +141,7 @@
   "zenMode.hideLineNumbers": false,
   "window.nativeFullScreen": false,
   "editor.hover.delay": 1,
-  "debug.typescript.usePreview": true
+  "debug.typescript.usePreview": true,
+  "editor.inlineSuggest.enabled": true,
+  "dotnet.codeLens.enableReferencesCodeLens": false
 }

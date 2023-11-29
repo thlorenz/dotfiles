@@ -69,17 +69,22 @@
     "key": "ctrl+h",
     "command": "workbench.action.focusLeftGroup"
   },
-  {
-    "key": "cmd+k cmd+left",
-    "command": "-workbench.action.focusLeftGroup"
-  },
+  // {
+  //   "key": "cmd+k cmd+left",
+  //   "command": "-workbench.action.focusLeftGroup"
+  // },
   {
     "key": "ctrl+l",
     "command": "workbench.action.focusRightGroup"
   },
+  // {
+  //   "key": "cmd+k cmd+right",
+  //   "command": "-workbench.action.focusRightGroup"
+  // },
   {
-    "key": "cmd+k cmd+right",
-    "command": "-workbench.action.focusRightGroup"
+    "key": "ctrl+d",
+    "command": "-workbench.action.debug.run",
+    "when": "debuggersAvailable && !inDebugMode && !terminalFocus"
   },
   {
     "key": "ctrl+shift+cmd+c",
@@ -198,16 +203,16 @@
     "key": "alt+cmd+s",
     "command": "-workbench.action.files.saveAll"
   },
-  {
-    "key": "cmd+k cmd+i",
-    "command": "editor.action.showHover",
-    "when": "editorTextFocus"
-  },
-  {
-    "key": "cmd+k cmd+i",
-    "command": "-editor.action.showHover",
-    "when": "editorTextFocus"
-  },
+  // {
+  //   "key": "cmd+k cmd+i",
+  //   "command": "editor.action.showHover",
+  //   "when": "editorTextFocus"
+  // },
+  // {
+  //   "key": "cmd+k cmd+i",
+  //   "command": "-editor.action.showHover",
+  //   "when": "editorTextFocus"
+  // },
   {
     "key": "ctrl+, d",
     "command": "workbench.action.togglePanel"
@@ -384,10 +389,10 @@
     "command": "-editor.action.organizeImports",
     "when": "editorTextFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)source\\.organizeImports\\b/"
   },
-  {
-    "key": "cmd+k cmd+w",
-    "command": "-workbench.action.closeAllEditors"
-  },
+  // {
+  //   "key": "cmd+k cmd+w",
+  //   "command": "-workbench.action.closeAllEditors"
+  // },
   {
     "key": "ctrl+w",
     "command": "-workbench.action.switchWindow"
@@ -397,8 +402,8 @@
     "command": "-expandLineSelection",
     "when": "textInputFocus"
   },
-  {
-    "key": "cmd+l cmd+k",
-    "command": "workbench.action.quickSwitchWindow"
-  }
+  //{
+  //  "key": "cmd+l cmd+k",
+  //  "command": "workbench.action.quickSwitchWindow"
+  //}
 ]
