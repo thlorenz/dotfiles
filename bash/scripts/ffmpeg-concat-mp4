@@ -2,20 +2,17 @@
 
 PWD=$(pwd)
 
-# Concatenate all files in a directory using ffmpeg
-# Usage: ffmpeg-concat <output-file>
+# Concatenate all mp4 files in a directory using ffmpeg
+# Usage: ffmpeg-concat-mp4 <output-file>
 
 # Get the output file name
 OUTPUT="$1"
 
 if [ -z "$OUTPUT" ]
 then
-    echo "Usage: ffmpeg-concat <output-file>"
+    echo "Usage: ffmpeg-concat-mp4 <output-file>"
     exit 1
 fi
-
-# Get the list of files in the directory
-FILES=$(ls *.mp4)
 
 # Create a temporary file containing the list of files
 TMP_FILE=/tmp/ffmpeg-concat.txt

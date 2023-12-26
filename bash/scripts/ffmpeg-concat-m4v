@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+PWD=$(pwd)
+
+# Concatenate all m4v files in a directory using ffmpeg
+# Usage: ffmpeg-concat-m4v <output-file>
+
+# Get the output file name
+OUTPUT="$1"
+
+if [ -z "$OUTPUT" ]
+then
+    echo "Usage: ffmpeg-concat-m4v <output-file>"
+    exit 1
+fi
+
+# Create a temporary file containing the list of files
+TMP_FILE=/tmp/ffmpeg-concat-m4v.txt
+rm -f "$TMP_FILE" && touch "$TMP_FILE"
+for f in *.m4v; do echo "file '$PWD/$f'" >> $TMP_FILE; done
+
+# Concatenate the files
+ffmpeg -f concat -safe 0 -i "$TMP_FILE" -c copy "$OUTPUT"
