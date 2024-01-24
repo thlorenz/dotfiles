@@ -1,3 +1,4 @@
 #!/bin/bash
-
 brew services stop postgresql@14
+
+rm -f /usr/local/var/postgresql\@14/postmaster.pid
