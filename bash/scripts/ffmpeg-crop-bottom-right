@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+# https://video.stackexchange.com/questions/4563/how-can-i-crop-a-video-with-ffmpeg
+
+# Sometimes OBS decides to render the display capture smaller
+# The default width/height is the crop that fixes this, but can be modified
+
+width=${2:-480}
+height=${3:-260}
+
+ffmpeg -i $1 -vf "crop=in_w-$width:in_h-$height:0:0" -c:a copy $1.cropped.mp4

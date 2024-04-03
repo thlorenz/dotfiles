@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+LAMBDA_ID=indexer-platform-stack-fnspikeD76268E5-rOsP6dJbLNWi
+
+aws-vault exec ironforge-dev -- \
+  aws logs tail \
+    --follow \
+    /aws/lambda/$LAMBDA_ID

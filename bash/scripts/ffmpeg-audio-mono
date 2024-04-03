@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+#! /usr/bin/env bash
+# https://trac.ffmpeg.org/wiki/AudioChannelManipulation
+#
+out=${2:-mono_$1}
+
+ffmpeg -i $1 -ac 1 $2

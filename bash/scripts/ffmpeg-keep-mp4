@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+# https://superuser.com/questions/744823/how-i-could-cut-the-last-7-second-of-my-video-with-ffmpeg/745511
+
+out=${3:-cut_$1}
+
+ffmpeg -t $2 -i $1 -c copy $out 

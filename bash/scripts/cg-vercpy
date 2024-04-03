@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cargo search $1 --limit 1 | \
+  head -n 1               | \
+  cut -d' ' -f1-3         | \
+  pbcopy
