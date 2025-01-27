@@ -117,14 +117,6 @@
     "when": "fileDialog == 'local'"
   },
   {
-    "key": "ctrl+cmd+b",
-    "command": "workbench.action.toggleSidebarVisibility"
-  },
-  {
-    "key": "cmd+b",
-    "command": "-workbench.action.toggleSidebarVisibility"
-  },
-  {
     "key": "shift+cmd+b",
     "command": "-workbench.action.tasks.build"
   },
@@ -217,17 +209,32 @@
     "key": "ctrl+, d",
     "command": "workbench.action.togglePanel"
   },
+  // Project Side Panel
+  {
+    "key": "ctrl+, ctrl+n",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "ctrl+, ctrl+n",
+    "command": "-workbench.action.toggleSidebarVisibility"
+  },
   {
     "key": "shift+cmd+e",
     "command": "-workbench.view.explorer"
   },
   {
-    "key": "ctrl+, ctrl+n",
+    "key": "ctrl+, n",
     "command": "workbench.view.explorer"
   },
   {
-    "key": "ctrl+, ctrl+d",
-    "command": "workbench.action.toggleSidebarVisibility"
+    "key": "ctrl+, shift+n",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.files.action.showActiveFileInExplorer",
+        "workbench.action.focusSideBar"
+      ]
+    }
   },
   {
     "key": "ctrl+s ctrl+a",
