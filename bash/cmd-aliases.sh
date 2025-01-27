@@ -41,15 +41,6 @@ function drmi () {
 alias db='/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/Resources/debugserver localhost:3000 --attach '
 
 ## node
-
-alias node_configure='./configure --gdb --debug --without-snapshot --xcode --v8-options="--gdbjit --gdbjit-full --expose-gc"'
-alias node_v8_options="node -e 'console.dir(process.config.variables.node_v8_options)'"
-alias nrel='./configure --ninja -- -f xcode && ninja -C out/Release && ln -sf out/Release/nsolid node'
-alias ndeb='./configure --ninja -- -f xcode && ninja -C out/Debug && ln -sf out/Debug/nsolid node_g'
-alias nnm='ninja -C out/Debug; osascript -e "display notification \"Build Done $?\" with title \"Ninja Node.js\""'
-
-alias hydra='node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-track-positions --redirect-code-traces --redirect-code-traces-to=code.asm --print-opt-code'
-
 alias nt='node -r $HOME/npm-global/lib/node_modules/esbuild-runner/register.js'
 alias nts='node -r $HOME/npm-global/lib/node_modules/esbuild-runner/register.js --test-reporter=spec'
 alias ntw='node -r $HOME/npm-global/lib/node_modules/esbuild-runner/register.js --test-reporter=spec --watch'
@@ -84,3 +75,15 @@ alias sbc='tmux save-buffer - | pbcopy'
 
 alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
 alias stud='/Applications/Visual\ Studio.app/Contents/MacOS/VisualStudio'
+
+## Luzid
+alias cluzid='cargo run --manifest-path $HOME/dev/mb/wizard/luzid/rs/Cargo.toml'
+alias cluzidr='cargo run --release --manifest-path $HOME/dev/mb/wizard/luzid/rs/Cargo.toml'
+
+# MB Validator
+alias cvalidator='cargo run --manifest-path $HOME/dev/mb/wizard/magicblock-validator/Cargo.toml'
+alias cvalidatorr='cargo run --release --manifest-path $HOME/dev/mb/wizard/magicblock-validator/Cargo.toml'
+
+# Cody AI assistant
+# https://github.com/sourcegraph/cody/blob/b0556863e5d679189b655f8448338681fdc86d45/lib/shared/src/models/dotcom.ts#L48C24-L48C60
+alias ai='cody chat --model anthropic::2023-06-01::claude-3-opus -m'

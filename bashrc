@@ -1,9 +1,17 @@
 ## If not running interactively, don't do anything (e.g., don't screw up scp)
 [ -z "$PS1" ] && return
+
+# PS4='+ $(ts -i "%.s")'
+# exec 3>&2 2>/tmp/bashstart.$$.log
+# set -x
+
 function init () {
   # http://stackoverflow.com/a/246128/97443
 
   local SOURCE="${BASH_SOURCE[0]}"
+
+  # brew install bash-completion
+  # [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
   # resolve $SOURCE until the file is no longer a symlink
   while [ -h "$SOURCE" ]; do   DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
@@ -27,7 +35,8 @@ function init () {
   [ -f $DIR/bash/flutter-aliases.sh  ] && source $DIR/bash/flutter-aliases.sh
   [ -f $DIR/bash/rust-aliases.sh     ] && source $DIR/bash/rust-aliases.sh
   [ -f $DIR/bash/fzf.sh              ] && source $DIR/bash/fzf.sh
-  [ -f $DIR/bash/if.sh              ] && source $DIR/bash/if.sh
+  [ -f $DIR/bash/if.sh               ] && source $DIR/bash/if.sh
+  [ -f $DIR/bash/luzid.sh            ] && source $DIR/bash/luzid.sh
 
   # Edit/source/cat this bashrc
   alias ,ev='nvim ~/.bashrc'
@@ -115,7 +124,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   fi
   # tmux completion
   if [ -f /usr/local/etc/bash_completion.d/tmux ]; then
-    source /usr/local/etc/bash_completion.d/tmux 
+    source /usr/local/etc/bash_completion.d/tmux
   fi
   # rustup completion
   if [ -f /usr/local/etc/bash_completion.d/rustup-completion.bash ]; then
@@ -212,3 +221,8 @@ export PATH="$GOPATH/bin:$PATH"
 export PATH="$GEM_HOME/ruby/2.6.0/bin:$PATH"
 export PATH="$PATH:$HOME/.luarocks/bin"
 . "$HOME/.cargo/env"
+
+export PATH="$PATH:/Users/thlorenz/.dojo/bin"
+
+# set +x
+# exec 2>&3 3>&-
