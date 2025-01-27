@@ -86,7 +86,7 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
 
 # Disable Resume system-wide
-defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
+# defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
 
 # Disable automatic termination of inactive apps
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
@@ -165,6 +165,36 @@ defaults write NSGlobalDomain AppleMetricUnits -bool true
 # Stop iTunes from responding to the keyboard media keys
 launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
+echo ""
+echo "Setting trackpad & mouse speed to a reasonable number"
+defaults write -g com.apple.trackpad.scaling 1.6
+defaults write -g com.apple.mouse.scaling 2.0
+
+echo ""
+echo "Turn off keyboard illumination when computer is not used for 5 minutes"
+defaults write com.apple.BezelServices kDimTime -int 300
+
+echo ""
+echo "Disable display from automatically adjusting brightness? (y/n)"
+read -r response
+case $response in
+  [yY])
+    sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor "Automatic Display Enabled" -bool false
+    break;;
+  *) break;;
+esac
+
+echo ""
+echo "Disable keyboard from automatically adjusting backlight brightness in low light? (y/n)"
+read -r response
+case $response in
+  [yY])
+    sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor "Automatic Keyboard Enabled" -bool false
+    break;;
+  *) break;;
+esac
+
+
 ###############################################################################
 # Energy saving                                                               #
 ###############################################################################
@@ -197,14 +227,24 @@ sudo systemsetup -setcomputersleep Off > /dev/null
 # 0: Disable hibernation (speeds up entering sleep mode)
 # 3: Copy RAM to disk so the system state can still be restored in case of a
 #    power failure.
-sudo pmset -a hibernatemode 0
+# sudo pmset -a hibernatemode 0
 
 # Remove the sleep image file to save disk space
-sudo rm /private/var/vm/sleepimage
+# sudo rm /private/var/vm/sleepimage
 # Create a zero-byte file instead…
-sudo touch /private/var/vm/sleepimage
+# sudo touch /private/var/vm/sleepimage
 # …and make sure it can’t be rewritten
-sudo chflags uchg /private/var/vm/sleepimage
+# sudo chflags uchg /private/var/vm/sleepimage
+
+echo ""
+echo "Disable the sudden motion sensor? (it's not useful for SSDs/current MacBooks) (y/n)"
+read -r response
+case $response in
+  [yY])
+    sudo pmset -a sms 0
+    break;;
+  *) break;;
+esac
 
 ###############################################################################
 # Screen                                                                      #
@@ -212,7 +252,7 @@ sudo chflags uchg /private/var/vm/sleepimage
 
 # Require password immediately after sleep or screen saver begins
 defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
+defaults write com.apple.screensaver askForPasswordDelay -int 10
 
 # Save screenshots to the desktop
 defaults write com.apple.screencapture location -string "${HOME}/Desktop"
@@ -632,6 +672,28 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Disable local Time Machine backups
 hash tmutil &> /dev/null && sudo tmutil disablelocal
+
+echo ""
+echo "Hide the Time Machine, Volume, User, and Bluetooth icons?  (y/n)"
+read -r response
+case $response in
+  [yY])
+      # Get the system Hardware UUID and use it for the next menubar stuff
+      for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
+          defaults write "${domain}" dontAutoLoad -array \
+        "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
+        "/System/Library/CoreServices/Menu Extras/Volume.menu" \
+        "/System/Library/CoreServices/Menu Extras/User.menu"
+      done
+
+      defaults write com.apple.systemuiserver menuExtras -array \
+        "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
+        "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
+        "/System/Library/CoreServices/Menu Extras/Battery.menu" \
+        "/System/Library/CoreServices/Menu Extras/Clock.menu"
+      break;;
+  *) break;;
+esac
 
 ###############################################################################
 # Activity Monitor                                                            #
