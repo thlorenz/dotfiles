@@ -1,0 +1,9 @@
+#!/bin/bash
+
+CARGO_TOML=$(cargo locate-project --workspace --offline | jq '.root')
+TARGET_DOC=$(dirname $CARGO_TOML)/target/doc
+CRATE_DOC=${TARGET_DOC}/$1
+CRATE_DOC_INDEX=${CRATE_DOC}/index.html
+
+# cut off leading "
+open ${CRATE_DOC_INDEX#\"}

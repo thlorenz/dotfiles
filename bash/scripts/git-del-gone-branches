@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+git remote prune origin
+
+GONE_BRANCHES=$(git branch -vv --no-color | grep 'origin/.*: gone]' | awk '{print $1}')
+
+if [ -z "$GONE_BRANCHES" ]; then
+  echo "Could not find any local branches that have a gone remote"
+  exit 0
+fi
+
+if [ "$1" = "-f" ]; then
+  echo "$GONE_BRANCHES" | xargs git branch -D
+else
+  echo "$GONE_BRANCHES" | xargs git branch -d 2>/dev/null
+  if [ $? -ne 0 ]; then
+    FAILED_TO_DELETE="true"
+  fi
+fi
+
+if [ "$FAILED_TO_DELETE" = "true" ]; then
+  echo "error: Some local branches are not fully merged."
+  echo "If you are sure you want to delete them, run 'git-glean -f'"
+fi

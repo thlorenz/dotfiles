@@ -1,0 +1,15 @@
+git lg master.. | \
+  cody chat --stdin \
+    --model anthropic::2023-06-01::claude-3-opus \
+    -m '\
+    Write a pull request description based on the following git log. \
+    First provide a short title of the format: \
+    feat|chore|bug: <short description> \
+    The description body itself should be in markdown and have a short ## Summary section \
+    as well as a list of details in a ## Details section. \
+    If there are unrelated changes then they should be listed under the ## Unrelated section.
+    Do not include any code samples in the description. \
+    \
+    It follows the output of git lg: \
+    \
+'

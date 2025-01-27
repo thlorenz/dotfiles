@@ -7,3 +7,6 @@ CRATE_DOC="$TARGET_DOC/$1/"
 CRATE_DOC_INDEX="$CRATE_DOC/index.html"
 
 echo $CRATE_DOC_INDEX
+
+# cut off leading "
+open ${CRATE_DOC_INDEX#\"}

@@ -1,0 +1,4 @@
+git diff master.. | \
+  cody chat --stdin \
+    --model anthropic::2023-06-01::claude-3-opus \
+    -m 'write a detailed description for a PR'

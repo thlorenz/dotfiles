@@ -1,0 +1,4 @@
+cat $1 | \
+  cody chat --stdin \
+    --model anthropic::2023-06-01::claude-3-opus
+    -m 'Process the following instructions'

@@ -1,1 +1,1 @@
-flutter run -d "`flutter devices list | grep macOS | head -c5`"
+flutter run -d "`flutter devices list | grep macos | head -c5`"

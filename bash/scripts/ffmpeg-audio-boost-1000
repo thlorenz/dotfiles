@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+#! /usr/bin/env bash
+# https://trac.ffmpeg.org/wiki/AudioChannelManipulation
+#
+out=${2:-boost_$1}
+
+ffmpeg -i $1 -filter:a "volume=10.0" $out
