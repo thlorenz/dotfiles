@@ -14,24 +14,23 @@ ln -sf ~/dotfiles/irbrc              ~/.irbrc
 ln -sf ~/dotfiles/ctags              ~/.ctags
 ln -sf ~/dotfiles/gitconfig          ~/.gitconfig
 ln -sf ~/dotfiles/gitignore          ~/.gitignore
-ln -sf ~/dotfiles/tigrc              ~/.tigrc
 ln -sf ~/dotfiles/cardinalrc         ~/.cardinalrc
-ln -sf ~/dotfiles/agignore           ~/.agignore
-ln -sf ~/dotfiles/tmux/tmux.conf     ~/.tmux.conf 
-ln -sf ~/dotfiles/lldb/lldbinit-lldb ~/.lldbinit-lldb 
-ln -sf ~/dotfiles/tern-config        ~/.tern-config
+ln -sf ~/dotfiles/tmux/tmux.conf     ~/.tmux.conf
+ln -sf ~/dotfiles/lldb/lldbinit-lldb ~/.lldbinit-lldb
 ln -sf ~/dotfiles/tmuxifier          ~/.tmuxifier
 ln -sf ~/dotfiles/vimputrc           ~/.vimputrc
 ln -sf ~/dotfiles/gdbinit            ~/.gdbinit
-ln -sf ~/dotfiles/sqliterc            ~/.sqliterc
-
-ln -sf ~/dotfiles/vim         ~/.vim
+ln -sf ~/dotfiles/sqliterc           ~/.sqliterc
+ln -sf ~/dotfiles/vim                ~/.vim
 
 mkdir -p .config
-ln -sf ~/dotfiles/config/nstart  ~/.config/nstart
 ln -sf ~/dotfiles/config/pkginit ~/.config/pkginit
-ln -sf ~/dotfiles/config/nvim    ~/.config/nvim
-ln -sf ~/dotfiles/config/coc    ~/.config/coc
+
+ln -sf ~/dotfiles/config/starship/basic.toml ~/.config/starship.toml
+ln -sf ~/dotfiles/config/neofetch/ ~/.config/neofetch
+ln -sf ~/dev/neovim/dotfiles-nvim/ ~/.config/nvim
+ln -sf ~/dotfiles/nvim ~/.config/nvim-core
+ln -sf ~/dotfiles/config/pkginit ~/.config/pkginit
 
 # linux only
 if [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
