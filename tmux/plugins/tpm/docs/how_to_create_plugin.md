@@ -27,7 +27,7 @@ directory. That's how plugins are run.
 Create a plugin run file in plugin directory:
 
     $ touch my_plugin.tmux
-    $ chmod +x my_plugin.tmux
+    $ chmod u+x my_plugin.tmux
 
 You can have more than one `*.tmux` file, and all will get executed. However, usually
 you'll need just one.
@@ -69,7 +69,7 @@ Now that we have the binding, let's create a script that's invoked with
 
     $ mkdir scripts
     $ touch scripts/tmux_list_plugins.sh
-    $ chmod +x scripts/tmux_list_plugins.sh
+    $ chmod u+x scripts/tmux_list_plugins.sh
 
 And here's the script content:
 
@@ -92,17 +92,17 @@ That should set up the key binding. Now hit `prefix + T` and see if it works.
 ### 6. publish the plugin
 
 When everything is ready, push the plugin to an online git repository,
-preferably Github.
+preferably GitHub.
 
 Other users can install your plugin by just adding plugin git URL to the
 `@plugin` list in their `.tmux.conf`.
 
-If the plugin is on Github, your users will be able to use the shorthand of
+If the plugin is on GitHub, your users will be able to use the shorthand of
 `github_username/repository`.
 
 ### Conclusion
 
 Hopefully, that was easy. As you can see, it's mostly shell scripting.
 
-You can use other scripting languages (ruby, phyton etc) but plain old shell
+You can use other scripting languages (ruby, python etc) but plain old shell
 is preferred because of portability.
