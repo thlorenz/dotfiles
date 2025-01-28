@@ -5,6 +5,7 @@
 # exec 3>&2 2>/tmp/bashstart.$$.log
 # set -x
 
+export PATH="/opt/homebrew/bin/:$PATH"
 function init () {
   # http://stackoverflow.com/a/246128/97443
 
@@ -221,8 +222,3 @@ export PATH="$GOPATH/bin:$PATH"
 export PATH="$GEM_HOME/ruby/2.6.0/bin:$PATH"
 export PATH="$PATH:$HOME/.luarocks/bin"
 . "$HOME/.cargo/env"
-
-export PATH="$PATH:/Users/thlorenz/.dojo/bin"
-
-# set +x
-# exec 2>&3 3>&-
