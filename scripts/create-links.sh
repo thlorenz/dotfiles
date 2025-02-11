@@ -24,13 +24,13 @@ ln -sf ~/dotfiles/sqliterc           ~/.sqliterc
 ln -sf ~/dotfiles/vim                ~/.vim
 
 mkdir -p .config
-ln -sf ~/dotfiles/config/pkginit ~/.config/pkginit
+ln -sf ~/dotfiles/config/starship/basic.toml  ~/.config/starship.toml
+ln -sf ~/dotfiles/config/neofetch/            ~/.config/neofetch
+ln -sf ~/dev/neovim/dotfiles-nvim/            ~/.config/nvim
+ln -sf ~/dotfiles/nvim                        ~/.config/nvim-core
+ln -sf ~/dotfiles/config/pkginit              ~/.config/pkginit
 
-ln -sf ~/dotfiles/config/starship/basic.toml ~/.config/starship.toml
-ln -sf ~/dotfiles/config/neofetch/ ~/.config/neofetch
-ln -sf ~/dev/neovim/dotfiles-nvim/ ~/.config/nvim
-ln -sf ~/dotfiles/nvim ~/.config/nvim-core
-ln -sf ~/dotfiles/config/pkginit ~/.config/pkginit
+ln -sf ~/dev/thlorenz/vimwiki                 ~/.wiki
 
 # linux only
 if [ "$unamestr" == "Linux" ] && [ -f /etc/pacman.conf ]; then
