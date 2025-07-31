@@ -6,6 +6,10 @@
 # set -x
 
 export PATH="/opt/homebrew/bin/:$PATH"
+export GHOSTTY_RESOURCES_DIR="/Applications/Ghostty.app/Contents/Resources/ghostty"
+if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
+    builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
+fi
 function init () {
   # http://stackoverflow.com/a/246128/97443
 
@@ -141,6 +145,11 @@ if [[ "$unamestr" == "Darwin" ]]; then
   # https://github.com/starship/starship#%F0%9F%9A%80-installation
   # brew install starship
   eval "$(starship init bash)"
+
+  # brew install fzf
+  # brew install fd
+  # https://github.com/junegunn/fzf/blob/master/README.md#setting-up-shell-integration
+  command -v fzf >/dev/null && eval "$(fzf --bash)"
 
 # ----------- LINUX ---------------
 

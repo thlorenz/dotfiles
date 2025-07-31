@@ -19,7 +19,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   PATH=~/.fastlane/bin:$PATH
   PATH=~/dev/flutter/sdk/bin:~/dev/flutter/sdk/bin/cache/dart-sdk/bin/:~/dev/flutter/sdk/.pub-cache/bin:$PATH
 
-  # Python 
+  # Python
   #PATH=/Users/thlorenz/Library/Python/2.7/bin:$PATH
   PATH=/usr/local/opt/python@3.10/libexec/bin:$PATH
   LDFLAGS="-L/usr/local/opt/python@3.10/lib::$LDFLAGS"
@@ -36,6 +36,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
   PATH="$HOME/dev/mp/solana/sh:$PATH"
   PATH="$HOME/dotfiles/bash/scripts:$PATH"
   PATH="$HOME/dotfiles/bash/scripts/aws:$PATH"
+  PATH="$HOME/dev/ai/agent-tools/bin/:$PATH"
 
   LUA_PATH=~/.luarocks/share/lua/5.3/
   FLUTTER_SDK=~/dev/flutter/sdk
@@ -52,15 +53,15 @@ if [[ "$unamestr" == "Darwin" ]]; then
   # llvm is keg-only, which means it was not symlinked into /usr/local,
   # because macOS already provides this software and installing another version in
   # parallel can cause all kinds of trouble.
-  # 
+  #
   # If you need to have llvm first in your PATH, run:
   #   echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> ~/.profile
-  # 
+  #
   # For compilers to find llvm you may need to set:
   #   export LDFLAGS="-L/usr/local/opt/llvm/lib"
   #   export CPPFLAGS="-I/usr/local/opt/llvm/include"
-  # 
-  
+  #
+
 elif [ "$unamestr" == "Linux" ]; then
   PATH=~/.tmuxifier/bin:~/npm-global/bin:$GEM_HOME/bin:$PATH
 fi
@@ -74,7 +75,7 @@ if [ -f '/Volumes/d/dev/devops/google-cloud-sdk/path.bash.inc' ]; then . '/Volum
 if [ -f '/Volumes/d/dev/devops/google-cloud-sdk/completion.bash.inc' ]; then . '/Volumes/d/dev/devops/google-cloud-sdk/completion.bash.inc'; fi
 
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash" 
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 export PATH="/Users/thlorenz/.local/share/solana/install/active_release/bin:$PATH"
 . "$HOME/.cargo/env"

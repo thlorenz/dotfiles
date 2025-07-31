@@ -1,0 +1,25 @@
+# Run `ghostty +show-config --default --docs` to view a list of
+# all available config options and their default values.
+#
+# Additionally, each config option is also explained in detail
+# on Ghostty's website, at https://ghostty.org/docs/config.
+
+# font-family = "Source Code Pro"
+font-family = "SauceCodePro Nerd Font"
+font-size = 14
+adjust-cell-width = -4%
+adjust-cell-height = 5%
+adjust-underline-thickness = -50%
+adjust-underline-position = 8
+window-decoration = false
+window-padding-x = 0
+window-padding-y = 0
+maximize = true
+minimum-contrast = 1
+theme = catppuccin-mocha.conf
+# background = #110a30
+
+# shell-integration = none
+shell-integration = bash
+command = /usr/local/bin/bash -c '/opt/homebrew/bin/tmux attach-session -t mb-validator'
+# shell-integration-features = no-cursor
