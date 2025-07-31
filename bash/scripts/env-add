@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Check if correct number of arguments is provided
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 ENV_VAR_NAME VALUE_TO_APPEND"
+    echo "Example: $0 RUST_LOG magicblock-rpc-client=trace"
+    exit 1
+fi
+
+ENV_VAR_NAME=$1
+VALUE_TO_APPEND=$2
+
+# Check if the environment variable exists
+if [ -z "${!ENV_VAR_NAME}" ]; then
+    # If it doesn't exist, just set it to the value
+    export $ENV_VAR_NAME="$VALUE_TO_APPEND"
+else
+    # If it exists, append the value with a comma separator
+    export $ENV_VAR_NAME="${!ENV_VAR_NAME},$VALUE_TO_APPEND"
+fi
+
+# Print the updated environment variable
+echo "$ENV_VAR_NAME is now: ${!ENV_VAR_NAME}"

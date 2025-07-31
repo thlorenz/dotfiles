@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Check if correct number of arguments is provided
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 ENV_VAR_NAME SUBSTITUTION_PATTERN"
+    echo "Example: $0 RUST_LOG committor_service=debug/committor_service=trace"
+    exit 1
+fi
+
+ENV_VAR_NAME=$1
+SUBSTITUTION=$2
+
+# Split the substitution pattern into 'from' and 'to' parts
+FROM=$(echo $SUBSTITUTION | cut -d'/' -f1)
+TO=$(echo $SUBSTITUTION | cut -d'/' -f2)
+
+# Check if the environment variable exists
+if [ -z "${!ENV_VAR_NAME}" ]; then
+    echo "Error: Environment variable $ENV_VAR_NAME is not set"
+    exit 1
+fi
+
+# Perform the substitution and update the environment variable
+export $ENV_VAR_NAME=$(echo ${!ENV_VAR_NAME} | sed "s/$FROM/$TO/")
+
+# Print the updated environment variable
+echo "$ENV_VAR_NAME is now: ${!ENV_VAR_NAME}"
