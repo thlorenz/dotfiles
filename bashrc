@@ -42,6 +42,7 @@ function init () {
   [ -f $DIR/bash/fzf.sh              ] && source $DIR/bash/fzf.sh
   [ -f $DIR/bash/if.sh               ] && source $DIR/bash/if.sh
   [ -f $DIR/bash/luzid.sh            ] && source $DIR/bash/luzid.sh
+  [ -f $DIR/promptrc                 ] && source $DIR/promptrc
 
   # Edit/source/cat this bashrc
   alias ,ev='nvim ~/.bashrc'
@@ -90,17 +91,11 @@ export HISTIGNORE='&:ll:ls:clear:gs:git status'
 # Below are OS specific
 unamestr=`uname`
 
-prompt_command() {
-  [ -z "${HOST}" ] && HOST_VAR='' || HOST_VAR=" \e[32m[host=$HOST]"
-  PS1="\n\[\033[00;34m\]\w\[\033[00m\]$HOST_VAR\e[39m\n➝  "
-}
-
 # ----------- DARWIN ---------------
 if [[ "$unamestr" == "Darwin" ]]; then
   export BASH_SILENCE_DEPRECATION_WARNING=1
 
   echo "Configuring for $unamestr"
-  PROMPT_COMMAND=prompt_command
 
   alias go-udesktop='ssh tlorenz@udesktop -p 2104'
 
@@ -144,7 +139,7 @@ if [[ "$unamestr" == "Darwin" ]]; then
 
   # https://github.com/starship/starship#%F0%9F%9A%80-installation
   # brew install starship
-  eval "$(starship init bash)"
+  # eval "$(starship init bash)"
 
   # brew install fzf
   # brew install fd
