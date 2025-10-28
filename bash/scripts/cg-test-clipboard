@@ -1,0 +1,14 @@
+#!/bin/bash
+
+CLIPBOARD=$(pbpaste)
+if [[ $CLIPBOARD == test_* || $CLIPBOARD == ixtest_* ]]; then
+  export T=$CLIPBOARD
+fi
+
+if [[ $T == test_* || $T == ixtest_* ]]; then
+  echo "cargo nextest run $T --nocapture"
+  cargo nextest run $T --nocapture
+else
+  echo "No test found in clipboard or T variable."
+  exit 1
+fi

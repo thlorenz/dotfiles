@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+if [ -z "$1" ]; then
+  SIGNATURE=$(pbpaste)
+else
+  SIGNATURE=$1
+fi
+
+RUST_LOG=warn \
+solana confirm -u http://127.0.0.1:7799 -v $SIGNATURE | node $DIR/sol-conf-render.js

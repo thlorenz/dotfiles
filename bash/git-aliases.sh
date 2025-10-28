@@ -5,7 +5,7 @@ alias gl='git lg'
 
 # outputs logs sorted by committer date
 alias gld='git ld | sort -r | more -R'
-alias gs='git status --ignore-submodules -s'
+alias gs='git status --ignore-submodules -s | tac'
 alias gb='git branch -v'
 alias gc='git checkout'
 

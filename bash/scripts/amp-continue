@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Default to 1 (most recent thread) if no argument provided
+N=${1:-1}
+
+# Get the Nth most recently updated thread ID
+# Data starts at line 3 (NR=3 for N=1), so line = 2 + N
+line=$((2 + N))
+thread_id=$(amp threads | awk "NR==$line {print \$NF}")
+
+if [ -z "$thread_id" ]; then
+    echo "Thread $N not found"
+    exit 1
+fi
+
+echo "Continuing thread $N: $thread_id"
+amp threads continue "$thread_id"
